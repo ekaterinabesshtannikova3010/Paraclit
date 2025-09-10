@@ -1,0 +1,645 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Astro v5.9.2">
+    <title>Blog Template · Bootstrap v5.3</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/blog/">
+    <script src="/docs/5.3/assets/js/color-modes.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
+    <meta name="theme-color" content="#712cf9">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap" rel="stylesheet">
+    <link href="blog.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT&display=swap" rel="stylesheet">
+    <style>
+        .bd-placeholder-img{font-size:1.125rem;text-anchor:middle;-webkit-user-select:none;-moz-user-select:none;user-select:none}@media (min-width: 768px){.bd-placeholder-img-lg{font-size:3.5rem}}.b-example-divider{width:100%;height:3rem;background-color:#0000001a;border:solid rgba(0,0,0,.15);border-width:1px 0;box-shadow:inset 0 .5em 1.5em #0000001a,inset 0 .125em .5em #00000026}.b-example-vr{flex-shrink:0;width:1.5rem;height:100vh}.bi{vertical-align:-.125em;fill:currentColor}.nav-scroller{position:relative;z-index:2;height:2.75rem;overflow-y:hidden}.nav-scroller .nav{display:flex;flex-wrap:nowrap;padding-bottom:1rem;margin-top:-1px;overflow-x:auto;text-align:center;white-space:nowrap;-webkit-overflow-scrolling:touch}.btn-bd-primary{--bd-violet-bg: #712cf9;--bd-violet-rgb: 112.520718, 44.062154, 249.437846;--bs-btn-font-weight: 600;--bs-btn-color: var(--bs-white);--bs-btn-bg: var(--bd-violet-bg);--bs-btn-border-color: var(--bd-violet-bg);--bs-btn-hover-color: var(--bs-white);--bs-btn-hover-bg: #6528e0;--bs-btn-hover-border-color: #6528e0;--bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);--bs-btn-active-color: var(--bs-btn-hover-color);--bs-btn-active-bg: #5a23c8;--bs-btn-active-border-color: #5a23c8}.bd-mode-toggle{z-index:1500}.bd-mode-toggle .bi{width:1em;height:1em}.bd-mode-toggle .dropdown-menu .active .bi{display:block!important}
+    </style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path>
+    </symbol>
+    <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+    </symbol>
+    <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+    </symbol>
+    <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+    </symbol>
+</svg>
+<div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
+            aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+            <use href="#circle-half"></use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span></button>
+    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+            <ul>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
+                            aria-pressed="false" onclick="setTheme('light')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#sun-fill"></use>
+                        </svg>
+                        Light
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+                            aria-pressed="false" onclick="setTheme('dark')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#moon-stars-fill"></use>
+                        </svg>
+                        Dark
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center active"
+                            data-bs-theme-value="auto" aria-pressed="true" onclick="setTheme('auto')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#circle-half"></use>
+                        </svg>
+                        Auto
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+
+            <script>
+                function setTheme(theme) {
+                    document.body.setAttribute('data-bs-theme', theme);
+
+                    // Удалить класс 'active' с всех кнопок и установить его только на нажатую кнопку
+                    const buttons = document.querySelectorAll('.dropdown-item');
+                    buttons.forEach(button => {
+                        button.classList.remove('active');
+                        button.setAttribute('aria-pressed', 'false');
+                    });
+
+                    const activeButton = Array.from(buttons).find(button => button.getAttribute('data-bs-theme-value') === theme);
+                    activeButton.classList.add('active');
+                    activeButton.setAttribute('aria-pressed', 'true');
+                }
+            </script>
+        </li>
+    </ul>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+            stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path>
+    </symbol>
+    <symbol id="cart" viewBox="0 0 16 16">
+        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
+    </symbol>
+    <symbol id="chevron-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+    </symbol>
+</svg>
+
+<div class="container">
+    <header class="border-bottom lh-1 py-3">
+        <div class="row">
+
+            <!-- Logo "Пономарь" -->
+            <div class="col-md-4 pt-1" style="font-size: 2em; font-family: 'Old Standard TT', serif; color: #9B1B30;">
+                <a class="link-secondary active" href="{% url 'content:home' %}" id="ponomar">Пономарь</>
+            </div>
+
+            <!-- Header "Старообрядческий вестник" -->
+            <div class="col-md-4 text-center" style="font-size: 2em;">
+                <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#">Старообрядческий
+                    вестник</a>
+            </div>
+
+            <!-- Search Icon -->
+            <div class="col-md-4 d-flex justify-content-end align-items-center">
+                <button type="button" onclick="handleSearchClick()"
+                        style="background: none; border: none; cursor: pointer;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+                         stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img"
+                         viewBox="0 0 24 24">
+                        <title>Search</title>
+                        <circle cx="10.5" cy="10.5" r="7.5"></circle>
+                        <path d="M21 21l-5.2-5.2"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="nav nav-underline justify-content-between py-1 mb-3 border-bottom">
+            <a class="nav-item nav-link link-body-emphasis active" href="{% url 'content:about' %}">О НАС</a>
+            <a class="nav-item nav-link link-body-emphasis" href="#">ЗАДАТЬ ВОПРОС</a>
+            <a class="nav-item nav-link link-body-emphasis active" href="{% url 'content:star' %}">СТАРООБРЯДЧЕСТВО</a>
+            <a class="nav-item nav-link link-body-emphasis active" href="{% url 'content:potrebnic' %}">ПОТРЕБНИК</a>
+            <a class="nav-item nav-link link-body-emphasis active" href="{% url 'content:kultura' %}">КУЛЬТУРА</a>
+        </nav>
+
+</div>
+
+{% block content %}
+{% endblock %}
+
+
+<div class="container">
+    <div class="row g-5">
+        <div class="col-md-8">
+            <article class="blog-post">
+                <h1 class="display-5 mb-1">
+                    <a href="{% url 'content:corner' %}" style="text-decoration: none; color: black;">Пятиконечной
+                        звезде более 5 тысяч лет</a>
+                </h1>
+            </article>
+
+            <p style="font-size: 17px;" class="lh-base">Интересной, но мало затронутой темой является символика
+                пятиконечной звезды. Этот несложный символ - один из древнейших, им начали пользоваться еще за
+                несколько тысяч лет до нашей эры. Он получил распространение во многих культурах и имеет большую
+                смысловую нагрузку. Одна и та же, различающаяся лишь цветом, звезда присутствует в символике
+                Соединенных Штатов, Евросоюза, Советского Союза, Китая и многих других стран и общественных
+                движений.</p>
+            <p style="font-size: 17px;" class="lh-base">Так как она широко используется для передачи различных смыслов
+                и идей, для лучшего их понимания кратко рассмотрим некоторые основные ее значения.</p>
+            <div style="text-align: center;">
+                <img src="{% static 'prestol/10.jpg' %}"
+                     style="max-width: 100%; height: auto; margin: 0 auto;">
+                <p style="color: #6c757d; margin-top: 0.5rem;">Андрей Рублёв. Преображение Господне. 1405г.</p>
+            </div>
+            <p style="font-size: 17px;" class="lh-base">Древнейшее документальное подтверждение использования
+                пятиконечной звезды приходится на государства Шумера найдено на месте древнего города Ур в Месопатамии
+                и датировано 3500 годом до н.э. В их письменности такая пиктограмма обозначала угол, маленькую комнату,
+                яму.</p>
+
+            <p style="font-size: 17px;" class="lh-base">Пентаграмма повсеместно встречается в оформлении зданий,
+                сооружений и предметов домашнего обихода на Древнем Востоке, в Египте, Индии, Китае и Японии.</p>
+            <p style="font-size: 17px;" class="lh-base">У древних пифагорейцев пентаграмма (от слова пентаграмос -
+                пятилинейный), означала пять убежищ, куда был помещен первобытный хаос во время создания мира, и они
+                находились в Тартаре. Тьма, находящаяся в этих убежищах, считалась источником души мира, а также
+                источником мудрости. Эта пентаграмма рисовалась двумя лучами кверху.</p>
+
+            <p style="font-size: 17px;" class="lh-base">Пятиконечная звезда (пентаграмма) или пентальфа ( так как её
+                можно разложить на пять букв «альфа»), с лёгкой руки Пифагора и его последователей символизировала
+                гармонию священного союза небес и земли. Была символом богини здоровья Гигиеи и служила знаком пяти
+                человеческих чувств. Для пифагорейцев такая звезда являлась символом математического совершенства, так
+                как скрывает в себе золотое сечение (ф 1,618).</p>
+
+            <p style="font-size: 17px;" class="lh-base">Символ богини правящей этим потусторонним миром - яблоко, так
+                как при разрезе в нем можно увидеть пентаграмму. Поэтому пентаграмма была также символом здоровья и
+                богини Гигиеи. Кроме того, Пифагор утверждал, что в геометрии пентаграмма является математическим
+                совершенством. Но, не углубляясь в математические характеристики этой фигуры, пойдем дальше.</p>
+            <p style="font-size: 17px;" class="lh-base">В каббале пентаграмма одним лучом кверху означает мессию.
+                Пентаграмма также является символом печати Соломона.</p>
+            <p style="font-size: 17px;" class="lh-base">В
+                300-150 гг. до н. э. пентаграмма являлась эмблемой Иерусалима.</p>
+            <div style="text-align: center;">
+                <img src="{% static 'prestol/stamped_jar_handle_yerslm.jpg' %}"
+                     style="max-width: 100%; height: auto; margin: 0 auto;">
+                <p style="color: #6c757d; margin-top: 0.5rem;">Андрей Рублёв. Преображение Господне. 1405г.</p>
+            </div>
+            <p style="font-size: 17px;" class="lh-base">Для мусульманина она может означать пять столпов мусульманской
+                веры и пять ежедневных молитв.</p>
+            <div style="text-align: center;">
+                <img src="{% static 'prestol/11.jpg' %}"
+                     style="max-width: 100%; height: auto; margin: 0 auto;">
+                <p style="color: #6c757d; margin-top: 0.5rem;">Андрей Рублёв. Преображение Господне. 1405г.</p>
+            </div>
+
+
+            <p style="font-size: 17px;" class="lh-base">В христианской Европе пятиконечная звезда имела целый ряд
+                символических значений. Кроме оставшегося со времен древнего мира символа здоровья, она символизировала
+                пятью лучами пять чувств, пять пальцев. В религии пентаграмма использовалась как символ пяти ран
+                Христа, пяти радостей Марии, которые ей доставляло совершенство ее сына Исуса. Она также
+                символизировала Вифлеемскую звезду в Рождество (в России Вифлеемская звезда была семиконечной).</p>
+
+            <p style="font-size: 17px;" class="lh-base">Одним из главных значений пятиконечной звезды был символ
+                человеческой природы Христа, поэтому в эпоху Возрождения, когда человек и человеческая личность начали
+                принимать все большее значение, этот символ стал также более важным. Пятиконечная звезда напоминает
+                человека с вытянутыми в стороны руками и расставленными ногами, наподобие рисунков Леонардо да Винчи. С
+                развитием гуманизма и атеизма звезда начала означать просто человеческую личность, как новую высшую
+                ценность новой эпохи.</p>
+
+
+            <p style="font-size: 17px;" class="lh-base">По настоящему же широкое распространение пятиконечная звезда и
+                гуманистические идеалы получили во время Великой французской революции. С приходом новой богоборческой
+                идеологии, человек выносился на первое место в системе ценностей, и звезда в гуманистическом значении,
+                стала одним из важнейших символов. В результате этих изменений звезда получила также широкое
+                распространение и в военной символике сначала французской республики, а потом и других стран. В этой
+                сфере она символизировала бога войны Марса, по преданию родившегося из лилии, которая напоминает
+                пятиконечную звезду. Этот знак используется и для опознавания и для различных других обозначений.</p>
+
+            <p style="font-size: 17px;" class="lh-base">С распространением ценностей и социальных сил новой эпохи
+                начала свое распространение и пятиконечная звезда. Она всегда была важным знаком в символике масонов,
+                социальной силы, начавшей обретать мировое значение после французской и американской революций. Кроме
+                древних и оккультных значений, звезда стала широко использоваться ими для публичного выражения их идей
+                - духовного совершенствования человека и возведение человека во главу всей системы ценностей в
+                атеистическом варианте. Поэтому звезда широко используется в государственной символике многих стран,
+                построенных по масонским чертежам - Соединенных Штатов, где звезды на флаге означают также Царство
+                Небесное, Евросоюза и других.</p>
+
+
+            <p style="font-size: 17px;" class="lh-base">Пятиконечную звезду используют также многие движения и
+                организации, ее символика при этом часто связана либо с масонскими силами, стоящими за ними, либо с
+                принявшим ее в свою символику коммунистическим движением.</p>
+
+            <p style="font-size: 17px;" class="lh-base">Звезду с двумя лучами кверху использует церковь «святых
+                последнего дня» или мормонов. Перевернутая звезда с лучами разных цветов символизирующая Вифлеемскую
+                звезду также является символом крупнейшей фратерналистской организации - ордена Восточной Звезды. Этот
+                орден объединяет около миллиона масонов в ранге не ниже мастера и известен своей благотворительной
+                деятельностью.</p>
+
+            <div style="text-align: center;">
+                <img src="{% static 'prestol/zvezda_2.jpg' %}"
+                     style="max-width: 100%; height: auto; margin: 0 auto;">
+            </div>
+            <p style="font-size: 17px;" class="lh-base">Перевернутая пентаграмма с двумя лучами кверху - один из
+                главных символов сатанистов. Такая пентаграмма означает Тартар или ад, место, куда заключены падшие
+                ангелы. Внутри перевернутой пентаграммы также часто рисуют голову Бафомета в виде головы козла. Все это
+                символизирует античеловеческую природу и поклонение животной страсти. Три обращенных вниз луча звезды
+                также означают отвержение святой Троицы.</p>
+            <div style="text-align: center;">
+                <img src="{% static 'prestol/25252.png' %}"
+                     style="max-width: 100%; height: auto; margin: 0 auto;">
+
+            </div>
+            <p style="font-size: 17px;" class="lh-base">Вопреки распространенному стереотипу - пятиконечная звезда
+                (пентаграмма) не является символом дьявола или сатаны. Своим «негативным» значением, пятиконечная
+                звезда обязана демонологам времён инквизиции. Именно в период охоты на ведьм, популярный символ
+                начинает отождествляться с дьяволом и бафометом, связывается с колдовством и силами зла. Отголоски тех
+                времён составляют ядро сегодняшнего стереотипа о пятиконечной звезде как символе сатаны.</p>
+            <p style="font-size: 17px;" class="lh-base">Пентаграмма также часто встречается и у язычников, служа им
+                одним из символов веры - пять концов звезды означают землю, воду, воздух, огонь и дух. Хотя в древности
+                языческая пентаграмма рисовалась двумя лучами кверху, сейчас она, как правило, изображается кверху
+                одним лучом, чтобы не вызывать ассоциаций с сатанистами. Как в древности, так и сегодня пентаграмма
+                остается важным символом для друидов, викканцев, нео-пифагорийцев и других групп, исповедующих
+                язычество и практикующих магию.</p>
+            <p style="font-size: 17px;" class="lh-base">В 20-ом веке, когда коммунистическое движение начало
+                приобретать мировое значение, и в России произошла социалистическая революция, новому государству
+                понадобились новые символы. Первоначально красная звезда с плугом и молотом была принята как эмблема и
+                опознавательный знак Красной Армии. Здесь звезда символизировала бога войны Марса, и эта эмблема
+                олицетворяла защиту мирного труда.</p>
+            <p style="font-size: 17px;" class="lh-base">После Февральской революции Временное правительство погоны
+                отменило, но от «марсовой звезды» не отказалось. 21 апреля 1917 года военный и морской министр А.
+                Гучков помещает пятиконечную звездочку на околышки фуражек моряков - прямо над якорем.</p>
+            <p style="font-size: 17px;" class="lh-base">Однако наиболее ярко «марсова звезда» зарекомендовала себя
+                после другой революции - Великой Октябрьской. Не успело молодое советское правительство начать
+                формировать Красную армию , как возникла насущная необходимость в новой символике. Это было в немалой
+                степени вызвано тем, что в пожаре Гражданской войны противоборствующие стороны были зачастую одеты в
+                одежду одного и того же покроя и в бою нелегко было отличить чужих от своих.</p>
+            <p style="font-size: 17px;" class="lh-base">Так в символике Страны Советов впервые появляется знаменитая
+                красная пятиконечная звезда.</p>
+
+            <div style="text-align: center;">
+                <img src="{% static 'prestol/zvezda_4.jpg' %}"
+                     style="max-width: 100%; height: auto; margin: 0 auto;">
+            </div>
+            <p style="font-size: 17px;" class="lh-base">К сожалению, точных, подтвержденных документально, свидетельств
+                об авторе этого символа не сохранилось. Одни историки считают, что звезду предложил один из комиссаров
+                Московского военного округа Н. Полянский, другие - что это сделал член Всероссийской коллегии по
+                организации и управлению Красной армии - К. Еремеев.</p>
+            <p style="font-size: 17px;" class="lh-base">Впрочем, в первые годы, из-за имевшихся в ядре большевистской
+                организации антихристианских и сионистских элементов, было принято изображение звезды двумя концами
+                кверху. Первый советский орден Красного Знамени имел именно такое перевернутое изображение звезды.</p>
+            <p style="font-size: 17px;" class="lh-base">Но подобный символ вызвал такое неприятие в обществе, что скоро
+                от этого отказались и официально утвердили изображение звезды одним лучом кверху.</p>
+
+            <div style="text-align: center;">
+                <img src="{% static 'src/zvezda_5.jpg' %}"
+                     style="max-width: 100%; height: auto; margin: 0 auto;">
+            </div>
+            <p style="font-size: 17px;" class="lh-base">Но новой стране требовалась также новая государственная
+                символика, и красная звезда оказалась достаточно подходящим и популярным для этого символом. Поэтому
+                скоро она переместилась со знамен несущей освобождение мировому пролетариату армии на герб и знамена
+                первой строящей коммунизм страны. В советской государственной символике красная звезда рядом с серпом и
+                молотом стала означать единение трудящихся пяти континентов единым началом и целью. Красный цвет
+                символизировал братство и кровь, пролитую за свободу трудящихся всего мира.</p>
+            <p style="font-size: 17px;" class="lh-base">Достоверно известно, что впервые новый символ был упомянут в
+                газете «Известия» 19 апреля 1918 г. Там была опубликована заметка о том, что Комиссариатом по военным
+                делам утвержден чертеж нагрудного знака в виде красной звезды с золотистым изображением молота и плуга.
+                Первоначально красная звезда несла на себе еще и изображение книги, но это выглядело чересчур аляповато
+                и книгу убрали.</p>
+            <p style="font-size: 17px;" class="lh-base">Официально символ под названием «марсова звезда с плугом и
+                молотом» был утвержден приказом Л. Троцкого от 7 мая 1918 г. Там же было сказано следующее:
+                «Красноармейский значок есть принадлежность лиц, состоящих на службе в войсках Красной армии. Лицам, не
+                состоящим на службе в составе Красной армии, указанные знаки предлагается немедленно снять. За
+                неисполнение сего приказа виновные будут преданы суду военного трибунала».</p>
+            <p style="font-size: 17px;" class="lh-base">Сначала «марсова звезда» носилась на треугольной колодке,
+                цепляемой на левой стороне груди. Однако эта форма оказалась неудобной, и ювелирная фирма предложила
+                размещать звезды на венках из лавровых и дубовых листьев, которые остались от старых знаков.</p>
+            <p style="font-size: 17px;" class="lh-base">Какое-то время форма и расположение звезды сильно
+                варьировались. 29 июля 1918 г. Троцкий издает еще один приказ, где красную звезду обязывали носить на
+                околышке фуражки. Покрытый лаком, значок-кокарда был более выпуклой формы, а лучи звезды имели более
+                округлые края.</p>
+            <p style="font-size: 17px;" class="lh-base">Наибольшее количество кривотолков, и тогда и сейчас, вызывало
+                значение символа красной звезды. Ненавистники Советской власти тут же вспоминали масонов, а то и
+                сатанистов. Насчет масонов. Безусловно, они в России были довольно давно. Сперва масоны несли
+                просветительские идеи, а после Радищева и восстания декабристов начали выражать интересы прозападного
+                либерального дворянства, интеллигенции и крупной буржуазии.</p>
+            <p style="font-size: 17px;" class="lh-base">Как известно, большевики либералов давно недолюбливали, а после
+                Февральской революции вообще стали по другую сторону баррикады. Ну а масонов вообще не жаловали. То ли
+                дело - символика США, которая действительно создавалась масонами, и чего никто особо и не скрывал
+                (отсюда и звезды на флаге, и пирамида с глазом на долларе и др.).</p>
+            <p style="font-size: 17px;" class="lh-base">Что до красной звезды, то большевики руководствовались при ее
+                выборе относительной новизной символа и его вполне традиционными смыслами - военным («марсова звезда»),
+                защитным (пентаграмма, как оберег) и путеводным (как символ высоких устремлений).</p>
+            <p style="font-size: 17px;" class="lh-base">Конечно, новая символика (не без пропаганды противников
+                советской власти) поначалу вызывала у части простого народа суеверное опасение. Недаром 11 февраля 1919
+                г. на конференции 2-й Советской (Украинской) дивизии начальник ее политотдела И. Минц сетовал, что
+                «крестьянская молодежь полна предрассудков против «коммуний», против новой «кокарды» - красноармейской
+                звезды…».</p>
+            <p style="font-size: 17px;" class="lh-base">А тут еще большевики допустили и недосмотр, расположив новый
+                символ двумя лучами вверх. Это видно и по первым нагрудным знакам, и на некоторых большевистских
+                плакатах (например, плакат Д. Моора «Советская Россия - осажденный лагерь. Все на оборону!» 1919 г.).
+                А, как я уже писал , после работы Э. Леви такое положение звезды стало трактоваться как знак сатанизма.
+                При этом совсем забылось, что перевернутая пентаграмма была на печати императора Константина (того,
+                который сделал христианство официальной римской религией) и вообще долгое время трактовалась как символ
+                Преображения Иисуса Христа (это можно увидеть, например, на иконе Андрея Рублева ). Естественно,
+                обнаружив такую реакцию, большевики придали звезде более «благопристойное» положение.</p>
+            <div style="text-align: center;">
+                <img src="{% static 'src/zvezda_6.jpg' %}"
+                     style="max-width: 100%; height: auto; margin: 0 auto;">
+            </div>
+            <p style="font-size: 17px;" class="lh-base">Давайте посмотрим, как объясняли простому народу символику
+                Красной Звезды сами комиссары РККА в листовке 1918 г.:</p>
+            <p style="font-size: 17px;" class="lh-base">«…Красная звезда Красной армии - это звезда Правды… Поэтому на
+                красноармейской звезде и изображен плуг и молот. Плуг пахаря-мужика. Молот молотобойца-рабочего. Это
+                значит, что Красная армия борется за то, чтобы звезда Правды светила пахарю- мужику и
+                молотобойцу-рабочему, чтобы для них была воля и доля, отдых и хлеб, а не только нужда, нищета и
+                беспрерывная работа… Она есть звезда счастья всех бедняков, крестьян и рабочих. Вот что означает
+                красная звезда Красной армии».</p>
+            <p style="font-size: 17px;" class="lh-base">На этом история Красной звезды не закончилась. 16 января 1919
+                г. шитые звезды украсили новый головной убор красноармейцев. Формой он копировал шлемы русских витязей
+                и поэтому поначалу его окрестили «богатыркой». Однако вскоре его стали называть по фамилиям знаменитых
+                красных командиров - «фрунзевкой» и « буденовкой » (последнее название и прижилось).<br>Происходили
+                изменения и в дизайне звезды. 13 апреля 1922 года, изображенный на ней, плуг заменили более изящным
+                серпом. А 11 июля того же года изменилась и форма звезды - она перестала быть выпуклой, а ее лучи снова
+                распрямились. В таком виде она окончательно утвердилась в Красной (а затем Советской) армии.</p>
+            <p style="font-size: 17px;" class="lh-base">В 1923 году, уже без орудий труда (чтобы не повторять военную
+                эмблему) Красная Звезда увенчала герб Советского Союза и гербы практически всех советских республик.
+                Интересно, что на герб РСФСР она попала позже всех - в 1978 году! Также интересно, что в 1930-х годах
+                предлагался проект сделать звезду 12-лучевой (по числу союзных республик).</p>
+            <p style="font-size: 17px;" class="lh-base">Перейдя на герб СССР, пятиконечная звезда приобрела уже более
+                глобальную символику. Речь шла уже о пяти материках, где идет кровавая борьба за освобождение трудового
+                народа от эксплуатации.</p>
+            <p style="font-size: 17px;" class="lh-base">В 1924 году пятиконечная звезда появляется на флаге СССР, в
+                1928 г. (с портретом юного Ленина) появляется октябрятская звездочка, в 1935 г. украшенная самоцветами
+                звезда увенчала Спасскую башню Кремля, а в 1942 г. форму звезды принимает пионерский значок (до этого
+                он носил форму флага).</p>
+            <div style="text-align: center;">
+                <img src="{% static 'prestol/8.jpg' %}"
+                     style="max-width: 100%; height: auto; margin: 0 auto;">
+            </div>
+            <p style="font-size: 17px;" class="lh-base">Казалось бы, что с распадом Советского Союза кончилось и время
+                Красной звезды. Осколки державы избрали себе новые символы, звезда осталась лишь в символике
+                Коммунистических партий. В России поговаривали даже, что и Кремлевские звезды не мешало бы заменить
+                двуглавыми орлами.</p>
+            <p style="font-size: 17px;" class="lh-base">Однако нарастающее социальное напряжение, моральный и
+                экономический упадок на постсоветском пространстве заставил некоторых политических лидеров относиться к
+                советской символике более осторожно. Так в 2002 году, пытаясь хоть как-то восстановить «распавшуюся
+                связь времен», министр обороны России С. Иванов предложил, а Президент В. Путин утвердил возвращение
+                пятиконечной звезды в символику Российской армии.</p>
+
+            <hr>
+            <p style="font-size: 18px; text-align: right; margin: 0; padding: 0;" class="lh-base">
+                <a href="https://elibrary.ru/author_profile.asp?authorid=568407" target="_blank"
+                   style="text-decoration: none; color: inherit;">
+                    П. В. Немкин
+                </a>
+                <br>
+                Курганский государственный университет, г. Курган<br>
+            </p>
+
+            <div style="text-align: center;">
+                <div class="text-center" style="margin-top: 20px;">
+                    <h5>Связаться с нами:</h5>
+                    <a href="#" onclick="copyToClipboard('https://t.me/PonomarKyzyl'); openTelegram();"
+                       style="margin: 0 10px;">
+                        <img src="https://img.icons8.com/color/48/000000/telegram-app.png" alt="Telegram"
+                             style="width: 40px; height: 40px;">
+                    </a>
+                    <a href="#" onclick="copyToClipboard('https://yourwebsite.com'); openWhatsApp();"
+                       style="margin: 0 10px;">
+                        <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp"
+                             style="width: 40px; height: 40px;">
+                    </a>
+                    <a href="#" onclick="copyToClipboard('https://yourwebsite.com'); openViber();"
+                       style="margin: 0 10px;">
+                        <img src="https://img.icons8.com/color/48/000000/viber.png" alt="Viber"
+                             style="width: 40px; height: 40px;">
+                    </a>
+                </div>
+
+                <script>
+                    function copyToClipboard(text) {
+                        navigator.clipboard.writeText(text).then(function() {
+                            alert('Ссылка скопирована: ' + text);
+                        }, function(err) {
+                            console.error('Ошибка при копировании: ', err);
+                        });
+                    }
+
+                    function openTelegram() {
+                        window.open('https://t.me/PonomarKyzyl', '_blank');
+                    }
+
+                    function openWhatsApp() {
+                        window.open('https://wa.me/8908 207-85-27', '_blank');
+                    }
+
+                    function openViber() {
+                        window.open('viber://chat?number=YourPhoneNumber', '_blank');
+                    }
+                </script>
+                <div class="container mt-5">
+                    <a href="https://t.me/ctr_vestnik" class="btn btn-primary btn-custom" target="_blank">
+                        <span class="main-text">Наш Телеграмм.</span><br>
+                        Просите и дано будет вам; ищите и найдёте; стучите, и отворят вам...
+                    </a>
+                    <h1></h1>
+                    <h1></h1>
+                </div>
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; max-width: 38rem; margin-left: 7rem;">
+                    <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                        <img src="{% static 'src/vlcsnap-2021-08-26-17h01m47s695.png' %}"
+                             style="max-width: 100%; height: 200px; margin: 0 auto;">
+                        <div class="card-body">
+                            <a class="btn" href="{% url 'content:corner' %}"
+                               style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                               role="button">
+                                Уголок старой веры(На примере республика Тува)
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                        <img src="{% static 'src/drevnerus_10_chudo-georgiya-o-zmii-s-zhitiem.jpg' %}"
+                             style="max-width: 45%; height: auto; margin: 0 auto;">
+                        <div class="card-body">
+                            <a class="btn" href="{% url 'content:holiday' %}"
+                               style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                               role="button">
+                                Праздник Георгия Победоносца в древнерусской литературе
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                        <img src="{% static 'src/scale_1200 (8).jpeg' %}"
+                             style="max-width: 85%; height: auto; margin: 0 auto;">
+                        <div class="card-body">
+                            <a class="btn" href="{% url 'content:typology' %}"
+                               style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                               role="button">
+                                Типология взглядов русских мыслителей на старообрядчество
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                        <div class="card-body">
+                            <a class="btn" href="{% url 'content:revolution' %}"
+                               style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                               role="button">
+                                Старообрядцы в русской революции
+                            </a>
+                            Роль старообрядцев в русской революции
+                        </div>
+                    </div>
+                </div>
+                <nav class="blog-pagination" aria-label="Pagination"><a
+                        class="btn btn-outline-primary rounded-pill"
+                        href="#">Вверх</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="position-sticky" style="top: 2rem;">
+                <div><h4 class="fst-italic">Recent posts</h4>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                               href="#">
+                                <svg aria-hidden="true" class="bd-placeholder-img " height="96"
+                                     preserveAspectRatio="xMidYMid slice" width="100%"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="100%" height="100%" fill="#777"></rect>
+                                </svg>
+                                <div class="col-lg-8"><h6 class="mb-0">Example blog post title</h6> <small
+                                        class="text-body-secondary">January 15, 2024</small></div>
+                            </a></li>
+                        <li>
+                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                               href="#">
+                                <svg aria-hidden="true" class="bd-placeholder-img " height="96"
+                                     preserveAspectRatio="xMidYMid slice" width="100%"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="100%" height="100%" fill="#777"></rect>
+                                </svg>
+                                <div class="col-lg-8"><h6 class="mb-0">This is another blog post title</h6>
+                                    <small
+                                            class="text-body-secondary">January 14, 2024</small></div>
+                            </a></li>
+                        <li>
+                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                               href="#">
+                                <svg aria-hidden="true" class="bd-placeholder-img " height="96"
+                                     preserveAspectRatio="xMidYMid slice" width="100%"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="100%" height="100%" fill="#777"></rect>
+                                </svg>
+                                <div class="col-lg-8"><h6 class="mb-0">Longer blog post title: This one has
+                                    multiple
+                                    lines!</h6> <small class="text-body-secondary">January 13, 2024</small>
+                                </div>
+                            </a></li>
+                    </ul>
+                </div>
+
+                <div class="p-4">
+                    <h4 class="fst-italic">Темы</h4>
+                    <ol class="list-unstyled">
+                        <li><a href="#" class="custom-link">Новости</a></li>
+                        <li><a href="#" class="custom-link">О нас старообрядцах</a></li>
+                        <li><a href="#" class="custom-link">Престольный праздник</a></li>
+                        <li><a href="#" class="custom-link">Святоотеческое</a></li>
+                        <li><a href="#" class="custom-link">История старообрядчества</a></li>
+                        <li><a href="#" class="custom-link">Священство</a></li>
+                        <li><a href="#" class="custom-link">О Исусе Христе</a></li>
+                        <li><a href="#" class="custom-link">Личность</a></li>
+                        <li><a href="#" class="custom-link">Церковь</a></li>
+                        <li><a href="#" class="custom-link">Храмы</a></li>
+                    </ol>
+
+                    <style>
+                        .custom-link {
+                            font-size: 1.2em;
+                            font-weight: bold;
+                            color: #800000;
+                            text-decoration: none; /* убираем подчеркивание */
+                        }
+
+                        .dropdown-toggle {
+                            display: block;
+                            padding: 0.25rem 1rem; /* добавим дополнительные классы для dropdown, чтобы они имели одинаковый стиль */
+                        }
+                    </style>
+
+
+                    <p class="mb-0"><a href="#">Наверх</a></p>
+                    </ol>
+                </div>
+                <div class="p-4"><h4 class="fst-italic">Archives</h4>
+                    <ol class="list-unstyled mb-0">
+                        <li><a href="#">March 2021</a></li>
+                        <li><a href="#">February 2021</a></li>
+                        <li><a href="#">January 2021</a></li>
+                        <li><a href="#">December 2020</a></li>
+                        <li><a href="#">November 2020</a></li>
+                        <li><a href="#">October 2020</a></li>
+                        <li><a href="#">September 2020</a></li>
+                        <li><a href="#">August 2020</a></li>
+                        <li><a href="#">July 2020</a></li>
+                        <li><a href="#">June 2020</a></li>
+                        <li><a href="#">May 2020</a></li>
+                        <li><a href="#">April 2020</a></li>
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </main>
+    </header>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+</html>

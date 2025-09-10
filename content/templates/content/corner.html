@@ -1,0 +1,559 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Astro v5.9.2">
+    <title>Blog Template · Bootstrap v5.3</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/blog/">
+    <script src="/docs/5.3/assets/js/color-modes.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
+    <meta name="theme-color" content="#712cf9">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap" rel="stylesheet">
+    <link href="blog.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT&display=swap" rel="stylesheet">
+    <style>
+        .bd-placeholder-img{font-size:1.125rem;text-anchor:middle;-webkit-user-select:none;-moz-user-select:none;user-select:none}@media (min-width: 768px){.bd-placeholder-img-lg{font-size:3.5rem}}.b-example-divider{width:100%;height:3rem;background-color:#0000001a;border:solid rgba(0,0,0,.15);border-width:1px 0;box-shadow:inset 0 .5em 1.5em #0000001a,inset 0 .125em .5em #00000026}.b-example-vr{flex-shrink:0;width:1.5rem;height:100vh}.bi{vertical-align:-.125em;fill:currentColor}.nav-scroller{position:relative;z-index:2;height:2.75rem;overflow-y:hidden}.nav-scroller .nav{display:flex;flex-wrap:nowrap;padding-bottom:1rem;margin-top:-1px;overflow-x:auto;text-align:center;white-space:nowrap;-webkit-overflow-scrolling:touch}.btn-bd-primary{--bd-violet-bg: #712cf9;--bd-violet-rgb: 112.520718, 44.062154, 249.437846;--bs-btn-font-weight: 600;--bs-btn-color: var(--bs-white);--bs-btn-bg: var(--bd-violet-bg);--bs-btn-border-color: var(--bd-violet-bg);--bs-btn-hover-color: var(--bs-white);--bs-btn-hover-bg: #6528e0;--bs-btn-hover-border-color: #6528e0;--bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);--bs-btn-active-color: var(--bs-btn-hover-color);--bs-btn-active-bg: #5a23c8;--bs-btn-active-border-color: #5a23c8}.bd-mode-toggle{z-index:1500}.bd-mode-toggle .bi{width:1em;height:1em}.bd-mode-toggle .dropdown-menu .active .bi{display:block!important}
+    </style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path>
+    </symbol>
+    <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+    </symbol>
+    <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+    </symbol>
+    <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+    </symbol>
+</svg>
+<div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
+            aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+            <use href="#circle-half"></use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span></button>
+    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+            <ul>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
+                            aria-pressed="false" onclick="setTheme('light')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#sun-fill"></use>
+                        </svg>
+                        Light
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+                            aria-pressed="false" onclick="setTheme('dark')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#moon-stars-fill"></use>
+                        </svg>
+                        Dark
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center active"
+                            data-bs-theme-value="auto" aria-pressed="true" onclick="setTheme('auto')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#circle-half"></use>
+                        </svg>
+                        Auto
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+
+            <script>
+                function setTheme(theme) {
+                    document.body.setAttribute('data-bs-theme', theme);
+
+                    // Удалить класс 'active' с всех кнопок и установить его только на нажатую кнопку
+                    const buttons = document.querySelectorAll('.dropdown-item');
+                    buttons.forEach(button => {
+                        button.classList.remove('active');
+                        button.setAttribute('aria-pressed', 'false');
+                    });
+
+                    const activeButton = Array.from(buttons).find(button => button.getAttribute('data-bs-theme-value') === theme);
+                    activeButton.classList.add('active');
+                    activeButton.setAttribute('aria-pressed', 'true');
+                }
+            </script>
+        </li>
+    </ul>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+            stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path>
+    </symbol>
+    <symbol id="cart" viewBox="0 0 16 16">
+        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
+    </symbol>
+    <symbol id="chevron-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+    </symbol>
+</svg>
+
+<div class="container">
+    <header class="border-bottom lh-1 py-3">
+        <div class="row">
+
+            <!-- Logo "Пономарь" -->
+            <div class="col-md-4 pt-1" style="font-size: 2em; font-family: 'Old Standard TT', serif; color: #9B1B30;">
+                <a class="link-secondary active" href="{% url 'content:home' %}" id="ponomar">Пономарь</>
+            </div>
+
+            <!-- Header "Старообрядческий вестник" -->
+            <div class="col-md-4 text-center" style="font-size: 2em;">
+                <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#">Старообрядческий
+                    вестник</a>
+            </div>
+
+            <!-- Search Icon -->
+            <div class="col-md-4 d-flex justify-content-end align-items-center">
+                <button type="button" onclick="handleSearchClick()"
+                        style="background: none; border: none; cursor: pointer;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+                         stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img"
+                         viewBox="0 0 24 24">
+                        <title>Search</title>
+                        <circle cx="10.5" cy="10.5" r="7.5"></circle>
+                        <path d="M21 21l-5.2-5.2"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="nav nav-underline justify-content-between py-1 mb-3 border-bottom">
+            <a class="nav-item nav-link link-body-emphasis active" href="{% url 'content:about' %}">О НАС</a>
+            <a class="nav-item nav-link link-body-emphasis" href="#">ЗАДАТЬ ВОПРОС</a>
+            <a class="nav-item nav-link link-body-emphasis active" href="{% url 'content:star' %}">СТАРООБРЯДЧЕСТВО</a>
+            <a class="nav-item nav-link link-body-emphasis active" href="{% url 'content:potrebnic' %}">ПОТРЕБНИК</a>
+            <a class="nav-item nav-link link-body-emphasis active" href="{% url 'content:kultura' %}">КУЛЬТУРА</a>
+        </nav>
+
+</div>
+
+{% block content %}
+{% endblock %}
+
+
+<div class="container">
+    <div class="row g-5">
+        <div class="col-md-8">
+            <article class="blog-post">
+                <h1 class="display-5 mb-1">
+                    <a href="{% url 'content:corner' %}" style="text-decoration: none; color: black;">Уголок старой
+                        веры(На примере республика Тува)</a>
+                </h1>
+            </article>
+
+            <p style="font-size: 17px;" class="lh-base">Конфессиональную структуру современного российского общества
+                трудно представить без старообрядчества. Оно является важнейшим и характерным явлением русской духовной
+                истории. Возникнув в середине XVII века, как явление конкретно - историческое, раскол русской
+                православной церкви вызвал к жизни феномен старообрядчества. Старообрядчество быстро стало явлением
+                общероссийской действительности и оказало глубокое влияние на ее социокультурный облик. Старообрядцы
+                активно участвовали в освоении Сибири русским населением, в формировании ее этнокультурного и
+                этноконфессионального многообразия.</p>
+            <p style="font-size: 17px;" class="lh-base">«В периоды духовных и социальных кризисов русское
+                старообрядчество, как движение, выработавшее максимальную устойчивость в любых экстремальных условиях,
+                всегда привлекало особое внимание. Став общемировым явлением, старообрядческие общины с их традиционным
+                образом жизни стали объектом пристального внимания мировой науки».</p>
+            <div style="text-align: center;">
+                <img src="{% static 'src/vlcsnap-2021-08-26-17h01m47s695.png' %}"
+                     style="max-width: 100%; height: auto; margin: 0 auto;">
+            </div>
+            <p style="font-size: 17px;" class="lh-base">Интерес исследователей к старообрядчеству Тувы как исторически
+                сложившейся, небольшой по численности, части русского народа продиктован также и тем, что в последнее
+                время оно является не только религиозным направлением, но и олицетворяет национальную культуру русского
+                населения региона. Современные старообрядцы Тувы испытали на себе влияние индустриализации, урбанизации
+                и секуляризации, но не утратили своей особой религиозной и житейской философии, и выступают
+                своеобразными хранителями русской культуры в регионе, переписывая древние книги, сохраняя музыкальное
+                достояние, обряды и традиции. Передавая их из поколения в поколение.</p>
+            <p style="font-size: 17px;" class="lh-base">«Старообрядцы стали проникать в Туву еще раньше, чем началось
+                массовое переселение крестьян в этот край. В первые десятилетия ХХ века они составляли уже примерно
+                треть всех переселенцев. До тех пор, пока Тува не стала протекторатом Российской империи, царские
+                чиновники, а затем и советские власти, не имели возможности контролировать этих переселенцев, оказывать
+                на них административное, церковное, а позже партийное давление»</p>
+            <p style="font-size: 17px;" class="lh-base">Что влекло старообрядцев в Туву? Ведь она не принадлежала
+                России, это была заграница, чужая земля, и русского этноса там не было вообще. По взгляду Татаринцевой,
+                привлекала, во-первых, «глушь и свобода» (А.Ф. Гильфердинг), возможность уединенного, независимого от
+                светских и церковных властей поселения в безлюдных и мало доступных местах, где никто не будет
+                притеснять их религиозные убеждения.</p>
+            <p style="font-size: 17px;" class="lh-base">Во-вторых, переселялись старообрядцы в Туву в поисках
+                легендарного Беловодья - удаленного от мира места, недосягаемого для «слуг антихриста» (так называли
+                старообрядцы царских чиновников), где сохранилась дониконовская вера, царствует добро и справедливость
+                (типичная крестьянская утопия). Беловодье открывается самым верным правой (старой) вере с самыми
+                надежными и чистыми помыслами. Нечестивым, грешным, корыстным оно просто не покажется.</p>
+            <p style="font-size: 17px;" class="lh-base">Самое обобщенное переложение Социально - утопических легенд о
+                Беловодье, распространенных среди старообрядцев Алтая:</p>
+            <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                <p class="fst-italic">«Там где кончаются бесконечные леса и поднимаются высоко - высоко скалистые горы,
+                    где бурно бушуют горные реки и потоки, с белой пеной прыгая по камням, где простерлась невидимая
+                    никому пустыня, где-то там за китайской границей, в непроходимых дебрях лежит загадочная земля,
+                    называемая Беловодье. Не знает этого места никто, не заезжает сюда заседетель, а между тем зашли
+                    как-то русские люди и живут привольно. Много земли у них и угодьев, и нет здесь тягостей и тяжкого
+                    крестьянского горя. Есть здесь храмы, и звон колоколов будит звуками пустыню. Никто не знает
+                    Беловодья, знает его только раскольник и русский крестьянин, пробравшиеся в него».</p>
+            </div>
+            <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                <p class="fst-italic">Распутин В. Сибирь, Сибирь… - Иркутск. 2000 г.</p>
+            </div>
+            <p style="font-size: 17px;" class="lh-base">Исторически закономерное миграционное движение русского
+                населения в Сибири также было связано с процессом хозяйственного освоения ее территории, который
+                зачастую сопровождался формированием новой поселенческой структуры или адаптацией уже существующей. На
+                впервые заселяемых территориях именно в ходе миграционных процессов формируется сеть населенных
+                пунктов, начинающих взаимодействовать друг с другом - как организационно - хозяйственные,
+                производственные, административные центры.</p>
+            <p style="font-size: 17px;" class="lh-base">Липинская В.А. утверждает, для Тувы, как и для других регионов
+                Сибири, на начальном этапе освоения был характерен заимочно - захватный тип землепользования. «На
+                стадии первоначального освоения земель в Сибири новые поселения обычно основывались на свободных
+                землях, не включенных жителями какого-либо населенного пункта в хозяйственную деятельность. Именно так
+                и осуществлялся и свободный выбор участка под заимку, получивший название «захвата». Сущность заимочно
+                - захватной системы заключалась в почти неограниченном праве крестьянина выбирать для своего
+                пользования любое количество земли в соответствии с его хозяйственными силами».</p>
+            <p style="font-size: 17px;" class="lh-base">Месторасположение большинства старообрядческих, и не только,
+                населенных пунктов было определено наличием поблизости источников воды - реки, озера. Кроме того,
+                немаловажным фактором для старообрядцев являлась относительная недоступность и, по возможности, мало
+                известность их поселения. Поэтому их привлекал район верховьев Малого Енисея, его гористый рельеф,
+                нехоженая дремучая тайга.</p>
+            <div style="text-align: center;">
+                <img src="{% static 'src/Sizim.jpg' %}"
+                     style="max-width: 100%; height: auto; margin: 0 auto;">
+                <p style="color: #6c757d; margin-top: 0.5rem;">Сизим, республика Тыва</p>
+            </div>
+
+            <p style="font-size: 17px;" class="lh-base">Старообрядцы сыграли особую роль в формировании поселенческой
+                структуры Тувы. Основание ими новых населенных пунктов, многие из которых существуют и в настоящее
+                время, свидетельствует об их экономической самостоятельности, хозяйственной смекалке, устойчивости,
+                крепости семейно-родственных и конфессиональных связей. Только обладая более высокой степенью
+                готовности для социокультурной адаптации возможно было закрепиться настолько прочно.</p>
+            <p style="font-size: 17px;" class="lh-base">В Туве чрезвычайно сложно отделить на практике последователей
+                одного согласия от другого, напротив, они достаточно тесно переплетаются между собой и до известной
+                степени составляют одно целое.</p>
+            <p style="font-size: 17px;" class="lh-base">Старообрядцы Тувы делились к середине второго десятилетия XX
+                века на следующие толки и согласия: поповский толк: австрийское согласие, беглопоповцы; беспоповцы:
+                поморцы; часовенное согласие. Старообрядцы сумели сохранить до наших дней, те самобытные жизненные
+                устои русского крестьянства допетровской эпохи, которые реализуются до сих пор в их повседневной жизни.
+                Материальная и духовная культура старообрядцев пронизана религиозными воззрениями и сакральными
+                смыслами, являясь семиотичной.</p>
+            <p style="font-size: 17px;" class="lh-base">Одежда из наиболее консервативных элементов материальной
+                культуры. До сих пор у староверов распространено старинное платье: мужские рубашки - косоворотки,
+                которые носят на выпуск с поясом. Девушки и женщины носят сарафан на лямках, опоясанный поясом с
+                рубахой под ним (видны только длинные рукава без манжет; иногда к рубахе пришиваются рукава другого
+                цвета). В праздник надевали глухой сарафан «горбач» или «горбун». Строго регламентируется длина: рукава
+                должны были закрывать косточку у запястья, а подол сарафана щиколотку. По цветовой гамме предпочтение
+                отдается однотонным неярким цветам в будни, и более светлым, нарядным в праздники. Почти не
+                используются в традиционной старинной одежде у старообрядцев Тувы пестрые цветные ткани, украшения.
+                «Цветное носить - беса тешить» - считают старообрядцы. Головной убор незамужней девушки отличается от
+                головного убора замужней женщины: девушка носит на голове венец из бересты, покрытый платком, а
+                замужние женщины меняют венец на шапочку - «шамшуру, покрытую платком.</p>
+            <p style="font-size: 17px;" class="lh-base">Женщины - старообрядки никогда не стригут волос, а мужчины
+                носят бороду и усы. По словам Иоанна Златоуста: «Женам всегда имети голову покровенну в дни и ночи, на
+                всяк час», а также по правилу святых отцов 6-го Вселенского собора, где сказано: «Бритье власов дает
+                дьявольский образ». Во многих сочинениях старообрядцев - вероучителей настойчиво повторялось, что
+                истинный старообрядец должен носить крест на шее и пояс. Крест носят на холщевой нитке, а кто носит на
+                цепочки, осуждают и говорят: «на цепи собак можно держать».</p>
+            <div style="text-align: center;">
+                <img src="{% static 'src/О-покрытии-главы-женщинами.jpg' %}"
+                     style="max-width: 100%; height: auto; margin: 0 auto;">
+            </div>
+            <p style="font-size: 17px;" class="lh-base">Пояс, будучи, непременным традиционной одежды старообрядцев,
+                наиболее устойчивым ее компонентом, играет исключительно важную роль в семейных и календарных обрядах,
+                а также в гаданиях, заговорах, колдовстве. Общепризнано его значение как оберега, что связано с верой в
+                магическую силу круга, замыкающего пространство, также он устанавливает границы между верхом и низом.
+                Русакова подчеркивает, что с поясом и жизнь, и здоровье его обладателя, и его сверхъестественные силы.
+                Все это позволяет заключить, что пояс является сакральным предметом. Орнамент большинства поясов имеет
+                исключительно геометрический характер. Основным мотивом его является ромб, который, как и квадрат, в
+                народе зовут кругом. В орнаменте поясов ромб редко встречался в чистом виде. Он может быть заполнен
+                маленькими ромбиками или крестиками. Ромб с его дополнениями воплощал временные параметры космоса:
+                четыре основных сезона, четыре времени суток соответственно четырем положениям солнца (восход, зенит,
+                закат, надир). Ромб замкнут, окружает внутреннее пространство. Таким образом, мир ограничен и,
+                следовательно, защищен от разрушения.</p>
+            <p style="font-size: 17px;" class="lh-base">Мировоззрение староверов отражается не только книжной
+                письменной культуре, или в »светском фольклоре», а в основном в жанре духовных стихов.</p>
+            <p style="font-size: 17px;" class="lh-base">«Духовные стихи определяются обычно как эпические или
+                лирические произведения религиозного характера или народные произведения на религиозные темы. Уже в
+                этом случае стихи не вмещаются в рамки одного жанра, поскольку главное жанровое деление - деление на
+                лирику и эпос».</p>
+            <p style="font-size: 17px;" class="lh-base">В другом источнике С.Е. Никитиной, «духовный стих явился как
+                мост, посредник между книжной христианской и устной народной культурой. Аналогичную функцию выполняли
+                устные апокрифы, легенды. А нужен ли был такой мост? Конечно, ибо разрыв между этими формами культуры в
+                Древней Руси был очень значителен. И сами христианские истины, и церковнославянский язык, на котором
+                они были изложены, требовали какой-то адаптации, приспособления к народному миропониманию, к мифолого -
+                языческому видению мира с культом умерших предков, с верой в то, что сила слова и ритуального действия
+                может управлять жизнью».</p>
+            <p style="font-size: 17px;" class="lh-base">В связи со сложным существованием стиха в двух формах - устной
+                и письменной, с разнообразными переплетениями традиций особый вес приобретают исполнители, соединяющие
+                в себе одновременно грамотность, память - словесную и музыкальную - и голос, т. е. центры - личности,
+                усилиями которых традиция стиха не затухает окончательно».</p>
+            <p style="font-size: 17px;" class="lh-base">Безусловно, традиция исполнения древнейших, эпических духовных
+                стихов, прервана, (отчасти, насильственным путем). Но все же можно сказать, что духовные стихи - живая
+                (все еще живая) традиция, так как не исчезла причина их пения. Не исчез источник народного духовного
+                творчества, желание и необходимость в слове и звуке выразить то, что рождает в душе Божественное Слово,
+                священное Писание и священное Предание. Прежде всего, жанр духовных стихов специфичен не мелодикой, но
+                текстами, и человек непосвященный, услышав само название - «Духовные стихи», не поймет, что речь идет
+                еще и о некоей музыкальной форме.</p>
+            <p style="font-size: 17px;" class="lh-base">Сами народные исполнители считают главным в духовных стихах
+                слово, что принципиально отличает духовные стихи от народной песни. Даже терминологически певцы часто
+                разделяют характер своего исполнения: песню «играют», а стихи «поют».</p>
+            <p style="font-size: 17px;" class="lh-base">Там редко встретишь технические новинки XXI века, зато со всех
+                сторон слышен шум порогов Енисея, а на просторах между гор складывается впечатление, что слышится
+                духовный стих древнего знаменного распева. В этих местах хочется слушать стихи, понять мировоззрение
+                старообрядцев через духовность стиха.</p>
+            <p style="font-size: 17px;" class="lh-base">Старообрядчество - уникальное явление российской и мировой
+                религиозной, социально- культурной истории. Во все периоды своего исторического бытования
+                старообрядческие общины продемонстрировали поразительную стойкость по отношению к любым преследованиям
+                и удивительную способность к адаптации. В старообрядчестве - той или иной степени и сегодня сохраняющем
+                древнейшие традиции веры и жизни, современная наука и современные общественные движения ищут ответы на
+                многие вопросы, связанные с истоками российской истории и культуры.</p>
+            <hr>
+            <p style="font-size: 18px; text-align: right; margin: 0; padding: 0;" class="lh-base">
+                <a href="https://elibrary.ru/author_profile.asp?authorid=568407" target="_blank"
+                   style="text-decoration: none; color: inherit;">
+                    Рукавицына Елена Александровна
+                </a>
+                <br> аспирант Московского государственного университета культуры и искусств<br>
+            </p>
+
+            <div style="text-align: center;">
+                <div class="text-center" style="margin-top: 20px;">
+                    <h5>Связаться с нами:</h5>
+                    <a href="#" onclick="copyToClipboard('https://t.me/PonomarKyzyl'); openTelegram();"
+                       style="margin: 0 10px;">
+                        <img src="https://img.icons8.com/color/48/000000/telegram-app.png" alt="Telegram"
+                             style="width: 40px; height: 40px;">
+                    </a>
+                    <a href="#" onclick="copyToClipboard('https://yourwebsite.com'); openWhatsApp();"
+                       style="margin: 0 10px;">
+                        <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp"
+                             style="width: 40px; height: 40px;">
+                    </a>
+                    <a href="#" onclick="copyToClipboard('https://yourwebsite.com'); openViber();"
+                       style="margin: 0 10px;">
+                        <img src="https://img.icons8.com/color/48/000000/viber.png" alt="Viber"
+                             style="width: 40px; height: 40px;">
+                    </a>
+                </div>
+
+                <script>
+                    function copyToClipboard(text) {
+                        navigator.clipboard.writeText(text).then(function() {
+                            alert('Ссылка скопирована: ' + text);
+                        }, function(err) {
+                            console.error('Ошибка при копировании: ', err);
+                        });
+                    }
+
+                    function openTelegram() {
+                        window.open('https://t.me/PonomarKyzyl', '_blank');
+                    }
+
+                    function openWhatsApp() {
+                        window.open('https://wa.me/8908 207-85-27', '_blank');
+                    }
+
+                    function openViber() {
+                        window.open('viber://chat?number=YourPhoneNumber', '_blank');
+                    }
+                </script>
+                <div class="container mt-5">
+                    <a href="https://t.me/ctr_vestnik" class="btn btn-primary btn-custom" target="_blank">
+                        <span class="main-text">Наш Телеграмм.</span><br>
+                        Просите и дано будет вам; ищите и найдёте; стучите, и отворят вам...
+                    </a>
+                    <h1></h1>
+                    <h1></h1>
+                </div>
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; max-width: 38rem; margin-left: 7rem;">
+                    <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                        <img src="{% static 'src/avvakum-fire.jpg' %}"
+                             style="max-width: 60%; height: auto; margin: 0 auto;">
+                        <div class="card-body">
+                            <a class="btn" href="{% url 'content:avvacum' %}"
+                               style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                               role="button">
+                                Неистовый Аввакум
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                        <img src="{% static 'src/novyi-0002.jpg' %}"
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <div class="card-body">
+                            <a class="btn" href="{% url 'content:education' %}"
+                               style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                               role="button">
+                                Образование в старообрядческой среде.
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                        <img src="{% static 'src/novyi-0002.jpg' %}"
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <div class="card-body">
+                            <a class="btn" href="{% url 'content:training' %}"
+                               style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                               role="button">
+                                Воспитание и образование в старообрядческой среде.
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                        <div class="card-body">
+                            <a class="btn" href="{% url 'content:victory' %}"
+                               style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                               role="button">
+                                Вклад Православной старообрядческой церкви в победу в великой отечественной войне
+                            </a>
+                            <p style="color: #6c757d; margin-top: 0.9rem;">В данной статье рассматривается история
+                                побед старообрядцев</p>
+                        </div>
+                    </div>
+                </div>
+                <nav class="blog-pagination" aria-label="Pagination"><a
+                        class="btn btn-outline-primary rounded-pill"
+                        href="#">Вверх</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="position-sticky" style="top: 2rem;">
+                <div><h4 class="fst-italic">Recent posts</h4>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                               href="#">
+                                <svg aria-hidden="true" class="bd-placeholder-img " height="96"
+                                     preserveAspectRatio="xMidYMid slice" width="100%"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="100%" height="100%" fill="#777"></rect>
+                                </svg>
+                                <div class="col-lg-8"><h6 class="mb-0">Example blog post title</h6> <small
+                                        class="text-body-secondary">January 15, 2024</small></div>
+                            </a></li>
+                        <li>
+                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                               href="#">
+                                <svg aria-hidden="true" class="bd-placeholder-img " height="96"
+                                     preserveAspectRatio="xMidYMid slice" width="100%"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="100%" height="100%" fill="#777"></rect>
+                                </svg>
+                                <div class="col-lg-8"><h6 class="mb-0">This is another blog post title</h6>
+                                    <small
+                                            class="text-body-secondary">January 14, 2024</small></div>
+                            </a></li>
+                        <li>
+                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                               href="#">
+                                <svg aria-hidden="true" class="bd-placeholder-img " height="96"
+                                     preserveAspectRatio="xMidYMid slice" width="100%"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="100%" height="100%" fill="#777"></rect>
+                                </svg>
+                                <div class="col-lg-8"><h6 class="mb-0">Longer blog post title: This one has
+                                    multiple
+                                    lines!</h6> <small class="text-body-secondary">January 13, 2024</small>
+                                </div>
+                            </a></li>
+                    </ul>
+                </div>
+
+                <div class="p-4">
+                    <h4 class="fst-italic">Темы</h4>
+                    <ol class="list-unstyled">
+                        <li><a href="#" class="custom-link">Новости</a></li>
+                        <li><a href="#" class="custom-link">О нас старообрядцах</a></li>
+                        <li><a href="#" class="custom-link">Престольный праздник</a></li>
+                        <li><a href="#" class="custom-link">Святоотеческое</a></li>
+                        <li><a href="#" class="custom-link">История старообрядчества</a></li>
+                        <li><a href="#" class="custom-link">Священство</a></li>
+                        <li><a href="#" class="custom-link">О Исусе Христе</a></li>
+                        <li><a href="#" class="custom-link">Личность</a></li>
+                        <li><a href="#" class="custom-link">Церковь</a></li>
+                        <li><a href="#" class="custom-link">Храмы</a></li>
+                    </ol>
+
+                    <style>
+                        .custom-link {
+                            font-size: 1.2em;
+                            font-weight: bold;
+                            color: #800000;
+                            text-decoration: none; /* убираем подчеркивание */
+                        }
+
+                        .dropdown-toggle {
+                            display: block;
+                            padding: 0.25rem 1rem; /* добавим дополнительные классы для dropdown, чтобы они имели одинаковый стиль */
+                        }
+                    </style>
+
+
+                    <p class="mb-0"><a href="#">Наверх</a></p>
+                    </ol>
+                </div>
+                <div class="p-4"><h4 class="fst-italic">Archives</h4>
+                    <ol class="list-unstyled mb-0">
+                        <li><a href="#">March 2021</a></li>
+                        <li><a href="#">February 2021</a></li>
+                        <li><a href="#">January 2021</a></li>
+                        <li><a href="#">December 2020</a></li>
+                        <li><a href="#">November 2020</a></li>
+                        <li><a href="#">October 2020</a></li>
+                        <li><a href="#">September 2020</a></li>
+                        <li><a href="#">August 2020</a></li>
+                        <li><a href="#">July 2020</a></li>
+                        <li><a href="#">June 2020</a></li>
+                        <li><a href="#">May 2020</a></li>
+                        <li><a href="#">April 2020</a></li>
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </main>
+    </header>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+</html>

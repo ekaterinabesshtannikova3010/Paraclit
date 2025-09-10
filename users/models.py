@@ -7,7 +7,6 @@ class User(AbstractUser):
     information = models.TextField(max_length=200, verbose_name="Описание", blank=True)
     image = models.ImageField(upload_to='image/', verbose_name="Фото", blank=True)
 
-    USERNAME_FIELD = "forename"
     REQUIRED_FIELDS = []
 
     class Meta():
