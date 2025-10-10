@@ -127,41 +127,72 @@
 <div class="container">
     <header class="border-bottom lh-1 py-3">
         <div class="row">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #800000; color: #800000;">
+                <div class="container-fluid text-bordeaux"> <!-- добавляем класс для текста -->
+                    <div class="col-4 pt-1" style="font-size: 1.5em; font-family: 'Old Standard TT', serif;">
+                        <a class="link-secondary active" href="{% url 'content:home' %}" style="color: #800000;">Пономарь</a><br>
+                        <div class="text-center" style="margin-top: 20px;">
 
-            <!-- Logo "Пономарь" -->
-            <div class="col-md-4 pt-1" style="font-size: 2em; font-family: 'Old Standard TT', serif; color: #9B1B30;">
-                <a class="link-secondary active" href="{% url 'content:home' %}" id="ponomar">Пономарь</>
-            </div>
+                        </div>
+                        <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#"
+                           style="font-size: 1.2em; color: #800000;">Старообрядцы Тувы</a>
+                    </div>
 
-            <!-- Header "Старообрядческий вестник" -->
-            <div class="col-md-4 text-center" style="font-size: 2em;">
-                <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#">Старообрядческий
-                    вестник</a>
-            </div>
-
-            <!-- Search Icon -->
-            <div class="col-md-4 d-flex justify-content-end align-items-center">
-                <button type="button" onclick="handleSearchClick()"
-                        style="background: none; border: none; cursor: pointer;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
-                         stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img"
-                         viewBox="0 0 24 24">
-                        <title>Search</title>
-                        <circle cx="10.5" cy="10.5" r="7.5"></circle>
-                        <path d="M21 21l-5.2-5.2"></path>
-                    </svg>
-                </button>
-            </div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon" style="background-color: #800000;"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{% url 'content:about' %}"
+                                   style="color: #800000;">О НАС</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:question' %}" style="color: #800000;">ЗАДАТЬ
+                                    ВОПРОС</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:star' %}" style="color: #800000;">СТАРООБРЯДЧЕСТВО</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:potrebnic' %}" style="color: #800000;">ПОТРЕБНИК</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:kultura' %}"
+                                   style="color: #800000;">КУЛЬТУРА</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:map' %}" style="color: #800000;">КАРТА
+                                    САЙТА</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:articles' %}"
+                                   style="color: #800000;">СТАТЬИ</a>
+                            </li>
+                        </ul>
+                        <div class="col-4 d-flex justify-content-end align-items-center">
+                            <a class="link-secondary" href="#" aria-label="Search" style="color: #800000;">
+                                <button type="button" onclick="handleSearchClick()"
+                                        style="background: none; border: none; cursor: pointer;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                         stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                         stroke-width="2"
+                                         class="mx-3" role="img"
+                                         viewBox="0 0 24 24" style="color: #800000;">
+                                        <title>Search</title>
+                                        <circle cx="10.5" cy="10.5" r="7.5"></circle>
+                                        <path d="M21 21l-5.2-5.2"></path>
+                                    </svg>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
         </div>
-
-        <!-- Navigation Menu -->
-        <nav class="nav nav-underline justify-content-between py-1 mb-3 border-bottom">
-            <a class="nav-item nav-link link-body-emphasis active" href="{% url 'content:about' %}">О НАС</a>
-            <a class="nav-item nav-link link-body-emphasis" href="#">ЗАДАТЬ ВОПРОС</a>
-            <a class="nav-item nav-link link-body-emphasis active" href="{% url 'content:star' %}">СТАРООБРЯДЧЕСТВО</a>
-            <a class="nav-item nav-link link-body-emphasis active" href="{% url 'content:potrebnic' %}">ПОТРЕБНИК</a>
-            <a class="nav-item nav-link link-body-emphasis active" href="{% url 'content:kultura' %}">КУЛЬТУРА</a>
-        </nav>
 
 </div>
 
@@ -209,7 +240,7 @@
             <p style="font-size: 17px;" class="lh-base">Бабушка в большинстве случаев являлась первой руководительницей
                 ребенка. Именно бабушка направляла его ум в ту или иную сторону, учила ребёнка первым жизненным
                 навыкам, внушала ему правила нравственной жизни и первая учила его религии. Как и родители, бабушки
-                все-таки отдавали предпочтение мальчикам, -</p>
+                все-таки отдавали предпочтение мальчикам-</p>
             <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
                 <p class="fst-italic">«будущие поильцы-кормильцы», «ково от девки пользи, корми её до 15-16 лет, а она
                     за мужика убегить».</p>
@@ -281,7 +312,7 @@
                 систему, сочетавшую домашнее образование с обучением силами профессиональных наставников грамоте,
                 моральные и профессиональные требования к которым были очень высоки. Среди староверов таких наставников
                 называли уставщиками и начетчиками. Начетчик - это человек, главной обязанностью которого является
-                христианское образование, он сам должен быть весьма начитан, вопервых, в Священном Писании и Предании
+                христианское образование, он сам должен быть весьма начитан, во-первых, в Священном Писании и Предании
                 Свято церковном, а во-вторых - в светских знаниях и культуре. Начетчики обязаны были быть сильны в
                 христианском и внешнем знании, но не ради «самосовершенствования», а ради служения Церкви Христовой,
                 это их главное отличие от светских педагогов. Известны случаи, когда с опытными и умелыми начетчиками -
@@ -429,44 +460,43 @@
 
         <div class="col-md-4">
             <div class="position-sticky" style="top: 2rem;">
-                <div><h4 class="fst-italic">Recent posts</h4>
+                <div><h4 class="fst-italic">Недавние:</h4>
                     <ul class="list-unstyled">
                         <li>
                             <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
-                               href="#">
-                                <svg aria-hidden="true" class="bd-placeholder-img " height="96"
-                                     preserveAspectRatio="xMidYMid slice" width="100%"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="100%" height="100%" fill="#777"></rect>
-                                </svg>
-                                <div class="col-lg-8"><h6 class="mb-0">Example blog post title</h6> <small
-                                        class="text-body-secondary">January 15, 2024</small></div>
-                            </a></li>
-                        <li>
-                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
-                               href="#">
-                                <svg aria-hidden="true" class="bd-placeholder-img " height="96"
-                                     preserveAspectRatio="xMidYMid slice" width="100%"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="100%" height="100%" fill="#777"></rect>
-                                </svg>
-                                <div class="col-lg-8"><h6 class="mb-0">This is another blog post title</h6>
-                                    <small
-                                            class="text-body-secondary">January 14, 2024</small></div>
-                            </a></li>
-                        <li>
-                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
-                               href="#">
-                                <svg aria-hidden="true" class="bd-placeholder-img " height="96"
-                                     preserveAspectRatio="xMidYMid slice" width="100%"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="100%" height="100%" fill="#777"></rect>
-                                </svg>
-                                <div class="col-lg-8"><h6 class="mb-0">Longer blog post title: This one has
-                                    multiple
-                                    lines!</h6> <small class="text-body-secondary">January 13, 2024</small>
+                               href="{% url 'content:typology' %}">
+                                <img src="{% static 'src/scale_1200 (8).jpeg' %}"
+                                     style="max-width: 30%; height: auto; margin: 0 auto;">
+                                <div class="col-lg-8">
+                                    <span style="color: gray;">АПОЛОГИЯ</span>
+                                    <h6 class="mb-0">Типология взглядов русских мыслителей на старообрядчество</h6>
                                 </div>
-                            </a></li>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                               href="{% url 'content:new_year' %}">
+                                <img src="{% static 'src/i (5).png' %}"
+                                     style="max-width: 30%; height: auto; margin: 0 auto;">
+                                <div class="col-lg-8">
+                                    <span style="color: gray;">ТРАДИЦИИ</span>
+                                    <h6 class="mb-0">Новый год - языческие истоки</h6>
+
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                               href="{% url 'content:star' %}">
+                                <img src="{% static 'src/zvezda_5.jpg' %}"
+                                     style="max-width: 30%; height: auto; margin: 0 auto;">
+                                <div class="col-lg-8">
+                                    <span style="color: gray;">ХРАМ И МИР</span>
+                                    <h6 class="mb-0">Что означает пятиконечная звезда</h6>
+
+                                </div>
+                            </a>
+                        </li>
                     </ul>
                 </div>
 
@@ -503,23 +533,6 @@
                     <p class="mb-0"><a href="#">Наверх</a></p>
                     </ol>
                 </div>
-                <div class="p-4"><h4 class="fst-italic">Archives</h4>
-                    <ol class="list-unstyled mb-0">
-                        <li><a href="#">March 2021</a></li>
-                        <li><a href="#">February 2021</a></li>
-                        <li><a href="#">January 2021</a></li>
-                        <li><a href="#">December 2020</a></li>
-                        <li><a href="#">November 2020</a></li>
-                        <li><a href="#">October 2020</a></li>
-                        <li><a href="#">September 2020</a></li>
-                        <li><a href="#">August 2020</a></li>
-                        <li><a href="#">July 2020</a></li>
-                        <li><a href="#">June 2020</a></li>
-                        <li><a href="#">May 2020</a></li>
-                        <li><a href="#">April 2020</a></li>
-                    </ol>
-                </div>
-
             </div>
         </div>
     </div>

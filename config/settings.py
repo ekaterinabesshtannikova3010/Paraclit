@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+
 from pathlib import Path
 
 from decouple import Csv, config
@@ -27,10 +28,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-vlqu(28^%$&z89z26zbi&p^%k3^863^4a-51di2vb1p^+b*!hb"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='', cast=Csv())
 
+ALLOWED_HOSTS = ['rpscrestyva.ru', 'www.rpscrestyva.ru']
 # Application definition
 
 INSTALLED_APPS = [
@@ -140,5 +142,13 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Установите настройки CORS (опционально)
-CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', default='', cast=Csv())
+
+# DEFAULT_FROM_EMAIL = 'ekaterinadolmatova205@gmail.com'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'besshtannikova01@mail.ru'
+EMAIL_HOST_PASSWORD = 'ujxO0ZZlD4rTlUSjtQAY'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'besshtannikova01@mail.ru'
+CONTACT_RECIPIENT_EMAIL = 'ekaterinadolmatova205@gmail.com'

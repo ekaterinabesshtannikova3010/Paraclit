@@ -181,10 +181,10 @@
 
 
             <p style="font-size: 17px;" class="lh-base">В октябре 1669 года тюрьма для Аввакума и его "союзников" была
-                построена, и их незамедлительно переводят туда. Тюрьма эта состояла из четырех отдельных срубов- изб,
+                построена, и их незамедлительно переводят туда. Тюрьма эта состояла из четырех отдельных срубов-изб,
                 которые были на сажень врыты в землю и снаружи обнесены общей оградой. Срубов было четыре, потому что
                 один из пустозерских узников, поп Никифор, продержался в ссылке всего лишь несколько месяцев. Он умер
-                после апреля 1668 года, о чем мы узнаем из челобитной Аввакума: «Враг наш, синбирской протопоп Никифор,
+                после апреля 1668 года, о чем мы узнаем из челобитной Аввакума: «Враг наш, сибирской протопоп Никифор,
                 сего суетнаго света отъиде".</p>
             <p style="font-size: 17px;" class="lh-base">Насколько были малы земляные срубы, в которые были заключены
                 узники, видно из письма дьякона Федора к семье Аввакума на Мезень: «Тюрьма нам сделана по сажени, пишет
@@ -213,7 +213,7 @@
             <p style="font-size: 17px;" class="lh-base">Церковный собор с участием царя Федора Алексеевича принял
                 решение казнить главарей раскола "без пролития кропи», предав смерти на костре, дабы не
                 распространялись больше их послания на Руси и не сеяли смуту среди народа.</p>
-            <p style="font-size: 17px;" class="lh-base">В январе 1682 года из Москвы в Пустозерек со специальными
+            <p style="font-size: 17px;" class="lh-base">В январе 1682 года из Москвы в Пустозерск со специальными
                 полномочиями был послан капитан стрелецкого полка Иван Лешуков. Прибыв на место в марте, он первым
                 делом учинил тщательный среди тюремной охраны, жителей Пустозерских и других лиц, которые сочувственно
                 относились к узникам и помогали им</p>
@@ -333,44 +333,43 @@
 
         <div class="col-md-4">
             <div class="position-sticky" style="top: 2rem;">
-                <div><h4 class="fst-italic">Recent posts</h4>
+                <div><h4 class="fst-italic">Недавние:</h4>
                     <ul class="list-unstyled">
                         <li>
                             <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
-                               href="#">
-                                <svg aria-hidden="true" class="bd-placeholder-img " height="96"
-                                     preserveAspectRatio="xMidYMid slice" width="100%"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="100%" height="100%" fill="#777"></rect>
-                                </svg>
-                                <div class="col-lg-8"><h6 class="mb-0">Example blog post title</h6> <small
-                                        class="text-body-secondary">January 15, 2024</small></div>
-                            </a></li>
-                        <li>
-                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
-                               href="#">
-                                <svg aria-hidden="true" class="bd-placeholder-img " height="96"
-                                     preserveAspectRatio="xMidYMid slice" width="100%"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="100%" height="100%" fill="#777"></rect>
-                                </svg>
-                                <div class="col-lg-8"><h6 class="mb-0">This is another blog post title</h6>
-                                    <small
-                                            class="text-body-secondary">January 14, 2024</small></div>
-                            </a></li>
-                        <li>
-                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
-                               href="#">
-                                <svg aria-hidden="true" class="bd-placeholder-img " height="96"
-                                     preserveAspectRatio="xMidYMid slice" width="100%"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="100%" height="100%" fill="#777"></rect>
-                                </svg>
-                                <div class="col-lg-8"><h6 class="mb-0">Longer blog post title: This one has
-                                    multiple
-                                    lines!</h6> <small class="text-body-secondary">January 13, 2024</small>
+                               href="{% url 'content:typology' %}">
+                                <img src="{% static 'src/scale_1200 (8).jpeg' %}"
+                                     style="max-width: 30%; height: auto; margin: 0 auto;">
+                                <div class="col-lg-8">
+                                    <span style="color: gray;">АПОЛОГИЯ</span>
+                                    <h6 class="mb-0">Типология взглядов русских мыслителей на старообрядчество</h6>
                                 </div>
-                            </a></li>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                               href="{% url 'content:new_year' %}">
+                                <img src="{% static 'src/i (5).png' %}"
+                                     style="max-width: 30%; height: auto; margin: 0 auto;">
+                                <div class="col-lg-8">
+                                    <span style="color: gray;">ТРАДИЦИИ</span>
+                                    <h6 class="mb-0">Новый год - языческие истоки</h6>
+
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                               href="{% url 'content:star' %}">
+                                <img src="{% static 'src/zvezda_5.jpg' %}"
+                                     style="max-width: 30%; height: auto; margin: 0 auto;">
+                                <div class="col-lg-8">
+                                    <span style="color: gray;">ХРАМ И МИР</span>
+                                    <h6 class="mb-0">Что означает пятиконечная звезда</h6>
+
+                                </div>
+                            </a>
+                        </li>
                     </ul>
                 </div>
 

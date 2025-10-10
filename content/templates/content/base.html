@@ -143,7 +143,8 @@
                        style="color: #800000;">О НАС</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" style="color: #800000;">ЗАДАТЬ ВОПРОС</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'content:question' %}"
+                       style="color: #800000;">ЗАДАТЬ ВОПРОС</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'content:star' %}" style="color: #800000;">СТАРООБРЯДЧЕСТВО</a>
@@ -156,6 +157,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'content:map' %}" style="color: #800000;">КАРТА САЙТА</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'content:articles' %}" style="color: #800000;">СТАТЬИ</a>
                 </li>
             </ul>
             <div class="col-4 d-flex justify-content-end align-items-center">
@@ -203,7 +207,8 @@
         <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-300 position-relative">
             <!-- Увеличенная высота карточки -->
             <div class="col p-4 d-flex flex-column justify-content-center">
-                <h3 class="mb-0" style="color: #FFFFFF;">Храм святого великомученика Георгия в г. Кызыле.</h3> <!-- Светлый текст -->
+                <h3 class="mb-0" style="color: #FFFFFF;">Храм святого великомученика Георгия в г. Кызыле.</h3>
+                <!-- Светлый текст -->
                 <p class="mb-auto" style="color: #FFFFFF;">Престольный праздник - 6 мая по новому стилю. </p>
             </div>
             <div class="col-auto d-none d-lg-block"
@@ -213,15 +218,27 @@
             </div>
         </div>
     </div>
+</div>
 
-
-</div>
-</div>
-</div>
-</div>
 <div class="row g-5">
     <div class="col-md-8"><h3 class="pb-4 mb-4 fst-italic border-bottom">
     </h3>
+        <div class="p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">
+            Братие и Сестры Добро пожаловать! Рады видеть вас на нашем сайте.
+            <br>Этот ресурс создан в продолжение предыдущего сайта(он заблокирован по тех.причинам) и
+            сейчас активно заполняется материалами.
+            <br>Мы благодарны за ваше терпение: часть информации еще
+            находится в процессе переноса, и мы стараемся исправлять это как можно скорее.
+            <br><b>Если у вас есть вопросы или
+            предложения:
+            <br>-обратиться к настоятелю можно по первой почте в разделе "О НАС",
+            <br>-обратиться к разработчику — по второй.</b>
+            <br>Вы с
+            легкостью можете ознакомиться с опубликованными статьями на главной странице и в разделе "СТАТЬИ". Приносим
+            вам искренние извинения за возможные неудобства и благодарим за понимание.
+            <br>Простите Христа ради! Спаси Христос!
+        </div>
+        <br><br>
         <article class="blog-post" style="display: flex; align-items: flex-start; margin-bottom: 20px;">
             <img src="{% static 'src/111.jpg' %}" alt="Описание изображения"
                  style="margin-right: 15px; width: 200px; height: auto;">
@@ -517,11 +534,72 @@
 </div>
 </div>
 </main>
-<footer class="text-body-secondary py-5">
-    <div class="container"><p class="float-end mb-1"><a href="#">Наверх</a></p>
-        <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-        <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a
-                href="/docs/5.3/getting-started/introduction">getting started guide</a>.</p></div>
+<footer class="bg-dark text-white text-center text-lg-start mt-7">
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <p style="font-size: 1.2em;">Старообрядческий вестник "<span style="color: red;">Пономарь</span>"</p>
+                <h7 class="text-uppercase"><b>Контактная информация</b></h7>
+                <p>
+                    Телефон: +7(39422) 4-83-939<br>
+                    Email: vladschibanow@yandex.ru<br>
+                    Адрес: г. Кызыл, Республика Тува, Россия
+                </p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h7 class="text-uppercase"><b>Полезные ссылки</b></h7>
+                <ul class="list-unstyled">
+                    <li><a href="#!" class="text-white">Контакты</a></li>
+                    <li><a href="#!" class="text-white">Карта сайта</a></li>
+                    <li><a href="#!" class="text-white">Вопрос священнику</a></li>
+                    <li><a href="#!" class="text-white">Политика конфиденциальности</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h7 class="text-uppercase"><b>Социальные сети:</b></h7>
+                <a href="#!" class="text-white me-4">Telegram</a>
+                <a href="#!" class="text-white me-4">VK</a>
+                <a href="#!" class="text-white">Дзен</a>
+                <p style="color: red;">
+                    <a class="text-white" style="color:red;">Поддержите нас пожалуйста!!!</a>
+                    Пожертвуйте на оплату хостинга и развитие сайта.<br>
+                    Пожалуйста, при переводе укажите в смс "Пожертвование на хостинг"<br>
+                    <em> Спаси Христос!</em>
+                </p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <a href="#" data-toggle="modal" data-target="#qrModal">
+                    <img src="{% static 'src/qr.jpg' %}" alt="QR-код для пожертвований"
+                         style="margin-right: 25px; width: 150px; height: auto; cursor: pointer;">
+                </a>
+            </div>
+            <!-- Модальное окно -->
+            <div class="modal fade" id="qrModal" tabindex="-1" role="dialog" aria-labelledby="qrModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="qrModalLabel">QR-код для пожертвований</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Закрыть">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="{% static 'src/qr.jpg' %}" alt="QR-код для пожертвований"
+                                 style="width: 80%; height: auto;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center p-3" style="background-color: rgba(255, 255, 255, 0.1);">
+        © 2025 Ваш сайт. Все права защищены.
+    </div>
+
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"

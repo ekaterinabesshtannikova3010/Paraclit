@@ -1,0 +1,514 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Astro v5.9.2">
+    <title>Blog Template · Bootstrap v5.3</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/blog/">
+    <script src="/docs/5.3/assets/js/color-modes.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
+    <meta name="theme-color" content="#712cf9">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap" rel="stylesheet">
+    <link href="blog.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT&display=swap" rel="stylesheet">
+    <style>
+        .bd-placeholder-img{font-size:1.125rem;text-anchor:middle;-webkit-user-select:none;-moz-user-select:none;user-select:none}@media (min-width: 768px){.bd-placeholder-img-lg{font-size:3.5rem}}.b-example-divider{width:100%;height:3rem;background-color:#0000001a;border:solid rgba(0,0,0,.15);border-width:1px 0;box-shadow:inset 0 .5em 1.5em #0000001a,inset 0 .125em .5em #00000026}.b-example-vr{flex-shrink:0;width:1.5rem;height:100vh}.bi{vertical-align:-.125em;fill:currentColor}.nav-scroller{position:relative;z-index:2;height:2.75rem;overflow-y:hidden}.nav-scroller .nav{display:flex;flex-wrap:nowrap;padding-bottom:1rem;margin-top:-1px;overflow-x:auto;text-align:center;white-space:nowrap;-webkit-overflow-scrolling:touch}.btn-bd-primary{--bd-violet-bg: #712cf9;--bd-violet-rgb: 112.520718, 44.062154, 249.437846;--bs-btn-font-weight: 600;--bs-btn-color: var(--bs-white);--bs-btn-bg: var(--bd-violet-bg);--bs-btn-border-color: var(--bd-violet-bg);--bs-btn-hover-color: var(--bs-white);--bs-btn-hover-bg: #6528e0;--bs-btn-hover-border-color: #6528e0;--bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);--bs-btn-active-color: var(--bs-btn-hover-color);--bs-btn-active-bg: #5a23c8;--bs-btn-active-border-color: #5a23c8}.bd-mode-toggle{z-index:1500}.bd-mode-toggle .bi{width:1em;height:1em}.bd-mode-toggle .dropdown-menu .active .bi{display:block!important}
+    </style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path>
+    </symbol>
+    <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+    </symbol>
+    <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+    </symbol>
+    <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+    </symbol>
+</svg>
+<div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
+            aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+            <use href="#circle-half"></use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span></button>
+    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+            <ul>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
+                            aria-pressed="false" onclick="setTheme('light')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#sun-fill"></use>
+                        </svg>
+                        Light
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+                            aria-pressed="false" onclick="setTheme('dark')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#moon-stars-fill"></use>
+                        </svg>
+                        Dark
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center active"
+                            data-bs-theme-value="auto" aria-pressed="true" onclick="setTheme('auto')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#circle-half"></use>
+                        </svg>
+                        Auto
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+
+            <script>
+                function setTheme(theme) {
+                    document.body.setAttribute('data-bs-theme', theme);
+
+                    // Удалить класс 'active' с всех кнопок и установить его только на нажатую кнопку
+                    const buttons = document.querySelectorAll('.dropdown-item');
+                    buttons.forEach(button => {
+                        button.classList.remove('active');
+                        button.setAttribute('aria-pressed', 'false');
+                    });
+
+                    const activeButton = Array.from(buttons).find(button => button.getAttribute('data-bs-theme-value') === theme);
+                    activeButton.classList.add('active');
+                    activeButton.setAttribute('aria-pressed', 'true');
+                }
+            </script>
+        </li>
+    </ul>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+            stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path>
+    </symbol>
+    <symbol id="cart" viewBox="0 0 16 16">
+        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
+    </symbol>
+    <symbol id="chevron-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+    </symbol>
+</svg>
+
+<div class="container">
+    <header class="border-bottom lh-1 py-3">
+        <div class="row">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #800000; color: #800000;">
+                <div class="container-fluid text-bordeaux"> <!-- добавляем класс для текста -->
+                    <div class="col-4 pt-1" style="font-size: 1.5em; font-family: 'Old Standard TT', serif;">
+                        <a class="link-secondary active" href="{% url 'content:home' %}" style="color: #800000;">Пономарь</a><br>
+                        <div class="text-center" style="margin-top: 20px;">
+
+                        </div>
+                        <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#"
+                           style="font-size: 1.2em; color: #800000;">Старообрядцы Тувы</a>
+                    </div>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon" style="background-color: #800000;"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{% url 'content:about' %}"
+                                   style="color: #800000;">О НАС</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:question' %}" style="color: #800000;">ЗАДАТЬ
+                                    ВОПРОС</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:star' %}" style="color: #800000;">СТАРООБРЯДЧЕСТВО</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:potrebnic' %}" style="color: #800000;">ПОТРЕБНИК</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:kultura' %}"
+                                   style="color: #800000;">КУЛЬТУРА</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:map' %}" style="color: #800000;">КАРТА
+                                    САЙТА</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:articles' %}"
+                                   style="color: #800000;">СТАТЬИ</a>
+                            </li>
+                        </ul>
+                        <div class="col-4 d-flex justify-content-end align-items-center">
+                            <a class="link-secondary" href="#" aria-label="Search" style="color: #800000;">
+                                <button type="button" onclick="handleSearchClick()"
+                                        style="background: none; border: none; cursor: pointer;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                         stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                         stroke-width="2"
+                                         class="mx-3" role="img"
+                                         viewBox="0 0 24 24" style="color: #800000;">
+                                        <title>Search</title>
+                                        <circle cx="10.5" cy="10.5" r="7.5"></circle>
+                                        <path d="M21 21l-5.2-5.2"></path>
+                                    </svg>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        {% block content %}
+        {% endblock %}
+
+
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-md-8">
+                    <article class="blog-post">
+                        <h1 class="display-5 mb-1">
+                            <a href="#" style="text-decoration: none; color: black;">
+                                <strong>Вязники: Француз среди староверов</strong>
+                            </a>
+                        </h1>
+                    </article>
+                    <p style="font-size: 17px;" class="lh-base"></p>
+                    <p style="font-size: 17px;" class="lh-base"></p>
+
+                    <p style="font-size: 17px;" class="lh-base">Француз среди староверов
+                        Самюэль Льеван (Samuel Lieven) (француз)
+                        Перрон станции Вязники в 300 километрах на северо-восток от Москвы, кажется, уходит в
+                        бесконечность. Несколько вышедших вместе с нами пассажиров идут по огромному мосту над пустыми
+                        путями. «Не волнуйтесь, мой сын Сергей вас заберет» - успокаивает нас по телефону Галина.
+                        Коллега-журналистка из Москвы Светлана вот уже три недели проявляет небывалое терпение, чтобы
+                        распахнуть перед нами двери семьи староверов.<br>
+                        Это религиозное меньшинство пользуется репутацией закрытого или даже сектантского
+                        сообщества.<br>
+                        Оно возникло в результате раскола в русской церкви и выработало недоверчивое отношение к
+                        внешнему миру. Однако в Вязниках, в тысячах километров от Сибири, где представители этой общины
+                        живут в отрыве от внешнего мира, в конце концов удалось наладить доверительные связи.</p>
+                    <p style="font-size: 20px;" class="lh-base">Вавила - француз и почти что святой</p>
+                    <p style="font-size: 17px;" class="lh-base">«Знаете, появление французского журналиста - отнюдь не
+                        случайность» - говорит сидящий за рулем Сергей. Лавируя между ямами на дороге, он рассказывает
+                        удивительную историю староверов в регионе. Почти 400 лет назад в Вязниках появился француз, о
+                        существовании которого нам до сих пор было неизвестно. Его звали Вавила, и он учился в Сорбонне
+                        до того, как принять православие.<br>
+                        По прибытии в регион он (француз) провел остаток жизни в «ските» и «проявил «алмазную»
+                        стойкость. В 1666 году, когда патриарх Никон железной рукой навязал всей стране церковную
+                        реформу, француз предпочел сложить голову на плахе, но не отказался от исконных православных
+                        традиций. С тех пор староверы почитают его как святого, как высочайший символ
+                        сопротивления.</p>
+                    <p style="font-size: 20px;" class="lh-base">Отец Владимир</p>
+                    <p style="font-size: 17px;" class="lh-base">Соотечественник Вавилы в Вязниках… Новость разлетелась,
+                        как пожар. В слабо-освещенном зале за столом собирается вся община староверов. Мужчины с одной
+                        стороны, женщины с другой. Торжественный момент: приветствия, обмен подарками (камамбер и
+                        бретонские бисквиты с французской стороны, расписные тарелки и четки со стороны староверов). На
+                        столе стоят блюдца с малиной и тарелки с овощами без приправ. Все ждут лишь появления
+                        священника отца Владимира, который занимает предназначенный для духовенства небольшой белый
+                        трон. Важный вид и пронзительный взгляд: священник (у него есть жена и четверо детей)
+                        подчеркивает свой статус. Он предлагает собравшимся встать для молитвы, постоянно осеняя себя
+                        крестным знаменем (всего 12 раз - по числу апостолов).<br>
+                        Не успели мы закончить суп, как со всех сторон сыплются вопросы. «Во что вы верите во Франции?»
+                        «Как вы креститесь?» Сразу быка за рога. Я осторожно начинаю с напоминания о том, что католиков
+                        и православных, в том числе и староверов, объединяет общая вера в апостолов и первое
+                        тысячелетие совместного христианского существования… Галина и остальные женщины улыбаются.<br>
+                        Мужчины в целом соглашаются. Выдохнув, я внутренне благодарю собрата Вавилу, чей престиж, судя
+                        по всему, упрощает мой вступительный экзамен.</p>
+                    <div style="text-align: center;">
+                        <img src="{% static 'images/13.png' %}"
+                             alt=""
+                             style="max-width: 80%; height: auto; margin: 0 auto;">
+                    </div>
+                    <br><br>
+                    <p style="font-size: 20px;" class="lh-base">Два или три пальца</p>
+                    <p style="font-size: 17px;" class="lh-base">Отец Владимир вновь переключает внимание на себя.
+                        «Почему современным умам дозволено менять то, что было установлено самим Христом и отцами
+                        церкви? Крестное знамя может спасти тебя, но если ты меняешь его исконную форму, оно обрекает
+                        тебя!» Произнеся эти слова, священник соединяет указательный и большой пальцы, символизируя тем
+                        самым двойственную (людскую и божественную) сущность Христа. Староверы в России крестятся двумя
+                        перстами« - объясняет он, глядя мне прямо в глаза.<br>
+                        При этом со времен реформы патриарха Никона православные крестятся тремя пальцами (в знак
+                        троицы) по греческому обычаю. Непосвященному такая деталь может показаться незначительной
+                        мелочью, однако в России это спровоцировало раскол с ужасными последствиями. Три века спустя
+                        этот черный период кровавых репрессий и коллективных самоубийств все еще лежит на сознании
+                        тяжелым грузом. «Вавила со всем его приобретенным во Франции знанием понял, что нельзя изменить
+                        жест без предательства веры - делает вывод отец Владимир. - Поэтому он пошел на мученичество».
+                        Конец разговора. Все встают для молитвы.</p>
+                    <p style="font-size: 20px;" class="lh-base">Большая роль в местной экономике</p>
+                    <p style="font-size: 17px;" class="lh-base"><br>В Вязниках (40 000 жителей) небольшая община
+                        староверов живет рядом с другими людьми. Раньше их было намного больше, и они играли ключевую
+                        роль в местной экономике. Галина с друзьями приглашают нас посетить дом промышленника Сергея
+                        Сенькова (1875-1941), в котором сегодня размещается местный музей.<br>
+                        Здравоохранение, образование, кредиты для семей… Хотя он и не распространялся о своем
+                        вероисповедании, он все же много сделал для поддержки общины. Однако революция 1917 года не
+                        прошла мимо. Сеньков бежал в Италию, его имущество национализировали, а староверы остались без
+                        поддержки на пороге многих десятилетий официального атеизма.</p>
+                    <p style="font-size: 20px;" class="lh-base">Запоздалое возвращение к религии</p>
+                    <p style="font-size: 17px;" class="lh-base"><br>Через 25 лет после распада СССР выжить местной
+                        общине помогает диаспора староверов родом из Вязников. Двоюродные братья и племянники с успешным
+                        бизнесом в Прибалтике и Молдавии… В молодости Галина с мужем Александром, пошли тем же путем.
+                        Она преподавала танцы в Риге, а он был компьютерщиком в армии. В конце 1980-х годов перестройка
+                        вернула их обратно. Александр занялся деревообработкой и производством лестниц. В этот период
+                        они вновь приобщились к вере.<br>
+                        Для Александра толчком стала смерть матери, крещеной староверки. Галина же не могла смириться с
+                        тем, что четверо ее детей станут «индивидуалистами». «Сначала я отвела их на службу в
+                        православную церковь Вязников и показала им старое крестное знамя, как учила меня моя мать».
+                    </p>
+                    <p style="font-size: 20px;" class="lh-base">Мечта о собственной церкви</p>
+                    <p style="font-size: 17px;" class="lh-base"><br>Теперь у всех повзрослевших детей есть свои семьи,
+                        но не все их супруги - староверы. Одного из внуков даже не крестили, потому что его мать -
+                        агностик. Но Галина не собирается вмешиваться. «Наш долг - передать богатство нашей веры, пусть
+                        даже с появлением интернета и всего прочего это становится все сложнее» - полагает она.<br>
+                        Несмотря ни на что, у староверов из Вязников есть мечта: построить однажды собственную церковь.
+                        Вдали от домов, где все занимает широкая, как океан, равнина. «Эта церковь будет открыта для
+                        всех!» - обещает Галина. Но пока что на общую молитву ее семья и близкие собираются на первом
+                        этаже ее дома. Мужчины встают у стола и читают, а женщины и девочки надевают традиционные
+                        платки, закрепляя их булавкой на шее.</p>
+                    <p style="font-size: 20px;" class="lh-base">Бога не волнуют наши различия</p>
+                    <p style="font-size: 17px;" class="lh-base"><br>По воскресеньям и праздничным дням отец Владимир
+                        ведет службу в церкви с.Рытово, небольшого поселения староверов под Вязниками, которое словно
+                        оторвано от современного мира. Вокруг укатанной земляной дороги выстроились раскрашенные в
+                        самые разные цвета деревянные дома. Благодаря отваге местных жителей здешняя церковь оказалась
+                        единственной во всем регионе, которой удалось избежать неистовства большевиков после революции.
+                        «Наши предки выстроились вокруг нее в человеческую цепь, - рассказывает Сергей. - Некоторые
+                        приняли ужасную смерть, когда их привязали к мчавшимся во весь опор лошадям».<br>
+                        Ночью, пока мы спали у Галины, Сергей с другом отправились туда, где жил француз Вавила. В двух
+                        часах ходьбы через лес. Там он сфотографировал для нас крест, который стоит сегодня на месте
+                        его давно разрушенного скита. «Французы, русские, католики,
+                        староверы… Бога не волнуют наши отличия - говорит Галина по пути обратно на вокзал. - Теперь
+                        мы будем молиться и за вас».</p>
+                    <p style="font-size: 20px;" class="lh-base">
+                        ___________________________________________________________________________________________________</p>
+                    <p style="font-size: 17px;" class="lh-base"><br>
+                        <br>• Староверы представляют собой совокупность различных групп православных, отказавшихся
+                        принять
+                        реформу патриарха Никона в 1666 и 1667 годах. Хотя православная церковь сняла с них анафему в
+                        1971 году, раскол все еще сохраняется, а отношения староверов с остальными православными
+                        неоднозначные. Интеграция староверов в российское общество тоже протекает не слишком
+                        гладко.<br>
+                        <br>• По конституции Россия - светское государство, которое гарантирует равенство всех религий
+                        перед
+                        законом. На практике же православная церковь занимает доминирующее положение и поддерживает
+                        тесные связи с режимом Владимира Путина.<br>
+                        <br>• В стране не существует точной статистики по числу последователей той или иной веры. В
+                        зависимости от опросов, от 55% до 73% называют себя православными, от 6% до 18% - мусульманами,
+                        от 1% до 2% - буддистами, иудеями, католиками и протестантами. В Сибири шаманские ритуалы и
+                        традиции занимают особое, пусть и относительно небольшое место.<br>
+                        <br>• Материалы могут не отражать позицию нашего сайта ПОНОМАРЬ</p>
+                    <div style="text-align: center;">
+                        <div class="text-center" style="margin-top: 20px;">
+
+                        </div>
+
+                        <script>
+                            function copyToClipboard(text) {
+                                navigator.clipboard.writeText(text).then(function() {
+                                    alert('Ссылка скопирована: ' + text);
+                                }, function(err) {
+                                    console.error('Ошибка при копировании: ', err);
+                                });
+                            }
+
+                            function openTelegram() {
+                                window.open('https://t.me/PonomarKyzyl', '_blank');
+                            }
+
+                            function openWhatsApp() {
+                                window.open('https://wa.me/8908 207-85-27', '_blank');
+                            }
+
+                            function openViber() {
+                                window.open('viber://chat?number=YourPhoneNumber', '_blank');
+                            }
+                        </script>
+                        <div class="container mt-5">
+                            <a href="https://t.me/ctr_vestnik" class="btn btn-primary btn-custom" target="_blank">
+                                <span class="main-text">Наш Телеграмм.</span><br>
+                                Просите и дано будет вам; ищите и найдёте; стучите, и отворят вам...
+                            </a>
+                            <h1></h1>
+                            <h1></h1>
+                        </div>
+                        <p style="font-size: 17px;" class="lh-base"></p>
+                        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; max-width: 38rem; margin-left: 7rem;">
+                            <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                                <img src="{% static 'src/avvakum-fire.jpg' %}"
+                                     style="max-width: 60%; height: auto; margin: 0 auto;">
+                                <div class="card-body">
+                                    <a class="btn" href="{% url 'content:avvacum' %}"
+                                       style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                                       role="button">
+                                        Неистовый Аввакум
+                                    </a>
+                                </div>
+
+                            </div>
+
+                            <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                                <img src="{% static 'src/drevnerus_10_chudo-georgiya-o-zmii-s-zhitiem.jpg' %}"
+                                     style="max-width: 45%; height: auto; margin: 0 auto;">
+                                <div class="card-body">
+                                    <a class="btn" href="{% url 'content:holiday' %}"
+                                       style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                                       role="button">
+                                        Праздник Георгия Победоносца в древнерусской литературе
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                                <img src="{% static 'src/scale_1200 (8).jpeg' %}"
+                                     style="max-width: 85%; height: auto; margin: 0 auto;">
+                                <div class="card-body">
+                                    <a class="btn" href="{% url 'content:typology' %}"
+                                       style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                                       role="button">
+                                        Типология взглядов русских мыслителей на старообрядчество
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                                <div class="card-body">
+                                    <a class="btn" href="{% url 'content:revolution' %}"
+                                       style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                                       role="button">
+                                        Старообрядцы в русской революции
+                                    </a>
+                                    Роль старообрядцев в русской революции
+                                </div>
+                            </div>
+                        </div>
+                        <nav class="blog-pagination" aria-label="Pagination"><a
+                                class="btn btn-outline-primary rounded-pill"
+                                href="#">Вверх</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="position-sticky" style="top: 2rem;">
+                        <div><h4 class="fst-italic">Недавние:</h4>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                                       href="{% url 'content:typology' %}">
+                                        <img src="{% static 'src/scale_1200 (8).jpeg' %}"
+                                             style="max-width: 30%; height: auto; margin: 0 auto;">
+                                        <div class="col-lg-8">
+                                            <span style="color: gray;">АПОЛОГИЯ</span>
+                                            <h6 class="mb-0">Типология взглядов русских мыслителей на
+                                                старообрядчество</h6>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                                       href="{% url 'content:new_year' %}">
+                                        <img src="{% static 'src/i (5).png' %}"
+                                             style="max-width: 30%; height: auto; margin: 0 auto;">
+                                        <div class="col-lg-8">
+                                            <span style="color: gray;">ТРАДИЦИИ</span>
+                                            <h6 class="mb-0">Новый год - языческие истоки</h6>
+
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                                       href="{% url 'content:star' %}">
+                                        <img src="{% static 'src/zvezda_5.jpg' %}"
+                                             style="max-width: 30%; height: auto; margin: 0 auto;">
+                                        <div class="col-lg-8">
+                                            <span style="color: gray;">ХРАМ И МИР</span>
+                                            <h6 class="mb-0">Что означает пятиконечная звезда</h6>
+
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="p-4">
+                            <h4 class="fst-italic">Темы</h4>
+                            <ol class="list-unstyled">
+                                <li><a href="#" class="custom-link">Новости</a></li>
+                                <li><a href="#" class="custom-link">О нас старообрядцах</a></li>
+                                <li><a href="#" class="custom-link">Престольный праздник</a></li>
+                                <li><a href="#" class="custom-link">Святоотеческое</a></li>
+                                <li><a href="#" class="custom-link">История старообрядчества</a></li>
+                                <li><a href="#" class="custom-link">Священство</a></li>
+                                <li><a href="#" class="custom-link">О Исусе Христе</a></li>
+                                <li><a href="#" class="custom-link">Личность</a></li>
+                                <li><a href="#" class="custom-link">Церковь</a></li>
+                                <li><a href="#" class="custom-link">Храмы</a></li>
+                            </ol>
+
+                            <style>
+                                .custom-link {
+                                    font-size: 1.2em;
+                                    font-weight: bold;
+                                    color: #800000;
+                                    text-decoration: none; /* убираем подчеркивание */
+                                }
+
+                                .dropdown-toggle {
+                                    display: block;
+                                    padding: 0.25rem 1rem; /* добавим дополнительные классы для dropdown, чтобы они имели одинаковый стиль */
+                                }
+                            </style>
+
+
+                            <p class="mb-0"><a href="#">Наверх</a></p>
+                            </ol>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            </main>
+        </div>
+    </header>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+</html>

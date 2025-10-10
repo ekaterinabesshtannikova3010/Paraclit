@@ -1,0 +1,568 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Astro v5.9.2">
+    <title>Blog Template · Bootstrap v5.3</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/blog/">
+    <script src="/docs/5.3/assets/js/color-modes.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
+    <meta name="theme-color" content="#712cf9">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap" rel="stylesheet">
+    <link href="blog.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT&display=swap" rel="stylesheet">
+    <style>
+        .bd-placeholder-img{font-size:1.125rem;text-anchor:middle;-webkit-user-select:none;-moz-user-select:none;user-select:none}@media (min-width: 768px){.bd-placeholder-img-lg{font-size:3.5rem}}.b-example-divider{width:100%;height:3rem;background-color:#0000001a;border:solid rgba(0,0,0,.15);border-width:1px 0;box-shadow:inset 0 .5em 1.5em #0000001a,inset 0 .125em .5em #00000026}.b-example-vr{flex-shrink:0;width:1.5rem;height:100vh}.bi{vertical-align:-.125em;fill:currentColor}.nav-scroller{position:relative;z-index:2;height:2.75rem;overflow-y:hidden}.nav-scroller .nav{display:flex;flex-wrap:nowrap;padding-bottom:1rem;margin-top:-1px;overflow-x:auto;text-align:center;white-space:nowrap;-webkit-overflow-scrolling:touch}.btn-bd-primary{--bd-violet-bg: #712cf9;--bd-violet-rgb: 112.520718, 44.062154, 249.437846;--bs-btn-font-weight: 600;--bs-btn-color: var(--bs-white);--bs-btn-bg: var(--bd-violet-bg);--bs-btn-border-color: var(--bd-violet-bg);--bs-btn-hover-color: var(--bs-white);--bs-btn-hover-bg: #6528e0;--bs-btn-hover-border-color: #6528e0;--bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);--bs-btn-active-color: var(--bs-btn-hover-color);--bs-btn-active-bg: #5a23c8;--bs-btn-active-border-color: #5a23c8}.bd-mode-toggle{z-index:1500}.bd-mode-toggle .bi{width:1em;height:1em}.bd-mode-toggle .dropdown-menu .active .bi{display:block!important}
+    </style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path>
+    </symbol>
+    <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+    </symbol>
+    <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+    </symbol>
+    <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+    </symbol>
+</svg>
+<div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
+            aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+            <use href="#circle-half"></use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span></button>
+    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+            <ul>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
+                            aria-pressed="false" onclick="setTheme('light')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#sun-fill"></use>
+                        </svg>
+                        Light
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+                            aria-pressed="false" onclick="setTheme('dark')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#moon-stars-fill"></use>
+                        </svg>
+                        Dark
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center active"
+                            data-bs-theme-value="auto" aria-pressed="true" onclick="setTheme('auto')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#circle-half"></use>
+                        </svg>
+                        Auto
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+
+            <script>
+                function setTheme(theme) {
+                    document.body.setAttribute('data-bs-theme', theme);
+
+                    // Удалить класс 'active' с всех кнопок и установить его только на нажатую кнопку
+                    const buttons = document.querySelectorAll('.dropdown-item');
+                    buttons.forEach(button => {
+                        button.classList.remove('active');
+                        button.setAttribute('aria-pressed', 'false');
+                    });
+
+                    const activeButton = Array.from(buttons).find(button => button.getAttribute('data-bs-theme-value') === theme);
+                    activeButton.classList.add('active');
+                    activeButton.setAttribute('aria-pressed', 'true');
+                }
+            </script>
+        </li>
+    </ul>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+            stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path>
+    </symbol>
+    <symbol id="cart" viewBox="0 0 16 16">
+        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
+    </symbol>
+    <symbol id="chevron-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+    </symbol>
+</svg>
+
+<div class="container">
+    <header class="border-bottom lh-1 py-3">
+        <div class="row">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #800000; color: #800000;">
+                <div class="container-fluid text-bordeaux"> <!-- добавляем класс для текста -->
+                    <div class="col-4 pt-1" style="font-size: 1.5em; font-family: 'Old Standard TT', serif;">
+                        <a class="link-secondary active" href="{% url 'content:home' %}" style="color: #800000;">Пономарь</a><br>
+                        <div class="text-center" style="margin-top: 20px;">
+
+                        </div>
+                        <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#"
+                           style="font-size: 1.2em; color: #800000;">Старообрядцы Тувы</a>
+                    </div>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon" style="background-color: #800000;"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{% url 'content:about' %}"
+                                   style="color: #800000;">О НАС</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:question' %}" style="color: #800000;">ЗАДАТЬ
+                                    ВОПРОС</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:star' %}" style="color: #800000;">СТАРООБРЯДЧЕСТВО</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:potrebnic' %}" style="color: #800000;">ПОТРЕБНИК</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:kultura' %}"
+                                   style="color: #800000;">КУЛЬТУРА</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:map' %}" style="color: #800000;">КАРТА
+                                    САЙТА</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:articles' %}"
+                                   style="color: #800000;">СТАТЬИ</a>
+                            </li>
+                        </ul>
+                        <div class="col-4 d-flex justify-content-end align-items-center">
+                            <a class="link-secondary" href="#" aria-label="Search" style="color: #800000;">
+                                <button type="button" onclick="handleSearchClick()"
+                                        style="background: none; border: none; cursor: pointer;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                         stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                         stroke-width="2"
+                                         class="mx-3" role="img"
+                                         viewBox="0 0 24 24" style="color: #800000;">
+                                        <title>Search</title>
+                                        <circle cx="10.5" cy="10.5" r="7.5"></circle>
+                                        <path d="M21 21l-5.2-5.2"></path>
+                                    </svg>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        {% block content %}
+        {% endblock %}
+
+
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-md-8">
+                    <article class="blog-post">
+                        <h1 class="display-5 mb-1">
+                            <a href="#" style="text-decoration: none; color: black;">
+                                <strong>АВОСЬ, НЕБОСЬ И НИЧЕГО</strong>
+                            </a>
+                        </h1>
+                    </article>
+                    <p style="font-size: 17px;" class="lh-base"></p>
+                    <p style="font-size: 17px;" class="lh-base"></p>
+                    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                        <p class="fst-italic">ЕСТЬ В РУССКОМ ЯЗЫКЕ СЛОВО, КОТОРОЕ СТОЛЕТИЯМИ ОСТАЕТСЯ
+                            ЗАГАДКОЙ. ОДНИ ЕГО ЛЮБЯТ, ДРУГИЕ - СТЕСНЯЮТСЯ, А ТРЕТЬИ ДЕЛАЮТ ВИД, ЧТО ЕГО НЕТ В ИХ
+                            СЛОВАРНОМ ЗАПАСЕ. НО ВСЕ СХОДЯТСЯ В ОДНОМ:
+                            ЭТО САМОЕ РУССКОЕ СРЕДИ РУССКИХ СЛОВ. ПРИЧЕМ НАСТОЛЬКО, ЧТО ОНО
+                            НЕ ПЕРЕВОДИТСЯ НИ НА ОДИН ЯЗЫК. АНАЛОГОВ НЕТ. ЭТО СЛОВО - «АВОСЬ».</p>
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base">АВОСЬ» - СВОЕГО рода родоначальник «маленьких» слов,
+                        плотно, но неприметно
+                        живущих в русском языке, - считает доктор филологических наук, декан факультета
+                        теоретической и прикладной лингвистики Института лингвистики РГГУ Игорь Шаронов. -
+                        Эти слова и словосочетания мы и за слова-то не считаем: «вот те раз», «ой», «ох», «то и
+                        дело», «надо же», «ого», «не ахти», «ух ты». Тем не менее их слова-сородичи - «было» и
+                        «ничего» - целую «былологию» и «ничегологию» в лингвистике образовали. А «авось» и
+                        «небось» и вовсе стали стержнем фундаментальных исследований по теоретической и
+                        прикладной лингвистике». Шаронов убежден: «маленькие» слова тот самый каркас
+                        русского языка, который можно и превычно не замечать, но на ко-тором, как это водится,
+                        жизнь полной печи крепится</p>
+                    <p style="font-size: 20px;" class="lh-base"><b>ШИФР ЗАГАДКИ (Авось)</b></p>
+                    <p style="font-size: 17px;" class="lh-base">Лингвисты давно сошлись во мнении, что «маленькие»
+                        слова - это осколки
+                        фразеологических схем. Они сложились в результате медленной фрагментации
+                        предложений и словосочетаний, но сохранили смысл и значение тех самых выражений,
+                        что «ушли» либо в крылатые выражения, либо в филологическое небытие. Например,
+                        «вот те раз» - типичный осколок, выражающий крайнее разочарование или недоумение,
+                        - корнями уходит в поговорку «Вот те, бабушка, и Юрьев день». Или «вот ведь как» -
+                        осколок устоявшейся фразы середины XVIII века, со-хранивший ее смысл без окончания
+                        - « ... бывает в жизни». Однако есть среди «маленьких» слов такие экземпляры, которые
+                        не поддаются устоявшейся науч-ной классификации. «Авось» - одно из них. У людей до
+                        сих пор нет понимания «авось» - это хорошо или плохо? Да и лингвисты веками спорят о
+                        том, какой частью речи является это слово. Словарь Даля утверждает, что «авось» - это
+                        наречие, сложившееся из сочетания первых букв фразы «а вот сейчас». Даль установил,
+                        что слово встречается с XVI века. До этого оно состояло даже из трех слов - «а-во-се»,
+                        что и значило «а вот так», «а вот сейчас». Но «авось» так вжилось в канву русского языка,
+                        что сегодня языковеды его относят то к усилительной частице, то к вводному слову, а в
+                        некоторых словосочетаниях и выражениях «авось» принимает вид имени
+                        существительного: «Авось с небосем водились, да оба в яму свалились». Что касается
+                        смысловых нагрузок, тут еще сложнее. С одной стороны, такие пословицы и поговорки,
+                        как «русак на авось и взрос», «авось - вся надежда наша», «авось не унывает», «авось - великое
+                        слово». С другой - совершенно противоположные по смыслу: «авось - дурак, с
+                        головою выдаст», «авосевы города не горожены, авоськины детки не рожены», «кто
+                        авось ничает, тот и постничает». В разные эпохи перевешивает разный смысл, но, как
+                        правило, он отталкивается от беспечности русского чело-века и его веры в
+                        предопределенность свыше.Противоположность и загадочность «авось» отразилась на
+                        его толковании писателями, поэта-ми и наукой. «Зачем же так пренебрегать авоськой с
+                        небоськой? Нехорошо <... > они очень добрые и теплые русские ребята, способные
+                        кинуться, когда надобно, и в огонь, и в воду, а это чего нибудь да стоит в наше
+                        практическое время» - считал писатель Николай Лесков. А великий Пушкин и вовсе
+                        воспринимал «авось» как национальный речевой па-роль: «Авось, о Шиболет народный,
+                        // Тебе б я оду посвятил!» Вслед за ним многие ученые, философы, писатели утверждают,
+                        что словом «авось» можно объяснить как загадку русской души, так и парадокс явления
+                        России как цивилизации. Кстати, слово «авоська» - плетеная хозяйственная сумка
+                        советской эпохи - тоже происходит от старорусского «авося». «Авоська» по-явилась в 30-
+                        е годы XХ века, а ее пик пришелся на 50-70-е, когда продукты не покупали, а «доставали».
+                        Вот и выходил человек из дома с душой и сумкой нараспашку: «Авось-ка что-нибудь
+                        куплю». В авоське помещалось все - арбузы, книги, картошка, пустые бутылки,
+                        апельсины ... В перестроечные годы конца XХ века, когда из магазинов пропало совсем
+                        все, сатирик Михаил Жванецкий переименовал «авоську» в «нихренаську». Скудно,
+                        трудно, зато весело и ... «авось пронесет». Вот и складывается филологическая
+                        «преемственность поколений». Столетиями предки жили, приговаривая: «Авось
+                        пронесет». Или: «Небось плохого не случится!» Потом: «Авось что-нибудь куплю». Теперь
+                        современники не боятся называть отели, кафе и рестораны «Авось» и «Небось» в Санкт-
+                        Петербурге и Владивостоке, Пскове и Сибири. Вечные слова помогают.</p>
+                    <p style="font-size: 20px;" class="lh-base"><b>КОМПЛЕКС САЛЬЕРИ</b></p>
+                    <p style="font-size: 17px;" class="lh-base">Не так давно студенты дошкольного отделения МГПУ в
+                        одном из детских садов Москвы
+                        в лицах читали малышам басню Ивана Крылова «Стрекоза и Муравей». После
+                        заслуженных аплодисментов они спросили дошколят, кто из героев им понравился.
+                        «Стрекоза» - почти единодушно ответили дети. Студенты обомлели. И хотя они смело
+                        бросились объяснять, что по замыслу создателей басни (как известно, сюжеты басен
+                        совпадали у Эзопа, Жана де Лафонтена и Андрея Ивановича Крылова. - Прим. авт.) в ней
+                        обличается лень Стрекозы и прославляется трудолюбие Муравья, дети оторопели и
+                        замкнулись. Этот феномен восприятия басен Крылова в разные эпохи отмечали сам
+                        автор, поэт Василий Жуковский, психолог Лев Выготский. В книге «Психология искусства»
+                        Выготский писал, что детям мораль Муравья «казалась очень черствой и
+                        непривлекательной, их сочувствие было на стороне Стрекозы, которая хоть лето, да
+                        прожила грациозно и весело». «Басни Крылова - яркий при-мер того, как «маленькие»
+                        слова способны вырабатывать тестовый стереотип мышления, - говорит ведущий
+                        научный сотрудник Института русского языка им. В.В. Винградова РАН Ирина
+                        Левонтина. - Ведь что делает баснописец? Его персонажи - живые человеческие
+                        существа в масках животных. А взаимоотношения живых существ не могут быть
+                        однозначными, тем более однонаправленными, они не могут сводиться к демонстрации
+                        какой-то одной заданной моральной сентенции. Да и язык Крылова, опирающийся на
+                        «маленькие» слова - «до того ль», «а, так ты ... », «так поди же», «то и дело», - задает па-
+                        литру смыслов, уловить которые способен человек, различающий оттенки. Это как с
+                        другими «маленькими» словами: «вот те раз», «ух ты», «не ахти», «ничего себе». Попробуй с ходу
+                        рассмотри, где там восхищение, где хорошо, где плохо, а где «одним все - другим
+                        ничего», или устойчивый комплекс Сальери. Мне представляется, что как раз сила и
+                        живучесть «маленьких» слов в том, что, отталкиваясь от устоявшихся стереотипов
+                        мышления и речи, они их разбивают многозначностью смыслов и объемностью
+                        содержания». Именно этого, с точки зрения Ирины Левонтиной и Игоря Шаронова, нет
+                        или почти нет в современных «маленьких» словах. Например, новомодное
+                        заимствование «Baу!» однозначно выражает восторг. А вышедшее из употребления
+                        «Ахти, матушка» или почти устаревшее «Ой, какой (ая)» означали как восторг, так и
+                        потерю контроля. Еще жестче ситуация со словами «ужас», «круто» и «капец».«Когда я
+                        слышу «Капец, как круто!», «Да, ужас, но ведь не ужас, ужас!» или «Вообще, капец,
+                        обидно», - говорит Игорь Шаронов - я понимаю, что это тоже «маленькие» слова эпохи,
+                        но они ее, думаю, не переживут. Им не дано не только звучания и палитры смыслов. Они
+                        линейны, им еще не дано и чувства языка. «Русский язык, он пошире будет», - любил
+                        повторять в таких случаях академик Виноградов».</p>
+                    <p style="font-size: 20px;" class="lh-base"><b>ПЕРСТЕНЬ ИЗ «НИЧЕГО»</b></p>
+                    <p style="font-size: 17px;" class="lh-base">Есть в русском языке еще одно загадочное и неприметное
+                        слово. С одной стороны, оно
+                        ничего не выражает, с другой - им можно выразить всё. Это слово «ничего». Один из
+                        рассказов Владимира Гиляровского так и называется - «Ничего». В нем писатель
+                        вспоминает свою встречу с чешским публицистом Вацлавом Клофачем. Иностранец
+                        искренне восхищался словом «ничего». Во время Русско-японской войны 1904-1905
+                        годов Клофач отступал вместе с российскими солдатами после боя под Хайченом. Он
+                        вспоминал: «Жара 53 градуса, воды ни капли целый день. Солдаты едва передвигают
+                        ноги, томясь от жажды под жгучими лучами <... > «Устали?» - спрашиваю <... > «Ничего!» -
+                        отвечают они, ласково улыбаясь, и продолжают идти». Клофач был потрясен, когда даже
+                        раненый и умирающий боец прошептал: «Ничего». «Да, это великое слово - пишет
+                        Гиляровский - в нем непоколебимость России, в нем могучая сила русского народа,
+                        испытавшего и вынесшего больше, чем всякий другой народ. Только могучему организму
+                        всё «ничего», а по сути - нипочем». Чуть иначе о «ничего» писал поэт Петр Вяземский:
+                        «Какая по-года сегодня?» - «Ничего». - «Как вам нравится эта книга?» - «Ни-чего». -
+                        «Красивая женщина?» - «Ничего». - «Довольны ли вы своим губернатором?» - «Ничего».
+                        В этих словах, пожалуй, себя узнает и современник. «Ничего, вытерпим» - говорят и
+                        сегодня многие люди, сталкиваясь то с реформами, то с ростом цен, то с кризисами,
+                        которые перетекают один в другой. В этом обороте есть какая-то вечная лукавая
+                        сдержанность, боязнь проговориться, совершенно русское «себе на уме».«Мы так
+                        вжились в это «ничего» - считает старший научный сотрудник Института русско-го языка
+                        им. В.В. Виноградова РАН Дмитрий Сичинава - что уже не важно, какая это часть речи.
+                        Даже языковеды не сразу скажут, какая это часть речи: отрицательное местоимение?
+                        Наречие? Модальная частица? Не-изменяемое прилагательное? Категория состояния?
+                        Споры не утихают. Вот такое многозначное «ничего». Я бы еще рядом с ним поставил
+                        «было». Чего только стоит одна фраза у Достоевского: «Тут же умер было, но воскрес».
+                        Или у Гончарова: «Обломов хотел было встать, но сел снова». А сколько народных
+                        речевых жемчужин на основе «было»? «Построили было, но разрушили», «открыл было
+                        рот», «чуть было не забыл», «я подумал было, что ты не придешь»! Полная неразбериха в
+                        пунктуации, но сколько силы духа и значений! И в этом смысле и «было», и «ничего»,
+                        наверное, вместе с «авось» и «небось» заметно влияют на формирование национального
+                        характера». Особое отношение к слову «ни-чего» было и у германского канцлера Отто фон
+                        Бисмарка. Он даже посвятил ему отдельный рассказ в своих мемуарах. Бисмарк
+                        признавался, что пережил личную эволюцию отношения к «ничего» - от непонимания,
+                        негодования, смирения до признания и уважения. А все началось прозаично. Как-то раз
+                        по пути из Москвы в Санкт-Петербург Бисмарк, бывший тог-да послом Германии в
+                        России, нанял случайного ямщика. Рассмотрев как следует лошадей, дипломат
+                        усомнился, что они смогут пробежать 600 километров до Санкт-Петербурга. Канцлер
+                        указал на это ямщику. «Ничего, ничего» - ответил тот, продолжая возиться с поводьями.
+                        И так понесся по разбитой дороге, что Бисмарк перепугался. «Ты меня не вывалишь?» -
+                        спросил он ямщика. «Ничего, ничего» - снова ответил тот. Конечно же, сани
+                        опрокинулись. Бисмарк упал в снег и до крови изодрал лицо. Поднявшись, он в ярости
+                        замахнулся на ямщика тяжелой металлической тростью. Тот даже не пытался
+                        увернуться. Пытаясь чистым снегом оттереть кровь с лица посла, он привычно повторял:
+                        «Ничего, ничего ... »</p>
+                    <div style="text-align: center;">
+                        <img src="{% static 'ssrc/3.png' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base"><br> В Санкт-Петербурге Бисмарк заказал кольцо из той
+                        самой
+                        трости и приказал сделать на нем надпись: «Ничего». Канцлер потом не раз признавался, что
+                        кольцо «Ничего» не раз утешало его в скверные минуты. Он писал в мемуарах, что говорил себе
+                        «ничего», вспоминал того самого ямщика с клячами, и ему становилось легче. «Это «ни-чего»,
+                        писал Бисмарк - помогало понять русских и принять их трудный русский язык». Кстати, именно
+                        Бисмарку принадлежит крылатая фраза: «Русские долго запрягают, но быстро едут». Потом, когда
+                        Железного канцлера в Европе упрекали за слишком мягкий шифр к пониманию русского менталитета.
+                        Ведь в «ничего», как считали в разные эпохи
+                        самые разные, но отнюдь не глупые люди - чех Вацлав Клофач, немец Отто Бисмарк,
+                        индиец Джавахарлал Неру - зашифрована вся сила духа русских. Однако похоже, что у
+                        «ничего» в последние десятилетия появился и крепнет лукавый и сильный конкурент. И
+                        опять силу многозначного слова, близкого по смыслу и содержанию к «ни-чего», одним
+                        из первых заметил и обозначил иностранец. В этот раз, как отмечают лингвисты
+                        Института русского языка им. В.В. Виноградова РАН, им оказался швед, первый
+                        генеральный директор ИКЕА в России, Леннарт Дальгрен. Вот цитата из его книги
+                        «Вопреки абсурду. Как я покорял Рос-сию, а она - меня»: «Нормаль-но» - вне всяких
+                        сомнений, одно из самых употребляемых слов русского языка. Все у них нормально. Как
+                        дела - нормально. Как здоровье - нормально. О чем ни спросить - все нормально. При
+                        этом я не уставал удивляться, есть ли в России хоть что-нибудь, что вписывается в мое
+                        понимание нормы». Нормально подметил. Как тут не сказать: «Ничего».
+                        Отношение к России, он отвечал: «В Германии только я один говорю «ничего», а в России
+                        - весь народ». Не исключено, что благодаря этому «ничего» знаменитый политик нашел <br> <br>
+                        АВТОР ВЛАДИМИР ЕМЕЛЬЯНЕНКО</p>
+                    <div style="text-align: center;">
+                        <div class="text-center" style="margin-top: 20px;">
+
+                        </div>
+
+                        <script>
+                            function copyToClipboard(text) {
+                                navigator.clipboard.writeText(text).then(function() {
+                                    alert('Ссылка скопирована: ' + text);
+                                }, function(err) {
+                                    console.error('Ошибка при копировании: ', err);
+                                });
+                            }
+
+                            function openTelegram() {
+                                window.open('https://t.me/PonomarKyzyl', '_blank');
+                            }
+
+                            function openWhatsApp() {
+                                window.open('https://wa.me/8908 207-85-27', '_blank');
+                            }
+
+                            function openViber() {
+                                window.open('viber://chat?number=YourPhoneNumber', '_blank');
+                            }
+                        </script>
+                        <div class="container mt-5">
+                            <a href="https://t.me/ctr_vestnik" class="btn btn-primary btn-custom" target="_blank">
+                                <span class="main-text">Наш Телеграмм.</span><br>
+                                Просите и дано будет вам; ищите и найдёте; стучите, и отворят вам...
+                            </a>
+                            <h1></h1>
+                            <h1></h1>
+                        </div>
+                        <p style="font-size: 17px;" class="lh-base"></p>
+                        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; max-width: 38rem; margin-left: 7rem;">
+                            <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                                <img src="{% static 'src/avvakum-fire.jpg' %}"
+                                     style="max-width: 60%; height: auto; margin: 0 auto;">
+                                <div class="card-body">
+                                    <a class="btn" href="{% url 'content:avvacum' %}"
+                                       style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                                       role="button">
+                                        Неистовый Аввакум
+                                    </a>
+                                </div>
+
+                            </div>
+
+                            <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                                <img src="{% static 'src/drevnerus_10_chudo-georgiya-o-zmii-s-zhitiem.jpg' %}"
+                                     style="max-width: 45%; height: auto; margin: 0 auto;">
+                                <div class="card-body">
+                                    <a class="btn" href="{% url 'content:holiday' %}"
+                                       style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                                       role="button">
+                                        Праздник Георгия Победоносца в древнерусской литературе
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                                <img src="{% static 'src/scale_1200 (8).jpeg' %}"
+                                     style="max-width: 85%; height: auto; margin: 0 auto;">
+                                <div class="card-body">
+                                    <a class="btn" href="{% url 'content:typology' %}"
+                                       style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                                       role="button">
+                                        Типология взглядов русских мыслителей на старообрядчество
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                                <div class="card-body">
+                                    <a class="btn" href="{% url 'content:revolution' %}"
+                                       style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                                       role="button">
+                                        Старообрядцы в русской революции
+                                    </a>
+                                    Роль старообрядцев в русской революции
+                                </div>
+                            </div>
+                        </div>
+                        <nav class="blog-pagination" aria-label="Pagination"><a
+                                class="btn btn-outline-primary rounded-pill"
+                                href="#">Вверх</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="position-sticky" style="top: 2rem;">
+                        <div><h4 class="fst-italic">Недавние:</h4>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                                       href="{% url 'content:typology' %}">
+                                        <img src="{% static 'src/scale_1200 (8).jpeg' %}"
+                                             style="max-width: 30%; height: auto; margin: 0 auto;">
+                                        <div class="col-lg-8">
+                                            <span style="color: gray;">АПОЛОГИЯ</span>
+                                            <h6 class="mb-0">Типология взглядов русских мыслителей на
+                                                старообрядчество</h6>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                                       href="{% url 'content:new_year' %}">
+                                        <img src="{% static 'src/i (5).png' %}"
+                                             style="max-width: 30%; height: auto; margin: 0 auto;">
+                                        <div class="col-lg-8">
+                                            <span style="color: gray;">ТРАДИЦИИ</span>
+                                            <h6 class="mb-0">Новый год - языческие истоки</h6>
+
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                                       href="{% url 'content:star' %}">
+                                        <img src="{% static 'src/zvezda_5.jpg' %}"
+                                             style="max-width: 30%; height: auto; margin: 0 auto;">
+                                        <div class="col-lg-8">
+                                            <span style="color: gray;">ХРАМ И МИР</span>
+                                            <h6 class="mb-0">Что означает пятиконечная звезда</h6>
+
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="p-4">
+                            <h4 class="fst-italic">Темы</h4>
+                            <ol class="list-unstyled">
+                                <li><a href="#" class="custom-link">Новости</a></li>
+                                <li><a href="#" class="custom-link">О нас старообрядцах</a></li>
+                                <li><a href="#" class="custom-link">Престольный праздник</a></li>
+                                <li><a href="#" class="custom-link">Святоотеческое</a></li>
+                                <li><a href="#" class="custom-link">История старообрядчества</a></li>
+                                <li><a href="#" class="custom-link">Священство</a></li>
+                                <li><a href="#" class="custom-link">О Исусе Христе</a></li>
+                                <li><a href="#" class="custom-link">Личность</a></li>
+                                <li><a href="#" class="custom-link">Церковь</a></li>
+                                <li><a href="#" class="custom-link">Храмы</a></li>
+                            </ol>
+
+                            <style>
+                                .custom-link {
+                                    font-size: 1.2em;
+                                    font-weight: bold;
+                                    color: #800000;
+                                    text-decoration: none; /* убираем подчеркивание */
+                                }
+
+                                .dropdown-toggle {
+                                    display: block;
+                                    padding: 0.25rem 1rem; /* добавим дополнительные классы для dropdown, чтобы они имели одинаковый стиль */
+                                }
+                            </style>
+
+
+                            <p class="mb-0"><a href="#">Наверх</a></p>
+                            </ol>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            </main>
+        </div>
+    </header>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+</html>
