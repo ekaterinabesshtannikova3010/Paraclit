@@ -1,0 +1,935 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Astro v5.9.2">
+    <title>Blog Template · Bootstrap v5.3</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/blog/">
+    <script src="/docs/5.3/assets/js/color-modes.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
+    <meta name="theme-color" content="#712cf9">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap" rel="stylesheet">
+    <link href="blog.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT&display=swap" rel="stylesheet">
+    <style>
+        .bd-placeholder-img{font-size:1.125rem;text-anchor:middle;-webkit-user-select:none;-moz-user-select:none;user-select:none}@media (min-width: 768px){.bd-placeholder-img-lg{font-size:3.5rem}}.b-example-divider{width:100%;height:3rem;background-color:#0000001a;border:solid rgba(0,0,0,.15);border-width:1px 0;box-shadow:inset 0 .5em 1.5em #0000001a,inset 0 .125em .5em #00000026}.b-example-vr{flex-shrink:0;width:1.5rem;height:100vh}.bi{vertical-align:-.125em;fill:currentColor}.nav-scroller{position:relative;z-index:2;height:2.75rem;overflow-y:hidden}.nav-scroller .nav{display:flex;flex-wrap:nowrap;padding-bottom:1rem;margin-top:-1px;overflow-x:auto;text-align:center;white-space:nowrap;-webkit-overflow-scrolling:touch}.btn-bd-primary{--bd-violet-bg: #712cf9;--bd-violet-rgb: 112.520718, 44.062154, 249.437846;--bs-btn-font-weight: 600;--bs-btn-color: var(--bs-white);--bs-btn-bg: var(--bd-violet-bg);--bs-btn-border-color: var(--bd-violet-bg);--bs-btn-hover-color: var(--bs-white);--bs-btn-hover-bg: #6528e0;--bs-btn-hover-border-color: #6528e0;--bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);--bs-btn-active-color: var(--bs-btn-hover-color);--bs-btn-active-bg: #5a23c8;--bs-btn-active-border-color: #5a23c8}.bd-mode-toggle{z-index:1500}.bd-mode-toggle .bi{width:1em;height:1em}.bd-mode-toggle .dropdown-menu .active .bi{display:block!important}
+    </style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path>
+    </symbol>
+    <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+    </symbol>
+    <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+    </symbol>
+    <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+    </symbol>
+</svg>
+<div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
+            aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+            <use href="#circle-half"></use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span></button>
+    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+            <ul>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
+                            aria-pressed="false" onclick="setTheme('light')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#sun-fill"></use>
+                        </svg>
+                        Light
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+                            aria-pressed="false" onclick="setTheme('dark')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#moon-stars-fill"></use>
+                        </svg>
+                        Dark
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center active"
+                            data-bs-theme-value="auto" aria-pressed="true" onclick="setTheme('auto')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#circle-half"></use>
+                        </svg>
+                        Auto
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+
+            <script>
+                function setTheme(theme) {
+                    document.body.setAttribute('data-bs-theme', theme);
+
+                    // Удалить класс 'active' с всех кнопок и установить его только на нажатую кнопку
+                    const buttons = document.querySelectorAll('.dropdown-item');
+                    buttons.forEach(button => {
+                        button.classList.remove('active');
+                        button.setAttribute('aria-pressed', 'false');
+                    });
+
+                    const activeButton = Array.from(buttons).find(button => button.getAttribute('data-bs-theme-value') === theme);
+                    activeButton.classList.add('active');
+                    activeButton.setAttribute('aria-pressed', 'true');
+                }
+            </script>
+        </li>
+    </ul>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+            stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path>
+    </symbol>
+    <symbol id="cart" viewBox="0 0 16 16">
+        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
+    </symbol>
+    <symbol id="chevron-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+    </symbol>
+</svg>
+
+<div class="container">
+    <header class="border-bottom lh-1 py-3">
+        <div class="row">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #800000; color: #800000;">
+                <div class="container-fluid text-bordeaux"> <!-- добавляем класс для текста -->
+                    <div class="col-4 pt-1" style="font-size: 1.5em; font-family: 'Old Standard TT', serif;">
+                        <a class="link-secondary active" href="{% url 'content:home' %}" style="color: #800000;">Пономарь</a><br>
+                        <div class="text-center" style="margin-top: 20px;">
+
+                        </div>
+                        <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#"
+                           style="font-size: 1.2em; color: #800000;">Старообрядцы Тувы</a>
+                    </div>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon" style="background-color: #800000;"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{% url 'content:about' %}"
+                                   style="color: #800000;">О НАС</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:question' %}" style="color: #800000;">ЗАДАТЬ
+                                    ВОПРОС</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:star' %}" style="color: #800000;">СТАРООБРЯДЧЕСТВО</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:potrebnic' %}" style="color: #800000;">ПОТРЕБНИК</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:kultura' %}"
+                                   style="color: #800000;">КУЛЬТУРА</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:map' %}" style="color: #800000;">КАРТА
+                                    САЙТА</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:articles' %}"
+                                   style="color: #800000;">СТАТЬИ</a>
+                            </li>
+                        </ul>
+                        <div class="col-4 d-flex justify-content-end align-items-center">
+                            <a class="link-secondary" href="#" aria-label="Search" style="color: #800000;">
+                                <button type="button" onclick="handleSearchClick()"
+                                        style="background: none; border: none; cursor: pointer;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                         stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                         stroke-width="2"
+                                         class="mx-3" role="img"
+                                         viewBox="0 0 24 24" style="color: #800000;">
+                                        <title>Search</title>
+                                        <circle cx="10.5" cy="10.5" r="7.5"></circle>
+                                        <path d="M21 21l-5.2-5.2"></path>
+                                    </svg>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        {% block content %}
+        {% endblock %}
+
+
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-md-8">
+                    <article class="blog-post">
+                        <h1 class="display-5 mb-1">
+                            <a href="#" style="text-decoration: none; color: black;">
+                                <strong>Василий Блаженный</strong>
+                            </a>
+                        </h1>
+                    </article>
+                    <p style="font-size: 17px;" class="lh-base"></p>
+                    <p style="font-size: 20px;" class="lh-base"><br>Святые Блаженные Покровского собора</p>
+
+                    <p style="font-size: 17px;" class="lh-base"><br>Василий Блаженный - святой, именем которого чаще
+                        всего
+                        называют Покровский собор на Красной площади в Москве. Каким же образом блаженный, Христа ради
+                        юродивый оказался настолько тесно связан с храмом, символом Казанского взятия? Какова природа и
+                        смысл быть блаженным? Был ли Василий единственным в своем роде? Попробуем разобраться.</p>
+                    <div style="text-align: center;">
+                        <img src="{% static 'image/16.jpg' %}"
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <p style="color: #6c757d; margin-top: 0.5rem;">Святой Василий Блаженный, Москва, XVI в.</p>
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base"><br>Попробуем объяснить природу и контекст юродства
+                        Христа
+                        ради с точки зрения культурных аспектов, минуя религиозный, оставляя его трактовку церкви. Так
+                        кого же мы можем называть юродивым или блаженным? В смысле культуры - это человек, о котором
+                        окружающие считали, что он симулирует сумасшествие, прикидывается дураком или ведет себя
+                        нарочито разнузданно, чем, безусловно, шокирует окружающих. Подобное поведение имеет скрытую
+                        мотивацию: с точки зрения религиозной культуры - божественную, с точки зрения светской -
+                        психологическую.<br></p>
+                    <div style="text-align: center;">
+                        <img src="{% static 'image/17.jpg' %}"
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <p style="color: #6c757d; margin-top: 0.5rem;">Покров на раку святого Василия Блаженного,
+                            Москва, 1589 г.</p>
+                    </div>
+
+                    <p style="font-size: 17px;" class="lh-base"><br>Традиция юродства имеет древние корни, и на Русь
+                        пришла
+                        из Византии. Покровителем всех русских юродивых считался святой Андрей Юродивый (Царьградский).
+                        Святой Андрей, по преданию, был непосредственным участником событий, легших в основу праздника
+                        Покрова Пресвятой Богородицы. Именно ему было видение о явлении Богоматери с покровом во
+                        Влахернском храме в Константинополе, во время всеобщей молитвы о спасении от осады города.
+                        Святой Василий Блаженный родился в 1469 г. в селе Елохове под Москвой. Согласно житию, в юности
+                        Василий трудился учеником сапожника, и однажды некий состоятельный человек заказал сапоги, да
+                        такие «чтобы сносу не было». После ухода заказчика Василий сказал мастеру, что богач не
+                        вернется за сапогами, потому что ему суждено вскоре умереть. Так и случилось. Открывшийся дар
+                        предвидения заставил юношу задуматься о выборе дальнейшего жизненного пути. Им овладел страх,
+                        что он может неправильно использовать свой дар, и Василий решил посвятить жизнь служению Богу.
+                        С
+                        16 лет он вступил на путь юродства. Жизнь святого была непомерно тяжелой: в палящий зной и
+                        лютый мороз он ходил по улицам нагим и босым, не имея пропитания и крова. Поступки святого
+                        также были странны: он мог опрокинуть лоток с калачами или пролить квас из кувшина. За это
+                        Василий получал побои от рассерженных торговцев. А потом оказывалось, что калачи не свежи и
+                        квас был негодным. Вскоре люди признали в Василии святого, юродивого Христа ради, защитника
+                        слабых и обличителя неправды. Несмотря на тяжелую жизнь и телесные страдания Василий Блаженный
+                        прожил долгую жизнь и умер в 1557 г. К тому времени святость его была неоспорима и
+                        подкреплялась многочисленными чудесами. Царь Иван IV Грозный уважал и ценил святого<br>
+                        «яко провидца душ человеческих».<br>
+
+                        Вместе со своей семьей шел он за гробом Василия к месту упокоения - у восточной стены
+                        строящегося Покровского собора.</p>
+                    <div style="text-align: center;">
+                        <img src="{% static 'image/18.jpg' %}"
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <p style="color: #6c757d; margin-top: 0.5rem;">Святые Василий и Иоанн Блаженные. Москва, XVII
+                            в.</p>
+                    </div>
+
+                    <p style="font-size: 17px;" class="lh-base"><br>Почему же это место выбрал святой? Известно, что
+                        еще до
+                        начала строительства здесь была деревянная церковь Святой Троицы и вокруг нее, как и
+                        полагается, было кладбище. Позже, после победы в Казанском походе Иван Грозный начал на этом
+                        месте строительство Покровского собора в 1555 г. - символа победы христианства, мемориала во
+                        славу русского оружия. Спустя несколько десятилетий в 1588 г. по приказу царя Федора Иоанновича
+                        над могилой Василия Блаженного построили церковь. Поначалу она имела отдельный вход.
+                        Впоследствии она стала самой популярной в Покровском соборе. Идя сюда, люди шли в основном к
+                        Василию, и вскоре весь храм стал называться Храмом Василия Блаженного.<br>
+                        <br>Василий Блаженный был не единственным в своем роде юродивым Христа ради, связанным с
+                        Покровским
+                        собором. Незадолго до официального прославления святого Василия в Москву из Ростова приходит
+                        Иоанн Блаженный. Он также был юродивым, однако его подвиг был скрыт от посторонних глаз - он
+                        был веригоносцем. Традиция веригоношения уходит корнями в древность и опирается на слова Нового
+                        Завета:</p><br>
+                    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                        <p class="fst-italic">«Вечерами христиане собирались семьями, рассаживали перед собою детей, и
+                            пели
+                            духовные стихи. Особо популярными были стихи про Аввакума и об отшельнике».</p>
+
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base"><br> <br>Иоанн был родом из Вологды и в юности решил
+                        посвятить свою жизнь служению Богу. Он трудился «водоносцем» на солеваренных промыслах в своем
+                        крае, а затем отправился в Ростов Великий, где принял на себя подвиг веригоношения. Св. Иоанн
+                        носил длинное одеяние с капюшоном, полностью закрывавшее тело и прятавшее тяжелые вериги. За
+                        свой высокий капюшон Иоанн Блаженный получил прозвище Большой Колпак. Со временем в
+                        историографии утвердилось мнение, что капюшон на самом деле был отдельным колпаком и под ним
+                        святой прятал железный венец. Однако это не так, не сохранилось ни одного упоминания в житийных
+                        списках о каком-либо железном венце и, кроме того нет ранних иконописных изображений «железного
+                        колпака».<br>
+                        Придя в Москву, Иоанн Блаженный снискал уважение и почет подобно своему предшественнику святому
+                        Василию Блаженному. Иоанн умер в 1589 г. и завещал похоронить себя рядом с почитаемым
+                        блаженным, у восточной стены Покровского собора. На погребении присутствовали царь и вновь
+                        утвержденный патриарх Иов. Из жития следует, что в этот день были «знамения», ударил гром и
+                        молния, от чего был пожар в Покровском соборе. Это связывали с нарушением обещания, данного
+                        святому Иоанну, который просил похоронить себя на третий день после смерти, что не было
+                        исполнено.<br>
+                        В этот период, в конце XVI в., при первом русском патриархе Иове начинается новый этап в
+                        прославлении русских местночтимых святых. Вериги святого Иоанна Блаженного, как важная святыня,
+                        и поныне хранятся в Покровском соборе, они сейчас находятся в церкви, посвященной святому, и
+                        доступны для поклонения. Сама же церковь святого Иоанна появилась позже, после 1672 г., когда
+                        были обретены его мощи. Правда, называться именем Иоанна она стала лишь накануне революции в
+                        1916 г., хотя все это время его мощи там покоились под спудом. В исторических документах
+                        сохранилось разное наименование этой церкви: Положения риз Пресвятой Богородицы или Рождества
+                        Пресвятой Богородицы.<br>
+                    </p>
+                    <div style="text-align: center;">
+                        <img src="{% static 'image/19.jpg' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <p style="color: #6c757d; margin-top: 0.5rem;">Святой Василий Блаженный. Хоругвь. Москва Конец
+                            XIX в.</p>
+                    </div>
+                    <br>
+                    <div style="text-align: center;">
+                        <img src="{% static 'image/20.jpg' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <p style="color: #6c757d; margin-top: 0.5rem;">Святой Иоанн Блаженный. Хоругвь, Москва, Конец
+                            XIXв.</p>
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base">Так что же объединяет этих святых? Не только место
+                        захоронения, но и образ жизни. Обоих святых называли юродивыми Христа ради, и жизнь их была
+                        наполнена каждодневным подвигом. Однако подвиг этот, чем труднее он был, тем с большей
+                        благодарностью к Богу относились святые. Их жизнь была примером для других в том смысле, что
+                        они пытались объяснить и показать бренность нашей жизни, ее быстротечность и суетность. Также
+                        они посвятили себя помощи другим страждущим, молитвам и постам, обличая человеческие грехи и
+                        призывая к соблюдению христианских заповедей.<br></p>
+                    <p style="font-size: 20px;" class="lh-base">Василий Блаженный в иконописи Покровского собора</p>
+                    <p style="font-size: 17px;" class="lh-base"><br>Есть ли на свете место, где не слышали о Храме
+                        Василия
+                        Блаженного? Наверное, нет. В мире собор известен именно под таким названием, но мало кто знает
+                        историю святого и почему Покровский собор получил второе название.<br>
+                        Василий Блаженный жил в конце XV - первой половине XVI века. Житие святого дошло до нас в
+                        разрозненном состоянии, существует несколько его редакций. Из него известно, что родился он на
+                        паперти церкви с. Елохова (ныне эта территория находится практически в центре Москвы). По одним
+                        сведениям, он был сыном гвоздевых дел мастера и обучался отцовскому ремеслу, по другим, более
+                        распространенным - учеником сапожника. В 16 лет он решил уйти из мира и посвятить жизнь Богу.
+                        Уйти из мира можно было не только в монастырь, наоборот, можно остаться жить в людном городе,
+                        но как бы заново родившись, очистившись, отринув все мирские блага, пройти подобно Господу в
+                        абсолютном одиночестве свой крестный путь.<br></p>
+                    <div style="text-align: center;">
+                        <img src="{% static 'image/21.jpg' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <p style="color: #6c757d; margin-top: 0.5rem;">«Уход отрока Василия из дома», Миниатюра
+                            лицевого Жития святого Василия Блаженного</p>
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base"><br>Василий избрал путь юродства Христа ради: он стал
+                        нагоходцем (нагое тело - чисто и невинно, как у младенца), жил на улице зимой и летом (нагое
+                        тело больше терпит), питался подаянием (но не прося милостыни), говорил особым «кодированным»
+                        (но понятным) языком, проповедуя библейские заповеди - таким образом совершая свой труд во имя
+                        Господа. Прожил он долго, 88 лет, что тогда было большой редкостью, и Господь, отмечая его
+                        усердие, наделил его способностью творить чудеса еще при жизни.<br>
+                        Умер Василий Блаженный в 1557 году и был похоронен у стены строившегося тогда собора. К этому
+                        времени он был глубоко почитаем, а основным местом его пребывания был Торг, как в те времена
+                        называлась Красная площадь. От могилы также происходили чудеса, и в 1588 году, в правление
+                        Федора Иоанновича, Василий Блаженный был канонизирован, а над его захоронением к собору
+                        пристроили церковь.<br>
+                        В те времена общепросиявшие российские святые чудотворцы были редкостью. Как правило,
+                        прославились они в далёких от Москвы землях. И когда у москвичей появился исполнявший
+                        высказанные в молении просьбы, исцелявший святой, в церковь началось такое паломничество, что
+                        ее даже держали открытой круглосуточно. Именно тогда собор приобрел еще одно посвящение и
+                        второе название - «Храм Василия Блаженного».<br></p>
+                    <div style="text-align: center;">
+                        <img src="{% static 'image/22.jpg' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <p style="color: #6c757d; margin-top: 0.5rem;">Покров на раку святого Василия Блаженного. 1589
+                            г.</p>
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base"><br>К канонизации святого готовились: вели запись
+                        чудес,
+                        над могилой поставили раку, начали писать иконы, а в мастерских царицы Ирины Годуновой на раку
+                        был изготовлен покров святого. Он датируется 1589 годом, и это одно из самых первых изображений
+                        святого - на нем вышит в рост совершенно обнаженный человек. Покров был богато украшен золотным
+                        шитьем (тонкими нитками-проволочками из серебра и золота толщиной в волос), драгоценными
+                        камнями и жемчугом, которые, к сожалению, были похищены в лихие времена в начале 1920-х годов.
+                        Сейчас эта реликвия собора представлена в экспозиции.
+                        Почему же нельзя было покрыть им, как и задумывалось ранее, раку святого? Это изделие древнее;
+                        насчитывающая столетия ткань не может свисать с раки, иначе она очень быстро разрушится.
+                        Специалистами был выбран оптимальный способ показа.</p>
+                    <div style="text-align: center;">
+                        <img src="{% static 'image/23.jpg' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <p style="color: #6c757d; margin-top: 0.5rem;">Икона «Саятой Василий Блаженный». Конец XVI
+                            a.</p>
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base"><br>В Покровском соборе хранится святыня: небольшая по
+                        размеру икона Василия Блаженного, написанная в самом конце XVI века. Если учесть, что он был
+                        канонизирован только в 1588 году, то это очень точная датировка, что бывает крайне редко в
+                        случае с такими древними памятниками. На иконе святой Василий Блаженный совершенно обнаженный,
+                        предстоящий Спасителю. Это один из иконографических типов, который потом будет часто
+                        повторяться. Необходимо отметить, что святые юродивые - это самый низший ранг в иерархии
+                        святых, и их в древности никогда не писали отдельно: они всегда предстояли Христу или
+                        Богоматери. В отличие от более поздних вариантов, Василий Блаженный на древних иконах всегда
+                        предстает обнаженным.</p>
+                    <div style="text-align: center;">
+                        <img src="{% static 'image/24.jpg' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <p style="color: #6c757d; margin-top: 0.5rem;">Икона «Святой Василий Блаженный с клеймами
+                            жития»: Средник иконы: XVI в.; рама с клеймами жития: 1870-е гг.</p>
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base">Рядом с покровом демонстрируется икона такой же
+                        иконографии и такой же датировки, и трудно сказать, какая из них более ранняя. Но эту икону не
+                        сразу увидишь, потому что внимание к себе, в первую очередь, привлечет житийная рама - яркая и
+                        интересная, специально выполненная для этой древней иконы палехскими художниками в конце XIX
+                        века. На клеймах - сюжеты из жития Василия Блаженного.</p>
+                    <div style="text-align: center;">
+                        <img src="{% static 'image/25.png' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <p style="color: #6c757d; margin-top: 0.5rem;">Погребение святого Василия Блаженного. Клеймо
+                            иконы</p>
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base"><br>Четыре клейма повествуют о прижизненных чудесах
+                        Василия: спасение Москвы от татарского разорения, спасение Новгорода от пожара, чудо на море и
+                        чудо о шубе. Три клейма посвящены смерти и похоронам Василия Блаженного, Согласно легенде,
+                        перед смертью святого к нему пришел сам государь Иоанн Васильевич с семьей, и тогда Василий
+                        предсказал царю, что после его смерти будет править младший сын (которому в тот момент
+                        исполнилось только 3 месяца). По преданию, царь Иван Васильевич с семьей был на похоронах
+                        святого.<br>
+                        Мы познакомились с самой древней иконографией соборных образов Василия Блаженного. С XVII века
+                        она заметно меняется, появляются уже совершенно другие иконы, сюжеты которых становятся более
+                        разнообразными.</p>
+                    <div style="text-align: center;">
+                        <img src="{% static 'image/26.jpg' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <p style="color: #6c757d; margin-top: 0.5rem;">Икона «Святой Василий Блаженный и мученица
+                            Ирина», XVII в.</p>
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base"><br>В XVII столетии усложняется иконография образа
+                        Василия
+                        Блаженного, его часто пишут с другими святыми. К этому времени относится икона Василия
+                        Блаженного и священномученицы Ирины - небесной покровительницы царицы Ирины Годуновой, при
+                        которой был канонизирован святой и вышит уникальный покров. Удивительна история оклада этой
+                        иконы: в 1922 году он был изъят Комиссией Помгола вместе с другими ценностями Покровского
+                        собора. Однако, к счастью, он не был переплавлен, и в 1927 г. вернулся на своё законное
+                        место.</p>
+                    <div style="text-align: center;">
+                        <img src="{% static 'image/27.jpg' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <p style="color: #6c757d; margin-top: 0.5rem;">Икона «Святой Василий Великий и святой Василий
+                            Блаженный», Конец XVI - начало XVII в</p>
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base"><br>В соборе есть икона конца XVI - начала XVII века,
+                        на
+                        которой мы видим Василия Блаженного с его небесным покровителем - Василием Великим. Предстоящие
+                        Богоматери святые изображены в рост. Также до нас дошла небольшая икона святого в окружении
+                        юродивых, большинству из нас неизвестных. Среди них Мария Египетская, Максим, Иоанн Блаженные и
+                        еще один святой, определить которого пока не удалось. Василий Блаженный был не единственный и
+                        далеко не первый юродивый.</p>
+                    <div style="text-align: center;">
+                        <img src="{% static 'image/28.jpg' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <p style="color: #6c757d; margin-top: 0.5rem;">Икона «Святой Василий Блаженный на фоне
+                            Покровского собора». XVIII в.</p>
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base"><br>Один из самых ранних образов Василия Блаженного
+                        XVIII
+                        в. в Покровском соборе - икона с треугольным завершением с Варварских врат. Василий изображен
+                        еще в традициях XVI-XVII вв. - абсолютно нагим, в рост, в позе молящегося заступника,
+                        предстоящего перед образом Христа, но он уже на фоне Кремля. Такая иконография образа будет
+                        часто встречаться в XVIII веке: на фоне Москвы, Кремля, Красной площади. Появляется икона так
+                        называемого «городского типа». Подобные произведения особенно ценны для исследователей, потому
+                        что являются великолепными источниками по истории градостроительства, архитектуры и
+                        топографии.</p>
+                    <div style="text-align: center;">
+                        <img src="{% static 'image/29.jpg' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <p style="color: #6c757d; margin-top: 0.5rem;">Оклад иконы «Святой Василий Блаженный на фоне
+                            Покровского собора» XVIIIв</p>
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base"><br>Интересна история этой иконы. В экспозиции она
+                        появилась совсем недавно, в 2011 году. Как и некоторые другие иконы, она была спрятана
+                        музейными сотрудниками в первые послереволюционные годы. Ей могло грозить уничтожение, потому
+                        что она была под окладом, который производил впечатление золотого, а все церковное имущество из
+                        драгоценных металлов в 1920-х годах реквизировалось. Сама икона оказалась настолько хороша,
+                        что, при создании экспозиции, решили, что икона и оклад достойны внимания - изображения на них
+                        отличаются. Необыкновенно красивый оклад можно видеть рядом с иконой. Он выполнен в технике
+                        чеканки и гравировки, а золочение - в технике гальванопластики, позволяющей нанести тончайший
+                        слой золота.<br></p>
+                    <div style="text-align: center;">
+                        <img src="{% static 'image/30.jpg' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <p style="color: #6c757d; margin-top: 0.5rem;">Икона «Святой Василий Блаженный на фоне
+                            Московского Кремля и Красной площади». XVIII в. Из иконостаса церкви святого Василия
+                            Блаженного</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="{% static 'image/31.jpg' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <p style="color: #6c757d; margin-top: 0.5rem;">Икона «Богоматерь Знамение со святыми на полях»:
+                            XVII в:</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="{% static 'image/32.jpg' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <p style="color: #6c757d; margin-top: 0.5rem;">Икона «Богоматерь Знамение со святыми на полях»
+                            XVIIIв.</p>
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base"><br>Скорее всего, большинство икон святого Василия
+                        Блаженного, которые сейчас находятся в собрании Покровского собора, были написаны специально
+                        для этого собора. К ним же можно отнести две фасадные иконы Богоматери «Знамение»: конца XVII
+                        века и реплику с нее, созданную в следующем столетии. На полях этих икон представлены святые
+                        московского круга и, конечно, среди них Василий Блаженный. В этот период уже все, что связано с
+                        собором, было связано и с Василием Блаженным. Со времени взятия Казани и главного посвящения
+                        собора, как обетного храма Покрова, прошло столетие; значимость события уходила на второй план,
+                        и собор уже все более воспринимали как Храм Василия Блаженного.</p>
+                    <div style="text-align: center;">
+                        <img src="{% static 'image/33.jpg' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <p style="color: #6c757d; margin-top: 0.5rem;">Икона «Покров Пресвятой Богоматери с
+                            предстоящими Василием и Иоанном Блаженными». XVIII в</p>
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base"><br>В XVIII веке одним из излюбленных сюжетов
+                        становится
+                        изображение одного из чудес Василия Блаженного - чуда на море. Направляясь в Москву, персидские
+                        купцы шли через Каспийское море и попали в сильный шторм. Корабль получил большие повреждения,
+                        и люди стали готовиться к смерти, а бывшие на корабле христиане молились. Вдруг все увидели,
+                        что к ним по волнам идет обнажённый человек. Внезапно море утихло, человек помог им добраться
+                        до порта и исчез. А когда они с товаром дошли до Москвы, то встретили там этого человека, и
+                        оказался им Василий Блаженный. Такая икона есть в подместном ряду иконостаса центральной церкви
+                        Покрова, в классической традиции этот сюжет повторяется на раке Василия Блаженного конца XIX
+                        века и на фасадной иконе XVIII века «Покров с предстоящими Василием и Иоанном Блаженными» на
+                        южной стороне колокольни.<br>
+                        Сейчас фасадная икона экспонируется в центральной церкви для обеспечения ее сохранности, а на
+                        ее прежнем месте находится список, выполненный к 450-летию собора современными красками. Это
+                        очень большая икона: 3,5 × 2,5 м. Ее было видно даже с Москворецкого моста, и человек,
+                        подходивший к собору с той стороны, глядя на нее, сразу мог узнать основные посвящения храма:
+                        Покрову Богоматери и Василию Блаженному<br>.</p>
+                    <div style="text-align: center;">
+                        <img src="{% static 'image/19.jpg' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <p style="color: #6c757d; margin-top: 0.5rem;">Хоругвь двусторонняя «Святой Василий Блаженный,
+                            Рождество Пресвятой Богородицы», Конец XIX в</p>
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base"><br>K XIX веку относятся две хоругви с изображением
+                        Василия
+                        Блаженного. Одна, парная хоругви с фигурой Иоанна Блаженного, находится в северном подклете
+                        собора. Ее удалось довольно точно датировать: она написана в 1896 г. на бристольском картоне.
+                        Это ростовое изображение святого в набедренной повязке. Вторая, тоже парная хоругвь находится в
+                        церкви Иоанна Блаженного.</p>
+                    <div style="text-align: center;">
+                        <img src="{% static 'image/34.png' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <p style="color: #6c757d; margin-top: 0.5rem;">Икона «Днесь светло красуется славнейший град
+                            Москва…» Начало ХХ в.</p>
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base"><br>В самом начале XX века в соборе появилась икона с
+                        необычным названием: «Днесь светло красуется славнейший град Москва», Эта икона написана на
+                        металле, сейчас она находится в церкви Василия Блаженного. В центре ее изображена русская
+                        святыня - Владимирская икона Богоматери, которой предстоят святые земли русской, и среди них
+                        наш заступник - Василий Блаженный.</p>
+                    <div style="text-align: center;">
+                        <img src="{% static 'image/35.jpg' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <p style="color: #6c757d; margin-top: 0.5rem;">«Святой Василий Блаженный - заступник града
+                            Москвы и земли Русской». Миниатюра из лицевого жития.</p>
+                    </div>
+                    <p style="font-size: 20px;" class="lh-base"><br>Чудеса Василия Блаженного. Великий праведник и
+                        страшный
+                        московский пожар</p>
+                    <p style="font-size: 17px;" class="lh-base"><br>Много раз Василий Блаженный поражал людей своими
+                        чудесами и даром провидения. Вот и летом 1547 года народ был удивлен поведением юродивого. У
+                        Крестовоздвиженского монастыря, что находился в районе улицы Воздвиженка, Василий стоял и то
+                        горько плакал, то громко смеялся. Когда его спросили, отчего он плачет, а потом неожиданно
+                        смеется, блаженный ответил:</p>
+                    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                        <p class="fst-italic"><br>«Большое несчастье произойдет отсюда - беда для всех. Но то зло добру
+                            дорогу расчистит»..</p>
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base"><br>В изумлении люди разошлись. А через несколько дней,
+                        21
+                        июня 1547 года, они стали свидетелями страшного московского пожара, названного позже «Великим».
+                        Произошло возгорание, по воспоминаниям очевидцев, от горящей свечи в церкви
+                        Крестовоздвиженского монастыря, у которого на днях слезно молился праведник. Быстрому
+                        распространению пламени по городу способствовала разыгравшаяся в тот день буря с ветром, и
+                        стоявшая жаркая засушливая погода.<br>
+                        Вот как описывает это происшествие автор «Истории государства Российского» Н.М. Карамзин:
+                        «Вся Москва представила зрелище огромного пылающего костра под тучами густого дыма. Деревянные
+                        здания исчезли, каменные распались, железо рдело как в горнице, медь текла. Рёв бури, треск
+                        огня, и вопль людей от времени до времени был заглушаем взрывами пороха, хранившегося в Кремле
+                        и других частях города. Спасали единственно жизнь: богатство праведное и неправедное гибло.
+                        Царские палаты, казна, сокровища, иконы, древние хартии, клинки, даже мощи святых истлели. К
+                        вечеру буря затихла, и в три часа ночи, угасло пламя; но развалины курились несколько дней, от
+                        Арбата и Неглинной до Яузы и до конца Великой улицы, Варварской, Покровской, Мясницкой,
+                        Дмитровской, Тверской… Люди с опаленными волосами, черными лицами, бродили как тени среди
+                        ужасов обширного пепелища: искали детей, родителей, остатков имений; не находили и выли как
+                        дикие звери».</p>
+                    <div style="text-align: center;">
+                        <img src="{% static 'image/36.jpg' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <p style="color: #6c757d; margin-top: 0.5rem;">Миниатюра Жития «Святой Василий Блаженный»</p>
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base">В тот страшный пожар пострадало сильно открытое
+                        пространство, которое позже назовут Красной площадью. Долгое время оно так и называлось -
+                        «Пожар». По свидетельству летописей, здесь</p>
+                    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                        <p class="fst-italic">«огнь все полиза».</p>
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base"><br>Вскоре после свершившихся событий молодой, недавно
+                        венчанный на царство, государь Иван Васильевич Грозный, повелел всем жителям Москвы иметь во
+                        дворах чан с водой и летом печи в домах не топить, а пищу готовить в огороде, на специально для
+                        этих целей сооруженной печи. Развивается каменное строительство домов и начинает меняться
+                        планировка улиц. Кроме того, появляются первые ручные насосы для тушения пожаров, которые
+                        назывались «водополивными трубами».<br>
+                        Так было положено начало пожарному делу и сбылось одно из пророчеств святого Василия, обретшего
+                        место упокоения у стен Покровского собора, в настоящее время более известного как храм Василия
+                        Блаженного.<br></p>
+                    <p style="font-size: 20px;" class="lh-base"><br>Чудеса Василия Блаженного. На пиру у царя<br></p>
+                    <p style="font-size: 17px;" class="lh-base"<br>>Как известно, правивший в XVI веке царь Иван
+                    Васильевич
+                    Грозный был очень верующим и набожным чеовеком. Почитал он, как и большинство жителей Москвы,
+                    прославившегося своими чудесами Василия Блаженного, который смело мог обличать государя в
+                    немилосердном отношении к подданным.</p>
+                    <div style="text-align: center;">
+                        <img src="{% static 'image/37.png' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <p style="color: #6c757d; margin-top: 0.5rem;">Чудо тушения новгородского пожара. Клеймо
+                            житийной иконы святого Василия Блаженного</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="{% static 'image/38.jpg' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <p style="color: #6c757d; margin-top: 0.5rem;">Василий Блаженный на пиру у царя. Миниатюра
+                            лицевого Жития</p>
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base"><br>Однажды самодержец пригласил юродивого на свой пир
+                        и
+                        даже усадил его с собой рядом за пышным столом. В знак уважения царь преподнес праведнику кубок
+                        с вином, но тот его вылил. Иван Васильевич стерпел этот дерзкий поступок и снова наполнил сосуд
+                        вином, но оно было вновь опрокинуто блаженным. Трижды Василий опустошал чарку с вином, выливая
+                        его в окно. Разгневанный государь не выдержал и с раздражением спросил чудотворца:</p>
+                    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                        <p class="fst-italic">«Что ты делаешь?».</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="{% static 'image/39.png' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <p style="color: #6c757d; margin-top: 0.5rem;">Василий Блаженный заливает из кувшина пожар в
+                            Новгороде. Миниатюра лицевого Жития</p>
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base"><br>Блаженный лишь ответил, что тушит пожар в
+                        Новгороде.
+                        Царь не поверил, и тотчас к месту бедствия был отправлен гонец. Новгородцы подтвердили слова
+                        праведника, сказав, что улицы города начал охватывать огонь, но не успел разгореться, так как
+                        некий нагой муж ходил с водоносом и заливал огненное пламя. Вскоре некоторые жители Новгорода
+                        прибыли в Москву, где на улицах города узнали спасителя своей малой родины. Им оказался Василий
+                        Блаженный.</p>
+                    <div style="text-align: center;">
+                        <img src="{% static 'image/40.png' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <p style="color: #6c757d; margin-top: 0.5rem;">Новгородцы узнали Василия Блаженного, спасшего
+                            их город. Изображение на металлической накладке на раке святого Василия Блаженного</p>
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base"><br>Слава о чудесах и даре прозорливости еще при жизни
+                        святого распространилась далеко за пределы Москвы. К нему постоянно обращались люди за помощью.
+                        Когда же Василий преставился, его погребают у стен Покровского собора. На могилу к чудотворцу
+                        начинает стекаться народ, прося его об исцелении. В 1588 году, по приказу Федора Иоанновича,
+                        сына Ивана Грозного, над местом захоронения Василия Блаженного строят церковь. Само место
+                        погребения обозначают серебряной ракой, которая, к сожалению, не сохранилась до наших дней,
+                        из-за событий смутного времени XVII века. В 1896 году, во время реставрации церкви Василия
+                        Блаженного, над предполагаемым местом захоронения святого появляется новая, сохранившаяся до
+                        наших дней, рака, выполненная по проекту архитекторов А. М. Павлинова и С. У. Соловьева. Раку
+                        украшают металлические чеканные картуши, в которых изображены сцены прижизненных чудес Василия.
+                        Среди прочих представлено изображение чуда тушения новгородского пожара. Оно находится на
+                        стороне раки, скрытой от глаз посетителей. Также в Покровском соборе хранится икона святого,
+                        при внимательном изучении которой, в житийных клеймах можно найти сцену спасения Василием
+                        Блаженным Новгорода Великого от пожара.<br></p>
+                    <p style="font-size: 20px;" class="lh-base"><br>Чудо о шубе<br></p>
+                    <p style="font-size: 17px;" class="lh-base"><br>Святой Василий Блаженный, чьи мощи упокоились в
+                        Покровском соборе, прославился в XVI веке. До нашего времени дошли отрывочные сведения о
+                        праведной жизни блаженного. Мы не знаем точного года его рождения. Зато на протяжении веков, из
+                        уст в уста, передавали москвичи рассказы о чудесах Василия, о присущем ему даре провидения.
+                        Василий Блаженный совершал их при жизни, известны также чудеса исцеления, которые происходили у
+                        его мощей. Об одном из чудес заступника за Москву и её жителей мы хотим рассказать вам.<br></p>
+                    <div style="text-align: center;">
+                        <img src="{% static 'image/41.jpg' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <p style="color: #6c757d; margin-top: 0.5rem;">Фрагмент настенной росписи в церкви святого
+                            Василия Блаженного Покровского собора</p>
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base"><br>Известно, что Василий Блаженный вёл бродячую жизнь,
+                        «во
+                        юродство претворися и обнажи тело свое». В любую погоду он скитался по улицам Москвы без одежды
+                        и босой. И вот однажды богатый купец увидел нагого Василия и решил пожалеть его. Ведь простому
+                        человеку было неведомо, как в лютый мороз можно ходить без тёплой одежды. За оказанную Василием
+                        помощь купец даровал ему лисью шубу с красным подбоем. После долгих протестов блаженный принял
+                        её.<br>
+                        Об этом прознали трое разбойников и подумали: зачем Василию шуба, если он и без неё обходится.
+                        Опасаясь забрать купеческий подарок насильно, они решили заполучить его обманным путем. Один из
+                        товарищей притворился мёртвым, а двое подошли к юродивому и попросили шубу - якобы, для
+                        погребения умершего друга. Василий исполнил просьбу и накрыл обманщика, при этом сказав:<br>
+                    </p>
+                    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                        <p class="fst-italic">«Шуба лисья, хитрая, укрой дело лисье, хитрое. Буди же ты отныне мёртв за
+                            лукавство, ибо писано: лукавии да потребятся».</p>
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base"><br>Товарищи обрадовались осуществлению своего
+                        злокозненного плана, но, когда они подняли шубу с притворившегося, обнаружили, что их друг
+                        действительно мёртв.<br>
+                        Конечно, можно заподозрить Василия Блаженного в жестокости. Однако так московский чудотворец
+                        явственно указывал, что помыслы и неблагочестивые поступки человеческие должны быть свободны от
+                        лжи. Своей праведной жизнью он подавал пример и призывал к благопристойному поведению.<br></p>
+                    <div style="text-align: center;">
+                        <img src="{% static 'image/42.png' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <p style="color: #6c757d; margin-top: 0.5rem;">Чудо о шубе. Клеймо житийной иконы святого
+                            Василия Блаженного. 1870-етг.</p>
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base"><br>Красочное изображение Чуда о шубе включено в
+                        настенную
+                        роспись церкви Василия Блаженного, выполненную на рубеже XIX-XX веков. Также оно дополняет
+                        другие чудеса в житийных клеймах иконы святого. Рама со сценами жития на икону была написана
+                        палехскими мастерами в конце XIX в. Будете в Покровском соборе, обязательно разыщите
+                        изображения этого чуда.<br>
+                        <br>авторы: ЕЛЕНА МОКРОУСОВА<br>
+                        ЯНА МЕРЗЛИКИНА<br>
+                        Алла Малыгина,<br>
+                        научный сотрудник отдела
+                        «Покровский собор»
+                        БЛОГ ИСТОРИЧЕСКОГО МУЗЕЯ<br></p>
+
+
+                    <div style="text-align: center;">
+                        <div class="text-center" style="margin-top: 20px;">
+
+                        </div>
+
+                        <script>
+                            function copyToClipboard(text) {
+                                navigator.clipboard.writeText(text).then(function() {
+                                    alert('Ссылка скопирована: ' + text);
+                                }, function(err) {
+                                    console.error('Ошибка при копировании: ', err);
+                                });
+                            }
+
+                            function openTelegram() {
+                                window.open('https://t.me/PonomarKyzyl', '_blank');
+                            }
+
+                            function openWhatsApp() {
+                                window.open('https://wa.me/8908 207-85-27', '_blank');
+                            }
+
+                            function openViber() {
+                                window.open('viber://chat?number=YourPhoneNumber', '_blank');
+                            }
+                        </script>
+                        <div class="container mt-5">
+                            <a href="https://t.me/ctr_vestnik" class="btn btn-primary btn-custom" target="_blank">
+                                <span class="main-text">Наш Телеграмм.</span><br>
+                                Просите и дано будет вам; ищите и найдёте; стучите, и отворят вам...
+                            </a>
+                            <h1></h1>
+                            <h1></h1>
+                        </div>
+                        <p style="font-size: 17px;" class="lh-base"></p>
+                        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; max-width: 38rem; margin-left: 7rem;">
+                            <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                                <img src="{% static 'src/avvakum-fire.jpg' %}"
+                                     style="max-width: 60%; height: auto; margin: 0 auto;">
+                                <div class="card-body">
+                                    <a class="btn" href="{% url 'content:avvacum' %}"
+                                       style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                                       role="button">
+                                        Неистовый Аввакум
+                                    </a>
+                                </div>
+
+                            </div>
+
+                            <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                                <img src="{% static 'src/drevnerus_10_chudo-georgiya-o-zmii-s-zhitiem.jpg' %}"
+                                     style="max-width: 45%; height: auto; margin: 0 auto;">
+                                <div class="card-body">
+                                    <a class="btn" href="{% url 'content:holiday' %}"
+                                       style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                                       role="button">
+                                        Праздник Георгия Победоносца в древнерусской литературе
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                                <img src="{% static 'src/scale_1200 (8).jpeg' %}"
+                                     style="max-width: 85%; height: auto; margin: 0 auto;">
+                                <div class="card-body">
+                                    <a class="btn" href="{% url 'content:typology' %}"
+                                       style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                                       role="button">
+                                        Типология взглядов русских мыслителей на старообрядчество
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                                <div class="card-body">
+                                    <a class="btn" href="{% url 'content:revolution' %}"
+                                       style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                                       role="button">
+                                        Старообрядцы в русской революции
+                                    </a>
+                                    Роль старообрядцев в русской революции
+                                </div>
+                            </div>
+                        </div>
+                        <nav class="blog-pagination" aria-label="Pagination"><a
+                                class="btn btn-outline-primary rounded-pill"
+                                href="#">Вверх</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="position-sticky" style="top: 2rem;">
+                        <div><h4 class="fst-italic">Недавние:</h4>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                                       href="{% url 'content:typology' %}">
+                                        <img src="{% static 'src/scale_1200 (8).jpeg' %}"
+                                             style="max-width: 30%; height: auto; margin: 0 auto;">
+                                        <div class="col-lg-8">
+                                            <span style="color: gray;">АПОЛОГИЯ</span>
+                                            <h6 class="mb-0">Типология взглядов русских мыслителей на
+                                                старообрядчество</h6>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                                       href="{% url 'content:new_year' %}">
+                                        <img src="{% static 'src/i (5).png' %}"
+                                             style="max-width: 30%; height: auto; margin: 0 auto;">
+                                        <div class="col-lg-8">
+                                            <span style="color: gray;">ТРАДИЦИИ</span>
+                                            <h6 class="mb-0">Новый год - языческие истоки</h6>
+
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                                       href="{% url 'content:star' %}">
+                                        <img src="{% static 'src/zvezda_5.jpg' %}"
+                                             style="max-width: 30%; height: auto; margin: 0 auto;">
+                                        <div class="col-lg-8">
+                                            <span style="color: gray;">ХРАМ И МИР</span>
+                                            <h6 class="mb-0">Что означает пятиконечная звезда</h6>
+
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="p-4">
+                            <h4 class="fst-italic">Темы</h4>
+                            <ol class="list-unstyled">
+                                <li><a href="#" class="custom-link">Новости</a></li>
+                                <li><a href="#" class="custom-link">О нас старообрядцах</a></li>
+                                <li><a href="#" class="custom-link">Престольный праздник</a></li>
+                                <li><a href="#" class="custom-link">Святоотеческое</a></li>
+                                <li><a href="#" class="custom-link">История старообрядчества</a></li>
+                                <li><a href="#" class="custom-link">Священство</a></li>
+                                <li><a href="#" class="custom-link">О Исусе Христе</a></li>
+                                <li><a href="#" class="custom-link">Личность</a></li>
+                                <li><a href="#" class="custom-link">Церковь</a></li>
+                                <li><a href="#" class="custom-link">Храмы</a></li>
+                            </ol>
+
+                            <style>
+                                .custom-link {
+                                    font-size: 1.2em;
+                                    font-weight: bold;
+                                    color: #800000;
+                                    text-decoration: none; /* убираем подчеркивание */
+                                }
+
+                                .dropdown-toggle {
+                                    display: block;
+                                    padding: 0.25rem 1rem; /* добавим дополнительные классы для dropdown, чтобы они имели одинаковый стиль */
+                                }
+                            </style>
+
+
+                            <p class="mb-0"><a href="#">Наверх</a></p>
+                            </ol>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            </main>
+        </div>
+    </header>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,545 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Astro v5.9.2">
+    <title>Blog Template · Bootstrap v5.3</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/blog/">
+    <script src="/docs/5.3/assets/js/color-modes.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
+    <meta name="theme-color" content="#712cf9">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap" rel="stylesheet">
+    <link href="blog.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT&display=swap" rel="stylesheet">
+    <style>
+        .bd-placeholder-img{font-size:1.125rem;text-anchor:middle;-webkit-user-select:none;-moz-user-select:none;user-select:none}@media (min-width: 768px){.bd-placeholder-img-lg{font-size:3.5rem}}.b-example-divider{width:100%;height:3rem;background-color:#0000001a;border:solid rgba(0,0,0,.15);border-width:1px 0;box-shadow:inset 0 .5em 1.5em #0000001a,inset 0 .125em .5em #00000026}.b-example-vr{flex-shrink:0;width:1.5rem;height:100vh}.bi{vertical-align:-.125em;fill:currentColor}.nav-scroller{position:relative;z-index:2;height:2.75rem;overflow-y:hidden}.nav-scroller .nav{display:flex;flex-wrap:nowrap;padding-bottom:1rem;margin-top:-1px;overflow-x:auto;text-align:center;white-space:nowrap;-webkit-overflow-scrolling:touch}.btn-bd-primary{--bd-violet-bg: #712cf9;--bd-violet-rgb: 112.520718, 44.062154, 249.437846;--bs-btn-font-weight: 600;--bs-btn-color: var(--bs-white);--bs-btn-bg: var(--bd-violet-bg);--bs-btn-border-color: var(--bd-violet-bg);--bs-btn-hover-color: var(--bs-white);--bs-btn-hover-bg: #6528e0;--bs-btn-hover-border-color: #6528e0;--bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);--bs-btn-active-color: var(--bs-btn-hover-color);--bs-btn-active-bg: #5a23c8;--bs-btn-active-border-color: #5a23c8}.bd-mode-toggle{z-index:1500}.bd-mode-toggle .bi{width:1em;height:1em}.bd-mode-toggle .dropdown-menu .active .bi{display:block!important}
+    </style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path>
+    </symbol>
+    <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+    </symbol>
+    <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+    </symbol>
+    <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+    </symbol>
+</svg>
+<div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
+            aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+            <use href="#circle-half"></use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span></button>
+    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+            <ul>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
+                            aria-pressed="false" onclick="setTheme('light')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#sun-fill"></use>
+                        </svg>
+                        Light
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+                            aria-pressed="false" onclick="setTheme('dark')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#moon-stars-fill"></use>
+                        </svg>
+                        Dark
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center active"
+                            data-bs-theme-value="auto" aria-pressed="true" onclick="setTheme('auto')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#circle-half"></use>
+                        </svg>
+                        Auto
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+
+            <script>
+                function setTheme(theme) {
+                    document.body.setAttribute('data-bs-theme', theme);
+
+                    // Удалить класс 'active' с всех кнопок и установить его только на нажатую кнопку
+                    const buttons = document.querySelectorAll('.dropdown-item');
+                    buttons.forEach(button => {
+                        button.classList.remove('active');
+                        button.setAttribute('aria-pressed', 'false');
+                    });
+
+                    const activeButton = Array.from(buttons).find(button => button.getAttribute('data-bs-theme-value') === theme);
+                    activeButton.classList.add('active');
+                    activeButton.setAttribute('aria-pressed', 'true');
+                }
+            </script>
+        </li>
+    </ul>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+            stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path>
+    </symbol>
+    <symbol id="cart" viewBox="0 0 16 16">
+        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
+    </symbol>
+    <symbol id="chevron-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+    </symbol>
+</svg>
+
+<div class="container">
+    <header class="border-bottom lh-1 py-3">
+        <div class="row">
+
+            <!-- Logo "Пономарь" -->
+            <div class="col-md-4 pt-1" style="font-size: 2em; font-family: 'Old Standard TT', serif; color: #9B1B30;">
+                <a class="link-secondary active" href="{% url 'content:home' %}" id="ponomar">Пономарь</>
+            </div>
+
+            <!-- Header "Старообрядческий вестник" -->
+            <div class="col-md-4 text-center" style="font-size: 2em;">
+                <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#">Старообрядческий
+                    вестник</a>
+            </div>
+
+            <!-- Search Icon -->
+            <div class="col-md-4 d-flex justify-content-end align-items-center">
+                <button type="button" onclick="handleSearchClick()"
+                        style="background: none; border: none; cursor: pointer;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+                         stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img"
+                         viewBox="0 0 24 24">
+                        <title>Search</title>
+                        <circle cx="10.5" cy="10.5" r="7.5"></circle>
+                        <path d="M21 21l-5.2-5.2"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="nav nav-underline justify-content-between py-1 mb-3 border-bottom">
+            <a class="nav-item nav-link link-body-emphasis active" href="{% url 'content:about' %}">О НАС</a>
+            <a class="nav-item nav-link link-body-emphasis" href="#">ЗАДАТЬ ВОПРОС</a>
+            <a class="nav-item nav-link link-body-emphasis active" href="{% url 'content:star' %}">СТАРООБРЯДЧЕСТВО</a>
+            <a class="nav-item nav-link link-body-emphasis active" href="{% url 'content:potrebnic' %}">ПОТРЕБНИК</a>
+            <a class="nav-item nav-link link-body-emphasis active" href="{% url 'content:kultura' %}">КУЛЬТУРА</a>
+        </nav>
+
+</div>
+
+{% block content %}
+{% endblock %}
+
+
+<div class="container">
+    <div class="row g-5">
+        <div class="col-md-8">
+            <article class="blog-post">
+                <h1 class="display-5 mb-1">
+                    <a href="{% url 'content:corner' %}" style="text-decoration: none; color: black;"> Страшно о
+                        весёлом...</a>
+                </h1>
+            </article>
+
+            <p style="font-size: 17px;" class="lh-base">Наверное, практически каждый человек глубоко уверен в том, что
+                Новый год - праздник весёлый. Верно? В каждом окне горят разноцветными огоньками нарядные ёлки, Дедушка
+                Мороз приходит порадовать детишек подарками, и его визита ждут с нетерпением… Но, оказывается, не всё
+                так просто с этими старыми и всеми любимыми ритуалами. Зерно сомнения в эти предновогодние деньки
+                заронил в моё сердце специалист в области магии и ужасов, актёр, режиссёр, художник Евгений Васильев
+                («МК- Бульвар» однажды публиковал беседу с ним).</p>
+            <p style="font-size: 17px;" class="fw-bold">Вот те, бабушка, и Новый год…</p>
+            <p style="font-size: 17px;" class="lh-base">Как и большинство праздников (за исключением каких-нибудь
+                Первомаев), встреча Нового года - ритуал, имеющий древнее происхождение. Сегодня, сравнивая дошедшие до
+                нас традиции с некоторыми обрядами древних, поражаешься неожиданным параллелям и понимаешь скрытые
+                смыслы новогодних обычаев.</p>
+
+            <p style="font-size: 17px;" class="fw-bold">И вот она, нарядная, на праздник к нам пришла…</p>
+            <p style="font-size: 17px;" class="lh-base">Например, новогодняя ёлка, которую (живую или искусственную)
+                практически каждая семья устанавливает у себя дома. Ель у ранних кельтов (да и не только у них)
+                почиталась за дерево, наделённое магическим смыслом. Она вечнозелёное дерево, а значит, не поддающееся
+                никаким разрушительным силам. Наверное, именно поэтому ель считалась обиталищем лесного божества,
+                дружба с которым для зависящих от «благосклонности» леса людей была чрезвычайно важна.</p>
+            <p style="font-size: 17px;" class="lh-base">Дух жил, разумеется, не в каждой занюханной ёлке, а в самой
+                старой и могучей. Вот перед ней-то и собирались в период зимнего солнцестояния подобострастные древние,
+                дабы задобрить духа, получить у него «благословение» на следующий год.</p>
+            <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                <p class="fst-italic">Также по теме: Святитель Иоанн Златоуст. Слово на Новый год</p>
+            </div>
+            <p style="font-size: 17px;" class="lh-base">Задабривать в старину умели только одним способом - принесением
+                жертв. Когда-то это были человеческие жертвоприношения, а потом стали «отделываться» животными.
+                Внутренности убитых жертв развешивались на ветвях ели, а сама она обмазывалась кровью. Это и были
+                первые прообразы нынешних… ёлочных игрушек. Впоследствии магические ритуалы претерпели изменения.
+                Убийства ушли в прошлое, а священное растение украшалось дарами - яблоками, кусочками хлеба, колосьями
+                и т.д. Украшение дерева приобретало и другое значение. Божество не просто задабривали, но и «намекали»
+                ему на те блага, которые празднующие хотели бы получить в следующем году, когда природа оживёт после
+                зимнего безвременья. На ветвях ели появились определённые символы. Верхушка дерева была «отдана» богам,
+                заведующим судьбой человека, и украшалась изображением солнца, сделанным из колосьев пшеницы,
+                изображениями звёзд, птиц. Ближе к земле располагались более утилитарные символы: фигурки людей,
+                которые хотели избавиться от болезней, или улучшить свою жизнь, плоды, которые намекали на хороший
+                урожай, изображения домов, которые хотели построить себе в следующем году празднующие, и т.д.</p>
+            <p style="font-size: 17px;" class="lh-base">Постепенно лесные празднества переходили под крыши. Ель
+                выкапывалась вместе с корнями и переносилась в храм, где стояла живая в течение семи дней - дух
+                приглашался в гости. Потом так же осторожно дерево пересаживали обратно, закопав под корнями дары или
+                жертвы. А вот рубить живое дерево, чтобы принести его в дом, было запрещено. Срезать веточки
+                позволялось, но не более того. Варварский обычай новогодней «заготовки» ёлок сформировался значительно
+                позже.</p>
+            <p style="font-size: 17px;" class="lh-base">Магические свойства ели или сосны подтверждает даже такой
+                дошедший до наших времён обычай, как украшение ветвями этих растений гробов с умершими. Это увязывает
+                ель со смертью, о чём подробнее поговорим, вспомнив о трансформации любимого детьми Деда Мороза.</p>
+            <p style="font-size: 17px;" class="fw-bold">Здравствуй, Дедушка Мороз</p>
+            <p style="font-size: 17px;" class="lh-base">Персонаж, без которого невозможно представить себе Новый год,
+                это Дед Мороз. Этот образ также имеет древнее и неожиданное происхождение.</p>
+            <p style="font-size: 17px;" class="lh-base">В старину зима ассоциировалась со знаком планеты Сатурн. Сатурн
+                представлялся в виде старца с длинной бородой и косой в руках. В отдельных случаях коса меняется на
+                большой посох или жезл власти, которым Сатурн управляет Смертью. Так что в период зимнего солнцестояния
+                этого персонажа также было необходимо задобрить. В мистериях друидов присутствовал жрец, одевавшийся в
+                Сатурна. В жертву божеству приносилась девственница, привязывавшаяся в мороз к дереву, где и замерзала,
+                что свидетельствовало о том, что жертва принята. Так появилась знакомая нам… Снегурочка, в
+                сопровождении которой приходит на праздник наш Дед Мороз.</p>
+
+            <p style="font-size: 17px;" class="lh-base">Так что Дед Мороз изначально не был положительным, добрым
+                персонажем (вспомните хотя бы некрасовскую поэму «Мороз Красный Нос»). Интересно, что у индейцев навахо
+                сохранились легенды о Великом Старце Севера, а это - одно из имён… дьявола.</p>
+            <p style="font-size: 17px;" class="lh-base">Появление Деда Мороза с мешком подарков также истолковано не
+                совсем верно. Да, это мешок. Но не с подарками, а с жертвоприношениями, которые Великий Старец Севера,
+                символ Смерти, не дарит, а собирает с людей. Поэтому появление в вашем доме дедушки с бородой говорит о
+                том, что в течение года вы что-то ему не доплатили. Радоваться тут особо нечему.</p>
+            <p style="font-size: 17px;" class="lh-base">Так что, воспринимая Новый год как весёлый детский праздник,
+                стоит смотреть немного глубже, тогда кое-что станет на свои места, откроется подлинный смысл древних
+                ритуалов.</p>
+            <p style="font-size: 17px;" class="lh-base">Статья была опубликована в газете «МК (Московский Комсомолец)»
+                <br class="fw-bold">31 декабря 1998 г Владислав Тарасов</p>
+            <p style="font-size: 17px;" class="text-danger">Христианское отношение к языческому празднику:</p>
+            <h2>О традиции отмечать языческий праздник</h2>
+            <p style="font-size: 17px;" class="lh-base">Многие древние языческие народы имели традиции связанные со
+                священным деревом.</p>
+
+            <p style="font-size: 17px;" class="lh-base">Египтяне с древних времен украшали пальму на зимнее
+                солнцестояние. Они возносили благодарность своим богам за урожай, за осадки, за все добрые дела, в
+                которых боги проявили участие в минувший год. Они приносили богатые дары, восхваляя верховных
+                духов.</p>
+            <p style="font-size: 17px;" class="lh-base">Кельты - самый воинствующий народ в Европе. Они обладали
+                жестоким нравом. И жестокими традициями. Они верили, что смерть наступает только тогда, когда у врага
+                отрублена голова. Только тогда душа покидает этот мир. Ель была для кельтов обителью злых сил, которые
+                помогают им в сражениях и налетах. Дерево жертвоприношений. Человеческих и животных жертв. Друиды
+                развешивали на елях внутренности с тем, чтобы задобрить духов.</p>
+            <p style="font-size: 17px;" class="lh-base">Когда жертвоприношения стали запрещены, то на ветвях ели
+                появились украшения, как знак уважения к покровительствующим духам. Кельты считали, что недополучив
+                свою порцию жертвоприношений, к ним придёт беда, чтобы получить новый труп. Поэтому кельты в
+                праздничную ночь приносили ему в жертву одну юную девушку. Раздевали её и привязывали на морозе к
+                столбу. Обледенелый труп считался хорошим знаком, принятым божеством.</p>
+            <p style="font-size: 17px;" class="lh-base">Древнегерманские племена верили в силу духов, которые, по их
+                мнению, жили на верхушках вечнозеленых деревьев, так как ель круглый она не меняет свой окрас. А потому
+                старались задобрить их, украсив священное дерево фруктами и орехами, наряжали ель прямо в лесу.</p>
+            <p style="font-size: 17px;" class="lh-base">Древние германцы 25 декабря в день зимнего солнцестояния,
+                собирались перед елью и приносили перед ней жертвы. По всей видимости, изначально жертвы были
+                человеческие, а потом в жертву стали приносить животных. Например, у ранних кельтов ель считалась
+                обиталищем лесного духа, требовавшего кровавых жертв - внутренностей людей и животных, которые друиды
+                регулярно развешивали на ветвях дерева. Жертву убивали, ветви ели обмазывали её кровью, и развешивали
+                на ветвях её внутренности (сердце, печень, почки, кишки), так же развешивали орехи, сладости и т.д. По
+                представлениям древних язычников ель являлась обиталищем лесного божества, собственно именно ему, а не
+                ели, и приносились жертвы. Ель, а не какое-то другое дерево было выбрано потому, что язычники не
+                понимали, почему все деревья стоят голые (без листьев), а ель, так же как и летом зеленая, и ни мороз,
+                ни снег ей не страшны. Они считали, что ель потому обладает такими чудесными свойствами, что в ели
+                обитает дух леса. Ну, а поскольку, жизнь древних язычников была сильно связана с лесом, то они и
+                считали необходимым задабривать это божество своими дарами (жертвами). Поэтому украшение ели разного
+                рода игрушками и гирляндами это есть не что иное, как символическое повторение древнего языческого
+                обычая жертвоприношения (шары - внутренности, гирлянды - кишки и т.д.).</p>
+            <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                <p class="fst-italic">читайте тоже: Можно ли Староверам праздновать Новый год</p>
+            </div>
+            <p style="font-size: 17px;" class="lh-base">Ещё, рождественская ёлка, остролист, плющ и омела были
+                признанными символами безсмертия и плодородия среди языческих народов древности, поскольку эти
+                вечнозеленые растения зимой не сбрасывают листву и не меняют ее зеленый цвет на коричневый (символ
+                увядания), как другие деревья. А гирлянды, символизируют духов ушедших предков или просто бесов - фей,
+                эльфов и прочую бесовщину. Из-за этого, суеверные язычники испытывали к ним определенное
+                благоговение.</p>
+            <p style="font-size: 17px;" class="lh-base">"Энциклопедия примет и суеверий", автор Кристина Хоул: «Наши
+                примитивные праотцы приносили в дом зеленые ветви в период зимнего солнцестояния и использовали их для
+                магических ритуалов, направленных на то, чтобы обеспечить возвращение растительности. Дома римлян
+                украшались вечнозелеными листьями благородного лавра. Это правда, что Церковь в ранний период запрещала
+                следование этому обычаю, как языческой примеси. Но обычай был слишком глубоко укоренён, и запрет не мог
+                действовать долгое время. Для наших предков такие растения были мощными символами жизни, не только
+                потому, что они вечно зелены, но также потому, что в отличие от большинства растений, они плодоносят в
+                зимнее время».</p>
+            <p style="font-size: 17px;" class="lh-base">«Так говорит Господь: не учитесь путям язычников… Ибо уставы
+                народов - пустота: вырубают дерево в лесу, обделывают его руками плотника при помощи топора, покрывают
+                серебром и золотом, прикрепляют гвоздями и молотом, чтобы не шаталось» (Иеремия 10:2-4). В Новом Завете
+                нет каких-либо указаний на дерево, как символ рождества Христова. Только описан вход Ісуса в Иерусалим,
+                когда народ приветствовал его ветвями финиковой пальмы, которая считалась символом победы.</p>
+            <p style="font-size: 17px;" class="lh-base">Культ почитания новогодней ёлки, как вечнозеленого особенного
+                дерева, является язычеством. Новогодняя ёлка противоречит Духу Православия, ритуал является
+                нововведением, который берёт начало в протестантской Германии времён Мартина Лютера.</p>
+            <p style="font-size: 17px;" class="lh-base">К сожалению, многие наши братья и сестры не видят в этой
+                традиции опасности, но такие христиане - не христиане вовсе, а артисты. Они довольствуются одним лишь
+                названием, не желая ничего менять. А какой человеку толк от самоназвания? Если же называется
+                христианином, а живёт как язычник. Нужно быть принципиальным в вопросах веры. Ибо и бесы веруют, а дел
+                не творят. Ежели говорим, что не имеем греха - обманываем себя и истины нет в нас. Кто же будучи
+                повинен в грехах, не желает совершенствоваться и трудиться для своего исправления - может ли быть
+                прощён? Правила никто не отменял. Вера без дел мертва.</p>
+            <p style="font-size: 17px;" class="lh-base">1708 (1700) г. Отмена Православного и введение латынского
+                летоисчисления через принятие ложных догматов.</p>
+            <p style="font-size: 17px;" class="lh-base">До этого указа обычный счёт лет шел от Сотворения мира, но
+                просвещенная Европа давно отказалась от этого счёта лет, так как стали учить, что человечество
+                существует миллионы лет, и летоисчисление от Сотворения мира стало неприемлемым для европейских учёных,
+                теперь они считали годы от Христа, а доХриста стали использовать обратный отсчет с формулой: «до нашей
+                эры» и такой отсчёт не имеет конца и края, очень удобно для атеизма.</p>
+            <p style="font-size: 17px;" class="fw-bold">Тем же указом Пётр ввел празднование Нового года 1 января и
+                повелел украшать ёлку.</p>
+            <p style="font-size: 17px;" class="lh-base">Обычай ставить хвойные деревья у ворот домов Пётр I привез из
+                Германии, однако ёлки в то время еще не наряжали - такая традиция появилась спустя несколько
+                десятилетий - в 19 веке, при Николае | Гольштей-Готтопе. И только в светском обществе, среди населения
+                даже близко ель не ставили, так как в сознании населения - это древо связано со смертью. До сих пор,
+                существует традиция во время похоронной процессии ими всегда покрывают гробы и постилают дорожку к
+                могиле.</p>
+            <p style="font-size: 17px;" class="lh-base">В 1929 году, спустя 12 лет после Октябрьской революции, обряд
+                был запрещён по решению участников партийной конференции большевиков, которые посчитали, что наряженная
+                новогодняя елка являет собой символ буржуазного строя. Вместе с елью под запрет попал и Дед Мороз, а
+                Рождество стал рабочим днём. Перед языческим обрядом на улицах появлялись добровольческие патрули,
+                которые заглядывали в окна и проверяли, нет ли в домах ёлок.</p>
+
+            <p style="font-size: 17px;" class="lh-base">A 28 декабря 1935 года в газете «Правда» вышла заметка с
+                подписью кандидата в члены политбюро ЦК ВКП (б) Павла Постышева. В ней автор заявил, что дети рабочих
+                не должны лишаться удовольствия веселиться на празднике, как делали это ранее в буржуазных семьях.
+                Благодаря этому традиция устраивать детские елки вернулась, а современный вид новогодний праздник Новый
+                год приобрел только в 60-х годах прошлого века.</p>
+
+            <hr>
+            <p style="font-size: 18px; text-align: right; margin: 0; padding: 0;" class="lh-base">
+                <a href="https://elibrary.ru/author_profile.asp?authorid=568407" target="_blank"
+                   style="text-decoration: none; color: inherit;">
+                    Редколлегия сайта ПОномАРь, Кызыл, 21 января 2020 года.
+                </a>
+                <br>
+            </p>
+
+            <div style="text-align: center;">
+                <div class="text-center" style="margin-top: 20px;">
+                    <h5>Связаться с нами:</h5>
+                    <a href="#" onclick="copyToClipboard('https://t.me/PonomarKyzyl'); openTelegram();"
+                       style="margin: 0 10px;">
+                        <img src="https://img.icons8.com/color/48/000000/telegram-app.png" alt="Telegram"
+                             style="width: 40px; height: 40px;">
+                    </a>
+                    <a href="#" onclick="copyToClipboard('https://yourwebsite.com'); openWhatsApp();"
+                       style="margin: 0 10px;">
+                        <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp"
+                             style="width: 40px; height: 40px;">
+                    </a>
+                    <a href="#" onclick="copyToClipboard('https://yourwebsite.com'); openViber();"
+                       style="margin: 0 10px;">
+                        <img src="https://img.icons8.com/color/48/000000/viber.png" alt="Viber"
+                             style="width: 40px; height: 40px;">
+                    </a>
+                </div>
+
+                <script>
+                    function copyToClipboard(text) {
+                        navigator.clipboard.writeText(text).then(function() {
+                            alert('Ссылка скопирована: ' + text);
+                        }, function(err) {
+                            console.error('Ошибка при копировании: ', err);
+                        });
+                    }
+
+                    function openTelegram() {
+                        window.open('https://t.me/PonomarKyzyl', '_blank');
+                    }
+
+                    function openWhatsApp() {
+                        window.open('https://wa.me/8908 207-85-27', '_blank');
+                    }
+
+                    function openViber() {
+                        window.open('viber://chat?number=YourPhoneNumber', '_blank');
+                    }
+                </script>
+                <div class="container mt-5">
+                    <a href="https://t.me/ctr_vestnik" class="btn btn-primary btn-custom" target="_blank">
+                        <span class="main-text">Наш Телеграмм.</span><br>
+                        Просите и дано будет вам; ищите и найдёте; стучите, и отворят вам...
+                    </a>
+                    <h1></h1>
+                    <h1></h1>
+                </div>
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; max-width: 38rem; margin-left: 7rem;">
+                    <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                        <img src="{% static 'prestol/scale_1200 (28).jpeg' %}"
+                             style="max-width: 100%; height: 200px; margin: 0 auto;">
+                        <div class="card-body">
+                            <a class="btn" href="{% url 'content:the_throne' %}"
+                               style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                               role="button">
+                                Престольный праздник в Кызыле 2023
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                        <img src="{% static 'src/drevnerus_10_chudo-georgiya-o-zmii-s-zhitiem.jpg' %}"
+                             style="max-width: 45%; height: auto; margin: 0 auto;">
+                        <div class="card-body">
+                            <a class="btn" href="{% url 'content:holiday' %}"
+                               style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                               role="button">
+                                Старообрядцы Сибири. Молитвы и труд все перетрут
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                        <img src="{% static 'src/photo_2025-08-03_22-59-13.jpg' %}"
+                             style="max-width: 85%; height: auto; margin: 0 auto;">
+                        <div class="card-body">
+                            <a class="btn" href="{% url 'content:slatoust' %}"
+                               style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                               role="button">
+                                Иже во свв. отца нашего Иоанна Златоуста, патр. Цареграда
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                        <div class="card-body">
+                            <a class="btn" href="{% url 'content:revolution' %}"
+                               style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                               role="button">
+                                Освящение церкви св. влмч. Георгия, иже в Лиде
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <nav class="blog-pagination" aria-label="Pagination"><a
+                        class="btn btn-outline-primary rounded-pill"
+                        href="#">Вверх</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="position-sticky" style="top: 2rem;">
+                <div><h4 class="fst-italic">Недавние:</h4>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                               href="{% url 'content:typology' %}">
+                                <img src="{% static 'src/scale_1200 (8).jpeg' %}"
+                                     style="max-width: 30%; height: auto; margin: 0 auto;">
+                                <div class="col-lg-8">
+                                    <span style="color: gray;">АПОЛОГИЯ</span>
+                                    <h6 class="mb-0">Типология взглядов русских мыслителей на старообрядчество</h6>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                               href="{% url 'content:new_year' %}">
+                                <img src="{% static 'src/i (5).png' %}"
+                                     style="max-width: 30%; height: auto; margin: 0 auto;">
+                                <div class="col-lg-8">
+                                    <span style="color: gray;">ТРАДИЦИИ</span>
+                                    <h6 class="mb-0">Новый год - языческие истоки</h6>
+
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                               href="{% url 'content:star' %}">
+                                <img src="{% static 'src/zvezda_5.jpg' %}"
+                                     style="max-width: 30%; height: auto; margin: 0 auto;">
+                                <div class="col-lg-8">
+                                    <span style="color: gray;">ХРАМ И МИР</span>
+                                    <h6 class="mb-0">Что означает пятиконечная звезда</h6>
+
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="p-4">
+                    <h4 class="fst-italic">Темы</h4>
+                    <ol class="list-unstyled">
+                        <li><a href="#" class="custom-link">Новости</a></li>
+                        <li><a href="#" class="custom-link">О нас старообрядцах</a></li>
+                        <li><a href="#" class="custom-link">Престольный праздник</a></li>
+                        <li><a href="#" class="custom-link">Святоотеческое</a></li>
+                        <li><a href="#" class="custom-link">История старообрядчества</a></li>
+                        <li><a href="#" class="custom-link">Священство</a></li>
+                        <li><a href="#" class="custom-link">О Исусе Христе</a></li>
+                        <li><a href="#" class="custom-link">Личность</a></li>
+                        <li><a href="#" class="custom-link">Церковь</a></li>
+                        <li><a href="#" class="custom-link">Храмы</a></li>
+                    </ol>
+
+                    <style>
+                        .custom-link {
+                            font-size: 1.2em;
+                            font-weight: bold;
+                            color: #800000;
+                            text-decoration: none; /* убираем подчеркивание */
+                        }
+
+                        .dropdown-toggle {
+                            display: block;
+                            padding: 0.25rem 1rem; /* добавим дополнительные классы для dropdown, чтобы они имели одинаковый стиль */
+                        }
+                    </style>
+
+
+                    <p class="mb-0"><a href="#">Наверх</a></p>
+                    </ol>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    </main>
+    </header>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,2542 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Astro v5.9.2">
+    <title>Blog Template · Bootstrap v5.3</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/blog/">
+    <script src="/docs/5.3/assets/js/color-modes.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
+    <meta name="theme-color" content="#712cf9">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap" rel="stylesheet">
+    <link href="blog.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Выпадающий список</title>
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+
+    <style>
+        .bd-placeholder-img{font-size:1.125rem;text-anchor:middle;-webkit-user-select:none;-moz-user-select:none;user-select:none}@media (min-width: 768px){.bd-placeholder-img-lg{font-size:3.5rem}}.b-example-divider{width:100%;height:3rem;background-color:#0000001a;border:solid rgba(0,0,0,.15);border-width:1px 0;box-shadow:inset 0 .5em 1.5em #0000001a,inset 0 .125em .5em #00000026}.b-example-vr{flex-shrink:0;width:1.5rem;height:100vh}.bi{vertical-align:-.125em;fill:currentColor}.nav-scroller{position:relative;z-index:2;height:2.75rem;overflow-y:hidden}.nav-scroller .nav{display:flex;flex-wrap:nowrap;padding-bottom:1rem;margin-top:-1px;overflow-x:auto;text-align:center;white-space:nowrap;-webkit-overflow-scrolling:touch}.btn-bd-primary{--bd-violet-bg: #712cf9;--bd-violet-rgb: 112.520718, 44.062154, 249.437846;--bs-btn-font-weight: 600;--bs-btn-color: var(--bs-white);--bs-btn-bg: var(--bd-violet-bg);--bs-btn-border-color: var(--bd-violet-bg);--bs-btn-hover-color: var(--bs-white);--bs-btn-hover-bg: #6528e0;--bs-btn-hover-border-color: #800000;--bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);--bs-btn-active-color: var(--bs-btn-hover-color);--bs-btn-active-bg: #5a23c8;--bs-btn-active-border-color: #5a23c8}.bd-mode-toggle{z-index:1500}.bd-mode-toggle .bi{width:1em;height:1em}.bd-mode-toggle .dropdown-menu .active .bi{display:block!important}
+    </style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path>
+    </symbol>
+    <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+    </symbol>
+    <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+    </symbol>
+    <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+    </symbol>
+</svg>
+<div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
+            aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+            <use href="#circle-half"></use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span></button>
+    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+            <ul>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
+                            aria-pressed="false" onclick="setTheme('light')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#sun-fill"></use>
+                        </svg>
+                        Light
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+                            aria-pressed="false" onclick="setTheme('dark')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#moon-stars-fill"></use>
+                        </svg>
+                        Dark
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center active"
+                            data-bs-theme-value="auto" aria-pressed="true" onclick="setTheme('auto')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#circle-half"></use>
+                        </svg>
+                        Auto
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+
+            <script>
+                function setTheme(theme) {
+                    document.body.setAttribute('data-bs-theme', theme);
+
+                    // Удалить класс 'active' с всех кнопок и установить его только на нажатую кнопку
+                    const buttons = document.querySelectorAll('.dropdown-item');
+                    buttons.forEach(button => {
+                        button.classList.remove('active');
+                        button.setAttribute('aria-pressed', 'false');
+                    });
+
+                    const activeButton = Array.from(buttons).find(button => button.getAttribute('data-bs-theme-value') === theme);
+                    activeButton.classList.add('active');
+                    activeButton.setAttribute('aria-pressed', 'true');
+                }
+            </script>
+        </li>
+    </ul>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+            stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path>
+    </symbol>
+    <symbol id="cart" viewBox="0 0 16 16">
+        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
+    </symbol>
+    <symbol id="chevron-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+    </symbol>
+</svg>
+<nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #800000; color: #800000;">
+    <div class="container-fluid text-bordeaux"> <!-- добавляем класс для текста -->
+        <div class="col-4 pt-1" style="font-size: 1.5em; font-family: 'Old Standard TT', serif;">
+            <a class="link-secondary active" href="{% url 'content:home' %}" style="color: #800000;">Пономарь</a><br>
+            <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#"
+               style="font-size: 1.2em; color: #800000;">Старообрядцы Тувы</a>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" style="background-color: #800000;"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'content:about' %}"
+                       style="color: #800000;">О НАС</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" style="color: #800000;">ЗАДАТЬ ВОПРОС</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'content:star' %}" style="color: #800000;">СТАРООБРЯДЧЕСТВО</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'content:potrebnic' %}" style="color: #800000;">ПОТРЕБНИК</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'content:kultura' %}" style="color: #800000;">КУЛЬТУРА</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'content:map' %}" style="color: #800000;">КАРТА САЙТА</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'content:articles' %}"
+                       style="color: #800000;">СТАТЬИ</a>
+                </li>
+            </ul>
+            <div class="col-4 d-flex justify-content-end align-items-center">
+                <a class="link-secondary" href="#" aria-label="Search" style="color: #800000;">
+                    <button type="button" onclick="handleSearchClick()"
+                            style="background: none; border: none; cursor: pointer;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                             stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                             class="mx-3" role="img"
+                             viewBox="0 0 24 24" style="color: #800000;">
+                            <title>Search</title>
+                            <circle cx="10.5" cy="10.5" r="7.5"></circle>
+                            <path d="M21 21l-5.2-5.2"></path>
+                        </svg>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- Example single danger button -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js"></script>
+<div class="container">
+    <div class="row g-5">
+        <div class="col-md-8">
+            <article class="blog-post">
+                <div class="row gy-10">
+                    <h1 class="display-5 mb-1 text-center" style="margin-bottom: 30mm;">
+                        <a href="{% url 'content:corner' %}" style="text-decoration: none;">
+                            <span style="color: red;">Карта по сайту </span>
+                            <span style="color: red; font-style: italic;">Пономарь</span>
+                        </a>
+                    </h1>
+                </div>
+            </article>
+            <figure class="text-end">
+                <blockquote class="blockquote">
+                    <p style="text-align: right;">Для удобства наших читателей в поиске интересных статей и разделов по
+                        сайту «<span style="font-style: italic;">ПОНОМАРЬ</span>» создана навигационная карта, карта
+                        сайта, с помощью которой можно заглянуть, как бы, внутрь нашего сайта. Иногда очень бывает
+                        удобно, когда разделов становится достаточно много, а их будет всё больше и больше, с вашим
+                        участием чуть больше чем очень много. Участие в написании статей для сайта может принять любой
+                        желающий, или просто прислать готовую на странице "Предложить статью". Карта периодически
+                        пополняется новыми данными и служит упрощенной навигационной схемой по основным разделам сайта.
+                        Карта сайта помощник вам.
+                        Воспользуйтесь картой для своего удобства по обзору наших разделов, а если вы хотите найти
+                        заранее известный материал, то можно просто использовать поиск по сайту на главной.</p>
+                </blockquote>
+            </figure>
+            <div class="row gy-3 justify-content-center">
+                <div class="col text-center">
+                    <span style="color: red; font-style: italic; font-size: 2rem; margin-bottom: 10mm;">По Алфавиту</span>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="container">
+                        <div class="row gy-3">
+                            <div class="col-md-2">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        А
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'content:avvacum_1' %}">1 Аввакум/Кто
+                                            такие старообрядцы на самом деле</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:perhaps' %}">2 Авось небось
+                                            и ничего</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:history' %}">3 Агафья
+                                            Лыкова. Неизвестная история</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:agafia' %}">4 Агафья Лыкова:
+                                            первые старообрядцы в
+                                            верховьях Абакана</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:bread' %}">5 "Азъ Есъм Хлеб
+                                            Животныи..."</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:solzhenitsyn' %}">6
+                                            А.И.Солженицын</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:nevskij' %}">7 Алесандр
+                                            Невский - воин, дипломат и
+                                            святой</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:oktay' %}">8 Ансамбль Октай
+                                            - традиции сибирских
+                                            старообрядцев</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:apostol' %}">9 Апостол</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{% url 'content:james' %}">10 Апостол Иаков
+                                            Брат Господень</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:bogoslov' %}">11 Апостол и
+                                            Евангелист Иоанн Богослов
+                                        </a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:luka' %}">12 Апостол
+                                            Лука</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:argument' %}">13 Аргументы
+                                            портив самосожжений и
+                                            самоубийтв у старообрядцев</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:arjan' %}">14 Аржан.Золото
+                                            Тувы</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:arjan_2' %}">15
+                                            Аржан-2.Золото Скифов</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:fearsome' %}">16 А ты
+                                            сына-то Грозный не убивал</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:service'%}">17 Архиерейская
+                                            литургия и вечернее
+                                            боголужение</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        Б
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'content:discussion'%}">1 Беседа
+                                            старообрядца И.Г. Усова с
+                                            миссионером</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:silverless'%}">2
+                                            Бессребреники Козма и Дамиан
+                                            Азитские</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:biometrics'%}">3
+                                            Биометрия.Подробно</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:battle'%}">4 Битва при
+                                            Молодях</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:pasport'%}">5 Биометрический
+                                            паспорт</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:annunciation'%}">6
+                                            Благовещенiе Пресвятой Богородицы</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{% url 'content:annunciation_2'%}">7
+                                            Благовещение 7го Пресвятой
+                                            Богородицы</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:uar'%}">8 Благодать святого
+                                            мученика Уара</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{% url 'content:book'%}">9 Богослужебные
+                                            книги</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:beard'%}">10 Бороду носить
+                                            не только староверам
+                                            гоже</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:revolutions'%}">11 Была ли
+                                            революция в Туве</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        В
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'content:pandemonium'%}">1
+                                            Вавилонское столпотворение</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:аltai'%}">2 В Алтайском крае
+                                            сняли фильм о
+                                            старообрядцах</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:variants'%}">3 Варианты
+                                            сообществ староверов -
+                                            часовенных по данным хоз.книги 1920-50хх гг</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:varlaam'%}">4 Варлаам
+                                            Хутынский</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:vasiluj'%}">5 Василий
+                                            Блаженный</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:dauija'%}">6 В Даурии дикой
+                                            пустынной</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:battles'%}">7 Великая битва
+                                            великого князя</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:great'%}">8 Великий Грозный,
+                                            царь? </a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:canon'%}">9 Великий Канон
+                                            Андрея Критского</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:battles_2'%}">10 Великие
+                                            битвы России</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:artemij'%}">11 Великомученик
+                                            Артемий Антиохийский</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{% url 'content:faith'%}">12 Вера староверов
+                                            - это вера свободных
+                                            людей</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:lesson'%}">13 Византийский
+                                            урок</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:victory'%}">14 Вклад
+                                            Православной старообрядческой
+                                            церкви в победу в Великой Отечественной Войне</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:vladimir'%}">15 Владимир
+                                            Святой</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:vladimirskaja'%}">16
+                                            Владимирская Икона Божией Матери</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{% url 'content:vladica'%}">17 Владыка Иоанн
+                                            Слово Молчаливое</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{% url 'content:appearance'%}">18 Внешний
+                                            вид Исуса Христа</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:consecration'%}">19
+                                            Водосвятие. Освящение мёда</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:name'%}">20 Возвращённое
+                                            имя</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:voloe'%}">21 Волое
+                                            старое</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:riot'%}">22 Вооружённое
+                                            восстание в Туве в 1930
+                                            г</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:sunday'%}">23 Воскресение
+                                            Христово Видевше</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:training'%}">24 Воспитание и
+                                            образование в
+                                            старообрядческих общинах.</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:genghishan'%}">25 В поисках
+                                            могилы Чингисхана</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:sweat'%}">26 В поте лица</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{% url 'content:invasion'%}">27
+                                            Вторжение.Документальный фильм Аркадия
+                                            Мамонтова</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:svirsky'%}">28 Второе
+                                            обретение мощей преподобного
+                                            Александра Свирского</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:omen'%}">29 В честь
+                                            праздника Знамения</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:frenchman'%}">30
+                                            Вязники:Француз среди староверов</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        Г
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'content:safyanov'%}">1 Георгий
+                                            Павлович Сафьянов - граф
+                                            Уренхайский</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:voice'%}">2 Глас народа и
+                                            Церковь</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        Д
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'content:compositions'%}">1 Две
+                                            древних иконографических композиции
+                                            Воскресения Христова</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:villages'%}">2 Две
+                                            старообрядческие деревни</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:ethics'%}">3 Деловая этика
+                                            старообрядцев</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:ten'%}">4 Десять мифов о
+                                            староверах</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:children'%}">5 Детям о
+                                            молитве</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:nikon'%}">6 До и после
+                                            Никона. Поиск причин
+                                            раздолов и расколов</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:documents'%}">7 Документ для
+                                            Европейской комисии об
+                                            использовании имплантантов</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:domostroy'%}">8 Домострой
+                                            нормы семейной жизни на
+                                            Руси</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:teaching'%}">9 Древнее
+                                            православное
+                                            учение. Трепогружательное крещение</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:residents'%}">10 Древние
+                                            жители Руси</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        Е
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'content:deed'%}">1 Его подвиг
+                                            велик</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        Ж
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'content:woman'%}">1 Женщинам и
+                                            девицам надлежит носить юбки
+                                            и платья</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:blessed'%}">2 Житие Василия
+                                            Блаженного</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:maria'%}">3 Житие
+                                            Преподобной Марии Египетской</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        З
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'content:libeija'%}">1 Загадочная
+                                            Либерия</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:commandment'%}">2
+                                            Заповеди</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:conception'%}">3 Зачатие
+                                            Праведною Анною Пресвятой
+                                            Богородицы</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:tree'%}">4 Зачем Бог посадил
+                                            в раю это
+                                            дерево?</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:candles'%}">5 Зачем мы
+                                            ставим свечи?</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:upstream'%}">6 Здорово
+                                            живёте верховьё 1</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:upstream2'%}">7 Здорово
+                                            живёшь верховьё ! 2</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:upstream3'%}">8 Здорово
+                                            живёшь верховье по Енисею</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{% url 'content:earth'%}">9 Земля русских
+                                            викингов</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:hermit'%}">10 Знаменитый
+                                            верхне-енисейский пустынник
+                                            о. Палладий</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        И
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 Иверская икона Божией Матери</a></li>
+                                        <li><a class="dropdown-item" href="#">2 Иже во свв.
+                                            отца нашего Иоанна Златоуста, патр. Цареграда |</a></li>
+                                        <li><a class="dropdown-item" href="#">3 Изборник Святослава 1073 г изучен
+                                            старообрядцами в начале XVIII в</a></li>
+                                        <li><a class="dropdown-item" href="#">4 Икона Богородицы Всех Скорбящих
+                                            Радость</a></li>
+                                        <li><a class="dropdown-item" href="#">5 Илья Муромец. Тайны и загадки</a></li>
+                                        <li><a class="dropdown-item" href="#">6 Интевью с епископом Силуяном</a></li>
+                                        <li><a class="dropdown-item" href="#">7 Искажения древних текстов: причины и
+                                            последствия</a></li>
+                                        <li><a class="dropdown-item" href="#">8 Искусственный интелект.Каким будет наше
+                                            будущее</a></li>
+                                        <li><a class="dropdown-item" href="#">9 Исскуство старообрядческой Фиваиды</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">10 История Старообрядческой Белокриницкой
+                                            Общины в Туве</a></li>
+                                        <li><a class="dropdown-item" href="#">11 История старообрядческой семьи
+                                            Лыковых</a></li>
+                                        <li><a class="dropdown-item" href="#">12 История старообрядцев в Туве в начале
+                                            хх века</a></li>
+                                        <li><a class="dropdown-item" href="#">13 Исторический документ о смерти Исуса
+                                            Христа</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        К
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 Казанская икона Богородицы</a></li>
+                                        <li><a class="dropdown-item" href="#">2 Как варвар разбойник к вере пришёл</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">3 Как выживают русский язык в нашей
+                                            "Раше"</a></li>
+                                        <li><a class="dropdown-item" href="#">4 Как должен быть устроен християнский
+                                            дом?</a></li>
+                                        <li><a class="dropdown-item" href="#">5 Какие виды крещения в церкви считаются
+                                            правильными</a></li>
+                                        <li><a class="dropdown-item" href="#">6 Как научиться читать иконы</a></li>
+                                        <li><a class="dropdown-item" href="#">7 Как пела древняя Русь</a></li>
+                                        <li><a class="dropdown-item" href="#">8 Как полагать крестное знамение при
+                                            совершении молитвы Исусовой</a></li>
+                                        <li><a class="dropdown-item" href="#">9 Как появилось зло?</a></li>
+                                        <li><a class="dropdown-item" href="#">10 Как приготовить себя к причащению</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">11 Каппадокия. Пещерные монастыри</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">12 Карта сайта</a></li>
+                                        <li><a class="dropdown-item" href="#">13 Как родные. истории обрусевших
+                                            вещей</a></li>
+                                        <li><a class="dropdown-item" href="#">14 Как сохранилось священство</a></li>
+                                        <li><a class="dropdown-item" href="#">15 Канон-молебен об избавлении от
+                                            смертоносной язвы</a></li>
+                                        <li><a class="dropdown-item" href="#">16 Карамзин - фальсификатор истории</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">17 Карточные масти</a></li>
+                                        <li><a class="dropdown-item" href="#">18 К возрождению старообрядческого
+                                            иночества</a></li>
+                                        <li><a class="dropdown-item" href="#">19 К вопросу о причинах разделения
+                                            русской Православной Церкви</a></li>
+                                        <li><a class="dropdown-item" href="#">20 Кижи.Храм Преображения Господня</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">21 Кирилл Иерусалимский о крестном
+                                            знамении</a></li>
+                                        <li><a class="dropdown-item" href="#">22 Книги</a></li>
+                                        <li><a class="dropdown-item" href="#">23 Князь Александр Невский(рассказывает
+                                            историк Игорь Данилевский)</a></li>
+                                        <li><a class="dropdown-item" href="#">24 Князь всея Руси Федор Иванович</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">25 Коллекция. Древнерусское исскуство</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">26 Колокол.Притча</a></li>
+                                        <li><a class="dropdown-item" href="#">27 Корни старообрядческой психологии</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">28 Краткое изъяснение молитвы Отче
+                                            наш</a></li>
+                                        <li><a class="dropdown-item" href="#">29 Кратко спросим - что такое Кызыльская
+                                            община</a></li>
+                                        <li><a class="dropdown-item" href="#">30 КРЕТ ЖИВОТВОРЯЩИЙ ГОСПОДЕНЬ</a></li>
+                                        <li><a class="dropdown-item" href="#">31 Крестное знамение</a></li>
+                                        <li><a class="dropdown-item" href="#">32 Крещение Руси. Загадки и мифы</a></li>
+                                        <li><a class="dropdown-item" href="#">33 Кто архиерей наше общины в Кызыле</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">34 Кто изображен на первой русской
+                                            монете</a></li>
+                                        <li><a class="dropdown-item" href="#">35 Кто мы? Староверы</a></li>
+                                        <li><a class="dropdown-item" href="#">36 Кто предстоятель нашей церкви</a></li>
+                                        <li><a class="dropdown-item" href="#">37 Кто сказал "Пей но не упивайся"</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">38 Кто такие руские .Варяге и славяне</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">39 Кто такие староверы</a></li>
+                                        <li><a class="dropdown-item" href="#">40 Кузнецов Семён. Кем Земля
+                                            осолоняется</a></li>
+                                        <li><a class="dropdown-item" href="#">41 Куликовская битва. Победа русских
+                                            войск</a></li>
+                                        <li><a class="dropdown-item" href="#">42 Кулугуры кто же они</a></li>
+                                        <li><a class="dropdown-item" href="#">43 Кумранские находки ИЗОБЛИЧАЮТ</a></li>
+                                        <li><a class="dropdown-item" href="#">44 Кухни россии - традиционные блюда и их
+                                            история</a></li>
+                                        <li><a class="dropdown-item" href="#">45 К 105-летию Кызыла(Белоцарск)об
+                                            истории города</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        Л
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 Лестовка - вервица</a></li>
+                                        <li><a class="dropdown-item" href="#">2 Летоисчисление п о юлианскому календарю
+                                            и пасхалия</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        М
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 Малоизвестный поход монголов на Енисей
+                                            в 1207 г</a></li>
+                                        <li><a class="dropdown-item" href="#">2 Материализация мысли во вселенной</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">3 Между Востоком и Западом.Александр
+                                            Невский</a></li>
+                                        <li><a class="dropdown-item" href="#">4 Между Минусинском и Урянхаем было 4
+                                            тропы</a></li>
+                                        <li><a class="dropdown-item" href="#">5 Мир визуальных образов старообрядцев
+                                            Тувы</a></li>
+                                        <li><a class="dropdown-item" href="#">6 Мистическая геополитика</a></li>
+                                        <li><a class="dropdown-item" href="#">7 Митрополит Корнилий встретился с В.В.
+                                            Путиным</a></li>
+                                        <li><a class="dropdown-item" href="#">8 Можно ли поминать за здравие не
+                                            старообрядцев</a></li>
+                                        <li><a class="dropdown-item" href="#">9 Можно ли спастись,будучи не
+                                            старообрядцем?</a></li>
+                                        <li><a class="dropdown-item" href="#">10 Можно ли староверам праздновать Новый
+                                            Год</a></li>
+                                        <li><a class="dropdown-item" href="#">11 Можно ли християнам употреблять в пищу
+                                            мясо с кровью</a></li>
+                                        <li><a class="dropdown-item" href="#">12 Москва - третий Рим</a></li>
+                                        <li><a class="dropdown-item" href="#">13 Московские миллионщики.Рябушинский</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">14 Моя хата с краю ничего не знаю</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">15 Муж и жена..Об обязанностях и
+                                            призвании</a></li>
+                                        <li><a class="dropdown-item" href="#">16 Музей истории Старообрядчества
+                                            Сибири</a></li>
+                                        <li><a class="dropdown-item" href="#">17 Мученик Логин Сотник</a></li>
+                                        <li><a class="dropdown-item" href="#">18 Мученик Уар</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        Н
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 На Введение в Церковь Божией Матери</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">2 На кону будущее мира</a></li>
+                                        <li><a class="dropdown-item" href="#">3 На крещение Господа Бога и Спаса нашего
+                                            Исуса Христа</a></li>
+                                        <li><a class="dropdown-item" href="#">4 На праздник Смоленския иконы Пресвятой
+                                            Богородицы</a></li>
+                                        <li><a class="dropdown-item" href="#">5 Напоминание от протопопа Аввакума
+                                            беспоповцам о священстве и литургии</a></li>
+                                        <li><a class="dropdown-item" href="#">6 На Пролетарской</a></li>
+                                        <li><a class="dropdown-item" href="#">7 На скифском кургане IX века до нашей
+                                            эры (2ой сезон)</a></li>
+                                        <li><a class="dropdown-item" href="#">8 На старую дорогу</a></li>
+                                        <li><a class="dropdown-item" href="#">9 Начало Старообрядческой мысли</a></li>
+                                        <li><a class="dropdown-item" href="#">10 Начало Старообрядческой
+                                            мысли(продолжение)</a></li>
+                                        <li><a class="dropdown-item" href="#">11 Начало(фильм для молодёжи)</a></li>
+                                        <li><a class="dropdown-item" href="#">13 Начётчики старой веры</a></li>
+                                        <li><a class="dropdown-item" href="#">14 Наш храм</a></li>
+                                        <li><a class="dropdown-item" href="#">15 Национальный музей 1 знакомые
+                                            экспонаты</a></li>
+                                        <li><a class="dropdown-item" href="#">16 Невербальные ритуалы и знаки</a></li>
+                                        <li><a class="dropdown-item" href="#">17 Неделя о мытаре и фарисее</a></li>
+                                        <li><a class="dropdown-item" href="#">18 Неизвестные победы битвы на реке
+                                            Воже</a></li>
+                                        <li><a href="{% url 'content:avvacum' %}"
+                                               style="text-decoration: none; color: #333;">19 Неистовый
+                                            аввакум</a></li>
+                                        <li><a class="dropdown-item" href="#">20 Нелюбимый сын Царевич Алексей</a></li>
+                                        <li><a class="dropdown-item" href="#">21 Неопалимая Купина</a></li>
+                                        <li><a class="dropdown-item" href="#">22 Непобедимая сила Креста</a></li>
+                                        <li><a class="dropdown-item" href="#">23 Новый год- языческие истоки</a></li>
+                                        <li><a class="dropdown-item" href="#">24 Новые ереси новообрядческой церкви</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">25 Номоканон (Краткий)Правила 1-20</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">26 Новый год у древних славян, как он
+                                            отмечался</a></li>
+                                        <li><a class="dropdown-item" href="#">27 Новый виж человека</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        О
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 Об исправлении Никоном Богослужебных
+                                            книг</a></li>
+                                        <li><a class="dropdown-item" href="#">2 О благословении святительском и
+                                            священническом</a></li>
+                                        <li><a class="dropdown-item" href="#">3 Об одежде</a></li>
+                                        <li><a class="dropdown-item" href="#">4 Обособленная жизнь староверов в лесах
+                                            таёжных</a></li>
+                                        <li><a class="dropdown-item" href="#">5 Образ благочестивого христианина в
+                                            старообрядческих рукописных сочинениях</a></li>
+                                        <li><a class="dropdown-item" href="#">6 Образ старообрядцев Тувы</a></li>
+                                        <li><a class="dropdown-item" href="#">7 Образование в старообрядческой
+                                            семье</a></li>
+                                        <li><a class="dropdown-item" href="#">8 Обрядовая одежда</a></li>
+                                        <li><a class="dropdown-item" href="#">9 Обрядоверческая ложь о Благодатном
+                                            Огне</a></li>
+                                        <li><a class="dropdown-item" href="#">10 Об укреплении веротерпимости</a></li>
+                                        <li><a class="dropdown-item" href="#">11 Общеславянский элемент в русской
+                                            культуре</a></li>
+                                        <li><a class="dropdown-item" href="#">12 Общие фотографии общины</a></li>
+                                        <li><a class="dropdown-item" href="#">13 О вакцинациях. Прививки</a></li>
+                                        <li><a class="dropdown-item" href="#">14 О воскресном дне</a></li>
+                                        <li><a class="dropdown-item" href="#">15 О воскресном дне(продолжение)</a></li>
+                                        <li><a class="dropdown-item" href="#">16 Одежда християнок</a></li>
+                                        <li><a class="dropdown-item" href="#">17 О докладе иерея Иоанна Курбатского и
+                                            диякона Василия Андроникова</a></li>
+                                        <li><a class="dropdown-item" href="#">18 О.Евсевий Шарыпов</a></li>
+                                        <li><a class="dropdown-item" href="#">19 О женитьбах и свадьбах в старину на
+                                            Руси</a></li>
+                                        <li><a class="dropdown-item" href="#">20 О жизни епископа Александра Чунина</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">21 О жизни и страданиях исповедников
+                                            суздальских</a></li>
+                                        <li><a class="dropdown-item" href="#">22 О иконе Божией Матери</a></li>
+                                        <li><a class="dropdown-item" href="#">23 Оклеветанное царство</a></li>
+                                        <li><a class="dropdown-item" href="#">24 О крестном знамении. Зитуменосъ или
+                                            взыскание</a></li>
+                                        <li><a class="dropdown-item" href="#">25 Ольга Четверикова.Они стирают нашу
+                                            память</a></li>
+                                        <li><a class="dropdown-item" href="#">26 О начертании, в сете споров о штрих
+                                            коде</a></li>
+                                        <li><a class="dropdown-item" href="#">27 О непокровенных сосудех</a></li>
+                                        <li><a class="dropdown-item" href="#">28 О подменных капиталистах и
+                                            предпренимателях</a></li>
+                                        <li><a class="dropdown-item" href="#">29 О покрытии головы женщинами</a></li>
+                                        <li><a class="dropdown-item" href="#">30 О поминках-поминальных трапезах</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">31 О празднике Благовещения</a></li>
+                                        <li><a class="dropdown-item" href="#">32 О приходе РПСЦ в Уганде</a></li>
+                                        <li><a class="dropdown-item" href="#">33 О просфоре</a></li>
+                                        <li><a class="dropdown-item" href="#">34 О пустозерских страдальцах</a></li>
+                                        <li><a class="dropdown-item" href="#">35 О сайте</a></li>
+                                        <li><a class="dropdown-item" href="#">36 О святом кадиле</a></li>
+                                        <li><a class="dropdown-item" href="#">37 Освящение храма в Красноярске</a></li>
+                                        <li><a class="dropdown-item" href="#">38 Освящение в церкви св.влмч.Георгия иже
+                                            в Лиде</a></li>
+                                        <li><a class="dropdown-item" href="#">39 О староверах в дневнике финляндского
+                                            студента</a></li>
+                                        <li><a class="dropdown-item" href="#">40 О стоянии в церкви,о каждении и о том
+                                            как ставить свечи</a></li>
+                                        <li><a class="dropdown-item" href="#">41 О термине РАСКОЛЬНИК</a></li>
+                                        <li><a class="dropdown-item" href="#">42 Откуда произошло слово "частушка"</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">43 О трёх исповедницах</a></li>
+                                        <li><a class="dropdown-item" href="#">44 О.Четверикова Сталин хорошо понимал
+                                            суть мировых элит</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        П
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 Памяти святых отцев VII Вселенского
+                                            Собора</a></li>
+                                        <li><a class="dropdown-item" href="#">2 Памяти святых Соловецкой обители</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">3 Памятка Благочестивого Поведения в доме
+                                            Божием</a></li>
+                                        <li><a class="dropdown-item" href="#">4 Память блаженного Максима</a></li>
+                                        <li><a class="dropdown-item" href="#">5 Память святого Великомученика
+                                            Трифона</a></li>
+                                        <li><a class="dropdown-item" href="#">6 Память 40 Великомучеником
+                                            Севастийским</a></li>
+                                        <li><a class="dropdown-item" href="#">7 Пасха по византийски</a></li>
+
+                                        <li><a class="dropdown-item" href="#">8 Первая Пасхальная служба с литургией в
+                                            г. Кызыл</a></li>
+                                        <li><a class="dropdown-item" href="#">9 Первое упоминание русского народа</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">10 Первые руские, их быт и культура в
+                                            туранском музее</a></li>
+                                        <li><a class="dropdown-item" href="#">11 Первые тувинские буквари</a></li>
+                                        <li><a class="dropdown-item" href="#">12 Первые християне</a></li>
+                                        <li><a class="dropdown-item" href="#">13 Первый славянский стих</a></li>
+                                        <li><a class="dropdown-item" href="#">14 Переселение старообрядцев в Туву</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">15 Печать царя соломона</a></li>
+                                        <li><a class="dropdown-item" href="#">16 Письма Агафьи Лыковой</a></li>
+                                        <li><a class="dropdown-item" href="#">17 Платки. плат узорный до бровей</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">18 Повесть о русской бороде</a></li>
+                                        <li><a class="dropdown-item" href="#">19 По вопросу восстановления единства
+                                            русского христианства</a></li>
+                                        <li><a class="dropdown-item" href="#">20 Погребение умерших и дни поминания
+                                            их</a></li>
+                                        <li><a class="dropdown-item" href="#">21 Пожарский Казацкий царь</a></li>
+                                        <li><a class="dropdown-item" href="#">22 Поклонение веригам Апостола Петра</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">23 Покров Пресвятой Богородицы</a></li>
+                                        <li><a class="dropdown-item" href="#">24 Попечение о плоти не превращайте в
+                                            похоть</a></li>
+                                        <li><a class="dropdown-item" href="#">25 Пора вернуться к родным берегам</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">26 Портрет царя Ивана Грозного</a></li>
+                                        <li><a class="dropdown-item" href="#">27 Порядок целования иконы и
+                                            евангелия</a></li>
+                                        <li><a class="dropdown-item" href="#">28 По следам расследования трагической
+                                            гибели Саввы Морозова</a></li>
+                                        <li><a class="dropdown-item" href="#">29 Постоянство в добре</a></li>
+                                        <li><a class="dropdown-item" href="#">30 Почему берёзу считают символом
+                                            России</a></li>
+                                        <li><a class="dropdown-item" href="#">31 Почему важен диалог со
+                                            старообрядцами</a></li>
+                                        <li><a class="dropdown-item" href="#">32 Почему на "Задостойниках" мы делаем
+                                            земные поклоны?</a></li>
+                                        <li><a class="dropdown-item" href="#">33 Почему победила Московскую Русь</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">34 Почему Православные празднуют
+                                            Воскресенье</a></li>
+                                        <li><a class="dropdown-item" href="#">35 Почему старообрядцы идут в крестном
+                                            ходе по часовой стрелке</a></li>
+                                        <li><a class="dropdown-item" href="#">36 Почему христианам нельзя носить
+                                            красную нить</a></li>
+                                        <li><a class="dropdown-item" href="#">37 Праздник Георгия Победоносца в
+                                            древнерусской литературе как фактор воспитания подростков</a></li>
+                                        <li><a class="dropdown-item" href="#">38 Предприниматели - выходцы из
+                                            старообрядческой среды в дореволюционной Туве</a></li>
+                                        <li><a class="dropdown-item" href="#">39 Преображение Господа Бога и Спаса
+                                            нашего Исуса Христа</a></li>
+                                        <li><a class="dropdown-item" href="#">40 Преподобные Зосима и Савватии
+                                            Соловецкие Чудотворцы</a></li>
+                                        <li><a class="dropdown-item" href="#">41 Преподобный Евфимий Новый</a></li>
+                                        <li><a class="dropdown-item" href="#">42 Преподобный Стефан Махрищский</a></li>
+                                        <li><a class="dropdown-item" href="#">43 Престольный Праздник Кызыл 2021</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">44 Престольный Праздник в Кызыле</a></li>
+                                        <li><a class="dropdown-item" href="#">45 Престольный в Кызыле 2020</a></li>
+                                        <li><a class="dropdown-item" href="#">46 Престольный Праздник в Кызыле 2023</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">47 Приезд Владыки Григория</a></li>
+                                        <li><a class="dropdown-item" href="#">48 Происхождение тувинцев. История
+                                            вопроса</a></li>
+                                        <li><a class="dropdown-item" href="#">49 Про масло для лампад</a></li>
+                                        <li><a class="dropdown-item" href="#">50 Проникновение старообрядцев в Туву, и
+                                            современное их положение</a></li>
+                                        <li><a class="dropdown-item" href="#">51 Преподобный отец наш Варлаам
+                                            Новгородский Чудотворец</a></li>
+                                        <li><a class="dropdown-item" href="#">52 Преподобный Илларион Великий</a></li>
+                                        <li><a class="dropdown-item" href="#">53 Правила пользования сайтом
+                                            Пономарь</a></li>
+                                        <li><a class="dropdown-item" href="#">54 Преподобный Максим Исповедник</a></li>
+                                        <li><a class="dropdown-item" href="#">55 Преображение Господне, Яблочный
+                                            Спас</a></li>
+                                        <li><a class="dropdown-item" href="#">56 Пустынножительство</a></li>
+                                        <li><a class="dropdown-item" href="#">57 Пятьдесятница. День Святой Троицы</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        Р
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 Раздоры в РПСЦ XXI век</a></li>
+                                        <li><a class="dropdown-item" href="#">2 Реконструкция храма в Кызыле</a></li>
+                                        <li><a class="dropdown-item" href="#">3 Родня Голубцовых старообрядцы</a></li>
+                                        <li><a class="dropdown-item" href="#">4 Русская письменность</a></li>
+                                        <li><a class="dropdown-item" href="#">5 Русские купцы в Туве XIX-XX ВЕКА</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">6 "Русский взгляд" - старообрядцы</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">7 Русский свадебный обряд</a></li>
+                                        <li><a class="dropdown-item" href="#">8 Рябушинский - Раскол Русской
+                                            Православной Церви</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        С
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 Самые загадочные пророчества Библии;
+                                            Рождения Еммануила</a></li>
+                                        <li><a class="dropdown-item" href="#">2 Самые известные выражения библейского
+                                            происхождения</a></li>
+                                        <li><a class="dropdown-item" href="#">3 Свет жизни</a></li>
+                                        <li><a class="dropdown-item" href="#">4 Свет жизни (продолжение)</a></li>
+                                        <li><a class="dropdown-item" href="#">5 Светлое Христово Воскресение Святая
+                                            Пасха</a></li>
+                                        <li><a class="dropdown-item" href="#">6 Святая Парасковия Пятница</a></li>
+                                        <li><a class="dropdown-item" href="#">7 Святитель Иоанн Златоуст. Слово на
+                                            новый год</a></li>
+                                        <li><a class="dropdown-item" href="#">8 Святитель Марк (Евгеник) Митрополит
+                                            Эфесский</a></li>
+                                        <li><a class="dropdown-item" href="#">9 Святитель Марк (Евгеник) Митрополит
+                                            Эфесский-2</a></li>
+                                        <li><a class="dropdown-item" href="#">10 Святой великомученик Пантелеймон
+                                            целитель</a></li>
+                                        <li><a class="dropdown-item" href="#">11 Святой Иоанн Златоуст о цели и пользе
+                                            поста</a></li>
+                                        <li><a class="dropdown-item" href="#">12 Святой мученик Внифантия и святая
+                                            Аглаида</a></li>
+                                        <li><a class="dropdown-item" href="#">13 Святой Спиридон еп.Тримифийский
+                                            Чудотворец</a></li>
+                                        <li><a class="dropdown-item" href="#">14 Святость Царя Николая II и его семьи
+                                            оправдана</a></li>
+                                        <li><a class="dropdown-item" href="#">15 Святыя мученицы Феодора,Евдокия,Мария
+                                            и Иустина боровские</a></li>
+                                        <li><a class="dropdown-item" href="#">16 Святыя молчальники</a></li>
+                                        <li><a class="dropdown-item" href="#">17 Святыи Убрус</a></li>
+                                        <li><a class="dropdown-item" href="#">18 Священное писание о последнем
+                                            времени</a></li>
+                                        <li><a class="dropdown-item" href="#">19 Сергию Радонежскому Отцу нашему</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">20 Сибирские старообрядческие скиты</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">21 Сила молитвы</a>
+                                        <li><a class="dropdown-item" href="#">22 Сказание Авраамия Палицына</a></li>
+                                        <li><a class="dropdown-item" href="#">23 Сказание о Борисе и Глебе</a></li>
+                                        <li><a class="dropdown-item" href="#">24 Скитская экономика таёжной Сибири;
+                                            дар, милостыня, товар</a></li>
+                                        <li><a class="dropdown-item" href="#">25 Скифы Азии. Закаты Скифской эпохи в
+                                            Туве</a></li>
+                                        <li><a class="dropdown-item" href="#">26 Сколько лет старообрядчеству?</a></li>
+                                        <li><a class="dropdown-item" href="#">27 Слова: в беззакониях я зачат, и во
+                                            грехах зачала меня мать моя, означают что невозможно зачать без греха?</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">28 Слово о кресном знамении</a></li>
+                                        <li><a class="dropdown-item" href="#">29 Слово о полку Игореве Реконструкция
+                                            древнерусского текста</a></li>
+                                        <li><a class="dropdown-item" href="#">30 Слово святого Антиоха</a></li>
+                                        <li><a class="dropdown-item" href="#">31 Служба на память св. Амвросию</a></li>
+                                        <li><a class="dropdown-item" href="#">32 Собор свв. Архистратига Михаила</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">33 Советы Олимпиаде, а в её лице-всем
+                                            современным женщинам</a></li>
+                                        <li><a class="dropdown-item" href="#">34 Социальные сети - позорище</a></li>
+                                        <li><a class="dropdown-item" href="#">35 Старик, который помогает</a></li>
+                                        <li><a class="dropdown-item" href="#">36 Старообрядческие монастыри
+                                            "енисейского мередиана"</a></li>
+                                        <li><a class="dropdown-item" href="#">37 Старообрядческое предпренимательство в
+                                            России</a></li>
+                                        <li><a class="dropdown-item" href="#">38 Старообрядчество как идеология
+                                            истинного православия</a></li>
+                                        <li><a class="dropdown-item" href="#">39 Староверие в эпоху Петра Первого</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">40 Старообрядчество от раскола церкви к
+                                            примирению</a></li>
+                                        <li><a class="dropdown-item" href="#">41 Старообрядцы в русской революции</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">42 Старообрядцы в Туве</a></li>
+                                        <li><a class="dropdown-item" href="#">43 СтарообрядцЫ Сибири . Молитвы и труд
+                                            всё перетрут</a></li>
+                                        <li><a class="dropdown-item" href="#">44 Старообрядцы Тувы(от автора)</a></li>
+                                        <li><a class="dropdown-item" href="#">45 Старообрядцы Тувы; полтора века на
+                                            земле обетованной</a></li>
+                                        <li><a class="dropdown-item" href="#">46 Старообрядцы - частица святой Руси</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">47 Стихарник с северо русским сюжетом
+                                            старообрядцев Тувы</a></li>
+                                        <li><a class="dropdown-item" href="#">48 Страдания и чудеса св славного
+                                            влмч.Димитрия Солунского</a></li>
+                                        <li><a class="dropdown-item" href="#">49 Страна Московитов глазами Патриарха
+                                            Макария Антиохийского</a></li>
+                                        <li><a class="dropdown-item" href="#">50 Строим храм</a></li>
+                                        <li><a class="dropdown-item" href="#">51 Структура Согласия старообрядчества
+                                            Тувы</a></li>
+                                        <li><a class="dropdown-item" href="#">52 С чего начинаются русские</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        Т
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 Таёжный допрописец</a></li>
+                                        <li><a class="dropdown-item" href="#">2 Так всякий из вас кто не отрешиться
+                                            всего что имеет</a></li>
+                                        <li><a class="dropdown-item" href="#">3 Точное летоисчисление</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        У
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 Уголок старой веры (На примере
+                                            республика Тува)</a></li>
+                                        <li><a class="dropdown-item" href="#">2 Украденный храм</a></li>
+                                        <li><a class="dropdown-item" href="#">3 Усекновние главы Иоанна Предотечи</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">4 Успение Пресвятыя Владычицы нашея
+                                            Богородицы</a></li>
+                                        <li><a class="dropdown-item" href="#">5 Успенский пост в 2019</a></li>
+                                        <li><a class="dropdown-item" href="#">6 Устав о поклонах во время
+                                            богослужения</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        Ф
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 Факт воскресения Христа признал не кто
+                                            иной как Ф. Энгельс</a></li>
+                                        <li><a class="dropdown-item" href="#">2 Фильм "ни Эллина ни Иудея" о
+                                            пакистанских староверах</a></li>
+                                        <li><a class="dropdown-item" href="#">3 Фильм о Агафьи Лыковой "Одна дома"</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        Х
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 Храм Лазаря Праведного воскрешения из
+                                            Муромского монастыря</a></li>
+                                        <li><a class="dropdown-item" href="#">2 Хоругви - священные знамёна церкви</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">3 Христос Воскресе!</a></li>
+                                        <li><a class="dropdown-item" href="#">4 Христос Воскресе! Христос Воскресе!
+                                            Христос Воскресе!</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        Ц
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 Церковь воинствующая</a></li>
+                                        <li><a class="dropdown-item" href="#">2 Церковь, ковчег спасения</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        Ч
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 Чем старая вера отличаетя от новой</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">2 Чёрное слово</a></li>
+                                        <li><a class="dropdown-item" href="#">3 Чёрный миф о русском Иване</a></li>
+                                        <li><a class="dropdown-item" href="#">4 Что же главное в нашей вере?</a></li>
+                                        <li><a class="dropdown-item" href="#">5 Что за букву Ё...</a></li>
+                                        <li><a class="dropdown-item" href="#">6 Что означает пятиконечная звезда</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">7 Что скрывает мираж западного
+                                            благополучия</a></li>
+                                        <li><a class="dropdown-item" href="#">8 Что такое метания?</a></li>
+                                        <li><a class="dropdown-item" href="#">9 Что такое старообрядчество?</a></li>
+                                        <li><a class="dropdown-item" href="#">10 Чудеса и знамения</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        Я
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 Язык хамства</a></li>
+                                        <li><a class="dropdown-item" href="#">2 Я старовер</a></li>
+                                        <li><a class="dropdown-item" href="#">3 Я счастлива тем, что я староверка</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        123
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 1905 год.К вопросу о признании
+                                            страрообрядческой иерархии</a></li>
+                                        <li><a class="dropdown-item" href="#">2 28 июня - день памяти Ионы</a></li>
+                                        <li><a class="dropdown-item" href="#">3 400 лет со дня рождения Протопопу
+                                            Аввакуму</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row gy-3 justify-content-center">
+                <div class="col text-center">
+                    <span style="color: red; font-style: italic; font-size: 2rem; margin-bottom: 10mm;">По Теме</span>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="container">
+                        <div class="row gy-4">
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        АПОЛОГИЯ
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'content:discussion'%}">1 Беседа
+                                            старообрядца И.Г.Усова с
+                                            миссионером</a></li>
+                                        <li><a class="dropdown-item" href="#">2 Глас Народа и Церковь</a></li>
+                                        <li><a class="dropdown-item" href="#">3 Изборник Святослава 1073 г изучен
+                                            старообрядцами в начале XVIII в</a></li>
+                                        <li><a class="dropdown-item" href="#">4 К вопросу о причинах разделения русской
+                                            Православной Церкви</a></li>
+                                        <li><a class="dropdown-item" href="#">5 Кто такие староверы?</a></li>
+                                        <li><a class="dropdown-item" href="#">6 О крестном знамении: Зитуменосъ или
+                                            взыскание</a></li>
+                                        <li><a class="dropdown-item" href="#">7 О термине "Раскольник"</a></li>
+                                        <li><a class="dropdown-item" href="#">8 По следам расследования трагической
+                                            гибели Саввы Морозова.</a></li>
+                                        <li><a class="dropdown-item" href="#">9 Раскол. Неизвестный "RASKOL"</a></li>
+                                        <li><a class="dropdown-item" href="#">10 Слово о крестном знамении</a></li>
+                                        <li><a class="dropdown-item" href="#">11 Старообрядчество: от раскола Церкви к
+                                            признанию</a></li>
+                                        <li><a class="dropdown-item" href="#">12 Старообрядцы в русской революции</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">13 Типология взглядов русских мыслителей
+                                            на
+                                            старообрядчество</a></li>
+                                        <li><a class="dropdown-item" href="#">14 Точное летоисчисление</a></li>
+                                        <li><a class="dropdown-item" href="#">15 Чем старая вера отличается от
+                                            новой?</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">16 Что такое старообрядчество?</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        ВИДЕО
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'content:avvacum_1'%}">1 АВВАКУМ /
+                                            КТО ТАКИЕ СТАРООБРЯДЦЫ НА
+                                            САМОМ ДЕЛЕ?</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:history' %}">2 Агафья
+                                            Лыкова. Неизвестная история</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{% url 'content:biometrics'%}">3 БИОМЕТРИЯ.
+                                            Подробно</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:battles_2'%}">4 Великие
+                                            битвы России </a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:lesson'%}">5 Византийский
+                                            урок</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:vladica'%}">6 ВЛАДЫКА ИОАНН
+                                            СЛОВО МОЛЧАЛИВОЕ </a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{% url 'content:genghishan'%}">7 В поисках
+                                            могилы Чингисхана</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:invasion'%}">8 Вторжение.
+                                            Документальный фильм Аркадия
+                                            Мамонтова</a></li>
+                                        <li><a class="dropdown-item" href="#">9 Зачем электронному аду нужны ваши
+                                            души?</a></li>
+                                        <li><a class="dropdown-item" href="#">10 Искусственный интеллект. Каким будет
+                                            наше будущее? </a></li>
+                                        <li><a class="dropdown-item" href="#">11 Колыбель Енисея. Тыва</a></li>
+                                        <li><a class="dropdown-item" href="#">12 Кто Мы? Староверы</a></li>
+                                        <li><a class="dropdown-item" href="#">13 Материализация мысли во Вселенной </a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">14 На кону будущее мира</a></li>
+                                        <li><a class="dropdown-item" href="#">15 Начало (фильм для молодёжи)</a></li>
+                                        <li><a class="dropdown-item" href="#">16 Неизвестные победы: битва на реке
+                                            Воже</a></li>
+                                        <li><a class="dropdown-item" href="#">17 Новый вид человека</a></li>
+                                        <li><a class="dropdown-item" href="#">18 Обособленная жизнь староверов в лесах
+                                            таёжных</a></li>
+                                        <li><a class="dropdown-item" href="#">19 О вакцинации. Прививки</a></li>
+                                        <li><a class="dropdown-item" href="#">20 Октай. Начало пути. Поездка к
+                                            староверам</a></li>
+                                        <li><a class="dropdown-item" href="#">21 Ольга Четверикова. «Они стирают нашу
+                                            память» </a></li>
+                                        <li><a class="dropdown-item" href="#">22 O. Четверикова. Сталин хорошо понимал
+                                            суть мировых элит</a></li>
+                                        <li><a class="dropdown-item" href="#">23 Троянский конь</a></li>
+                                        <li><a class="dropdown-item" href="#">24 Управлять Россией будет искусственный
+                                            интеллект?</a></li>
+                                        <li><a class="dropdown-item" href="#">25 Фильм Антимир</a></li>
+                                        <li><a class="dropdown-item" href="#">26 Фильм «ни Эллина ни Иудея» О
+                                            пакистанских староверах</a></li>
+                                        <li><a class="dropdown-item" href="#">27 Фильм о Агафьи Лыковой «Одна дома»</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">28 Число Путина. Ольга Четверикова</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">29 Что скрывает мираж западного
+                                            благополучия</a></li>
+                                        <li><a class="dropdown-item" href="#">30 Цифровизация и Ликвидация Государства.
+                                            Электронный концлагерь</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        ВОПРОС СВЯЩЕННИКУ
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 Как появилось зло?</a></li>
+                                        <li><a class="dropdown-item" href="#">2 Почему берёзу считают символом
+                                            России?</a></li>
+                                        <li><a class="dropdown-item" href="#">3 Святость царя Николая II и его семьи
+                                            оправдана?</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        ГРЕХИ И СТРАСТИ
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 Если на женщину нельзя смотреть с
+                                            вожделением, то деторождение без греха невозможно? Жена ведь тоже
+                                            женщина</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:tree'%}">2 ЗАЧЕМ БОГ НАСАДИЛ
+                                            В РАЮ ЭТО ДЕРЕВО?</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">3 Попечения о плоти не превращайте в
+                                            похоть</a></li>
+                                        <li><a class="dropdown-item" href="#">4 Слова: в беззакониях я зачат, и во
+                                            грехах зачала меня мать моя, означают что невозможно зачать без греха?</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        ЖИТИЕ СВЯТЫХ
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'content:history' %}">1 АЛЕКСАНДР
+                                            НЕВСКИЙ - ВОИН, ДИПЛОМАТ И
+                                            СВЯТОЙ.</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:luka' %}">2 Апостол Лука</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{% url 'content:varlaam'%}">3 Варлаам
+                                            Хутынский</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:artemij'%}">4 Великомученик
+                                            Артемий Антиохийский</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{% url 'content:vladimir'%}">5 Владимир
+                                            Святой</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:deed'%}">6 Его подвиг
+                                            велик</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:blessed'%}">7 Житие Василия
+                                            Блаженного</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:maria'%}">8 Житие
+                                            преподобной Марии Египетской</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">9 Мученик Лонгин Сотник</a></li>
+                                        <li><a class="dropdown-item" href="#">10 Неопалимая купина</a></li>
+                                        <li><a class="dropdown-item" href="#">11 Неистовый Аввакум</a></li>
+                                        <li><a class="dropdown-item" href="#">12 О трех исповелдницах</a></li>
+                                        <li><a class="dropdown-item" href="#">13 Память святаго великомученика
+                                            Трифона</a></li>
+                                        <li><a class="dropdown-item" href="#">14 Память святых Соловецкой обители</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">15 Поклонения веригам апостола Петра</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">16 Преподобные Зосима и Савватий,
+                                            Соловецкие чудотворцы</a></li>
+                                        <li><a class="dropdown-item" href="#">17 Преподобный Максим Исповедник</a></li>
+                                        <li><a class="dropdown-item" href="#">18 Преподобный Стефан Махрищский</a></li>
+                                        <li><a class="dropdown-item" href="#">19 Святая Парасковия Пятница</a></li>
+                                        <li><a class="dropdown-item" href="#">20 Святитель Марк (Евгеник) Митрополит
+                                            Эфесский</a></li>
+                                        <li><a class="dropdown-item" href="#">21 Святитель Марк (Евгеник) Митрополит
+                                            Эфесский - 2</a></li>
+                                        <li><a class="dropdown-item" href="#">22 Святой великомученик Пантелеимон
+                                            целитель</a></li>
+                                        <li><a class="dropdown-item" href="#">23 Святые мученицы Феодора, Евдокия,
+                                            Мария и Иустина боровские</a></li>
+                                        <li><a class="dropdown-item" href="#">24 Святой мученик Внифантий и святая
+                                            Аглаида</a></li>
+                                        <li><a class="dropdown-item" href="#">25 Святой Спиридон еп. Тримифийский
+                                            чудотворец</a></li>
+                                        <li><a class="dropdown-item" href="#">26 СВЯТЫЕ МОЛЧАЛЬНИКИ</a></li>
+                                        <li><a class="dropdown-item" href="#">27 Сергию Радонежскому - отцу нашему</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">28 Страдание и чудеса св. славного влмч.
+                                            Димитрия Солунского</a></li>
+                                        <li><a class="dropdown-item" href="#">29 Сказание о Борисе и Глебе</a></li>
+                                        <li><a class="dropdown-item" href="#">30 Советы Олимпиаде, а в её лице - всем
+                                            современным женщинам</a></li>
+                                        <li><a class="dropdown-item" href="#">31 400 лет со дня рождения Протопопу
+                                            Аввакуму</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        ИКОНОГРАФИЯ
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'content:vasiluj'%}">1 Василий
+                                            Блаженный</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:vladimirskaja'%}">2
+                                            Владимирская икона Божией Матери.</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{% url 'content:compositions'%}">3 Две
+                                            древних иконографических композиции
+                                            Воскресения Христова</a></li>
+                                        <li><a class="dropdown-item" href="#">4 Иверская икона Божией Матери</a></li>
+                                        <li><a class="dropdown-item" href="#">5 На праздник Смоленския иконы Пресвятыя
+                                            Богородицы</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        ИСТОРИЯ
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 Князь Александр Невский(рассказывает
+                                            историк Игорь Данилевский)</a></li>
+                                        <li><a class="dropdown-item" href="#">2 Малоизвестный поход монголов на Енисей
+                                            в 1207 г</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                        ИСТОРИЯ СТАРООБРЯДЧЕСТВА
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="dropdown-item" href="{% url 'content:nikon'%}">1 ДО И ПОСЛЕ
+                                                НИКОНА: ПОИСК ПРИЧИН
+                                                РАЗДОРОВ И РАСКОЛОВ</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">2 Искажения древних текстов: причины и
+                                                последствия</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">3 Искусство старообрядческой Фиваиды</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">4 История старообрядческой семьи
+                                                ЛЫКовых</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">5 КОРНИ СТАРООБРЯДЧЕСКОЙ ПСИХОЛОГИИ</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">6 Кулугуры, кто же они?</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">7 Начало старообрядческой мысли
+                                                (продолжение)</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">8 Об исправлении Никоном Богослужебных
+                                                книг</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">9 Письма Агафьи Лыковой</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">10 Рябушинский - Раскол Православной
+                                                церкви</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">11 Сибирские старообрядческие скиты</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">12 СТАРОВЕРИЕ В ЭПОХУ ПЕТРА ПЕРВОГО</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        ИСТОРИЯ РОСИИИ
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'content:fearsome' %}">1 А сына-то
+                                            Грозный не убивал!</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:battle'%}">2 Битва при
+                                            Молодях</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:battles'%}">3 Великая битва
+                                            великого князя</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:great'%}">4 Великий Грозный,
+                                            царь?</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:residents'%}">5 Древние
+                                            жители Руси</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:libeija'%}">6 Загадочная
+                                            Либерея</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:earth'%}">7 Земля русских
+                                            викингов. Гнёздово</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">8 КАРАМЗИН - ФАЛЬСИФИКАТОР ИСТОРИИ</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">9 Князь всея Руси Федор Иванович</a></li>
+                                        <li><a class="dropdown-item" href="#">10 Крещение Руси: Загадки и мифы</a></li>
+                                        <li><a class="dropdown-item" href="#">11 Кто изображён на первой русской
+                                            монете?</a></li>
+                                        <li><a class="dropdown-item" href="#">12 Кто такие русские? Варяги и
+                                            славяне</a></li>
+                                        <li><a class="dropdown-item" href="#">13 Куликовская битва. Победа русских
+                                            войск</a></li>
+                                        <li><a class="dropdown-item" href="#">14 Между Востоком и Западом. Александр
+                                            Невский</a></li>
+                                        <li><a class="dropdown-item" href="#">15 МИСТИЧЕСКАЯ ГЕОПОЛИТИКА</a></li>
+                                        <li><a class="dropdown-item" href="#">16 Неизвестные победы: битва на реке
+                                            Воже</a></li>
+                                        <li><a class="dropdown-item" href="#">17 НЕЛЮБИМЫЙ СЫН - ЦАРЕВИЧ АЛЕКСЕЙ</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">18 Новой год у древних славян, как
+                                            отмечался</a></li>
+                                        <li><a class="dropdown-item" href="#">19 Оклеветанное царство</a></li>
+                                        <li><a class="dropdown-item" href="#">20 Первое упоминание русского народа</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">21 Пожарский. Казацкий царь</a></li>
+                                        <li><a class="dropdown-item" href="#">22 Портрет царя Ивана Грозного</a></li>
+                                        <li><a class="dropdown-item" href="#">23 Почему победила Московская Русь</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">24 СКАЗАНИЕ АВРААМИЯ ПАЛИЦЫНА</a></li>
+                                        <li><a class="dropdown-item" href="#">25 «Слова о полку Игореве» Реконструкция
+                                            древнерусского текста</a></li>
+                                        <li><a class="dropdown-item" href="#">25 С чего начинаются русские</a></li>
+                                        <li><a class="dropdown-item" href="#">25 Черный миф о русском царе Иване</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        ИСТОРИЯ ТУВЫ
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'content:arjan' %}">1 АРЖАН. ЗОЛОТО
+                                            ТУВЫ</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:revolutions'%}">2 БЫЛА ЛИ
+                                            РЕВОЛЮЦИЯ В ТУВЕ?</a></li>
+                                        <li><a class="dropdown-item" href="#">3 Вооруженное восстание в Туве в 1930
+                                            г.</a></li>
+                                        <li><a class="dropdown-item" href="#">4 К 105-летию Кызыла(Белоцарск)об истории
+                                            города</a></li>
+                                        <li><a class="dropdown-item" href="#">5 Между Минусинском и Урянхаем было 4
+                                            тропы</a></li>
+                                        <li><a class="dropdown-item" href="#">6 НА СКИФСКОМ КУРГАНЕ IX века до н.э (
+                                            2-ой сезон)</a></li>
+                                        <li><a class="dropdown-item" href="#">7 Первые тувинские буквари</a></li>
+                                        <li><a class="dropdown-item" href="#">8 Происхождение тувинцев. История
+                                            вопроса</a></li>
+                                        <li><a class="dropdown-item" href="#">9 Русские купцы в Туве XIX-XX века</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">10 Скифы Азии. Закат скифской эпохи в
+                                            Туве</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        КРЕЩЕНИЕ
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 В чем разница при погружательном,
+                                            обливательном крещении?</a></li>
+                                        <li><a class="dropdown-item" href="#">2 Какие виды крещения в Церкви считаются
+                                            правильными?</a></li>
+                                        <li><a class="dropdown-item" href="#">3 В чем разница при погружательном,
+                                            обливательном крещении?</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        КУЛЬТУРА
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'content:oktay' %}">1 Ансамбль Октай
+                                            - традиции сибирских
+                                            старообрядцев</a></li>
+                                        <li><a class="dropdown-item" href="#">2 Музей древлеправославной культуры во
+                                            Ржеве</a></li>
+                                        <li><a class="dropdown-item" href="#">3 О приходе РПСЦ в Уганде</a></li>
+                                        <li><a class="dropdown-item" href="#">4 ОТКУДА ПРОИЗОШЛО СЛОВО «ЧАСТУШКА»?</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">5 Первый славянский стих</a></li>
+                                        <li><a class="dropdown-item" href="#">6 Платки - плат узорный до бровей</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">7 Свет Китежа</a></li>
+                                        <li><a class="dropdown-item" href="#">8 С именем - Иван, без имени - болван</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">9 ТРЕЗВЕННИЧЕСКИЕ БУНТЫ В РОССИИ В 1858 -
+                                            1860 гг</a></li>
+                                        <li><a class="dropdown-item" href="#">10 Тульский кремль - крепость с
+                                            многовековой историей</a></li>
+                                        <li><a class="dropdown-item" href="#">11 Фольклор старообрядцев «Октай»</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        ЛИЧНОСТЬ
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'content:agafia' %}">1 Агафья Лыкова:
+                                            первые старообрядцы в
+                                            верховьях Абакана</a></li>
+                                        <li><a class="dropdown-item" href="#">2 Московские миллионщики. Рябушинские</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">3 О жизни епископа Александра Чунина</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">4 О подлинных капиталистах и
+                                            предпринимателях</a></li>
+                                        <li><a class="dropdown-item" href="#">5 28 июня день памяти святителя Ионы</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        МОЛИТВА
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 Как полагать крестное знамение при
+                                            совершении молитвы Исусовой?</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        НОВОСТИ
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'content:pasport'%}">1 БИОМЕТРИЧЕСКИЙ
+                                            ПАСПОРТ</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:villages'%}">2 Две
+                                            старообрядческие деревни</a></li>
+                                        <li><a class="dropdown-item" href="#">3 КАК ПЕЛА ДРЕВНЯЯ РУСЬ</a></li>
+                                        <li><a class="dropdown-item" href="#">4 Марьино стояние в Кызыле</a></li>
+                                        <li><a class="dropdown-item" href="#">5 Митрополит Корнилий встретился с В. В.
+                                            Путиным</a></li>
+                                        <li><a class="dropdown-item" href="#">6 Музей древлеправославной культуры во
+                                            Ржеве</a></li>
+                                        <li><a class="dropdown-item" href="#">7 Напоминание от протопопа Аввакума
+                                            беспоповцам о священстве и литургии</a></li>
+                                        <li><a class="dropdown-item" href="#">8 О иконе Божией Матери</a></li>
+                                        <li><a class="dropdown-item" href="#">9 ПОРА ВЕРНУТЬСЯ К РОДНЫМ БЕРЕГАМ</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">10 Почему важен диалог со
+                                            старообрядцами</a></li>
+                                        <li><a class="dropdown-item" href="#">11 Проникновение старообрядцев в Туву, и
+                                            современное их положение</a></li>
+                                        <li><a class="dropdown-item" href="#">12 Престольный Праздник в Кызыле 2023</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">13 СВЕТЛОЕ ХРИСТОВО ВОСКРЕСЕНИЕ СВЯТАЯ
+                                            ПАСХА</a></li>
+                                        <li><a class="dropdown-item" href="#">14 Христос Воскресе! Христос Воскресе!
+                                            Христос Воскресе!</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        О БЛАГОЧЕСТИИ И БЫТЕ
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 Можно ли Староверам праздновать Новый
+                                            год</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        О БОГОСЛУЖЕНИИ
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 Можно ли поминать за здравие не
+                                            старообрядцев?</a></li>
+                                        <li><a class="dropdown-item" href="#">2 Можно ли принимать просфору или дары,
+                                            когда почистишь зубы?</a></li>
+                                        <li><a class="dropdown-item" href="#">3 Про масло для лампад</a></li>
+                                        <li><a class="dropdown-item" href="#">4 Почему на «Задостойниках» мы делаем
+                                            земные поклоны</a></li>
+                                        <li><a class="dropdown-item" href="#">5 Почему старообрядцы идут в крестном
+                                            ходе по часовой стрелке?</a></li>
+                                        <li><a class="dropdown-item" href="#">6 ЧТО ТАКОЕ МЕТАНИЯ?</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        О ВЕНЧАНИИ,СЕМЬЕ
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 Как должен быть устроен христианский
+                                            дом?</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        О ИСУСЕ
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'content:appearance'%}">1 ВНЕШНИЙ ВИД
+                                            ИСУСА ХРИСТА</a></li>
+                                        <li><a class="dropdown-item" href="#">2 Исторический документ о смерти Исуса
+                                            Христа.</a></li>
+                                        <li><a class="dropdown-item" href="#">3 Священное Писание о последнем
+                                            времени</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        ПОТРЕБНИК
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'content:bread' %">1 «АЗ ЕСМЬ ХЛЕБ
+                                            ЖИВОТНЫИ…»</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:uar'%}">2 БЛАГОДАТЬ СВЯТОГО
+                                            МУЧЕНИКА УАРА</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{% url 'content:book'%}">3 БОГОСЛУЖЕБНЫЕ
+                                            КНИГИ</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:canon'%}">4 ВЕЛИКИЙ КАНОН
+                                            Андрея Критского</a></li>
+                                        <li><a class="dropdown-item" href="#">5 Все ли нуждаются в покаянии?</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:children'%}">6 ДЕТЯМ О
+                                            МОЛИТВЕ</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:domostroy'%}">7 Домострой:
+                                            нормы семейной жизни на
+                                            Руси</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:teaching'%}">8 Древнее
+                                            православное учение.
+                                            Трепогружательного крещения.</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:commandment'%}">9
+                                            Заповеди</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:candles'%}">10 ЗАЧЕМ МЫ
+                                            СТАВИМ СВЕЧИ?</a></li>
+                                        <li><a class="dropdown-item" href="#">11 Как приготовить себя к причащению</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">12 Канон молебен об избавлении от
+                                            смертоносной язвы</a></li>
+                                        <li><a class="dropdown-item" href="#">13 Кирилл Иерусалимский о крестном
+                                            знамении</a></li>
+                                        <li><a class="dropdown-item" href="#">14 Краткое изъяснение молитвы «отче
+                                            наш»</a></li>
+                                        <li><a class="dropdown-item" href="#">15 Кто сказал: «Пей но не упивайся»</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">16 ЛЕСТОВКА - ВЕРВИЦА</a></li>
+                                        <li><a class="dropdown-item" href="#">17 НЕвербальные ритуалы и знаки</a></li>
+                                        <li><a class="dropdown-item" href="#">18 НОМОКАНОН (КРАТКИЙ) ПРАВИЛА 1-20</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">19 О БЛАГОСЛОВЕНИИ СВЯТИТЕЛЬСКОМ И
+                                            СВЯЩЕННИЧЕСКОМ</a></li>
+                                        <li><a class="dropdown-item" href="#">20 О непокровенных сосудах</a></li>
+                                        <li><a class="dropdown-item" href="#">21 О поминках - поминальных трапезах</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">22 О просфоре</a></li>
+                                        <li><a class="dropdown-item" href="#">23 О святем кадиле</a></li>
+                                        <li><a class="dropdown-item" href="#">24 О СТОЯНИИ В ЦЕРКВИ, О КАЖДЕНИИ И О
+                                            ТОМ, КАК СТАВИТЬ СВЕЧИ</a></li>
+                                        <li><a class="dropdown-item" href="#">25 ПАМЯТКА БЛАГОЧЕСТИВОГО ПОВЕДЕНИЯ В
+                                            ДОМЕ БОЖИЕМ</a></li>
+                                        <li><a class="dropdown-item" href="#">26 ПОГРЕБЕНИЯ УМЕРШИХ И ДНИ ПОМИНАНИЯ
+                                            ИХ</a></li>
+                                        <li><a class="dropdown-item" href="#">27 ПОРЯДОК ЦЕЛОВАНИЯ ИКОНЫ И
+                                            ЕВАНГЕЛИЯ</a></li>
+                                        <li><a class="dropdown-item" href="#">28 Святой Иоанн Златоуст о цели и пользе
+                                            поста</a></li>
+                                        <li><a class="dropdown-item" href="#">29 Служба на память св. Амвросия</a></li>
+                                        <li><a class="dropdown-item" href="#">30 Успенский пост 2019</a></li>
+                                        <li><a class="dropdown-item" href="#">31 УСТАВ О ПОКЛОНАХ ВО ВРЕМЯ
+                                            БОГОСЛУЖЕНИЯ</a></li>
+                                        <li><a class="dropdown-item" href="#">32 Что же главное в нашей вере?</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        ПРАВОСЛАВНЫЕ ПРАЗДНИКИ
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'content:annunciation_2'%}">1
+                                            Благовещение 7-ого ПРЕСВЯТЫЯ
+                                            ВЛАДЫЧИЦЫ</a></li>
+                                        <li><a class="dropdown-item" href="#">2 Казанская Икона Богородицы</a></li>
+                                        <li><a class="dropdown-item" href="#">3 Мученик Уар</a></li>
+                                        <li><a class="dropdown-item" href="#">4 О празднике Благовещение</a></li>
+                                        <li><a class="dropdown-item" href="#">5 Памяти святых отцев VII Вселенского
+                                            Собора</a></li>
+                                        <li><a class="dropdown-item" href="#">6 Преображение Господа Бога и Спаса
+                                            нашего Исуса Христа</a></li>
+                                        <li><a class="dropdown-item" href="#">7 Преображение Господне. Яблочный
+                                            спас</a></li>
+                                        <li><a class="dropdown-item" href="#">8 Преподобный Евфимий Новый</a></li>
+                                        <li><a class="dropdown-item" href="#">9 Преподобный Иларион Великий</a></li>
+                                        <li><a class="dropdown-item" href="#">10 Святыи Убрус</a></li>
+                                        <li><a class="dropdown-item" href="#">11 Сергию Радонежскому - отцу нашему</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">12 Усекновение главы Иоанна Предотечи</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">13 Успение Пресвятыя Владычицы нашея
+                                            Богородицы</a></li>
+                                        <li><a class="dropdown-item" href="#">ВЕЛИКИЕ ПРАЗДНИКИ</a></li>
+                                        <li><a class="dropdown-item" href="#">СРЕДНИЕ ПРАЗДНИКИ</a></li>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        ПРЕСТОЛЬНЫЙ ПРАЗДНИК
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 Праздник Георгия Победоносца в
+                                            древнерусской литературе как фактор воспитания подростков</a></li>
+                                        <li><a class="dropdown-item" href="#">2 Престольный в Кызыле 2020</a></li>
+                                        <li><a class="dropdown-item" href="#">3 Престольный Праздник Кызыл 2021</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">4 Престольный Праздник в Кызыле 2023 </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        РУССКИЙ ЯЗЫК
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'content:perhaps' %}">1 АВОСЬ, НЕБОСЬ
+                                            И НИЧЕГО</a></li>
+                                        <li><a class="dropdown-item" href="#">2 Как выживают русский язык в «нашей
+                                            Раше»</a></li>
+                                        <li><a class="dropdown-item" href="#">3 ОБЩЕСЛАВЯНСКИЙ ЭЛЕМЕНТ В РУССКОЙ
+                                            КУЛЬТУРЕ</a></li>
+                                        <li><a class="dropdown-item" href="#">4 Русская письменность</a></li>
+                                        <li><a class="dropdown-item" href="#">5 Русский язык как фактор национальной
+                                            безопасности</a></li>
+                                        <li><a class="dropdown-item" href="#">6 СИБИРСКИЙ СТРОЙ</a></li>
+                                        <li><a class="dropdown-item" href="#">7 Черное слово</a></li>
+                                        <li><a class="dropdown-item" href="#">8 «Черты и резы» древнейших росов</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">9 Что за букву Ё…</a></li>
+                                        <li><a class="dropdown-item" href="#">10 Язык хамства</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        СВЯТООТЕЧЕСКОЕ
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'content:beard'%}">1 Бороду носить не
+                                            только староверам
+                                            гоже</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:training'%}">2 Воспитание и
+                                            образование в
+                                            старообрядческих общинах</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:ethics'%}">3 Деловая этика
+                                            старообрядцев</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:woman'%}">4 Женщинам и
+                                            девицам надлежит носить юбки
+                                            и платья</a></li>
+                                        <li><a class="dropdown-item" href="#">5 Интервью с епископом Силуяном</a></li>
+                                        <li><a class="dropdown-item" href="#">6 К возрождению старообрядческого
+                                            иночества</a></li>
+                                        <li><a class="dropdown-item" href="#">7 Как варвар разбойник к вере пришёл</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">8 Колокол. Притча</a></li>
+                                        <li><a class="dropdown-item" href="#">9 Кузнецов Семен. Кем земля
+                                            осолоняется</a></li>
+                                        <li><a class="dropdown-item" href="#">10 КРЕСТ ЖИВОТВОРЯЩИЙ ГОСПОДЕНЬ</a></li>
+                                        <li><a class="dropdown-item" href="#">11 ЛЕТОИСЧЕСЛЕНИЕ ПО ЮЛИАНСКОМУ КАЛЕНДАРЮ
+                                            И ПАСХАЛИЯ</a></li>
+                                        <li><a class="dropdown-item" href="#">12 МОСКВА - ТРЕТИЙ РИМ</a></li>
+                                        <li><a class="dropdown-item" href="#">13 Моя хата с краю, ничего не знаю</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">14 Непобедимая сила Креста</a></li>
+                                        <li><a class="dropdown-item" href="#">15 О покрытии головы женщинами</a></li>
+                                        <li><a class="dropdown-item" href="#">16 О пустозерских страдальцах</a></li>
+                                        <li><a class="dropdown-item" href="#">17 Первые христиане</a></li>
+                                        <li><a class="dropdown-item" href="#">18 Повесть о русской бороде</a></li>
+                                        <li><a class="dropdown-item" href="#">19 По вопросу восстановления единства
+                                            русского христианства</a></li>
+                                        <li><a class="dropdown-item" href="#">20 ПОСТОЯНСТВО в ДОБРЕ!</a></li>
+                                        <li><a class="dropdown-item" href="#">21 Раздоры в РПСЦ, XXI век</a></li>
+                                        <li><a class="dropdown-item" href="#">22 Святитель Иоанн Златоуст. Слово на
+                                            Новый год</a></li>
+                                        <li><a class="dropdown-item" href="#">23 СИЛА МОЛИТВЫ</a></li>
+                                        <li><a class="dropdown-item" href="#">24 Сколько лет старообрядчеству?</a></li>
+                                        <li><a class="dropdown-item" href="#">25 Слово святого Антиоха</a></li>
+                                        <li><a class="dropdown-item" href="#">26 Социальные сети - позорище</a></li>
+                                        <li><a class="dropdown-item" href="#">27 Старообрядческое предпринимательство в
+                                            России</a></li>
+                                        <li><a class="dropdown-item" href="#">28 Тайнозритель Мурачев с берегов
+                                            Енисея</a></li>
+                                        <li><a class="dropdown-item" href="#">29 Там за рекой</a></li>
+                                        <li><a class="dropdown-item" href="#">30 Тарский бунт. Пропавший бунт</a></li>
+                                        <li><a class="dropdown-item" href="#">31 Я старовер</a></li>
+                                        <li><a class="dropdown-item" href="#">32 Я счастлива тем, что я староверка</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">33 1905 год. К вопросу о признании
+                                            старообрядческой иерархии</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        СВЯЩЕНСТВО
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Как сохранилось священство</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        СТАРОВЕРЫ О РЕЛИГИИ
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 Кумранские находки ИЗОБЛИЧАЮТ</a></li>
+                                        <li><a class="dropdown-item" href="#">2 Обрядоверческая ложь о Благодатном
+                                            Огне</a></li>
+                                        <li><a class="dropdown-item" href="#">3 Самые загадочные пророчетва Библии:
+                                            Рождение Еммануила</a></li>
+                                        <li><a class="dropdown-item" href="#">4 Факт воскресения Христа признал не кто
+                                            иной как Ф. Энгельс</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        СТАРООБРЯДЧЕСТВО
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'content:solzhenitsyn' %}">1 А. И.
+                                            СОЛЖЕНИЦЫН - О
+                                            СТАРООБРЯДЧЕСТВЕ</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:bogoslov' %}">2 Апостол и
+                                            евангелист Иоанн Богослов</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{% url 'content:argument' %}">3 Аргументы
+                                            против самосожжений и
+                                            самоубийств у старообрядцев</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:variants'%}">4 Варианты
+                                            сообществ
+                                            староверов-часовенных по данным хозяйственных книг 1920- 50 -х гг</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:dauija'%}">5 В Даурии дикой
+                                            пустынной</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:victory'%}">6 Вклад
+                                            Православной старообрядческой
+                                            церкви в победу в великой отечественной войне</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:voloe'%}">7 Волое старое</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{% url 'content:frenchman'%}">8 Вязники:
+                                            француз среди староверов</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{% url 'content:documents'%}">9 Документ для
+                                            Европейской комиссии, об
+                                            использовании имплантантов</a></li>
+                                        <li><a class="dropdown-item" href="#">10 Начётчики старой веры</a></li>
+                                        <li><a class="dropdown-item" href="#">11 Неделя о мытаре и фарисее</a></li>
+                                        <li><a class="dropdown-item" href="#">12 Образ благочестивого христианина в
+                                            старообрядческих рукописных сочинениях XVII-XX вв</a></li>
+                                        <li><a class="dropdown-item" href="#">13 О ВОСКРЕСНОМ ДНЕ. (Продолжение).</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">14 О докладе иерея Иоанна Курбацкого и
+                                            диакона Василия Андроникова</a></li>
+                                        <li><a class="dropdown-item" href="#">15 О староверах в дневнике финляндского
+                                            студента</a></li>
+                                        <li><a class="dropdown-item" href="#">16 Память 40 Великомучеником
+                                            Севастийским</a></li>
+                                        <li><a class="dropdown-item" href="#">17 По следам расследования трагической
+                                            гибели Саввы Морозова</a></li>
+                                        <li><a class="dropdown-item" href="#">18 Предприниматели - выходцы из
+                                            старообрядческой среды в дореволюционной Туве</a></li>
+                                        <li><a class="dropdown-item" href="#">19 Старообрядческие монастыри
+                                            «енисейского меридиана»</a></li>
+                                        <li><a class="dropdown-item" href="#">20 Старообрядчество как идеология
+                                            истинного православия</a></li>
+                                        <li><a class="dropdown-item" href="#">21 Структура, согласия старообрядчества
+                                            Тувы</a></li>
+                                        <li><a class="dropdown-item" href="#">22 Тува: На фестиваль «ВерховьЁ»</a></li>
+                                        <li><a class="dropdown-item" href="#">23 Христос Воскресе!</a></li>
+                                        <li><a class="dropdown-item" href="#">24 «Церковь воинствующая»</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        СТАРООБРЯДЦЫ ТУВЫ
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'content:name'%}">1 ВОЗВРАЩЁННОЕ
+                                            ИМЯ</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:upstream'%}">2 ЗДОРОВО
+                                            ЖИВЕТЕ, ВЕРХОВЬЁ 1</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:upstream2'%}">3 ЗДОРОВО
+                                            ЖИВЁШЬ, ВЕРХОВЬЁ! 2</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:upstream3'%}">4 ЗДОРОВО
+                                            ЖИВЁШЬ, ВЕРХОВЬЁ - по
+                                            Енисею</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:hermit'%}">5 «Знаменитый
+                                            верхнеенисейский пустынник
+                                            о. Палладий»</a></li>
+                                        <li><a class="dropdown-item" href="#">6 ИСТОРИЯ СТАРООБРЯДЧЕСКОЙ БЕЛОКРИНИЦКОЙ
+                                            ОБЩИНЫ В ТУВЕ</a></li>
+                                        <li><a class="dropdown-item" href="#">7 История старообрядцев в Туве в начале
+                                            XХ века</a></li>
+                                        <li><a class="dropdown-item" href="#">8 Кто архиерей нашей общины в Кызыле?</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">9 КТО ПРЕДСТОЯТЕЛЬ НАШЕЙ ЦЕРКВИ?</a></li>
+                                        <li><a class="dropdown-item" href="#">10 КРАТКО СПРОСИМ - ЧТО ТАКОЕ КЫЗЫЛЬСКАЯ
+                                            ОБЩИНА</a></li>
+                                        <li><a class="dropdown-item" href="#">11 Мир визуальных образов старообрядцев
+                                            Тувы</a></li>
+                                        <li><a class="dropdown-item" href="#">12 НА КРЕЩЕНИЕ ГОСПОДА БОГА И СПАСА
+                                            НАШЕГО ИСУСА ХРИСТА</a></li>
+                                        <li><a class="dropdown-item" href="#">13 Образование в старообрядческой
+                                            среде</a></li>
+                                        <li><a class="dropdown-item" href="#">14 Образ жизни у старообрядцев Тувы</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">15 o. Евсевий Шарыпов</a></li>
+                                        <li><a class="dropdown-item" href="#">16 О начертании, в свете споров о
+                                            штрих-коде</a></li>
+                                        <li><a class="dropdown-item" href="#">17 Освящение храма в Красноярске</a></li>
+                                        <li><a class="dropdown-item" href="#">18 Переселение старообрядцев в Туву</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">19 Праздник Георгия Победоносца в
+                                            древнерусской литературе как фактор воспитания подростков</a></li>
+                                        <li><a class="dropdown-item" href="#">20 Проникновение старообрядцев в Туву, и
+                                            современное их положение</a></li>
+                                        <li><a class="dropdown-item" href="#">21 Пустынножительство</a></li>
+                                        <li><a class="dropdown-item" href="#">22 Реконструкция храма в Кызыле</a></li>
+                                        <li><a class="dropdown-item" href="#">23 Родня Голубцовых старообрядцы</a></li>
+                                        <li><a class="dropdown-item" href="#">24 СТАРООБРЯДЦЫ В ТУВЕ</a></li>
+                                        <li><a class="dropdown-item" href="#">25 Старообрядцы Тувы</a></li>
+                                        <li><a class="dropdown-item" href="#">26 Старообрядцы Сибири. Молитвы и труд
+                                            все перетрут</a></li>
+                                        <li><a class="dropdown-item" href="#">27 Старообрядцы Тувы: полтора века на
+                                            земле обетованной</a></li>
+                                        <li><a class="dropdown-item" href="#">28 Стихарник с северо русским сюжетом
+                                            старообрядцев Тувы</a></li>
+                                        <li><a class="dropdown-item" href="#">29 Старообрядцы - частица старой руси</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">30 Таежный доброписец</a></li>
+                                        <li><a class="dropdown-item" href="#">31 Уголок старой веры (На примере
+                                            республика Тува)</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        ПРИМЕТЫ
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 ПОЧЕМУ БАБЬЕ ЛЕТО ТАК НАЗЫВАЕТСЯ?</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">2 Почему христианам нельзя носить красную
+                                            нить?</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        САФЬЯНОВЫ
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 Георгий Павлович Сафьянов - граф
+                                            Уренхайский</a></li>
+                                        <li><a class="dropdown-item" href="#">2 Первые руские, их быт и культура в
+                                            туранском музее</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        ТОЛКОВАНИЕ
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 В чем разница при осенении себя
+                                            крестным знамением</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:ten'%}">2 Десять мифов о
+                                            староверах</a></li>
+                                        <li><a class="dropdown-item" href="#">3 Можно ли спастись, будучи не
+                                            старообрядцем?</a></li>
+                                        <li><a class="dropdown-item" href="#">4 Можно ли христианам употреблять в пищу
+                                            мясные продукты с кровью</a></li>
+                                        <li><a class="dropdown-item" href="#">5 Почему Православные празднуют
+                                            Воскресение</a></li>
+                                        <li><a class="dropdown-item" href="#">6 Так всякий из вас, кто не отрешится от
+                                            всего, что имеет</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        ТРАДИЦИИ
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'content:apostol' %}">1 Апостол</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{% url 'content:аltai'%}">2 В Алтайском крае
+                                            сняли фильм о
+                                            старообрядцах</a></li>
+                                        <li><a class="dropdown-item" href="#">3 Как научиться читать иконы</a></li>
+                                        <li><a class="dropdown-item" href="#">4 Как родные: история обрусевших
+                                            вещей</a></li>
+                                        <li><a class="dropdown-item" href="#">5 Кухни России: традиционные блюда и их
+                                            история</a></li>
+                                        <li><a class="dropdown-item" href="#">6 Муж и жена. Об обязанностях и
+                                            призвании</a></li>
+                                        <li><a class="dropdown-item" href="#">7 Новый год - языческие истоки</a></li>
+                                        <li><a class="dropdown-item" href="#">8 Обрядовая одежда</a></li>
+                                        <li><a class="dropdown-item" href="#">9 ОДЕЖДА ХРИСТИАНОК</a></li>
+                                        <li><a class="dropdown-item" href="#">10 О женитьбах и свадьбах в старину на
+                                            Руси</a></li>
+                                        <li><a class="dropdown-item" href="#">11 Об одежде</a></li>
+                                        <li><a class="dropdown-item" href="#">12 Пасха по-византийски</a></li>
+                                        <li><a class="dropdown-item" href="#">13 Печать царя Соломона</a></li>
+                                        <li><a class="dropdown-item" href="#">14 Русский свадебный обряд</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        ФОТОАЛЬБОМ
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'content:arjan_2' %}">1 Аржан-2.
+                                            Золото скифов</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:service' %}">2 Архиерейская
+                                            литургия и вечернее
+                                            богослужение</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:consecration'%}">3
+                                            Водосвятие. Освящение мёда</a></li>
+                                        <li><a class="dropdown-item" href="#">4 Коллекция «Древнерусское искусство»</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">5 Музей истории старообрядчества
+                                            Сибири</a></li>
+                                        <li><a class="dropdown-item" href="#">6 На Пролетарской</a></li>
+                                        <li><a class="dropdown-item" href="#">7 Национальный музей 1, знакомые
+                                            экспонаты</a></li>
+                                        <li><a class="dropdown-item" href="#">8 Наш храм</a></li>
+                                        <li><a class="dropdown-item" href="#">9 Освящение храма в Красноярске</a></li>
+                                        <li><a class="dropdown-item" href="#">10 Общие фотографии общины</a></li>
+                                        <li><a class="dropdown-item" href="#">11 Первая Пасхальная служба с литургией в
+                                            г.Кызыл</a></li>
+                                        <li><a class="dropdown-item" href="#">12 Приезд владыки Григория</a></li>
+                                        <li><a class="dropdown-item" href="#">13 Пятьдесятница. День святой Троицы</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">14 Реконструкция храма в Кызыле</a></li>
+                                        <li><a class="dropdown-item" href="#">15 Строим Храм</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        ХРАМ И МИР
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 Грешу ли я, если коплю деньги на
+                                            старость?</a></li>
+                                        <li><a class="dropdown-item" href="#">2 Что означает пятиконечная звезда</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        ХРАМЫ
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1 Каппадокия. Пещерные монастыри</a></li>
+                                        <li><a class="dropdown-item" href="#">2 УКРАДЕННЫЙ ХРАМ</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        ЦЕРКОВЬ
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'content:james' %}">1 Апостол Иаков,
+                                            брат Господень</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:silverless'%}">2
+                                            Бессребреники Козма и Дамиян
+                                            Азийские</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:pandemonium'%}">3
+                                            ВАВИЛОНСКОЕ СТОЛПОТВОРЕНИЕ</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:faith'%}">4 Вера староверов
+                                            - это вера свободных
+                                            людей</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:sunday'%}">5 ВОСКРЕСЕНИЕ
+                                            ХРИСТОВО ВИДЕВШЕ…</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'content:sweat'%}">6 В ПОТЕ ЛИЦА</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{% url 'content:svirsky'%}">7 Второе
+                                            обретение мощей преподобного
+                                            Александра Свирского</a></li>
+                                        <li><a class="dropdown-item" href="v">8 Зачатие праведною Анною Пресвятой
+                                            Богородицы</a></li>
+                                        <li><a class="dropdown-item" href="#">9 Кижи. Храм Преображения Господня</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">10 Крестное знамение</a></li>
+                                        <li><a class="dropdown-item" href="#">11 На старую дорогу</a></li>
+                                        <li><a class="dropdown-item" href="#">12 Начало старообрядческой мысли.</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">13 Начётчики старой веры</a></li>
+                                        <li><a class="dropdown-item" href="#">14 Новые ереси новообрядческой церкви</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">15 ОБ УКРЕПЛЕНИИ ВЕРОТЕРПИМОСТИ</a></li>
+                                        <li><a class="dropdown-item" href="#">16 О ВОСКРЕСНОМ ДНЕ</a></li>
+                                        <li><a class="dropdown-item" href="#">17 Освящение церкви св. влмч. Георгия,
+                                            иже в Лиде</a></li>
+                                        <li><a class="dropdown-item" href="#">18 «РУССКИЙ ВЗГЛЯД» - СТАРООБРЯДЦЫ</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">19 Самые известные выражения библейского
+                                            происхождения</a></li>
+                                        <li><a class="dropdown-item" href="#">20 СВЕТ ЖИЗНИ</a></li>
+                                        <li><a class="dropdown-item" href="#">21 СВЕТ ЖИЗНИ (Продолжение)</a></li>
+                                        <li><a class="dropdown-item" href="#">22 Скитская экономика таежной Сибири:
+                                            дар, милостыня, товар</a></li>
+                                        <li><a class="dropdown-item" href="#">23 Страна Московитов, глазами Патриарха
+                                            Макария Антиохийского</a></li>
+                                        <li><a class="dropdown-item" href="#">24 Хоругви - священные знамёна церкви</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">25 Храм Лазаря Праведного Воскрешения из
+                                            Муромского монастыря</a></li>
+                                        <li><a class="dropdown-item" href="#">26 ЦЕРКОВЬ, КОВЧЕГ СПАСЕНИЯ</a></li>
+                                        <li><a class="dropdown-item" href="#">27 ЧУДЕСА И ЗНАМЕНИЯ</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div style="text-align: center;">
+                <div class="text-center" style="margin-top: 20px;">
+                    <h5>Связаться с нами:</h5>
+                    <a href="#" onclick="copyToClipboard('https://t.me/PonomarKyzyl'); openTelegram();"
+                       style="margin: 0 10px;">
+                        <img src="https://img.icons8.com/color/48/000000/telegram-app.png" alt="Telegram"
+                             style="width: 40px; height: 40px;">
+                    </a>
+                    <a href="#" onclick="copyToClipboard('https://yourwebsite.com'); openWhatsApp();"
+                       style="margin: 0 10px;">
+                        <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp"
+                             style="width: 40px; height: 40px;">
+                    </a>
+                    <a href="#" onclick="copyToClipboard('https://yourwebsite.com'); openViber();"
+                       style="margin: 0 10px;">
+                        <img src="https://img.icons8.com/color/48/000000/viber.png" alt="Viber"
+                             style="width: 40px; height: 40px;">
+                    </a>
+                </div>
+
+                <script>
+                    function copyToClipboard(text) {
+                        navigator.clipboard.writeText(text).then(function() {
+                            alert('Ссылка скопирована: ' + text);
+                        }, function(err) {
+                            console.error('Ошибка при копировании: ', err);
+                        });
+                    }
+
+                    function openTelegram() {
+                        window.open('https://t.me/PonomarKyzyl', '_blank');
+                    }
+
+                    function openWhatsApp() {
+                        window.open('https://wa.me/8908 207-85-27', '_blank');
+                    }
+
+                    function openViber() {
+                        window.open('viber://chat?number=YourPhoneNumber', '_blank');
+                    }
+                </script>
+                <div class="container mt-5">
+                    <a href="https://t.me/ctr_vestnik" class="btn btn-primary btn-custom" target="_blank">
+                        <span class="main-text">Наш Телеграмм.</span><br>
+                        Просите и дано будет вам; ищите и найдёте; стучите, и отворят вам...
+                    </a>
+                    <h1></h1>
+                    <h1></h1>
+                </div>
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; max-width: 38rem; margin-left: 7rem;">
+                </div>
+                <nav class="blog-pagination" aria-label="Pagination"><a
+                        class="btn btn-outline-primary rounded-pill"
+                        href="#">Вверх</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="position-sticky" style="top: 2rem;">
+                <div><h4 class="fst-italic">Недавние:</h4>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                               href="{% url 'content:typology' %}">
+                                <img src="{% static 'src/scale_1200 (8).jpeg' %}"
+                                     style="max-width: 30%; height: auto; margin: 0 auto;">
+                                <div class="col-lg-8">
+                                    <span style="color: gray;">АПОЛОГИЯ</span>
+                                    <h6 class="mb-0">Типология взглядов русских мыслителей на старообрядчество</h6>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                               href="{% url 'content:new_year' %}">
+                                <img src="{% static 'src/i (5).png' %}"
+                                     style="max-width: 30%; height: auto; margin: 0 auto;">
+                                <div class="col-lg-8">
+                                    <span style="color: gray;">ТРАДИЦИИ</span>
+                                    <h6 class="mb-0">Новый год - языческие истоки</h6>
+
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                               href="{% url 'content:star' %}">
+                                <img src="{% static 'src/zvezda_5.jpg' %}"
+                                     style="max-width: 30%; height: auto; margin: 0 auto;">
+                                <div class="col-lg-8">
+                                    <span style="color: gray;">ХРАМ И МИР</span>
+                                    <h6 class="mb-0">Что означает пятиконечная звезда</h6>
+
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="p-4">
+                    <h4 class="fst-italic">Темы</h4>
+                    <ol class="list-unstyled">
+                        <li><a href="#" class="custom-link">Новости</a></li>
+                        <li><a href="#" class="custom-link">О нас старообрядцах</a></li>
+                        <li><a href="#" class="custom-link">Престольный праздник</a></li>
+                        <li><a href="#" class="custom-link">Святоотеческое</a></li>
+                        <li><a href="#" class="custom-link">История старообрядчества</a></li>
+                        <li><a href="#" class="custom-link">Священство</a></li>
+                        <li><a href="#" class="custom-link">О Исусе Христе</a></li>
+                        <li><a href="#" class="custom-link">Личность</a></li>
+                        <li><a href="#" class="custom-link">Церковь</a></li>
+                        <li><a href="#" class="custom-link">Храмы</a></li>
+                    </ol>
+
+                    <style>
+                        .custom-link {
+                            font-size: 1.2em;
+                            font-weight: bold;
+                            color: #800000;
+                            text-decoration: none; /* убираем подчеркивание */
+                        }
+
+                        .dropdown-toggle {
+                            display: block;
+                            padding: 0.25rem 1rem; /* добавим дополнительные классы для dropdown, чтобы они имели одинаковый стиль */
+                        }
+                    </style>
+
+
+                    <p class="mb-0"><a href="#">Наверх</a></p>
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </main>
+    </header>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+    /* Позиционирование вложенного меню рядом с пунктом-родителем */
+    .dropdown-submenu > .dropdown-menu {
+      margin-left: 0.25rem;
+      margin-right: 0.25rem;
+      border-radius: 0.25rem;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Обеспечим открытие вложенного меню при клике на пункт с классом dropdown-toggle внутри dropdown
+      var toggles = document.querySelectorAll('.dropdown-submenu > .dropdown-toggle');
+      toggles.forEach(function (toggle) {
+        toggle.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          // Закроем другие открытые вложенные меню внутри того же родителя
+          var submenu = this.nextElementSibling;
+          var openSubmenus = this.closest('.dropdown-menu').querySelectorAll('.dropdown-menu.show');
+          openSubmenus.forEach(function (sm) {
+            if (sm !== submenu) {
+              sm.classList.remove('show');
+            }
+          });
+
+          // Переключим видимость этого вложенного меню
+          submenu.classList.toggle('show');
+        });
+      });
+
+      // Закрывать вложенные меню при клике вне меню
+      document.addEventListener('click', function () {
+        document.querySelectorAll('.dropdown-menu .dropdown-menu').forEach(function (sub) {
+          sub.classList.remove('show');
+        });
+      });
+    });
+</script>
+</body>
+</html>

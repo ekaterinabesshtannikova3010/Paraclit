@@ -1,0 +1,929 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Astro v5.9.2">
+    <title>Blog Template · Bootstrap v5.3</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/blog/">
+    <script src="/docs/5.3/assets/js/color-modes.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
+    <meta name="theme-color" content="#712cf9">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap" rel="stylesheet">
+    <link href="blog.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT&display=swap" rel="stylesheet">
+    <style>
+        .bd-placeholder-img{font-size:1.125rem;text-anchor:middle;-webkit-user-select:none;-moz-user-select:none;user-select:none}@media (min-width: 768px){.bd-placeholder-img-lg{font-size:3.5rem}}.b-example-divider{width:100%;height:3rem;background-color:#0000001a;border:solid rgba(0,0,0,.15);border-width:1px 0;box-shadow:inset 0 .5em 1.5em #0000001a,inset 0 .125em .5em #00000026}.b-example-vr{flex-shrink:0;width:1.5rem;height:100vh}.bi{vertical-align:-.125em;fill:currentColor}.nav-scroller{position:relative;z-index:2;height:2.75rem;overflow-y:hidden}.nav-scroller .nav{display:flex;flex-wrap:nowrap;padding-bottom:1rem;margin-top:-1px;overflow-x:auto;text-align:center;white-space:nowrap;-webkit-overflow-scrolling:touch}.btn-bd-primary{--bd-violet-bg: #712cf9;--bd-violet-rgb: 112.520718, 44.062154, 249.437846;--bs-btn-font-weight: 600;--bs-btn-color: var(--bs-white);--bs-btn-bg: var(--bd-violet-bg);--bs-btn-border-color: var(--bd-violet-bg);--bs-btn-hover-color: var(--bs-white);--bs-btn-hover-bg: #6528e0;--bs-btn-hover-border-color: #6528e0;--bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);--bs-btn-active-color: var(--bs-btn-hover-color);--bs-btn-active-bg: #5a23c8;--bs-btn-active-border-color: #5a23c8}.bd-mode-toggle{z-index:1500}.bd-mode-toggle .bi{width:1em;height:1em}.bd-mode-toggle .dropdown-menu .active .bi{display:block!important}
+    </style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path>
+    </symbol>
+    <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+    </symbol>
+    <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+    </symbol>
+    <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+    </symbol>
+</svg>
+<div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
+            aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+            <use href="#circle-half"></use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span></button>
+    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+            <ul>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
+                            aria-pressed="false" onclick="setTheme('light')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#sun-fill"></use>
+                        </svg>
+                        Light
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+                            aria-pressed="false" onclick="setTheme('dark')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#moon-stars-fill"></use>
+                        </svg>
+                        Dark
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center active"
+                            data-bs-theme-value="auto" aria-pressed="true" onclick="setTheme('auto')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#circle-half"></use>
+                        </svg>
+                        Auto
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+
+            <script>
+                function setTheme(theme) {
+                    document.body.setAttribute('data-bs-theme', theme);
+
+                    // Удалить класс 'active' с всех кнопок и установить его только на нажатую кнопку
+                    const buttons = document.querySelectorAll('.dropdown-item');
+                    buttons.forEach(button => {
+                        button.classList.remove('active');
+                        button.setAttribute('aria-pressed', 'false');
+                    });
+
+                    const activeButton = Array.from(buttons).find(button => button.getAttribute('data-bs-theme-value') === theme);
+                    activeButton.classList.add('active');
+                    activeButton.setAttribute('aria-pressed', 'true');
+                }
+            </script>
+        </li>
+    </ul>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+            stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path>
+    </symbol>
+    <symbol id="cart" viewBox="0 0 16 16">
+        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
+    </symbol>
+    <symbol id="chevron-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+    </symbol>
+</svg>
+
+<div class="container">
+    <header class="border-bottom lh-1 py-3">
+        <div class="row">
+
+            <!-- Logo "Пономарь" -->
+            <div class="col-md-4 pt-1" style="font-size: 2em; font-family: 'Old Standard TT', serif; color: #9B1B30;">
+                <a class="link-secondary active" href="{% url 'content:home' %}" id="ponomar">Пономарь</>
+            </div>
+
+            <!-- Header "Старообрядческий вестник" -->
+            <div class="col-md-4 text-center" style="font-size: 2em;">
+                <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#">Старообрядческий
+                    вестник</a>
+            </div>
+
+            <!-- Search Icon -->
+            <div class="col-md-4 d-flex justify-content-end align-items-center">
+                <button type="button" onclick="handleSearchClick()"
+                        style="background: none; border: none; cursor: pointer;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+                         stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img"
+                         viewBox="0 0 24 24">
+                        <title>Search</title>
+                        <circle cx="10.5" cy="10.5" r="7.5"></circle>
+                        <path d="M21 21l-5.2-5.2"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="nav nav-underline justify-content-between py-1 mb-3 border-bottom">
+            <a class="nav-item nav-link link-body-emphasis active" href="{% url 'content:about' %}">О НАС</a>
+            <a class="nav-item nav-link link-body-emphasis" href="#">ЗАДАТЬ ВОПРОС</a>
+            <a class="nav-item nav-link link-body-emphasis active" href="{% url 'content:star' %}">СТАРООБРЯДЧЕСТВО</a>
+            <a class="nav-item nav-link link-body-emphasis active" href="{% url 'content:potrebnic' %}">ПОТРЕБНИК</a>
+            <a class="nav-item nav-link link-body-emphasis active" href="{% url 'content:kultura' %}">КУЛЬТУРА</a>
+        </nav>
+</div>
+</div>
+{% block content %}
+{% endblock %}
+
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+    <div class="row g-5">
+        <div class="col-md-8">
+            <article class="blog-post">
+                <h2 class="display-5 mb-1">
+                    <a href="{% url 'content:avvacum' %}" style="text-decoration: none; color: black;">Неистовый
+                        Аввакум</a>
+                </h2>
+            </article>
+
+            <p style="font-size: 17px;" class="lh-base">Одним из самых ярких фигур «бунташного века», как называли
+                современники XVII в., был протопоп
+                Аввакум. Он получил известность как один из активных участников идейной и политической борьбы,
+                вождь церковного раскола и талантливый писатель, автор замечательного автобиографического «Жития«.
+                Для своих врагов Аввакум был еретиком и бунтовщиком, для своих последователей - учителем и святым.
+                И при этом Аввакум всегда был неистовой натурой, не признававшей компромиссов.</p>
+            <div style="text-align: center;">
+                <img src="{% static 'src/avvakum-fire.jpg' %}" alt="Мученичество Аввакума старообрядческая икона"
+                     style="max-width: 28%; height: auto; margin: 0 auto;">
+                <p style="color: #6c757d; margin-top: 0.5rem;">Мученичество Аввакума старообрядческая икона.</p>
+            </div>
+
+            <hr>
+            <h2><a id="nachalo-zhizni"></a>Начало жизненного пути</h2>
+            <p style="font-size: 18px;" class="lh-base">
+                Аввакум Петрович Кондратьев родился 20 ноября 1620 г. в селе Григорове Закудемского стана
+                нижегородского уезда (ныне Большемурашкинский р-н Нижегородской обл.). Из того же Нижегородского уезда
+                вышли почти все деятели эпохи церковного раскола: патриарх Никон, протопоп Иоанн Неронов, епископ
+                Павел, епископ Иларион.</p>
+            <p style="font-size: 18px;" class="lh-base">
+                Отец Аввакума - Петр Кондратьев был священником сельской церкви, но, поскольку он был подвержен весьма
+                распространенной на Руси слабости, то религиозным воспитанием Аввакума занималась его мать Мария. В
+                своем автобиографическом «Житие» Аввакум вспоминал:
+            </p>
+
+            <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                <p class="fst-italic">Отец же мой прилежаще пития хмельного мати же моя постница и молитвеница
+                    бысть.</p>
+            </div>
+            <p style="font-size: 18px;" class="lh-base">Овдовев Мария Кондратьева ушла в монастырь, приняв имя Марфы,
+                но еще до
+                пострига постаралась устроить
+                семейное счастье сына женив его на сиротке Анастасии. Жена не принесла Аввакуму приданого, её отец
+                Марко когда-то был зажиточным кузнецом, но после его смерти достаток семьи совершенно истощился. Зато
+                Аввакум обрел в своей жене верную помощницу и безропотную спутницу, прошедшую с ним рука об руку всю
+                его мятежную жизнь. Их четям тоже пришлось в полной мере разделить несчастья родителей.</p>
+
+            <p style="font-size: 18px;" class="lh-base">В возрасте двадцати одного года Аввакум был рукоположен в
+                диаконы, через два
+                года стал священником, а
+                еще через восемь лет был посвящен в сан протопопа. Он воспринимал духовное поприще как аскетическое
+                служение Богу по примеру первых христиан. Он не мог спать перед литургией, а когда приспевало время
+                заутрени, сам спешил благовестить; прибежит на звонницу пономарь - тогда отдаст ему колокол, а сам идет
+                в церковь читать полунощницу. На службе велит стоять с благоговением, после обедни читает поучение.
+                Пообедав и отдохнув два часа, опять берется за книгу. После вечерни опять читаются каноны, молитвы, и
+                уже в потемках вновь кладутся земные поклоны. Сам он кладет четыреста поклонов, супруге делает
+                снисхождение «понеже ребятишки у нее пищать» - всего двести поклонов.</p>
+
+            <p style="font-size: 18px;" class="lh-base">
+                Мистическому сознанию Аввакума представлялось, что слуги сатаны только и жду, чтобы запугать и совлечь
+                его с пути истинного. Но Аввакум утверждал, что он силой молитвы укрощал дьявола и делился секретами
+                этого искусства вроде того, что беса не проймешь батогом, как мужика: боится он</p>
+
+            <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                <p class="fst-italic">"Святой воды да священного масла, а совершенно бежит от Креста Господня".</p>
+            </div>
+            <p style="font-size: 18px;" class="lh-base">
+                У Аввакума всегда были «духовные дети», внемлющие каждому слову своего учителя и преданные ему душой и
+                телом. Однако с большинством прихожан у него сложились очень плохие отношения, доходившие до прямых
+                стычек. В своем «Житие» Аввакум изображал дело так, как будто бы его гнали и преследовали безо всякого
+                повода, но зная неукротимый характер протопопа, трудно предположить в нем безропотную жертву. Он был
+                убежден, что пастырь должен руководить повседневной жизнью своих прихожан, пресекая их греховные
+                поползновения. Аввакум ревностно преследовал скоморохов, чьи представления являлись любимым
+                развлечением мирян. Неудивительно, что подобные строгости очень скоро возбудили негодование и других
+                священнослужителей и простых людей. Аввакуму пришлось переменить несколько мест.</p>
+            <p style="font-size: 18px;" class="lh-base">
+                Вместе с тем у Аввакума появились не только враги, но и единомышленники и влиятельные покровители в
+                лице земляка Иоанна Неровнова, протопопа Казанского собора в Москве и царского духовника Стефана
+                Вонифатьева. Вокруг Стефана Вонифатьева сложился кружок ревнителей благочестия, и Аввакум стал одним из
+                его деятельнейших членов. Трудно сказать, когда он сумел ознакомиться со всей существовавшей на
+                старославянском языке церковной литературой, но он разговаривал на равных с учёнейшими из московских
+                начетчиков. Аввакум показал себя талантливым проповедником, а это было новым делом, и ревнители
+                благочестия только-только начали произносить поучения в церквах. Как проповедник и церковный писатель
+                Аввакум имел одну отличительную и неповторимую особенность.</p>
+
+            <div style="text-align: center;">
+                <img src="{% static 'src/russia_stamp_2020_-_2704.jpg' %}"
+                     alt="400 лет со дня рождения протопопа Аввакума (1620 1682), религиозного деятеля, Почтовая России марка 2020"
+                     style="max-width: 28%; height: auto; margin: 0 auto;">
+                <p style="color: #6c757d; margin-top: 0.5rem;">400 лет со дня рождения протопопа Аввакума (1620 1682),
+                    религиозного деятеля, Почтовая России марка 2020</p>
+            </div>
+            <p style="font-size: 18px;" class="lh-base">
+                Он первым и единственным стал писать не по-книжному, а так как говорили на улицах и площадях,
+                употребляя
+                простонародные обороты и не пугаясь крепкого словца. Самые сложные догматические вопросы он толковал в
+                упрощенной форме, а библейские предания излагал так, как будто все это происходило не в древней
+                Палестине,
+                а в современной ему Руси. Всемогущий Иегова под его пером обращался в князя - воеводу. отправленного из
+                Москвы на кормление ему не понравилась жертва Каина, потому что тот принес «хлебенко худой, который
+                негоден
+                себе«, в то время как Авель дал «барана лучшего«, Распятие Христа на Голгофе разительно напоминает
+                казнь на
+                Болотной площади, а римский легионер уподобляется московскому стрельцу.</p>
+
+            <p style="font-size: 18px;" class="lh-base">В конце 40-х начале 50-х гг. XVII века не занимавший высокого
+                положения и не стяжавший больших богатств
+                протопоп стал прикосновенен к большой государственной и церковной политике. Ревнители благочестия
+                открыли
+                ему доступ в царские палаты. Стефан Вонифатьев и Иоанна Неронов, как писал сам Аввакум,</p>
+
+            <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                <p class="fst-italic">"Обо мне царю известиша и государь меня почал с тех мест знати".</p>
+            </div>
+
+            <p style="font-size: 18px;" class="lh-base"> Познакомился Аввакум и с новгородским архиепископом Никоном -
+                «другом нашим«, так называл Аввакум своего будущего смертельного врага. Трудно судить, насколько
+                искренней была эта дружба даже в ту пору, когда Никон был близок к кружку Стефана Вонифатьева,
+                Существует мнение, что ревнители благочестия помогали Никону подниматься по ступеням церковной
+                иерархии, надеясь на то, что тот, сменив слабого и корыстолюбивого патриарха Иосифа, воплотит в жизнь
+                их планы. Однако историк церкви XIX века архиепископ Макарий отмечал, что ревнители благочестия,
+                напротив, пытались преградить Никону дорогу к патриаршему престолу:</p>
+            <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                <p class="fst-italic">"Эти люди, особенно Вонифатьев и Неронов, привыкшие при слабом патриархе Иосифе
+                    заправлять делами в церковном управлении и суде, желали и теперь удержать за собою всю власть над
+                    Церковию и не без основания опасались Никона, достаточно ознакомившись с его характером".</p>
+            </div>
+            <h2></h2>
+            <h2><a id="cerkovn-rascol"></a>Церковный раскол</h2>
+            <p style="font-size: 18px;" class="lh-base">Надо сказать, что и сам Аввакум писал, что после кончины Иосифа
+                они вместе с «братьей» подали царю и царице
+                челобитную «о духовнике Стефане, чтоб ему быть в патриархах«. Но Вонифатьев уклонился от такой чести и,
+                если верить свидетельству протопопа, сам указал на новгородского архиепископа как на наиболее
+                подходящего
+                его кандидата. Вызванный в Москву Никон, очевидно, догадывался об этих интригах.</p>
+            <div style="text-align: center;">
+                <img src="{% static 'src/image-013.jpeg' %}"
+                     alt="Церковный собор. 1654 год. Начало раскола. Алексей Кившенко, 1880"
+                     style="max-width: 50%; height: auto; margin: 0 auto;">
+                <p style="color: #6c757d; margin-top: 0.9rem;">Церковный собор. 1654 год. Начало раскола. Алексей
+                    Кившенко, 1880</p>
+
+                <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <p class="fst-italic">"«Егда ж приехал, с нами яко лис: челом да здорово, ведает, что быть ему в
+                        патриархах, и чтобы откуля помешка какова не учинилась.»
+                        Аввакум".</p>
+                </div>
+                <p style="font-size: 18px;" class="lh-base">Так или иначе 25 июля 1652 г. седьмым патриархом Московским
+                    и всея Руси стал Никон.</p>
+                <p style="font-size: 18px;" class="lh-base">Сразу после избрания Никон порвал со своими бывшими
+                    товарищами. Аввакум с горечью сетовал:</p>
+
+                <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <p class="fst-italic">"Егда поставили патриархом, так друзей не стали в крестовую пускать".</p>
+                </div>
+                <p style="font-size: 18px;" class="lh-base">Не прошло и полугода как новый патриарх начал реформу
+                    богослужения, воспринятую ревнителями благочестия
+                    как отступление от веры отцов. Даже спустя тои десятилетия заживо погребенный в земляной тюрьме
+                    Аввакум
+                    с ужасом вспоминал тот февральский день 1653 г когда от имени патриарха пришел указ креститься
+                    тремя
+                    перстами. В то время Аввакум жил в доме Иоанна Неронова, помогая ему вести богослужение в Казанском
+                    соборе на Красной площади.</p>
+                <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <p class="fst-italic">"Мы же задумалися, сошедшеся Между собою; видим, яко зима хощет быти: сердце
+                        озябло. и ноги задрожали".</p>
+                </div>
+                <p style="font-size: 18px;" class="lh-base">Потрясенный Неронов отправился в Чудов монастырь.</p>
+
+                <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <p class="fst-italic">"И там ему от образа глас бысть во время молитвы» «время приспе страдания
+                        подобает вам неослабно страдати!".</p>
+                </div>
+
+                <p style="font-size: 18px;" class="lh-base">Предчувствие Неронова не замедлило исполниться: и для него
+                    и для его единомышленников настала пора страданий.</p>
+
+                <p style="font-size: 18px;" class="lh-base">Противники реформы подали царю рукописное опровержение, в
+                    котором предписание патриарха было названо ересью, но не получили поддержки Алексея Михайловича.
+                    Началась упорная борьба. Протопоп Иоанн Неронов, приглашенный на собор в крестовой палате, укорял
+                    Никона:</p>
+                <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <p class="fst-italic">"Доселе ты друг наш был - на нас восстал. Некоторых ты разорил и на их места
+                        поставил иных, и от них ничего доброго не слыхать. Других ты обвинил за то, что они людей
+                        мучат, а сам беспрестанно мучишь.".</p>
+                </div>
+
+                <p style="font-size: 18px;" class="lh-base">Собор определил послать протопопа Неронова на смирение в
+                    Каменский монастырь, как писал сам Неронов.</p>
+                <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <p class="fst-italic">"Под крепкое начало, а в грамоте о мне ко властям было писано: за великое
+                        бесчиние велено в черных службах ходить.".</p>
+                </div>
+                <p style="font-size: 18px;" class="lh-base">Вместо Неронова на защиту старой веры встал Аввакум. Ему
+                    запретили произносить поучения в Казанском соборе, но он «завел свое всенощное» в сушиле,
+                    находившемся на дворе сосланного друга, переманив к себе часть прихожан:</p>
+                <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <p class="fst-italic">"в некоторое время и конюшня - де иные церкви лучше.".</p>
+                </div>
+                <p style="font-size: 18px;" class="lh-base">13 августа 1653 г. наступила развязка. В тот день, как
+                    сообщал в письме Неронову священник Данилов, протопоп «чел поучения на паперти… лишние слова
+                    говорил, что и не подобает говорить«. Отряд стрельцов схватил протопопа и шестьдесят человек его
+                    прихожан во время всенощной. Аввакума привезли на патриарший двор и посадили на цепь. Вскоре были
+                    взяты под стражу и другие противники Никона. Муромский протопоп Логгин, самолично расстриженный
+                    патриархом в Успенском соборе, плюнул Никону в глаза. Аввакуму тоже была назначена участь
+                    расстриги, и он уже был привезен в собор для совершения обряда лишения духовного сана, но царь
+                    Алексей Михайлович упросил патриарха помиловать протопопа. Вместо расстрижения Аввакум «за ево
+                    многие безчинства» по указу Никона был сослан в «Сибирский город на Лену» в «Якутский острог«.</p>
+
+                <h2><a id="sibirskaja-ssilka"></a>Сибирская ссылка</h2>
+                <p style="font-size: 18px;" class="lh-base">Началась одиннадцатилетняя сибирская ссылка церковного
+                    мятежника. Авакума и его жену, еще не оправившуюся после родов сына, бросили в телегу и повезли
+                    в Тобольск. Сибирский архиепископ Симеон, зная Аввакума как ревнителя православия, поставил его
+                    протопопом Воскресенского собора. Но и там «великие беды» продолжали преследовать протопопа.
+                    Вскоре из Москвы пришли вести, что от моровой язвы умерли два больных бата Аввакума и почти все
+                    его родственники. Эпидемию и тяжёлую войну с Польшей протопоп, как и другие раскольники, прямо
+                    связали с никоновской ересью</p>
+                <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <p class="fst-italic">"Говорил тогда и сказывал Неронов царю три пагубы за церковный раскол:
+                        мор, меч, разделение; то и сбылось во дни наша ныне.".</p></div>
+                <p style="font-size: 18px;" class="lh-base">Без сомнения Аввакум и в Тобольске продолжал
+                    проповедовать старую веру, иначе невозможно объяснить поток поступивших на него доносов -
+                    «в полтора годы пять слов государевых сказывали на меня» то есть пять раз его обвиняли в
+                    государственной измене, начиная доносы страшным изречением «Слово и дело государево«. В
+                    результате пришел указ сослать непокорного протопопа в Даурскую землю.</p>
+                <p style="font-size: 18px;" class="lh-base">Аввакум отправился на новое место «белым попом» в
+                    отряде Афанасия Пашкова, назначенного воеводой в Дауры. «О, горе стало! - восклицал
+                    протопоп. - Горы высокия, Дебри непроходимыя, утес каменной, яко стена стоит, и поглядеть -
+                    заломя голову«! В своем «Житие» Аввакум оставил красочное описание подневольного
+                    путешествия по Енисею, Шилке, Тунгуске, «морю Байкальскому». Тысячи верст прошел он по
+                    тайге, по горным тропам, по крутым берегам наравне с казаками, таща на бечеве лодки -
+                    «дощенники» против стремительного речного течения, страдал от холода и голода. Поход по
+                    неизведанным местам был для него вдвойне тяжелым, потому что воевода Пашков человек крутого
+                    нрава - «яко дикий зверь«, имел предписание не жалеть церковного отступника и по его
+                    приказу протопопу дали более семидесяти ударов кнутом. После беспощадной воеводской
+                    расправы Аввакум, лежа окровавленный на дне лодки, возроптал на Бога и тут же ужаснулся и
+                    обругал себя последними словами за подобную дерзость:</p>
+            </div>
+            <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                <p class="fst-italic">"фарисей с говенною рожею - со владыкою судитца захотел!… Как дощенник-от в
+                    воду туне погряз со мною?"</p>
+            </div>
+            <div style="text-align: center;">
+                <img src="{% static 'src/avvakum_in_siberia.jpg' %}"
+                     alt="Путешествие Аввакума по Сибири. Сергей Дмитриевич Милорадович (1851-1943)"
+                     style="max-width: 50%; height: auto; margin: 0 auto;">
+                <p style="color: #6c757d; margin-top: 0.9rem;">Путешествие Аввакума по Сибири. Сергей Дмитриевич
+                    Милорадович (1851-1943)</p>
+
+                <p style="font-size: 18px;" class="lh-base">А даурские казаки и служилые люди по наущению воеводы
+                    отправили в Москву челобитную, прося учинить над «вором завотчиком и ссорщиком» Аввакумом смертную
+                    казнь «по Уложенной соборной книге» дабы «службе от такова вора и завотчика какое дурно не
+                    встречалось«.</p>
+                <p style="font-size: 18px;" class="lh-base">В Аввакуме все более и более крепло убеждение, что Бог
+                    испытывает его, что ему, как первым мученикам, предназначено пострадать за истинную веру.</p>
+                <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <p class="fst-italic">"Любил, протопоп со славными знатца, люби же и терпеть, горемыка до конца
+                        " - говаривал Аввакум.</p>
+                </div>
+                <p style="font-size: 18px;" class="lh-base">Семья протопопа несла все тяготы ссылки, от лишений умерли
+                    двое малых сыновей остальным приходилось босыми ногами скитаться по острым каменьям, выпрашивать
+                    подаяния, а во время голода питаться вместе с отцом травой, кореньями, не брезговать падалью.
+                    Как-то во время очередного тяжелого перехода протопопица окончательно выбилась из сил и упала в
+                    снег.</p>
+
+                <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <p class="fst-italic">"Я пришел, - на меня бедная, пеняет, говоря: «долго ли муки сея, протопоп,
+                        будет?» И я говорю: «Марковна, до самыя смерти!» Она же вздохня, отвещала: «добро. Петровичь,
+                        ино еще побредем»."</p>
+                </div>
+                <h2><a id="neistovii-proroc"></a>Неистовый пророк</h2>
+                <p style="font-size: 18px;" class="lh-base">К своей верной супруге обратился за советом протопоп, когда
+                    перед ним встал нравственный выбор. Кончилась сибирская ссылка. Попал в опалу Никон, уже отрекся он
+                    от патриаршего престола, а из Москвы пришел царский указ возвратить Аввакума. Протопопа терзали
+                    сомнения. Не было Никона, но остались никонианские нововведения против которых он восстал с такой
+                    яростью. А с другой стороны, можно было, пользуясь падением главного врага, получить полное
+                    прощение, наконец-то дать семье спокойную жизнь и достаток. Видя его печаль, протопопица приступила
+                    к мужу с расспросами Аввакум вопросил:</p>
+                <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <p class="fst-italic">"жена, что сотворю? зима еретическая на дворе; говорить ли мне или молчать?-
+                        связали вы меня!"</p>
+                </div>
+                <p style="font-size: 18px;" class="lh-base">и, услышав в ответ:</p>
+                <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <p class="fst-italic">"Аз тя и с детьми благословляю к дерзай проповедати слово божие попрежнему, а
+                        о нас не тужи…Поди, поди в церковь Петровичь, - обличай блудню еретическую!"</p>
+                </div>
+                <p style="font-size: 18px;" class="lh-base">поклонился жене земным поклоном.</p>
+                <p style="font-size: 18px;" class="lh-base">Москва встретила протопопа с распростертыми объятиями:</p>
+
+                <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <p class="fst-italic">"Государь меня тот час к руке поставить велел и слова милостивые говорил:
+                        «здорово ли-де, протопоп, живешь? Еще - де видатца бог велел! И я сопротив руку ево поцеловал и
+                        пожал, а сам говорю: «жив господь, и жива душа моя, царь - государь; а впредь что изволит бог!»
+                        Он же, миленькой, вздохнул, да и пошел, куды надобе ему."</p>
+                </div>
+                <p style="font-size: 18px;" class="lh-base">На бывшего ссыльного, чьи дети совсем недавно побирались
+                    Христовым именем, посыпались щедрые дары. Царь пожаловал ему десять рублей, царица еще десять, а
+                    «дружище наше старое» боярин Федор Стрешнев,» тот и шестьдесят рублев казначею своему велел в шапку
+                    мне сунуть; а про иных и нечева и сказывать: всяк тащит да несет всячиною«. Аввакуму наперебой
+                    предлагали завидные должности: «Давали мне место, где бы я захотел, и в духовники звали, чтоб я с
+                    ними соединился в вере«.</p>
+                <p style="font-size: 18px;" class="lh-base">Но не таким человеком был Аввакум, чтобы поступиться своей
+                    душой за сытую жизнь. Полгода он только и прожил в относительном покое, а потом подал Алексею
+                    Михайловичу обширную грамоту, требуя восстановить старую веру. На протопопа тотчас обрушились
+                    прежние преследования:</p>
+                <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <p class="fst-italic">"И с тех мест царь на меня кручиноват стал: нелюбо стало, как опять я стал
+                        говорить, любо им когда молчу, а мне так не сошлось."</p>
+                </div>
+                <p style="font-size: 18px;" class="lh-base">Аввакум был снова посажен на цепь, а потом над ним свершили
+                    то, что должны были свершить двенадцать лет назад - расстригли в соборной церкви:</p>
+                <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <p class="fst-italic">"потом и проклинали, а я их проклинал сопротив; зело было мятежно в обедню ту
+                        тут."</p>
+                </div>
+                <img src="{% static 'src/10148-987x1024.jpg' %}"
+                     alt="Протопоп Аввакум (1620 или 1621 - 1682), русский
+                    религиозный деятель"
+                     style="max-width: 50%; height: auto; margin: 0 auto;">
+                <p style="color: #6c757d; margin-top: 0.9rem;">Протопоп Аввакум (1620 или 1621 - 1682), русский
+                    религиозный деятель</p>
+                <p style="font-size: 18px;" class="lh-base">В августе 1664 г. Аввакум был отправлен в новую ссылку на
+                    Мезени.</p>
+                <p style="font-size: 18px;" class="lh-base">Через два года его привезли в Москву вместе с другими
+                    вождями раскола для окончательного суда. Над протопопом в Успенском соборе было совершено
+                    расстрижение: «потом и проклинали; а я их проклинал сопротив; зело было мятежно в обедню тутут«. А
+                    впереди был церковный собор 1667г. с участием приехавших на Русь антиохийского и иерусалимских
+                    патриархов. Собор одновременно осудил и Никона и вождей раскола. Аввакум описал этот суд в своем
+                    «Житие«. Разумеется, его трактовка событий исключительна пристрастна. Если верить протопопу, он
+                    легко посрамил вселенских патриархов, сказав им, что их православие «пестро стало» под турецким
+                    игом, и посоветовав впредь приезжать на Русь поучиться истинной вере, которую исповедовали русские
+                    святые.</p>
+                <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <p class="fst-italic">"И патриархи задумалися; а наши, что волчонки, вскоча, завыли и блевать стали
+                        на отцев своих, говоря: глупы - де были и не смыслили наши русские святыя, не ученые - де люди
+                        были, - чему им верить?"</p>
+                </div>
+                <p style="font-size: 18px;" class="lh-base">Аввакум использовал обычный для средневековой литературы
+                    способ изложения прений, когда противоположной стороне вкладываются в уста заведомо беспомощные
+                    возражения. Но у него даже сквозь стереотипные литературные приемы прорывается трагикомическая
+                    нотка. Устав от криков и брани расстриженный протопоп отошел к дверям «да набок повалился:
+                    «посидите вы, а я полежу», говорю им.</p>
+                <p style="font-size: 18px;" class="lh-base">Противодействие духовным властям дорого обошлось вождям
+                    раскола. Стража была усилена:</p>
+                <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <p class="fst-italic">"что за разбойниками, стрельцов войско за нами ходит и срать провожают:
+                        помянется, - и смех и горе."</p>
+                </div>
+                <p style="font-size: 18px;" class="lh-base">Не все выдержали соборное проклятье. Престарелый Иоанн
+                    Неронов, друг и учитель Аввакума, покорился, принял новые обряды, был прощен и вскоре поставлен
+                    архимандритом одного из монастырей в Переславле-Залесском. Бывший игумен Соловецкого монастыря
+                    Никандр избрал иную линию: притворно выразив смирение и согласие с собором, он получил разрешение
+                    вернуться в обитель простым иноком, а по возвращению встал во главе Соловецкого восстания и восемь
+                    лет отбивался от царских ВОЙСК.</p>
+                <h2><a id="pystozerskie-starsi"></a>Пустозерские старцы</h2>
+                <p style="font-size: 18px;" class="lh-base">Самых упорных - Аввакума, Никифора, Федора, Лазаря и
+                    Епифания было решено сослать на далекий Север в острог Пустозерск. Перед отправкой Лазарю и
+                    Епифанию на Болотной площади урезали языки за «неистовое прекословие» собору. В Пустозерске,
+                    находившемся почти у самого Полярного круга, вождям раскола предстояло провести долгих пятнадцать
+                    лет и быть казненными в один лень. Здесь для узников с немалыми трудами и расходами, доставив лес
+                    за пятьсот верст, выстроили крепкую тюрьму. Во всем Пустозерске насчитывалось пятьдесят три двора,
+                    а церковных мятежников стерегли сто стрельцов.</p>
+                <p style="font-size: 18px;" class="lh-base">Это была самая тяжелая полоса всей многострадальной жизни
+                    неукротимого протопопа. И это же было временем наивысшего расцвета духовных сил пустозерских
+                    старцев. У них нашлись почитатели даже в этом забытом Богом краю. Священник единственной
+                    пустозерской церкви служил по старым служебникам и помогал Аввакуму. Упоминали старцы и о некоем
+                    «Алексее-пустозерец«, дом которого был постоянным местом встреч для заключенных, где они спорили и
+                    переписывали свои сочинения.</p>
+
+                <p style="font-size: 18px;" class="lh-base">В 1670 г. Аввакум обратился с челобитной к царю Алексею
+                    Михайловичу, но только это была не челобитная от холопа своему господину и даже не письмо равного
+                    равному, а скорее послание ветхозаветного пророка нечестивому владыке. Недаром в челобитной
+                    подчеркивается, что царь на свободе владеет одной только Русской землей, а ему, Аввакуму, Бог
+                    покорил за темничное сидение и небо и землю. Узник грозил Алексею Михайловичу небесными карами и
+                    описывает свое видение будущих страданий земного владыки, чье «брюхо» поражено язвой «зело
+                    великой«. При этом в доказательство своей искренности Аввакум с деланным смирением добавляет:
+                </p>
+                <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <p class="fst-italic">"Прости, Михайлович свет, … да никак не лгу, ниж притворяяся, говорю: в
+                        темнице мне, яко во гробу, сидящу, что надобна? Разве смерть? Ей, тако."</p>
+                </div>
+                <p style="font-size: 18px;" class="lh-base">В ответ, как горько шутил Аввакум, были «присланы
+                    гостинцы«. На Мезени жену протопопа и двух старших сыновей приговорили к смерти, но они покаялись:
+                    «бедные оплошали и не догадались венцов победных ухватити: испужався смерти, повинились» что,
+                    впрочем, не помогло им избежать пожизненного заключения. В Пустозерск для совершения расправы
+                    прибыл стрелецкий полуголова. Протопоп писал, что его подвели к плахе и огласили приговор:</p>
+                <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <p class="fst-italic">"Чли в наказе: Аввакума посадить в землю в струбе и давать ему воды и хлеба.
+                        И я сопротив тово плюнул и умереть хотел, не едши, и не ел дней с восмь и больши, да братья
+                        паки есть велели."</p>
+                </div>
+                <p style="font-size: 18px;" class="lh-base">С другими старцами поступили еще более жестоко: Лазарю,
+                    Феодору и Епифанию вторично урезали языки и отсекли персты, коими писались дерзновенные письмена.
+                    Под пером Аввакума эта казнь обернулась чудом. Отсеченные пальцы узников, пав на землю, сами
+                    сложились в двоеперстие, а языки товарищей отрасли вновь совершенно, причем поп Лазарь «паки
+                    говорит без языка«. Это, конечно, противоречит законам природы, но, возможно, пустозерские старцы
+                    за годы заточения так сроднились духовно, что научились общаться друг с другом мысленно без помощи
+                    слов.</p>
+                <h2><a id="protopopa-abbacuma"></a>Житие протопопа Аввакума</h2>
+                <p style="font-size: 18px;" class="lh-base">Даже с вырванными и отсеченными перстами пустозерские
+                    старцы продолжали распространять по всей Руси «грамотки» и послания. Здесь инок Епифаний тоже
+                    составил свое житие, дьякон Федор написал от имени всех узников «Ответ православных» и трактат «О
+                    познании антихристовой прелести«. Здесь, после жестокой расправы со своими единомышленниками,
+                    протопоп Аввакум начал писать своё «Житие» - одно из самых выдающихся произведений древнерусской
+                    литературы. В его челобитных царю и письмах единомышленникам уже были автобиографические наброски.
+                    Расколоучитель переписывался со своими «духовными дочерями» боярыней Морозовой и княгиней
+                    Урусовой:</p>
+                <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <p class="fst-italic">"О, светила великия, солнце и луна Русские земли, Феодосия и Евдокея, и чада
+                        ваша, яко звезды сияющий перед Господем Богом"</p>
+                </div>
+                <p style="font-size: 18px;" class="lh-base">- в таком высоком стиле обращается он к ним, но в том же
+                    письме скоро переходит на деловой тон:</p>
+                <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <p class="fst-italic">"денег ты жене моей и кое-што послала. Да мужик ничево не отдал - ни полушки:
+                        перед ним! Пуская ево. Не до денег нам ныне. У тебя и болши нашего заводов было, да отняли
+                        же!"</p>
+                </div>
+
+                <p style="font-size: 18px;" class="lh-base">Аввакум вел переписку и со своей семьей. К томившейся в
+                    заключении жене, любимой Марковне, узник обращается со словами ободрения, со старшими сыновьям
+                    довольно сдержен за их невольное отступничество, зато младший сын Афанасий радует отца:</p>
+                <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <p class="fst-italic">"Афанасьюшко Аввакумович, голубчик мои! - утешил ты меня. Сказывал воевода
+                        здешний, похваляя тебя: были - де у него вы и он - де спросил тебя: как - де ты. Афанасий,
+                        персты слагаешь? И ты - де показал ему, воеводе: вот - де я слагаю. А он - де тебе молвил: уже
+                        - де где отец и мати, там же будешь! И ты де супротив рек: силен Бог, - не боюся!"</p>
+                </div>
+                <p style="font-size: 18px;" class="lh-base">Аввакум сознавал необычность самого факта своего
+                    автобиографического рассказа и поэтому был вынужден просить прощения у своих читателей</p>
+                <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <p class="fst-italic">"…прожитие-то мне и не надобно говорить, да прочтох Деяния апостолтьския и
+                        Послания Павлова - апостоли о себя возвещали же, еда бог соделал в них…"</p>
+                </div>
+                <img src="{% static 'src/morozova_avvakym.jpg' %}"
+                     alt="Боярыня Морозова навещает Аввакума в тюрьме.Миниатюра XIX века"
+                     style="max-width: 50%; height: auto; margin: 0 auto;">
+                <p style="color: #6c757d; margin-top: 0.9rem;">Боярыня Морозова навещает Аввакума в тюрьме.</p>
+                <p style="color: #6c757d; margin-top: 0.9rem;">Миниатюра XIX века</p>
+                <p style="font-size: 18px;" class="lh-base">Действительно, житие по своей форме напоминает «Деяния
+                    апостолов«, но резко отличается от привычных для читателей той эпохи житий святых. Аввакум трижды
+                    переписывал свое сочинение и каждый раз вносил что-то новое. А.Н. Робинсон, исследователь
+                    творчества Аввакума, отмечал:</p>
+                <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <p class="fst-italic">"Варьируя автобиографию, Аввакум вносил в нее много нового: то были и новые
+                        исторические подробности, эпизоды из жизни, воспоминания, ярко возникающие перед его духовным
+                        взором во мраке темницы, и литературные реминисценции, и важные программно - философские
+                        заявления об отношении к «природному» русскому языку, и то усиливающиеся, то ослабляющие
+                        полемические выпады или лирические отступления, и всевозможные редакторские сокращения, частные
+                        добавления или исправления."</p>
+                </div>
+                <p style="font-size: 18px;" class="lh-base">В соответствии с канонами житийной литературы начинается с
+                    вступления, где словами инока Епифания, сподвижника и духовного отца Аввакума, формулируется
+                    основная задача произведения - «да не забвению предано будет дело божие» и излагается «исповедание
+                    веры«, политическое кредо Аввакума.</p>
+                <p style="font-size: 18px;" class="lh-base">Характеризуя жанр «Жития«, В. В. Виноградов писал:</p>
+                <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <p class="fst-italic">"Житие построено в форме речевой, бесхитросной импровизации, «беседы»,
+                        «вяканья», …основной тон, в котором ведет повесть о своем житии прот. Аввакум, - глубоко -
+                        личный тон простодушно - доверчивого рассказчика, у которого рой воспоминаний мчится в
+                        стремительном потоке словесных ассоциации и создает лирические отступления и беспорядочно -
+                        взволнованное сцепление композиционных частей."</p>
+                </div>
+                <p style="font-size: 18px;" class="lh-base">Периоды сравнительно спокойного течения жизни мало
+                    интересуют Аввакума, он о них только упоминает, не вдаваясь в подробности. Некоторые эпизоды из
+                    жизни самого Аввакума и его сподвижников приобретают характер вставных новелл, самостоятельных
+                    произведений. Значительное место в «Житие» уделено сибирской ссылке. По определению
+                    исследовательницы творчества Аввакума Н.С. Демковой, «Перед нами своеобразное эпическое полотно,
+                    христианская «Одиссея». Аввакум заканчивает описанием казней в Пустозерске 14 апреля 1670 г. Сцена
+                    заключения узников в земляную тюрьму - финал Жития. Аввакум и его сподвижники поют хвалу
+                    христианской церкви.</p>
+                <p style="font-size: 18px;" class="lh-base">В январе 1676 года в Пустозерск приходят два известия: одно
+                    печальное для старообрядцев, другое радостное. Печальное состоит в том, что царские войска
+                    захватили Соловецкий монастырь, последний оплот старой веры, и в Пустозерске уже готовят новые
+                    земляные ямы для захваченных в плен восставших. Радостное: через неделю после взятия Соловецкого
+                    монастыря, словно от проклятия раскольников, умирает царь Алексей Михайлович. Кончина государя, при
+                    котором начался раскол, возбудила в узниках некоторые надежды. Аввакум обращается с челобитной к
+                    новому царю Федору Алексеевичу. В житиях пустозерских старцев прослеживаются прямые параллели с
+                    «Деяниями апостолов«, да они и сами уподобляли себя мученикам апостольских времен. Но напрасно было
+                    бы искать христианского смирения у неистового Аввакума. Он не прощал своих врагов и ждал только
+                    случая отомстить им.:</p>
+                <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <p class="fst-italic">"А что государь - царь, - обращался он к Федору Алексеевичу, - как бы ты дал
+                        мне волю, я бы их, что Илия пророк, всех перепластал бы во един день. …Перво бы Никона - того
+                        собаку, разсекли бы начетверо, а потом бы никониян-тех."</p>
+                </div>
+                <p style="font-size: 18px;" class="lh-base">Надеждам Аввакума не суждено было сбыться, единственным
+                    ответом на эту челобитную было ужесточение условий содержания под стражей и полный запрет на
+                    сочинение книг. Пустозерский воевода П.Г. Львов доносил государю об узниках, что он</p>
+                <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <p class="fst-italic">"никово к ним и говорить ни с кем, и чернил и бумаги дават отнюдь не велел, и
+                        над стрельцами приказал смотреть накрепко, чтобы никакого дурна не учинили. Да и сам я, холоп
+                        твой, досматриваю тех колодников во все дни."</p>
+                </div>
+                <p style="font-size: 18px;" class="lh-base">Не давали бумаги, Аввакум писал на бересте и эти грамоты
+                    доходили до Москвы. В начале 1681 г., во время крещенского водосвятия, на иордани староверы бросили
+                    в толпу с колокольни Ивана Великого «свитки богохульные«. Под пыткой у раскольников вырвали
+                    признание, что это было сделано наущением Аввакума: «Он же сам на берестяных хартиях начертал
+                    царские персоны и высокие духовные предводители с хульными надписании, и толковании, и
+                    блядословными укоризнами весьма запретительными… » В феврале 1682 г. в Москве собрался церковный
+                    собор. Царь Федор Михайлович в послании к собору спрашивал, как поступать с раскольниками. Ответ
+                    собора гласил: «по государеву усмотрению«. Весной того же года в Пустозерске начался сыск по делу о
+                    распространении Аввакумом из земляной тюрьмы «злопакостных» писаний. Участь пустозерских старцев
+                    была предрешена: «за великие на царский дом хулы» их приговорили к смертной казни.</p>
+                <p style="font-size: 18px;" class="lh-base">14 апреля 1682 г. Аввакум, Епифаний, Лазарь и Федор были
+                    сожжены на костре. Описание их казни дошло до нас только в старообрядческой литературе. Аввакум
+                    предвидел такой конец и еще до произнесения приговора распределил свои книги. Уже на костре он
+                    обратился к немногим присутствовавшим с увещеванием держаться старой веры. Когда пламя взмыло
+                    вверх, один из его товарищей закричал. Аввакум наклонился к нему и стал его утешать. Последнее, что
+                    было видно сквозь огонь и дым - это поднятая рука Аввакума, благословляющая народ двумя перстами,
+                    последнее, что было слышно - его слова:</p>
+                <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                    <p class="fst-italic">"Будете этим крестом молиться - вовеки не погибнете."</p>
+                </div>
+                <img src="{% static 'src/avvakum_by_pyotr_yevgenyevich_myasoyedov.jpg' %}"
+                     alt="Сожжение протопопа Аввакума Пётр Мясоедов 1897"
+                     style="max-width: 50%; height: auto; margin: 0 auto;">
+                <p style="color: #6c757d; margin-top: 0.9rem;">Сожжение протопопа Аввакума Пётр Мясоедов 1897</p>
+                <p style="font-size: 18px;" class="lh-base">Казнь пустозерских узников произвела глубочайшее
+                    впечатление их последователей. По преданию, Аввакум перед казнью предрек смерть своим мучителям, и
+                    действительно, всего через две недели после сожжения пустозерских старцев в Москве умер царь Федор
+                    Алексеевич. Для старообрядцев Аввакум стал святым мучеником. Официальная канонизация святого
+                    священно мученика и исповедника Аввакума состоялась на Освященном соборе в 1916 г.</p>
+                <img src="{% static 'src/avaakum_pustozersk-scaled.jpeg' %}"
+                     alt="В Пустозерске, на предполагаемом месте сожжения протопопа Аввакума, установлен крест"
+                     style="max-width: 50%; height: auto; margin: 0 auto;">
+                <p style="color: #6c757d; margin-top: 0.9rem;">В Пустозерске, на предполагаемом месте сожжения
+                    протопопа Аввакума, установлен крест</p>
+                <p style="font-size: 18px; text-align: right; margin: 0; padding: 0;" class="lh-base">
+                    C.А. Степанов<br>
+                    Кафедра политических наук Российский университет дружбы народов<br>
+                    ул. Миклухо-Маклая. 6. 117198 Москва
+                </p>
+                <div class="text-center" style="margin-top: 20px;">
+                    <h5>Связаться с нами:</h5>
+                    <a href="#" onclick="copyToClipboard('https://t.me/PonomarKyzyl'); openTelegram();"
+                       style="margin: 0 10px;">
+                        <img src="https://img.icons8.com/color/48/000000/telegram-app.png" alt="Telegram"
+                             style="width: 40px; height: 40px;">
+                    </a>
+                    <a href="#" onclick="copyToClipboard('https://yourwebsite.com'); openWhatsApp();"
+                       style="margin: 0 10px;">
+                        <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp"
+                             style="width: 40px; height: 40px;">
+                    </a>
+                    <a href="#" onclick="copyToClipboard('https://yourwebsite.com'); openViber();"
+                       style="margin: 0 10px;">
+                        <img src="https://img.icons8.com/color/48/000000/viber.png" alt="Viber"
+                             style="width: 40px; height: 40px;">
+                    </a>
+                </div>
+
+                <script>
+                    function copyToClipboard(text) {
+                        navigator.clipboard.writeText(text).then(function() {
+                            alert('Ссылка скопирована: ' + text);
+                        }, function(err) {
+                            console.error('Ошибка при копировании: ', err);
+                        });
+                    }
+
+                    function openTelegram() {
+                        window.open('https://t.me/PonomarKyzyl', '_blank');
+                    }
+
+                    function openWhatsApp() {
+                        window.open('https://wa.me/8908 207-85-27', '_blank');
+                    }
+
+                    function openViber() {
+                        window.open('viber://chat?number=YourPhoneNumber', '_blank');
+                    }
+                </script>
+                <div class="container mt-5">
+                    <a href="https://t.me/ctr_vestnik" class="btn btn-primary btn-custom" target="_blank">
+                        <span class="main-text">Наш Телеграмм.</span><br>
+                        Просите и дано будет вам; ищите и найдёте; стучите, и отворят вам...
+                    </a>
+                    <h1></h1>
+                    <h1></h1>
+                </div>
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; max-width: 38rem; margin-left: 7rem;">
+                    <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                        <img src="{% static 'src/novyi-0002.jpg' %}"
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <div class="card-body">
+                            <a class="btn" href="{% url 'content:education' %}"
+                               style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                               role="button">
+                                Образование в старообрядческой среде.
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                        <img src="{% static 'src/vlcsnap-2021-08-26-17h01m47s695.png' %}"
+                             style="max-width: 100%; height: 200px; margin: 0 auto;">
+                        <div class="card-body">
+                            <a class="btn" href="{% url 'content:corner' %}"
+                               style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                               role="button">
+                                Уголок старой веры(На примере республика Тува)
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                        <div class="card-body">
+                            <a class="btn" href="{% url 'content:victory' %}"
+                               style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                               role="button">
+                                Вклад Православной старообрядческой церкви в победу в великой отечественной войне
+                            </a>
+                            <p style="color: #6c757d; margin-top: 0.9rem;">В данной статье рассматривается история
+                                побед старообрядцев</p>
+                        </div>
+                    </div>
+
+                    <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                        <img src="{% static 'src/photo_2025-07-30_13-32-52.jpg' %}"
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                        <div class="card-body">
+                            <a class="btn" href="{% url 'content:Izbornik' %}"
+                               style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                               role="button">
+                                Изборник Святослава 1073 г изучен старообрядцами в начале XVIII в
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <nav class="blog-pagination" aria-label="Pagination"><a
+                        class="btn btn-outline-primary rounded-pill"
+                        href="#">Вверх</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="position-sticky" style="top: 2rem;">
+                <div class="dropdown">
+                    <button class="btn btn-danger dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" style="color: white;">
+                        Содержание
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#nachalo-zhizni">1 Начало жизненного пути</a></li>
+                        <li><a class="dropdown-item" href="#cerkovn-rascol">2 Церковный раскол</a></li>
+                        <li><a class="dropdown-item" href="#sibirskaja-ssilka">3 Сибирская ссылка</a></li>
+                        <li><a class="dropdown-item" href="#neistovii-proroc">4 Неистовый пророк</a></li>
+                        <li><a class="dropdown-item" href="#pystozerskie-starsi">5 Пустозерские старцы</a></li>
+                        <li><a class="dropdown-item" href="#protopopa-abbacuma">6 Житие протопопа Аввакума</a></li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <div class="col mt-3">
+                        <button type="button" class="btn btn-danger" style="margin-left: auto;"
+                                onclick="window.location.href='{% url 'content:map' %}'">Назад
+                        </button>
+                    </div>
+                </div>
+                <div><h4 class="fst-italic">Недавние:</h4>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                               href="{% url 'content:typology' %}">
+                                <img src="{% static 'src/scale_1200 (8).jpeg' %}"
+                                     style="max-width: 30%; height: auto; margin: 0 auto;">
+                                <div class="col-lg-8">
+                                    <span style="color: gray;">АПОЛОГИЯ</span>
+                                    <h6 class="mb-0">Типология взглядов русских мыслителей на старообрядчество</h6>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                               href="{% url 'content:new_year' %}">
+                                <img src="{% static 'src/i (5).png' %}"
+                                     style="max-width: 30%; height: auto; margin: 0 auto;">
+                                <div class="col-lg-8">
+                                    <span style="color: gray;">ТРАДИЦИИ</span>
+                                    <h6 class="mb-0">Новый год - языческие истоки</h6>
+
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                               href="{% url 'content:star' %}">
+                                <img src="{% static 'src/zvezda_5.jpg' %}"
+                                     style="max-width: 30%; height: auto; margin: 0 auto;">
+                                <div class="col-lg-8">
+                                    <span style="color: gray;">ХРАМ И МИР</span>
+                                    <h6 class="mb-0">Что означает пятиконечная звезда</h6>
+
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="p-4">
+                    <h4 class="fst-italic">Темы</h4>
+                    <ol class="list-unstyled">
+                        <li><a href="#ponomar" class="custom-link">Старообрядчество</a>
+                        </li>
+                        <li><a href="#" class="custom-link">Апология</a></li>
+                        <li><a href="#" class="custom-link">Житие святых</a></li>
+                        <li><a href="#" class="custom-link">Иконография</a></li>
+                        <li><a href="#" class="custom-link">Наука и религия</a></li>
+                        <li><a href="#" class="custom-link">Святоотеческое</a></li>
+                        <li><a href="#" class="custom-link">История старообрядчества</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle custom-link" data-bs-toggle="dropdown">Православные
+                                праздники</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#nachalo-zhizni">Великие праздники</a></li>
+                                <li><a class="dropdown-item" href="#cerkovn-rascol">Средние праздники</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="custom-link">Священство</a></li>
+                        <li><a href="#" class="custom-link">О Исусе Христе</a></li>
+                        <li><a href="#" class="custom-link">Личность</a></li>
+                        <li><a href="#" class="custom-link">Церковь</a></li>
+                        <li><a href="#" class="custom-link">Храмы</a></li>
+                    </ol>
+
+                    <style>
+                        .custom-link {
+                            font-size: 1.2em;
+                            font-weight: bold;
+                            color: #800000;
+                            text-decoration: none; /* убираем подчеркивание */
+                        }
+
+                        .dropdown-toggle {
+                            display: block;
+                            padding: 0.25rem 1rem; /* добавим дополнительные классы для dropdown, чтобы они имели одинаковый стиль */
+                        }
+                    </style>
+
+
+                    <p class="mb-0"><a href="#">Наверх</a></p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+    </header>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+</html>

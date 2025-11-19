@@ -1,0 +1,567 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Astro v5.9.2">
+    <title>Blog Template · Bootstrap v5.3</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/blog/">
+    <script src="/docs/5.3/assets/js/color-modes.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
+    <meta name="theme-color" content="#712cf9">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap" rel="stylesheet">
+    <link href="blog.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT&display=swap" rel="stylesheet">
+    <style>
+        .bd-placeholder-img{font-size:1.125rem;text-anchor:middle;-webkit-user-select:none;-moz-user-select:none;user-select:none}@media (min-width: 768px){.bd-placeholder-img-lg{font-size:3.5rem}}.b-example-divider{width:100%;height:3rem;background-color:#0000001a;border:solid rgba(0,0,0,.15);border-width:1px 0;box-shadow:inset 0 .5em 1.5em #0000001a,inset 0 .125em .5em #00000026}.b-example-vr{flex-shrink:0;width:1.5rem;height:100vh}.bi{vertical-align:-.125em;fill:currentColor}.nav-scroller{position:relative;z-index:2;height:2.75rem;overflow-y:hidden}.nav-scroller .nav{display:flex;flex-wrap:nowrap;padding-bottom:1rem;margin-top:-1px;overflow-x:auto;text-align:center;white-space:nowrap;-webkit-overflow-scrolling:touch}.btn-bd-primary{--bd-violet-bg: #712cf9;--bd-violet-rgb: 112.520718, 44.062154, 249.437846;--bs-btn-font-weight: 600;--bs-btn-color: var(--bs-white);--bs-btn-bg: var(--bd-violet-bg);--bs-btn-border-color: var(--bd-violet-bg);--bs-btn-hover-color: var(--bs-white);--bs-btn-hover-bg: #6528e0;--bs-btn-hover-border-color: #6528e0;--bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);--bs-btn-active-color: var(--bs-btn-hover-color);--bs-btn-active-bg: #5a23c8;--bs-btn-active-border-color: #5a23c8}.bd-mode-toggle{z-index:1500}.bd-mode-toggle .bi{width:1em;height:1em}.bd-mode-toggle .dropdown-menu .active .bi{display:block!important}
+    </style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path>
+    </symbol>
+    <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+    </symbol>
+    <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+    </symbol>
+    <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+    </symbol>
+</svg>
+<div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
+            aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+            <use href="#circle-half"></use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span></button>
+    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+            <ul>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
+                            aria-pressed="false" onclick="setTheme('light')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#sun-fill"></use>
+                        </svg>
+                        Light
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+                            aria-pressed="false" onclick="setTheme('dark')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#moon-stars-fill"></use>
+                        </svg>
+                        Dark
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center active"
+                            data-bs-theme-value="auto" aria-pressed="true" onclick="setTheme('auto')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#circle-half"></use>
+                        </svg>
+                        Auto
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+
+            <script>
+                function setTheme(theme) {
+                    document.body.setAttribute('data-bs-theme', theme);
+
+                    // Удалить класс 'active' с всех кнопок и установить его только на нажатую кнопку
+                    const buttons = document.querySelectorAll('.dropdown-item');
+                    buttons.forEach(button => {
+                        button.classList.remove('active');
+                        button.setAttribute('aria-pressed', 'false');
+                    });
+
+                    const activeButton = Array.from(buttons).find(button => button.getAttribute('data-bs-theme-value') === theme);
+                    activeButton.classList.add('active');
+                    activeButton.setAttribute('aria-pressed', 'true');
+                }
+            </script>
+        </li>
+    </ul>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+            stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path>
+    </symbol>
+    <symbol id="cart" viewBox="0 0 16 16">
+        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
+    </symbol>
+    <symbol id="chevron-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+    </symbol>
+</svg>
+
+<div class="container">
+    <header class="border-bottom lh-1 py-3">
+        <div class="row">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #800000; color: #800000;">
+                <div class="container-fluid text-bordeaux"> <!-- добавляем класс для текста -->
+                    <div class="col-4 pt-1" style="font-size: 1.5em; font-family: 'Old Standard TT', serif;">
+                        <a class="link-secondary active" href="{% url 'content:home' %}" style="color: #800000;">Пономарь</a><br>
+                        <div class="text-center" style="margin-top: 20px;">
+
+                        </div>
+                        <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#"
+                           style="font-size: 1.2em; color: #800000;">Старообрядцы Тувы</a>
+                    </div>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon" style="background-color: #800000;"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{% url 'content:about' %}"
+                                   style="color: #800000;">О НАС</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:question' %}" style="color: #800000;">ЗАДАТЬ
+                                    ВОПРОС</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:star' %}" style="color: #800000;">СТАРООБРЯДЧЕСТВО</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:potrebnic' %}" style="color: #800000;">ПОТРЕБНИК</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:kultura' %}"
+                                   style="color: #800000;">КУЛЬТУРА</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:map' %}" style="color: #800000;">КАРТА
+                                    САЙТА</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:articles' %}"
+                                   style="color: #800000;">СТАТЬИ</a>
+                            </li>
+                        </ul>
+                        <div class="col-4 d-flex justify-content-end align-items-center">
+                            <a class="link-secondary" href="#" aria-label="Search" style="color: #800000;">
+                                <button type="button" onclick="handleSearchClick()"
+                                        style="background: none; border: none; cursor: pointer;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                         stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                         stroke-width="2"
+                                         class="mx-3" role="img"
+                                         viewBox="0 0 24 24" style="color: #800000;">
+                                        <title>Search</title>
+                                        <circle cx="10.5" cy="10.5" r="7.5"></circle>
+                                        <path d="M21 21l-5.2-5.2"></path>
+                                    </svg>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        {% block content %}
+        {% endblock %}
+
+
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-md-8">
+                    <article class="blog-post">
+                        <h1 class="display-5 mb-1">
+                            <a href="#" style="text-decoration: none; color: black;">
+                                <strong>Георгий Павлович Сафьянов - граф
+                                    Уренхайский</strong>
+                            </a>
+                        </h1>
+                    </article>
+                    <p style="font-size: 17px;" class="lh-base"></p>
+                    <p style="font-size: 17px;" class="lh-base">Георгий Павлович Сафьянов - «граф Урянхайский»</p>
+                    <div style="display: flex; align-items: center;">
+                        <div style="width: 30%; margin-right: 20px;"> <!-- Задайте ширину и отступ для изображения -->
+                            <img src="{% static 'images/14.jpg' %}"
+                                 style="max-width: 100%; height: auto;">
+                            <p style="color: #6c757d; margin-top: 0.5rem; text-align: center;">Георгий Павлович
+                                Сафьянов</p>
+                        </div>
+                        <div style="width: 70%;"> <!-- Задайте ширину для текста -->
+                            <p style="font-size: 17px;" class="lh-base">Важную роль в сближении России и тувинского
+                                народа сыграли русские переселенцы и купцы, обосновавшиеся в Урянхае с середины XIX
+                                столетия. Особенную известность приобрели купцы Сафьяновы - Георгий и Андрей. Потомки
+                                купцов Сафьяновых до сих пор сохраняют родственные связи изредка собираясь в
+                                Подмосковье, правнучка Андрея Павловича Софьянова, постоянно живет в тувинском поселке
+                                Туран.</p>
+                        </div>
+                    </div>
+
+                    <p style="font-size: 17px;" class="lh-base"><br>По семейному преданию, род Сафьяновых начался от
+                        итальянца Джузеппе Сапиани, который мальчиком попал в Сибирь вместе с красноярским воеводой
+                        Андреем Дубенским, а затем бежал от него на лодке в низ по Енисею. У деревни Нахвальной
+                        мальчишку спасли от верной гибели местные рыбаки, обогрели и приютили, записав его в
+                        книгу старосты под именем Иосифа Сафьянова. Воспитывался он в семье рыбаков, называвшихся
+                        Соловьевыми, Став взрослым, Иосиф женился на Анне Соловьевой. От них и пошёл род нахвальненских
+                        рыбаков Сафьяновых. Постепенно рыбный промысел на Енисее стал скудеть, и один из потомков
+                        итальянца, Павел Капитонович Сафьянов, ушел искать лучшую
+                        долю в растущем городе Красноярске. Он устроился на кожевенный завод купца Егорова, а потом его
+                        переманил к себе в приказчики Минусинский купец Спорышев.<br>
+                        <br>Читайте также: Обрадовая одежда<br>
+                        <br>В Минусинске у Павла Капитоновича и его супруги Анны Емельяновны родились дети - Егор
+                        (Георгий)
+                        Андрей, Татьяна, Александр и Евгений. К этому времени Павел открыл свою торговлю и стал купцом
+                        2-й гильдии. Он успешно торговал в хакасских улусах, а незадолго до своей смерти перенес всю
+                        торговлю в только что открытый для русских купцов урянхайский край.<br>
+                        Дело Павла Капитоновича Сафьянова продолжил старший сын Григорий. Он заехал в Туву в 1870 году
+                        и в верховьях Енисея завел несколько торговых факторий, а потом и золотодобывающий прииск на
+                        Каа-Хеме.<br>
+                        Сафьянов Георгий Павлович (1850 - 1913), купец 1-й гильдии, ското и золото промышленник, один
+                        из крупнейших представителей русской торговли и в Урянхайском крае, Из купеческой семьи,
+                        получил домашнее образование. Предпринимательской деятельностью занимался с 12 лет.
+                        Разъезжая по поручению отца по хакасским улусам и сельским ярмаркам Минусинского округа.
+                        Работая торговым агентом к 20-ти годам уже набрал солидный практический опыт.<br>
+                        <br>Читайте также: Письма Агафьи Лыковой<br>
+                        Очень известным меценатом, как в Минусинске, так и в Туве был Г. П. Софьянов, о котором Н. Ф.
+                        Катанов писал: «о Минусинском купце Георгии Павловиче Сафьянове, издавна торгующем в
+                        Урянхайской земле, знают все путешественники, например, Адрианов, Райков, Островских и многие
+                        другие бывшие в долинах Хемчика, Бей-хема, Улуг-хема, Каа-хема пользовавшиеся, как и автор
+                        книги, и его гостеприимством, и его обширными сведениями об урянхайцах и их земле; музеи
+                        Томского университета и Минусинский обогатились его пожертвованиями; некоторым путешественникам
+                        он любезно доставлял и материальное содействие к достижению научных целей по исследованию
+                        Северной Монголии и ее окружения.<br>
+                        Только перечисление экспонатов музея Томского университета, пожертвованных Г. П. Сафьяновым,
+                        занимало несколько страниц. По утверждению Ф. Я. Кона, Георгий Сафьянов был членом
+                        Восточно-Сибирского отдела ИРГО и сотрудником его экспедиции? Регулярно помогали ученым и
+                        сыновья Георгия Павловича, в том числе и И. Г. Сафьянов.<br>
+                        В 1870-х гг. основал ряд факторий в Урянхайском крае, в которых вел комплексное хозяйство.
+                        Когда пришла в упадок енисейская золотопромышленность, Сафьянов начал меновую торговлю с
+                        сойотами урянхайского края, разведал скотопрогонные тракты и занял в торговле с урянхайцами
+                        ведущее место. «Край был как будто весь в руках энергичного и живого как ртуть сибиряка
+                        коммерсанта, прииски назывались "сафьяновскими", встречные стада также "сафьяновскими", и дома
+                        принадлежали повсеместно все тому же Сафьянову. Георгий Павлович занимался земледелием,
+                        скотоводством, торговал, доставлял товары в Улясутай, заготавливал лес, владел конным заводом,
+                        на котором в 1890-х гг. насчитывалось до 1 тыс. высокопородистых лошадей, кожевенным заводом
+                        производительностью 500 кож в год, водяной мельницей.<br>
+                        <br>Читайте также: Вторжение.
+                        Документальный фильм
+                        Аркадия Мамонтова<br>
+                        <br>Находил, что дело должно быть разносторонним, чтобы была возможность обходиться всем своим:
+                        у
+                        него были пашни, стада, мельницы, рыбные лавки, лесные рубки и сам он всегда в движении, в
+                        разъездах. В 1905 с компаньоном купцом А.А. Железновым организовал добычу золота на реке
+                        Туапсе. Уделял внимание механизации приисков, в 1913 адесь установили драгу. В 1880-х гг.
+                        избирался городским головой Минусинска, директором общественного банка почетным мировым судьей,
+                        председателем местного тюремного совета. Сафьянов был инициатором постройки Усинского колесного
+                        тракта соединившего Туву с Россией.<br>
+                        Настойчиво внушал русским чиновникам мысль о мирном присоединении Тувы к России. Сначала
+                        приучил их брать налоги с урянхайских приисков и тем самым признать в Туве область
+                        государственных интересов России: затем, с 1904 г., перестал давать паспорт на выезд в Урянхай,
+                        считая его краем русского владения. Для прояснения отношения к своей деятельности со стороны
+                        китайских и монгольских властей выезжал с дипломатической миссией в Ургу. Улясутай. Софьянов
+                        способствовал также научным экспедициям в Урянкайский край следователей Ф.Я. Кона, М.Н.
+                        Соболева, Н.П. Боголепова.<br>
+                        Г. П. Сафьянов - человек широкого кругозора и большой инициативы, основал русское поселение в
+                        Урянхайском крае (ныне Тыва) - город Туран 1885 год. Среди прочих заслуг было изыскание им
+                        нового чайного пути из китайского города Калгана через Монголию и Урянхайский край в Минусинск.
+                        Смело идя против религиозных предрассудков, тувинцам запрещалось тревожить покоя земли - сеять
+                        хлеб, выпахивает 20 десятин земли - это была первая пашня в Туве, к которой терпимо отнеспись
+                        тувинцы этому эксперименту, потому что очень уважали Георгия Павловича.<br>
+                        Многое сделал для изучения Урянхайского края. Являясь членом Восточно-Сибирского отдела
+                        Русского географического общества, оказывал постоянную материальную помощь исследователям
+                        Н.Ф.Катанову, Г.Н Потанову, Д.А.Клеменцу, активно сотрудничал с Минусинским водческим музеем,
+                        являлся членом его комитета. Собирал коллекции, жертвовал деньги, подарил музею свою домашнюю
+                        библиотеку и коллекцию предметов охоты и домашнего быта сойотов. Написал несколько статей
+                        посвящённых этнографии и фольклору урянхайцев. Он принимал деятельное участие в разработке
+                        проектов строительства железной дороги в Урянхай и открытия водного пути в верховьях
+                        Енисея.<br>
+                        <br>Читайте также: Цифровизация и Ликвидация
+                        Государства. Электронный
+                        концлагерь<br>
+                        <br>Георгий Павлович был верным другом путешествующих и изучающих урянхайскую землю людей. Один
+                        из
+                        них английский путешественник, имя которого до сих пор точно не определено, но по моей версии:
+                        это был доктор Проктор (не точно), в знак благодарности за гостеприимство, поставил деревянный
+                        знак «Центр Азии» в огороде на фактории Георгия Павловича в Солдаме недалеко от сегодняшнего
+                        Кызыла.<br>
+                        Георгий Павлович Сафьянов сделал многое в Урянхае и для русских, и для тувинцев, пытался даже
+                        выкупать два раза своих постоянных клиентов урянхов у китайцев, задолжавшихся китайским купцам.
+                        Заслужил авторитет среди нойонов, так и среди рядовых тувинцев, пользовался хорошей репутацией
+                        у местных жителей. Его называли «сойотским королем» и «урянхайским губернатором». Он помогал
+                        тувинцам советами и стремился вести торговые дела, не причиняя ущерб местным жителям. Георгий
+                        Павлович не жалел денег на изучение Урянхая, природных богатств этого края, изыскание
+                        транспортных путей.<br>
+                        В те времена Тува привлекала к себе внимание многих исследователей и путешественников.
+                        Грумм-Гржимайло, Потанин, Крылов, Феликс Кон, Родевич Шишкин, Адрианов и др.- это известные
+                        ученые и специалисты посещали Туву, непременно обращаясь за помощью к «графу Урянхайскому», как
+                        в шутку звали они Георгия Павловича. И получали эту помощь с лихвой - дельными советами
+                        человека исходившего и изъездившего эту землю вдоль и поперек, прекрасно знавшего не только
+                        географию страны, но и быт, и традиции, и язык местных жителей, Сафьянов охотно предоставлял
+                        пищу и кров всем путешественникам и зачастую он снаряжал экспедиции всем необходимым, Георгий
+                        Павлович является живой историей Урянхайского края и знатоком быта, природы и границ.<br>
+                        К Георгий Павлович в основном жил в Минусинске. Деревянный дом, где жила большая семья
+                        Сафьяновых, был просторным, но довольно скромным и не походил на каменные дворцы других
+                        минусинских купцов. Да и сам Сафьянов не очень-то походил на них. Несмотря на сферу торговых
+                        интересов, низкое образование увлекся идеей создания в городе Минусинске музея, позднее
+                        основанного его другом Николаем Михайловичем Мартьяновым, и немало сил посвящал этому делу. Он
+                        вошел в комитет по поддержке Минусинкого музея. Из Урянхая в Минусинск Сафьяновым были
+                        доставлены различные коллекции по этнографии тувинцев, собрания растений и минералов.<br>
+                        <br>Читайте также: История
+                        старообрядческой семьи Лыковых<br>
+                        <br>Подобными коллекциями Георгий Павлович снабжал музей Томского университета, где, как и в
+                        Минусинском музее, появился зал имени Сафьянова. Все это вместе взятое говорит о большом труде,
+                        способствующем развитию науки и искусства, в котором хранятся истоки творческой натуры,
+                        увлеченности историей, передавшим от поколения в поколение, проявляющиеся оставшихся ныне
+                        потомках.<br>
+                        В 1887 году в Екатеринбурге прошла Сибирско-Уральская музейная выставка, на которую Георгий
+                        Сафьянов представил свою собственную экспозицию по этнографии тувинцев и получил за нее золотую
+                        медаль Императорского общества любителей естествознания, антропологии и этнографии при
+                        Московском университете.<br>
+                        Не будучи ученым, Георгий Павлович первым описал быт и традиционную культуру тувинцев. В
+                        Минусинский музей он передал свою рукопись, который заинтересовался известный хакасский ученый
+                        Катанов, профессор Казанского университета. Чтобы труд этот не затерялся и стал известным,
+                        Катанов включил его в свою знаменитую книгу «опыт исследования урянхайского языка». Основным
+                        делом Георгия Павловича все же была торговля. На четыре срока Георгий Павлович избирался
+                        городским головой Минусинска, был
+                        почётным мировым судьей, директором Общественного банка, председателем местного тюремного
+                        комитета. Сафьянова увлекало коневодство (в Минусинске у него был большой конный завод), позже
+                        добыча золота на Каа-Хеме, где работала первая в этих местах драга, которую он сумел доставить
+                        по льду Енисея в 1913 году, незадолго до своей смерти.<br>
+                        Известный в Сибири ученый и публицист А.В. Андрианов так отозвался на смерть Георгия Павловича
+                        Сафьянова; «С Минусинского горизонта сошла самая крупная фигура, Минусинск потерял в нем
+                        последнего из своих могикан». А в отчете Минусинского музея за 1913 год говорится; «января
+                        скончался Георгий Павлович Сафьянов - первый и самый проверенный друг музея, появившийся на
+                        самой заре возникновения этого учереждения и до конца дней своей жизни связанный с ним
+                        родственными узами.<br>
+                        Со слов Веры Михайловны Сафьяновой, у Георгия Павловича и Пелагеи Ивановны Сафьяновых было 8
+                        детей - Вера, Нина, Иннокентий, Евгений, Надежда, Михаил.<br>
+                        <br>читайте также: НЕЛЮБИМЫЙ СЫН
+                        -ЦАРЕВИЧ АЛЕКСЕЙ<br>
+                        <br>Дети Сафьяновых унаследовали его увлеченность, интерес к Урянхайскому краю.<br>
+                        Вместе с Ф. Коном разрабатывал проект постройки в Туву железной дороги, а также водного пути по
+                        Енисею, который бы соединил Туву и Енисейскую губернию. Осуществить эти проекты ему помешала
+                        смерть от воспаления легких, наступившая в 1913 году.<br>
+                        После смерти Георгия Сафьянова его дело продолжили жена Пелагея Ивановна и сын Иннокентий,
+                        И Таким образом, рассматривая торгово-промышленную деятельность первых русских купцов, которые
+                        начали самостоятельное освоение Урянкайского края еще с середины XIX столетия к числу которых
+                        относится Г. П. Сафьянов, можем сказать, что большое значение в проникновении и укреплении
+                        русско-тувинских дружественных отношений, введших к союзу двух народов, сыграли братья
+                        Сафьяновы, Георгий и Андрей.<br>
+                        Подводя итог, следует отметить, что Г. П. Сафьянов, был человеком дальновидным, просвещенным -
+                        живой интерес к науке, а именно значение его деятельности направленное на изучение истории
+                        Урянхайского края, помощь начинающим исследователям, путешественникам; разносторонний человек -
+                        индивидуальность, глубокий след его многих дел в Урянхайском крае передают подрастающему
+                        поколению энтузиазм для дальнейшей реализации, воплощения идей развитии родной республики.</p>
+
+                    <div style="text-align: center;">
+                        <div class="text-center" style="margin-top: 20px;">
+
+                        </div>
+
+                        <script>
+                            function copyToClipboard(text) {
+                                navigator.clipboard.writeText(text).then(function() {
+                                    alert('Ссылка скопирована: ' + text);
+                                }, function(err) {
+                                    console.error('Ошибка при копировании: ', err);
+                                });
+                            }
+
+                            function openTelegram() {
+                                window.open('https://t.me/PonomarKyzyl', '_blank');
+                            }
+
+                            function openWhatsApp() {
+                                window.open('https://wa.me/8908 207-85-27', '_blank');
+                            }
+
+                            function openViber() {
+                                window.open('viber://chat?number=YourPhoneNumber', '_blank');
+                            }
+                        </script>
+                        <div class="container mt-5">
+                            <a href="https://t.me/ctr_vestnik" class="btn btn-primary btn-custom" target="_blank">
+                                <span class="main-text">Наш Телеграмм.</span><br>
+                                Просите и дано будет вам; ищите и найдёте; стучите, и отворят вам...
+                            </a>
+                            <h1></h1>
+                            <h1></h1>
+                        </div>
+                        <p style="font-size: 17px;" class="lh-base"></p>
+                        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; max-width: 38rem; margin-left: 7rem;">
+                            <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                                <img src="{% static 'src/avvakum-fire.jpg' %}"
+                                     style="max-width: 60%; height: auto; margin: 0 auto;">
+                                <div class="card-body">
+                                    <a class="btn" href="{% url 'content:avvacum' %}"
+                                       style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                                       role="button">
+                                        Неистовый Аввакум
+                                    </a>
+                                </div>
+
+                            </div>
+
+                            <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                                <img src="{% static 'src/drevnerus_10_chudo-georgiya-o-zmii-s-zhitiem.jpg' %}"
+                                     style="max-width: 45%; height: auto; margin: 0 auto;">
+                                <div class="card-body">
+                                    <a class="btn" href="{% url 'content:holiday' %}"
+                                       style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                                       role="button">
+                                        Праздник Георгия Победоносца в древнерусской литературе
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                                <img src="{% static 'src/scale_1200 (8).jpeg' %}"
+                                     style="max-width: 85%; height: auto; margin: 0 auto;">
+                                <div class="card-body">
+                                    <a class="btn" href="{% url 'content:typology' %}"
+                                       style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                                       role="button">
+                                        Типология взглядов русских мыслителей на старообрядчество
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                                <div class="card-body">
+                                    <a class="btn" href="{% url 'content:revolution' %}"
+                                       style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                                       role="button">
+                                        Старообрядцы в русской революции
+                                    </a>
+                                    Роль старообрядцев в русской революции
+                                </div>
+                            </div>
+                        </div>
+                        <nav class="blog-pagination" aria-label="Pagination"><a
+                                class="btn btn-outline-primary rounded-pill"
+                                href="#">Вверх</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="position-sticky" style="top: 2rem;">
+                        <div><h4 class="fst-italic">Недавние:</h4>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                                       href="{% url 'content:typology' %}">
+                                        <img src="{% static 'src/scale_1200 (8).jpeg' %}"
+                                             style="max-width: 30%; height: auto; margin: 0 auto;">
+                                        <div class="col-lg-8">
+                                            <span style="color: gray;">АПОЛОГИЯ</span>
+                                            <h6 class="mb-0">Типология взглядов русских мыслителей на
+                                                старообрядчество</h6>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                                       href="{% url 'content:new_year' %}">
+                                        <img src="{% static 'src/i (5).png' %}"
+                                             style="max-width: 30%; height: auto; margin: 0 auto;">
+                                        <div class="col-lg-8">
+                                            <span style="color: gray;">ТРАДИЦИИ</span>
+                                            <h6 class="mb-0">Новый год - языческие истоки</h6>
+
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                                       href="{% url 'content:star' %}">
+                                        <img src="{% static 'src/zvezda_5.jpg' %}"
+                                             style="max-width: 30%; height: auto; margin: 0 auto;">
+                                        <div class="col-lg-8">
+                                            <span style="color: gray;">ХРАМ И МИР</span>
+                                            <h6 class="mb-0">Что означает пятиконечная звезда</h6>
+
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="p-4">
+                            <h4 class="fst-italic">Темы</h4>
+                            <ol class="list-unstyled">
+                                <li><a href="#" class="custom-link">Новости</a></li>
+                                <li><a href="#" class="custom-link">О нас старообрядцах</a></li>
+                                <li><a href="#" class="custom-link">Престольный праздник</a></li>
+                                <li><a href="#" class="custom-link">Святоотеческое</a></li>
+                                <li><a href="#" class="custom-link">История старообрядчества</a></li>
+                                <li><a href="#" class="custom-link">Священство</a></li>
+                                <li><a href="#" class="custom-link">О Исусе Христе</a></li>
+                                <li><a href="#" class="custom-link">Личность</a></li>
+                                <li><a href="#" class="custom-link">Церковь</a></li>
+                                <li><a href="#" class="custom-link">Храмы</a></li>
+                            </ol>
+
+                            <style>
+                                .custom-link {
+                                    font-size: 1.2em;
+                                    font-weight: bold;
+                                    color: #800000;
+                                    text-decoration: none; /* убираем подчеркивание */
+                                }
+
+                                .dropdown-toggle {
+                                    display: block;
+                                    padding: 0.25rem 1rem; /* добавим дополнительные классы для dropdown, чтобы они имели одинаковый стиль */
+                                }
+                            </style>
+
+
+                            <p class="mb-0"><a href="#">Наверх</a></p>
+                            </ol>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            </main>
+        </div>
+    </header>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+</html>

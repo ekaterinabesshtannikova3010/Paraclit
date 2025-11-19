@@ -1,0 +1,1023 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Astro v5.9.2">
+    <title>Blog Template · Bootstrap v5.3</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/blog/">
+    <script src="/docs/5.3/assets/js/color-modes.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
+    <meta name="theme-color" content="#712cf9">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap" rel="stylesheet">
+    <link href="blog.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT&display=swap" rel="stylesheet">
+    <style>
+        .bd-placeholder-img{font-size:1.125rem;text-anchor:middle;-webkit-user-select:none;-moz-user-select:none;user-select:none}@media (min-width: 768px){.bd-placeholder-img-lg{font-size:3.5rem}}.b-example-divider{width:100%;height:3rem;background-color:#0000001a;border:solid rgba(0,0,0,.15);border-width:1px 0;box-shadow:inset 0 .5em 1.5em #0000001a,inset 0 .125em .5em #00000026}.b-example-vr{flex-shrink:0;width:1.5rem;height:100vh}.bi{vertical-align:-.125em;fill:currentColor}.nav-scroller{position:relative;z-index:2;height:2.75rem;overflow-y:hidden}.nav-scroller .nav{display:flex;flex-wrap:nowrap;padding-bottom:1rem;margin-top:-1px;overflow-x:auto;text-align:center;white-space:nowrap;-webkit-overflow-scrolling:touch}.btn-bd-primary{--bd-violet-bg: #712cf9;--bd-violet-rgb: 112.520718, 44.062154, 249.437846;--bs-btn-font-weight: 600;--bs-btn-color: var(--bs-white);--bs-btn-bg: var(--bd-violet-bg);--bs-btn-border-color: var(--bd-violet-bg);--bs-btn-hover-color: var(--bs-white);--bs-btn-hover-bg: #6528e0;--bs-btn-hover-border-color: #6528e0;--bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);--bs-btn-active-color: var(--bs-btn-hover-color);--bs-btn-active-bg: #5a23c8;--bs-btn-active-border-color: #5a23c8}.bd-mode-toggle{z-index:1500}.bd-mode-toggle .bi{width:1em;height:1em}.bd-mode-toggle .dropdown-menu .active .bi{display:block!important}
+    </style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path>
+    </symbol>
+    <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+    </symbol>
+    <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+    </symbol>
+    <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+    </symbol>
+</svg>
+<div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
+            aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+            <use href="#circle-half"></use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span></button>
+    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+            <ul>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
+                            aria-pressed="false" onclick="setTheme('light')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#sun-fill"></use>
+                        </svg>
+                        Light
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+                            aria-pressed="false" onclick="setTheme('dark')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#moon-stars-fill"></use>
+                        </svg>
+                        Dark
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center active"
+                            data-bs-theme-value="auto" aria-pressed="true" onclick="setTheme('auto')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#circle-half"></use>
+                        </svg>
+                        Auto
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+
+            <script>
+                function setTheme(theme) {
+                    document.body.setAttribute('data-bs-theme', theme);
+
+                    // Удалить класс 'active' с всех кнопок и установить его только на нажатую кнопку
+                    const buttons = document.querySelectorAll('.dropdown-item');
+                    buttons.forEach(button => {
+                        button.classList.remove('active');
+                        button.setAttribute('aria-pressed', 'false');
+                    });
+
+                    const activeButton = Array.from(buttons).find(button => button.getAttribute('data-bs-theme-value') === theme);
+                    activeButton.classList.add('active');
+                    activeButton.setAttribute('aria-pressed', 'true');
+                }
+            </script>
+        </li>
+    </ul>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+            stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path>
+    </symbol>
+    <symbol id="cart" viewBox="0 0 16 16">
+        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
+    </symbol>
+    <symbol id="chevron-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+    </symbol>
+</svg>
+
+<div class="container">
+    <header class="border-bottom lh-1 py-3">
+        <div class="row">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #800000; color: #800000;">
+                <div class="container-fluid text-bordeaux"> <!-- добавляем класс для текста -->
+                    <div class="col-4 pt-1" style="font-size: 1.5em; font-family: 'Old Standard TT', serif;">
+                        <a class="link-secondary active" href="{% url 'content:home' %}" style="color: #800000;">Пономарь</a><br>
+                        <div class="text-center" style="margin-top: 20px;">
+
+                        </div>
+                        <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#"
+                           style="font-size: 1.2em; color: #800000;">Старообрядцы Тувы</a>
+                    </div>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon" style="background-color: #800000;"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{% url 'content:about' %}"
+                                   style="color: #800000;">О НАС</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:question' %}" style="color: #800000;">ЗАДАТЬ
+                                    ВОПРОС</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:star' %}" style="color: #800000;">СТАРООБРЯДЧЕСТВО</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:potrebnic' %}" style="color: #800000;">ПОТРЕБНИК</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:kultura' %}"
+                                   style="color: #800000;">КУЛЬТУРА</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:map' %}" style="color: #800000;">КАРТА
+                                    САЙТА</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:articles' %}"
+                                   style="color: #800000;">СТАТЬИ</a>
+                            </li>
+                        </ul>
+                        <div class="col-4 d-flex justify-content-end align-items-center">
+                            <a class="link-secondary" href="#" aria-label="Search" style="color: #800000;">
+                                <button type="button" onclick="handleSearchClick()"
+                                        style="background: none; border: none; cursor: pointer;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                         stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                         stroke-width="2"
+                                         class="mx-3" role="img"
+                                         viewBox="0 0 24 24" style="color: #800000;">
+                                        <title>Search</title>
+                                        <circle cx="10.5" cy="10.5" r="7.5"></circle>
+                                        <path d="M21 21l-5.2-5.2"></path>
+                                    </svg>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        {% block content %}
+        {% endblock %}
+
+
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-md-8">
+                    <article class="blog-post">
+                        <h1 class="display-5 mb-1">
+                            <a href="#" style="text-decoration: none; color: black;">
+                                <strong>Детям о молитве</strong>
+                            </a>
+                        </h1>
+                    </article>
+                    <p style="font-size: 17px;" class="lh-base"></p>
+                    <p style="font-size: 17px;" class="lh-base"></p>
+                    <div class="text-start">
+                        <img src="{% static 'images/31.png' %}"
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+
+                    </div>
+                    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                        <p class="fst-italic"><b>Дети, прежде чем приступим к описанию главных молитв, хотим пояснить
+                            некоторые непонятные для вас сокращения. Церковные книги, в основном, написаны на древнем
+                            русском языке. Тогда допускались пропуски букв в различных словах. Специальные значки,
+                            называемые титлами, над такими словами показывали, что надо дополнить написанное слово
+                            пропущенной буквой. Если вы на примерах перечисленных ниже молитв запомните, как выглядят
+                            слова, выделенные красным, то потихоньку сможете читать древние тексты сами.</b></p>
+                    </div>
+
+                    <div style="text-align: center;">
+                        <img src="{% static 'images/32.png' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                    </div>
+                    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                        <p class="fst-italic"><b>Правильно следует произносить: "Господи, помилуй" (будь милостив,
+                            прости, не накажи). Эта молитва самая легкая для запоминания. Заучи ее сразу и произноси
+                            про себя чаще: и когда просишь Господа о прощении грехов, и когда молишь не наказывать за
+                            злые дела, и когда просто ждешь от Него милости, и когда боишься чего-то. Данная молитва
+                            одна из древнейших. И тысячи лет назад такие же девочки и мальчики произносили ее, глядя в
+                            небо.</b></p>
+                    </div>
+
+                    <div style="text-align: center;">
+                        <img src="{% static 'images/33.png' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                    </div>
+                    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                        <p class="fst-italic"><b>Когда нужны удача, успех в делах; поддержка во всех начинаниях;
+                            смелость в спортивных соревнованиях, когда предстоит трудный разговор с учителем,
+                            родителями; избавление от страха перед препятствием - мы обязательно произносим слова:
+                            "Господи, благослови!" После такой молитвы мы ждем от Господа поддержки. Ведь только
+                            милостью Божией мы живем, действуем, преуспеваем.</b></p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="{% static 'images/34.png' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                    </div>
+                    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                        <p class="fst-italic"><b>Эту молитву следует читать как "Боже, милостив бўди мне, грешному".
+                            Слово "буди" в современном русском языке читается и говорится как "будь". Этой молитвой мы
+                            просим Господа не судить нас строго за грехи, а быть к нам милостивым. Со смирением и
+                            кротостью молим о прощении наших грехов и о помиловании нас, грешных. Эта молитва известна
+                            как молитва "мытаря" - сборщика налогов. Она взята из притчи[1], которую Сам Исус Христос
+                            рассказал людям. Вот эта притча. Два человека вошли в храм помолиться.<br> Один из них
+                            фарисей[2], а другой - мытарь. Фарисей встал впереди всех и молился Богу так: "Благодарю
+                            Тебя, Боже, что я не такой грешный, как тот мытарь. Я десятую часть имущества отдаю нищим,
+                            два раза в неделю пощусь". А мытарь же, сознавая себя грешным, стал при входе в храм и не
+                            смел поднять глаз своих к небу. Он ударял себя в грудь и говорил: "Боже, милостив буди мне,
+                            грешному!" Молитва смиренного мытаря была приятнее и угоднее Богу, чем молитва гордого
+                            фарисея.</b></p>
+                    </div>
+
+                    <div style="text-align: center;">
+                        <img src="{% static 'images/35.png' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                    </div>
+                    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                        <p class="fst-italic"><b>Без пропусков букв данная молитва звучит так: "Создавыи мя, Господи, и
+                            помилуй мя". Слово - "мя" есть сокращенное от - меня. Эта молитва детей к Отцу Небесному.
+                            Мы обращаемся к нашему Создателю с мольбой: "Ты, Господи, по великой любви создавший нас,
+                            не наказывай за наши грехи строго, будь милостив к нам, прощай нас, как любящий Отец
+                            прощает своих детей".</b></p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="{% static 'images/36.png' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                    </div>
+                    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                        <p class="fst-italic"><b>"Без числа согреших, Господи, помилуй и прости мя, грешнаго". В этой
+                            молитве мы признаемся перед Отцом Небесным в бесчисленных грехах. То есть их так много, что
+                            и сосчитать нельзя. Святые отцы Церкви сравнивают множество наших грехов с несчетным
+                            количеством песчинок на морском берегу. Как и в предыдущих молитвах, здесь мы с покаянием
+                            просим у Господа прощения наших грехов. Когда в молитве будешь произносить слова «без числа
+                            согреших», помни об их бесчисленности и обещай Богу избавиться от них и не грешить
+                            больше.</b></p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="{% static 'images/37.png' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                    </div>
+                    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                        <p class="fst-italic"><b>Вы узнаете, дети, что молитвы подразделяются на просительные,
+                            хвалебные и покаянные. Вот пример хвалебной: "Слава Тебе, Боже наш, слава Тебе, всяческих
+                            ради!" Непонятное выражение - "Всяческих ради" - означает хвалу Богу за все Его дела.
+                            Здесь, как видите, мы ничего не просим. Молясь такими словами, мы славим Бога за любовь и
+                            милосердие, за все милости, посылаемые нам.</b></p>
+                    </div>
+                    <div class="text-start">
+                        <img src="{% static 'images/38.png' %}"
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="{% static 'images/39.png' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base"><br><b>В современном написании эта молитва выглядит
+                        следующим образом: "Святый Боже, Святыи Крепкий, Святый Безсмертныи, помилуй нас". Данная
+                        молитва изложена понятными для вас словами:<br>
+                        <br>Святый</b> - чистый; безгрешный.<br>
+                        <br><b>Крепкий</b> - сильный; всемогущий.<br>
+                        <br><b>Безсмертныи</b> - не умирающий; вечный.</p>
+
+                    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                        <p class="fst-italic"><b>Слово "Святыи" повторяется три раза, отсюда и
+                            краткое название молитвы - <b style="color: red;">"ТРИСВЯТОЕ"</b>. В богослужебных книгах
+                            ее текст не приводится, а
+                            ставится только это название. Христиане должны знать ее наизусть, поэтому и ты выучи
+                            ее.<br>
+                            <br>Полное
+                            наименование молитвы - <b style="color: red;">АНГЕЛЬСКАЯ ПЕСНЬ ПРЕСВЯТОЙ ТРОИЦЕ.</b>
+                            Молитва читается обязательно три раза - в честь трех Лиц Святой Троицы, Ты уже усвоил, что
+                            <b style="color: red;">Богом</b> мы называем первое Лицо Святой Троицы - Бога Отца. Теперь
+                            будешь знать, что<b style="color: red;">Крепким</b> в
+                            молитве называют - Бога Сына, потому что Он такой же всемогущий. А <b style="color: red;">Безсмертным</b>
+                            - Духа
+                            Святаго,
+                            потому что Он вечен как Отец и Сын. Кроме того, всем людям даст бессмертную жизнь.<br>
+                            <br><b style="color: red;">Ангельскою
+                                песнею</b> эта молитва называется не случайно. Христиане стали ее употреблять спустя
+                            400 лет
+                            после
+                            Рожества Христова, после одного чудесного случая. В Константинополе было страшное
+                            землетрясение, от которого разрушались дома и строения. Царь и множество народа собрались в
+                            церкви. Они в своих молитвах к Богу просили прекратить землетрясение. Когда они вышли из
+                            храма
+                            на улицу со святыми иконами и продолжили свое моление, невидимая сила вдруг подняла одного
+                            мальчика на небо. Прошло несколько минут, и мальчик невредимым опустился на землю. Он
+                            рассказал
+                            окружающим, что на небе святые ангелы пели: <b style="color: red;">Святыи Боже, Святыи
+                                Крепкий, Святыи
+                                Безсмертныи.</b><br>
+                            Люди поняли, что им даны указания с небес о правильном молении. Они стали петь эту небесную
+                            песнь, прибавляя к ней слова: <b style="color: red;">помилуй нас.</b> Землетрясение тотчас
+                            же прекратилось.</b></p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="{% static 'images/40.png' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base"><br><b>Эта молитва называется полным славословием, так
+                        как
+                        в ней мы восхваляем поименно все три Лица Пресвятой Троицы: "Слава Отцу, и Сыну, и Святому
+                        Духу, ныне и присно и во веки веком, аминь". Большинство слов тебе уже знакомо. Но некоторым
+                        нужно пояснение:<br>
+                        <br>Ныне</b> - теперь.
+                        <br><b>Присно</b> - всегда.
+                        <br><b>Во веки веком</b> - вечно или в бесконечные веки.
+                        <br><b>Аминь</b> - истинно; действительно так; да будет так.</p>
+                    <div style="text-align: center;">
+                        <img src="{% static 'images/41.png' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                    </div>
+                    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                        <p class="fst-italic"><b>Дети, прочтите несколько раз эту просительную молитву: "Пресвятая
+                            Троице, помилуй нас; Господи, очисти грехи наша; Владыко, прости беззакония наша; Святыи,
+                            посети и исцели немощи наша, имени Твоего ради". Вы обратили внимание, как много содержат
+                            эти краткие строки? Мы обращаемся к Триединому Богу о помиловании наших грехов:</b></p>
+                    </div>
+
+                    <p style="font-align: 17px;" class="text-center"><br><b style="color: red;">Пресвятая Троице,
+                        помилуй нас.</b><br><br>
+                        Господа - Бога Отца просим избавить,
+                        очистить нас от грехов:<br><br>
+                        <b style="color: red;">Господи, очисти грехи наша.</b><br><br>
+                        Владыку - Исуса Христа Сына Божия просим простить за все беззакония:<br><br>
+                        <b style="color: red;">Владыко, прости беззакония наша;</b><br><br>
+                        Духа Святаго призываем посетить нашу душу и одновременно говорим ему:<br><br>
+                        <b style="color: red;">Святыи, посети и исцели немощи наша.</b></p><br>
+                    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                        <p class="fst-italic"><b>Обращаясь к Богу Отцу мы просим очистить нашу душу от греха как одежду
+                            от грязи. Бог Отец прощает нас и помогает вместо злых дел творить добро. Второму лицу
+                            Пресвятой Троицы - Сыну Божьему Исусу Христу мы признаемся в нарушении Его законов. А
+                            закон, оставленный Им, прост - не делай ничего такого, чего не хочешь чтобы делали тебе.
+                            Отступил от Божьей заповеди - нарушил закон, то есть совершил беззаконие. Без Святаго Духа
+                            человек нс может сам очиститься от грехов. Услышав наш горячий призыв,
+                            Дух Святый посещает нашу душу. Как врач исцеляет ее от болезней греховных. После такого
+                            очищения, душа наша сможет отзываться на чужую боль, подталкивать нас к деланию добра,
+                            просить молитвы, выполнять заповеди Божии.
+                            Молитву к Пресвятой Троице мы заканчиваем словами: <b style="color: red;"> имени Твоего
+                                ради.</b> Они относятся ко всем
+                            трем Лицам Пресвятой Троицы. Но так как Бог Един в трех лицах, то имя у Него одно, потому
+                            мы говорим "имени Твоего", а не "имён Твоих".</b></p>
+                    </div>
+                    <p style="font-align: 22px;" class="text-center"><br><b style="color: red;">Новые для вас
+                        слова:</b></p>
+
+                    <p style="font-size: 17px;" class="lh-base"><br>
+                        <br><b>Пресвятая</b> - в высшей степени святая.
+                        <br><b>Беззакония</b> - дела наши, противные воле Божией.
+                        <br><b>Посети</b> - приди.
+                        <br><b>Исцели</b> - излечи.
+                        <br><b>Немощи</b> - слабости; грехи; нездоровье.
+                        <br><b>Имени Твоего ради</b> - для прославления имени Твоего.</p>
+                    <div class="text-start">
+                        <img src="{% static 'images/42.png' %}"
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="{% static 'images/43.png' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                    </div>
+                    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                        <p class="fst-italic"><b>Все особенности написания данной молитвы вам уже известны и вы можете
+                            правильно прочесть: Господи Исусе Христе Сыне Божии, помилуй мя, <b style="color: red;">грешнаго.</b>
+                            <br>Эта молитва
+                            называется <b style="color: red;">Исусовой</b>, потому что в ней мы просим Исуса Христа о
+                            помиловании нас. Для живущих
+                            на земле людей Он самый главный, поэтому в молитве Исус Христос именуется <b
+                                    style="color: red;">Господом</b>,
+                            Которому христиане должны повиноваться беспрекословно. Придя на землю человеком, Христос
+                            остался Вторым Лицом Пресвятой Троицы - <b style="color: red;">Сыном Божиим</b>. <br>Исусову
+                            молитву большинство верующих
+                            христиан произносит постоянно и в беде, и перед началом дела, и в опасности, и в болезни, и
+                            в покаянии. Она очень краткая по количеству слов, но содержит полную формулу обращения к
+                            Сыну Бога о помиловании нас, грешных.</b></p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="{% static 'images/44.png' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                    </div>
+                    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                        <p class="fst-italic"><b>Вот, дети, современное написание этой молитвы: "За молитв святых отец
+                            наших, Господи Исусе Христе Сыне Божии, помилуй нас, аминь". Мы уже говорили с вами о том,
+                            что святые люди на небесах непрестанно молятся за нас, грешных и просят Бога простить
+                            нас.<br>
+                            Как раз в данной молитве мы обращаемся к Исусу Христу - Сыну Божию принять молитвы святых
+                            отцов за нас, простить нам грехи и помиловать нас. Наши молитвы тоже угодны Богу. Но
+                            молимся мы редко и зачастую скороговоркой, без сердечной теплоты. Кроме того, несем в душе
+                            большое количество грехов. Поэтому наши молитвы могут не дойти до Бога. А святые отцы
+                            угодили своей жизнью Богу, могут лицезреть Господа на небесах, им дано право просить
+                            Господа о помиловании нас, грешных.</b></p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="{% static 'images/45.png' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                    </div>
+                    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                        <p class="fst-italic"><b>На примере этой молитвы, вы сможете уже освоить текст побольше:
+                            "Господи Исусе Христе Сыне Божии, молитв ради Пречистыя Твоея Матере, силою Честнаго и
+                            Животворящаго Креста, и святаго Ангела, моего хранителя, и всех ради святых, помилуй и
+                            спаси мя грешнаго, яко Благ и Человеколюбец".</b></p>
+                    </div>
+                    <p style="font-align: 22px;" class="text-center"><br><b style="color: red;">Новые для вас
+                        слова:</b></p>
+
+                    <p style="font-size: 17px;" class="lh-base"><br>
+                        <br><b>Пречистыя</b> - чистой в высочайшей степени, не имеющей никакого порока, греха.
+                        <br><b>Честнаго Креста</b> - имевший особую честь принять тело Христово, дающего честь и славу
+                        носящему
+                        его и поклоняющемуся кресту.
+                        <br><b>Животворящаго Креста</b> - дающего жизнь, освобождающего от смерти греховной,
+                        воскрешающего.
+                        <br><b>Яко</b> - как.
+                        <br><b>Благ</b> - благой; добрый, то есть творящий добро.
+                        <br><b>Человеколюбец</b> - любящий людей.
+                    </p>
+                    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                        <p class="fst-italic"><b>Как и в предыдущей молитве, здесь содержится обращение к Спасителю
+                            услышать просьбы и молитвы Небожителей за нас. Очень часто христиане прибегают к помощи и
+                            заступничеству Пресвятой Богородицы. Молитвы Матери имеют особую силу перед Сыном Своим. По
+                            Ее молитвам прощаются не только наши согрешения, но и даруется особая милость Господа
+                            нашего Исуса Христа.<br>
+                            <br>В нашей земной жизни с нами неотступно пребывает Ангел-хранитель, данный нам Господом
+                            при
+                            Крещении. Он помогает нам творить добро и бороться со злом, он усердно молится за нас Богу.
+                            Помогают нам в нашей земной жизни и молитвы святых Божиих угодников.<br>
+                            <br>В молитве мы просим Бога применить и к нам силу Честнаго и Животворящего Креста, на
+                            котором
+                            Он принял страдания и смерть. Этим спасительным подвигом Исус Христос спас людей от греха и
+                            власти диавола. Мы тоже страдаем в этой жизни, грешим беспрестанно, поэтому прибегаем к
+                            помощи и заступлению Креста в нашей борьбе с грехом.<br>
+                            <br>Заканчивая свою молитву, мы просим Исуса Христа простить грехи и подарить нам Царствие
+                            Небесное. Только благодаря Его великой и бесконечной любви к людям, мы получаем блага в
+                            земной жизни и возможность блаженства на Небесах.</b></p>
+                    </div>
+                    <div class="text-start">
+                        <img src="{% static 'images/46.png' %}"
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="{% static 'images/47.png' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                    </div>
+                    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                        <p class="fst-italic"><b>Одна из самых красивых христанских молитв - это обращение к Святому
+                            Духу: "Царю Небесный, Утешителю, Душе Истинный, иже везде сыи и вся исполняя, Сокровище
+                            благих и жизни подателю, прииди и вселися в ны и очисти ны от всякия скверны, и спаси,
+                            Блаже, душа наша". Третье Лицо Святой Троицы мы называем здесь <b style="color: red;">Царем
+                                Небесным</b>. Потому что
+                            Святыи Дух вселяется в нас при крещении, невидимо царствует повсюду, владеет нами и всем
+                            миром. Он истинный Бог, равный во всем Богу Отцу и Богу Сыну. Как любящая мать говорит вам
+                            тихо ласковые слова в минуты боли, так и Дух Святыи посылает людям утешение в скорби,
+                            несчастиях и печалях. Поэтому в молитве мы называем Его <b
+                                    style="color: red;">Утешителем</b>.<br> Успокаивая, утешая
+                            людей, Он научает их полезным истинам, которые приведут ко спасению души. Потому - Он <b
+                                    style="color: red;">Дух
+                                истиныи</b>
+                            Как Бог вездесущий Дух Святыи наполняет Собою весь видимый и невидимый мир - <b
+                                    style="color: red;">иже везде сыи</b>.
+                            Он всемогущ, Ему все подвластно: <b style="color: red;">и вся исполняя</b>. Высшая степень
+                            любви Святаго Духа к людям
+                            выражена в данной молитве. Так, являясь хранителем всех благодеяний, источником всего
+                            хорошего <b style="color: red;">Сокровище благих</b>, Он дает истинную жизнь людям - <b
+                                    style="color: red;">жизни Подател</b>ю.
+                            Все в мире живет и движется Духом Святым, то есть все на земле от Него получает жизнь. Люди
+                            же получают от Него духовную, святую и вечную жизнь после смерти, очищаясь через Него от
+                            своих грехов.<br>
+                            <br>Понимая все это, христиане молят Его: <b style="color: red;">прииди и вселися в ны</b>.
+                            Присутствие Духа Святаго в
+                            человеке не позволяет овладевать диаволу его душой. А если в ней и поселился грех, то
+                            помогут слова молящегося: <b style="color: red;">и очисти ны от всякия скверны</b>. Под
+                            скверной подразумеваются
+                            всякие низкие мысли и мерзкие желания, гадкие чувства и грязные слова, дурные поступки и
+                            многие другие грехи. Призывая Духа Святаго, человек надеется на спасение своей души -<b
+                                    style="color: red;">и
+                                спаси, Блаже, душа наша.</b></b></p>
+                    </div>
+                    <p style="font-align: 22px;" class="text-center"><br><b style="color: red;">Обратите внимание на
+                        значение слов в данной молитве:</b></p>
+
+                    <p style="font-size: 17px;" class="lh-base"><br>
+                        <br><b>Царю</b> - обращение к Богу.
+                        <br><b>Утешителю</b> - Утешитель; утешающий (успокаивающий).
+                        <br><b>Душе истинныи</b> - Дух истиныи.
+                        <br><b>Иже</b> - Который.
+                        <br><b>Сыи</b> - сущий, находящийся.
+                        <br><b>Вся исполняя</b> - все исполняющий.
+                        <br><b>Сокровище благих</b> - сокровище; вместилище всех благ, всякого добра.
+                        <br><b>Жизни Подателю</b> - Податель жизни, дающий жизнь.
+                        <br><b>В ны</b> - в нас.
+                        <br><b>От всякия скверны</b> - от всякой нечистоты, то есть от всех грехов.
+                        <br><b>Блаже</b> - благой; добрый.
+                    </p>
+                    <div class="text-start">
+                        <img src="{% static 'images/48.png' %}"
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="{% static 'images/49.png' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                    </div>
+                    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                        <p class="fst-italic"><b>"Слава, Господи, Кресту Твоему Честному" -эти слова следует
+                            произносить, кланяясь любому кресту - при входе в церковь, в комнату (если там висит
+                            распятие), глядя на церковные купола, увенчанные крестами. Данная молитва прославляет Крест
+                            Господень, на котором был распят Исус Христос. Ведь благодаря Его крестной смерти мы были
+                            избавлены от власти греха. Поэтому мы называем крест орудием победы над грехом и
+                            смертью.</b></p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="{% static 'images/50.png' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                    </div>
+                    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                        <p class="fst-italic"><b>Читается молитва так: "Спаси, Господи, люди Своя, и благослови
+                            достояние Свое, победы державе нашей на сопротивныя даруй, и Своя сохраняя Крестом люди".
+                            Считая себя принадлежащими Богу, являясь Его достоянием (владением), мы просим спасти нас и
+                            благословить. Господь невидимо владеет и управляет православными русскими людьми.
+                            Благословение Божие выражается в земных благах, здоровье, счастливой жизни. Когда Бог
+                            лишает людей Своего благословения, то на земле свирепствуют болезни, голод, стихийные
+                            бедствия и другие несчастья. Поэтому мы и просим у Господа спасения и благословения.<br>
+                            Дети, православные христиане обязаны молить Бога не только о своем благополучии, но и
+                            просить крепости нашему Российскому государству. Если Господь не допустит врагов на
+                            территорию нашей Родины, то все дети смогут спокойно учиться, заниматься спортом, играть.
+                            Ну, а если случилась беда, следует просить у Господа победы над врагом.
+                            В конце молитвы мы просим Господа охранить нас от всех видимых и невидимых врагов силою
+                            Своего Честнаго Креста.</b></p>
+                    </div>
+                    <p style="font-align: 22px;" class="text-center"><br><b style="color: red;">Если слова молитвы не
+                        совсем понятны, ознакомьтесь с их значением:</b></p>
+
+                    <p style="font-size: 17px;" class="lh-base"><br>
+                        <br><b>Благослови</b> - подай благо; пошли милость.
+                        <br><b>Достояние Свое</b> - то, что принадлежит Тебе.
+                        <br><b>Державе</b> - государству; стране.
+                        <br><b>На сопротивныя</b> - на противников; врагов.
+                    </p>
+                    <div class="text-start">
+                        <img src="{% static 'images/51.png' %}"
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="{% static 'images/52.png' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                    </div>
+                    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                        <p class="fst-italic"><b>Россия всегда была и есть под особой защитой Пресвятой Богородицы. С
+                            древних времен православные христиане чаще всего обращались к этой великой Заступнице
+                            словами: "Пресвятая Госпоже Богородице, спаси нас". Обращаясь в этой молитве к Божией
+                            Матери, мы называем ее нашей Госпожой. Это связано с великой любовью людей к Царице
+                            Небесной. Зная силу материнской мольбы, мы просим Богородицу заступиться за нас перед
+                            Божественным Своим Сыном и тем спасти нас.</b></p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="{% static 'images/53.png' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                    </div>
+                    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                        <p class="fst-italic"><b>Обратите особое внимание, дети, на эту чудесную молитву: "Богородице
+                            Дево, радуйся, Обрадованная Марие, Господь с Тобою, благословенна Ты в женах, и благословен
+                            Плод чрева Твоего, яко родила еси Христа Спаса, Избавителя душам нашим". Данная молитва
+                            называется <b style="color: red;">Архангельским поздравлением Пресвятой Богородице</b>,
+                            потому что слова ее не
+                            выдуманы людьми. Они сказаны Марии самим архангелом Гавриилом в городе Назарете. По велению
+                            Божию архангел возвестил о рождении Спасителя мира от Неe: "Радуйся, Обрадованная! Господь
+                            с Тобою; Благословенна Ты в женах". А праведная Елисавета, мать святого Иоанна Крестителя,
+                            чудесным образом догадалась о беременности Марии и воскликнула: "Благословенна Ты в женах,
+                            и благословен Плод чрева Твоего".<br>
+                            <br>В память этих событий и составлена была эта священная песнь. В те давние времена такое
+                            известие с Небес было неописуемой радостью. Потому что сбывались пророчества древних Святых
+                            людей о пришествии Спасителя для погибающих от греха людей. Но как чудесно, страшно и
+                            радостно одновременно было такое известие для юной простой Девы Марии. Вместить в себя
+                            Самого Бога, сохранить Его в течение девяти месяцев, благополучно произвести на свет как
+                            Своего Сына! Изложенная молитва как раз и передает нам все неземные чувства, которые мы
+                            должны питать к Пресвятой Богородице, выкормившей Своею грудью Сына Божия, носившая Его на
+                            Своих руках. Она вырастила Спасителя всему миру. Произнося архангельское приветствие
+                            Богородице, мы разделяем вместе с Ней радость приобщения к Святым Небесным Таинствам.</b>
+                        </p>
+                    </div>
+                    <p style="font-align: 22px;" class="text-center"><br><b style="color: red;">Дети, слова молитвы уже
+                        вам известны. Некоторые же требуют пояснения:</b></p>
+
+                    <p style="font-size: 17px;" class="lh-base"><br>
+                        <br><b>Обрадованная</b> - радостная; получившая благую (хорошую) весть.
+                        <br><b>Благословенна</b> - прославлена; достойна прославления; пожелание блага словами.
+                        <br><b>В женах</b> - среди всех остальных женщин.
+                        <br><b>Плод чрева Твоего</b> - плод Твоего тела.
+                        <br><b>Яко</b> - потому что; так как.
+                        <br><b>Спаса</b> - Спасителя.
+                        <br><b>Избавителя душам нашим</b> - Спасителя, избавившего наши души от греха, плена
+                        диавольского.
+                    </p>
+                    <div style="text-align: center;">
+                        <img src="{% static 'images/54.png' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                    </div>
+                    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                        <p class="fst-italic"><b>В кратких утренних и вечерних молитвах, в церковных богослужениях эта
+                            молитва повторяется неоднократно: "Достойно есть яко воистину, блажити Тя Богородице,
+                            присноблаженную и пренепорочную, и Матерь Бога нашего. Честнейшую херувим, и славнейшую
+                            воистину серафим, без истления Бога Слова рождьшую, сущую Богородицу Тя величаем".</b>
+                        </p>
+                    </div>
+                    <p style="font-align: 22px;" class="text-center"><br><b style="color: red;">В данной молитве, дети,
+                        много новых для вас словесных оборотов:</b></p>
+
+                    <p style="font-size: 17px;" class="lh-base"><br>
+                        <br><b>Достойно есть</b> - справедливо; заслуженно.
+                        <br><b>Яко воистину</b> - истинно; по всей правде.
+                        <br><b>Блажити Тя</b> - ублажать, прославлять Тебя.
+                        <br><b>Присноблаженную</b> - присно (всегда) - блаженную (имеющую высшую радость),
+                        счастливую, достойную постоянного прославления.
+                        <br><b>Пренепорочную</b> - самую непорочную, чистую, не имеющую греха.
+                        <br><b>Честннйшую херувим и славнейшую воистину серафим</b> - выше самых главных и самых
+                        близких к Богу
+                        ангелов - херувимов и серафимов.
+                        <br><b>Без истления</b> - чудесным образом, безгрешно и без боли родившая, оставшись при этом
+                        непорочной
+                        Девой.
+                        <br><b>Бога Слова</b> - Исуса Христа, Сына Божия (Бог Слово, так Он называется в Евангелии).
+                        Сущую -
+                        настоящую, истинную.
+                    </p>
+                    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                        <p class="fst-italic"><b>В этой молитве мы восхваляем земную Деву, как Богородицу - Мать Бога
+                            нашего. При этом, в молитве содержатся все отличия ее от обыкновенных женщин земли -
+                            появление в теле Божественного Ребенка от Духа Святаго, рождение Исуса Христа чудесным
+                            образом без боли и без изъяна для тела. И через это чудо Мария возведена Богом на
+                            недосягаемую высоту даже для херувимов и серафимов, предстоящих Богу ближе всех. Слова
+                            молитвы еще раз утверждают главную истину для всех христиан - родившая Сына Божия,
+                            сошедшего с Небес, - есть истинная Богородица.</b>
+                        </p>
+                    </div>
+                    <div class="text-start">
+                        <img src="{% static 'images/55.png' %}"
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="{% static 'images/56.png' %}"
+                             alt=""
+                             style="max-width: 100%; height: auto; margin: 0 auto;">
+                    </div>
+                    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                        <p class="fst-italic"><b>Дети, это самая главная христианская молитва, называемая <b
+                                style="color: red;">Господней</b>.
+                            Сам Исус Христос - Сын Божий продиктовал ее ученикам Своими Божественными устами. Он
+                            заповедал обращаться к Богу такими словами: "Отче наш, Иже еси на Небесех, да святится имя
+                            Твое, да приидет Царствие Твое, да будет воля Твоя, яко на Небеси и на земли. Хлеб наш
+                            насущный, даждь нам днесь и остави нам долги наша, яко же и мы оставляем должником нашим. И
+                            не введи нас во искушение, но избави нас от лукаваго.<br>
+                            Яко твое есть царство и сила, и слава Отца и Сына и Святого Духа ныне и присно и во веки
+                            веков, аминь".<br>
+                            Уже две тысячи лет люди таким образом обращаются к Богу Отцу, первому Лицу Пресвятой
+                            Троицы. По своему содержанию молитва разделяется на: <b style="color: red;">призывание,
+                                семь прошений</b> (7 просьб) и
+                            <b style="color: red;">славословия</b>.</b>
+                        </p>
+                    </div>
+                    <p style="font-size: 17px;" class="lh-base"><br>
+                        <br>•
+                        Призывание: <b style="color: red;">Отче наш, Иже еси на небесех!</b> Этими словами мы
+                        обращаемся к нашему Отцу Небесному,
+                        призываем выслушать наши просьбы. Небеса - это духовное, невидимое небо, в отличие от видимого
+                        голубого неба над землей.<br>
+                        <br>•
+                        Прошение 1-е: <b style="color: red;">Да святится имя Твое</b>. Произнося эти слова молитвы, мы
+                        утверждаем, что Имя Бога
+                        Отца самое святое из всех. Мы славим его и стараемся своими делами не бросить тень на святость
+                        Имени.<br>
+                        <br>•
+                        Прошение 2-е: <b style="color: red;">Да приидет Царствие Твое</b>. Здесь выражается самое
+                        главное желание людей -
+                        устроение на земле Царства Небесного. Под Царствием Божиим на земле подразумевается правда,
+                        любовь и мир. Люди выражают в молитве готовность подчиниться Его Царственному владычеству.<br>
+                        <br>• Прошение 3-е: <b style="color: red;">Да будет воля Твоя, яко на небеси и на земли</b>.
+                        Здесь заповедано Господом:
+                        откажитесь от своей воли, делайте чего хочет Бог, подчиняйтесь Его святой воле. И люди в своей
+                        молитве просят Бога проявить эту волю. При этом обещают исполнять Ее беспрекословно и без
+                        ропота; с любовью и радостью, как святые ангелы на небе. Потому что Богу известно, что нам
+                        полезно и нужно. Мы же своей волей часто творим вред себе.<br>
+                        <br>•
+                        Прошение 4-е: <b style="color: red;">Хлеб наш насущныи даждь нам днесь</b>. Только Бог дает нам
+                        жизнь, здоровье, силу,
+                        плодоносящие деревья, злаки и все остальное, потребное для жизни. Исус Христос научил людей
+                        обращаться к Богу с просьбой подать хлеб на каждый день.<br>
+                        <br>•
+                        Здесь под хлебом подразумевается все необходимое для жизни. Вы должны знать, что в понятие пищи
+                        для православного христианина входит и получение пречистого Тела и честной Крови при святом
+                        Причащении. Без этой главной пищи для души - нет спасения, нет вечной жизни. Обращаем ваше
+                        внимание, дети, что Господь заповедовал просить только самое необходимое для жизни. Значит
+                        такое отношение к материальным благам самое полезное для нашей души и тела. Не послушает нас
+                        Господь, если станем просить у Него деньги, машины, дорогую одежду. Богатство отягощает душу и
+                        не дает ей спастись.<br>
+                        <br>•
+                        Прошение 5-е: <b style="color: red;">И остави нам долги наша яко же и мы оставляем должником
+                            нашим</b>. В этой просьбе мы
+                        не просто молим простить грехи наши, как в остальных просительных молитвах. Здесь мы извещаем
+                        Бога, что своих обидчиков всех простили. Ведь только погасив свои долги - обиды перед людьми,
+                        мы смеем обращаться за прощением своих грехов к Богу.<br>
+                        <br>•
+                        Господь дал нам физическую силу, чтобы делами помочь другим людям, животным, растениям, земле.
+                        Наградил нас различными способностями и прекрасными душевными качествами, чтобы за время
+                        земного пути мы успели сотворить добро для земного мира. Если мы злоупотребляем Божиим даром и
+                        обращаем его на сотворение греха, то становимся должниками перед Богом. Господь милостив и
+                        простит наши грехи (долги) при покаянии. Но никогда не будет прощения, если мы таим обиду,
+                        желаем зла, намереваемся отомстить должникам нашим, когда-то согрешивших против нас.<br>
+                        <br>•
+                        Прошение 6-е: <b style="color: red;">И не введи нас во искушение</b>. Как часто, дети, хочется
+                        нарушить родительский
+                        запрет, без спроса взять что-либо, утаить от родителей плохую оценку, солгать своим близким,
+                        показать свою силу в отношении слабого. Это не ваши желания, это - попытка диавола столкнуть
+                        вас с пути правды. Такие соблазны и желания называются искушениями. Даже взрослым очень трудно
+                        противостоять искушениям без Божией помощи. В этой молитве мы как раз и просим: помоги нам
+                        преодолевать соблазны, избавь от искушений.<br>
+                        <br>•
+                        Прошение 7-е: <b style="color: red;">Но избави нас от лукаваго</b>. Эти слова понятны и просты.
+                        Мы высказываем твердое
+                        желание жить на земле в соответствии с Божиими заповедями. И просим Бога избавить нас от
+                        воздействия виновника (начальника) зла - от диавола, который всегда стремится погубить нас.<br>
+                        <br>•
+                        Славословие, произносимое священником: Яко Твое есть царство, и сила, и слава Отца, и Сына, и
+                        Святаго Духа ныне и присно и во веки веком. Аминь. Заканчивается молитва утверждением, что Богу
+                        нашему, Отцу и Сыну и Святому Духу принадлежит и подчиняется все на свете: вселенная, земля,
+                        человек, все живое и неживое на земле. Он наш Царь Небесный и в Своем царстве Он самый сильный,
+                        обладающий вечной славой. Словом "Аминь" еще раз утверждается истинность, правдивость всего
+                        сказанного.<br>
+                    </p>
+                    <p style="font-align: 22px;" class="text-center"><br><b style="color: red;">При прочтении молитвы
+                        на церковнославянском, обратите внимание на значение слов:</b></p>
+
+                    <p style="font-size: 17px;" class="lh-base"><br>
+                        <br><b>Отче</b> - Отец.
+                        <br><b>Иже</b> - Который.
+                        <br><b>Иже еси на небесех</b> - Который есть на небесах. Да - пусть.
+                        <br><b>Святится</b> - прославляется.
+                        <br><b>Яко</b> - как.
+                        <br><b>На небеси</b> - на небе духовном.
+                        <br><b>Насущныи</b> - необходимый для существования.
+                        <br><b>Даждь</b> - дай.
+                        <br><b>Днесь</b> - сегодня; на нынешний день.
+                        <br><b>Остави</b> - прости.
+                        <br><b>Долги</b> - грехи.
+                        <br><b>Должником нашим</b> - тем людям, которые согрешили против нас.
+                        <br><b>Искушение</b> - соблазн; опасность греховная.
+                        <br><b>Лукаваго</b> - хитрого и злого, то есть диавола.
+                    </p>
+                    <p style="font-align: 22px;" class="text-center"><br><b style="color: red;">Примечание:</b></p>
+
+                    <p style="font-size: 17px;" class="lh-base"><br>
+                        <br>[1] Притча - поучительный, образный рассказ Исуса Христа, данный Им с целью лучшего
+                        понимания
+                        слушателями тех или иных заповедей.
+                        <br>[2] Фарисей - данное слово употребляется в значении лицемерного, гордого человека,
+                        делающего
+                        всё напоказ, чтобы за это получить славу и похвалу у людей.<br>
+                        Взято и переработано из «ДЕТЯМ О МОЛИТВЕ» Издатель: Древлеправославная Патриархия Московская и
+                        всея Руси. Новозыбков. 2008 год<br>
+                        <br>Материал подготовлен по благословению иерея Владимира.<br>
+                        <br>Редколлегия сайта ПОНОМАРЬ, Кызыл.
+                    </p>
+
+                    <div style="text-align: center;">
+                        <div class="text-center" style="margin-top: 20px;">
+
+                        </div>
+
+                        <script>
+                            function copyToClipboard(text) {
+                                navigator.clipboard.writeText(text).then(function() {
+                                    alert('Ссылка скопирована: ' + text);
+                                }, function(err) {
+                                    console.error('Ошибка при копировании: ', err);
+                                });
+                            }
+
+                            function openTelegram() {
+                                window.open('https://t.me/PonomarKyzyl', '_blank');
+                            }
+
+                            function openWhatsApp() {
+                                window.open('https://wa.me/8908 207-85-27', '_blank');
+                            }
+
+                            function openViber() {
+                                window.open('viber://chat?number=YourPhoneNumber', '_blank');
+                            }
+                        </script>
+                        <div class="container mt-5">
+                            <a href="https://t.me/ctr_vestnik" class="btn btn-primary btn-custom" target="_blank">
+                                <span class="main-text">Наш Телеграмм.</span><br>
+                                Просите и дано будет вам; ищите и найдёте; стучите, и отворят вам...
+                            </a>
+                            <h1></h1>
+                            <h1></h1>
+                        </div>
+                        <p style="font-size: 17px;" class="lh-base"></p>
+                        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; max-width: 38rem; margin-left: 7rem;">
+                            <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                                <img src="{% static 'src/avvakum-fire.jpg' %}"
+                                     style="max-width: 60%; height: auto; margin: 0 auto;">
+                                <div class="card-body">
+                                    <a class="btn" href="{% url 'content:avvacum' %}"
+                                       style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                                       role="button">
+                                        Неистовый Аввакум
+                                    </a>
+                                </div>
+
+                            </div>
+
+                            <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                                <img src="{% static 'src/drevnerus_10_chudo-georgiya-o-zmii-s-zhitiem.jpg' %}"
+                                     style="max-width: 45%; height: auto; margin: 0 auto;">
+                                <div class="card-body">
+                                    <a class="btn" href="{% url 'content:holiday' %}"
+                                       style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                                       role="button">
+                                        Праздник Георгия Победоносца в древнерусской литературе
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                                <img src="{% static 'src/scale_1200 (8).jpeg' %}"
+                                     style="max-width: 85%; height: auto; margin: 0 auto;">
+                                <div class="card-body">
+                                    <a class="btn" href="{% url 'content:typology' %}"
+                                       style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                                       role="button">
+                                        Типология взглядов русских мыслителей на старообрядчество
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                                <div class="card-body">
+                                    <a class="btn" href="{% url 'content:revolution' %}"
+                                       style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                                       role="button">
+                                        Старообрядцы в русской революции
+                                    </a>
+                                    Роль старообрядцев в русской революции
+                                </div>
+                            </div>
+                        </div>
+                        <nav class="blog-pagination" aria-label="Pagination"><a
+                                class="btn btn-outline-primary rounded-pill"
+                                href="#">Вверх</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="position-sticky" style="top: 2rem;">
+                        <div><h4 class="fst-italic">Недавние:</h4>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                                       href="{% url 'content:typology' %}">
+                                        <img src="{% static 'src/scale_1200 (8).jpeg' %}"
+                                             style="max-width: 30%; height: auto; margin: 0 auto;">
+                                        <div class="col-lg-8">
+                                            <span style="color: gray;">АПОЛОГИЯ</span>
+                                            <h6 class="mb-0">Типология взглядов русских мыслителей на
+                                                старообрядчество</h6>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                                       href="{% url 'content:new_year' %}">
+                                        <img src="{% static 'src/i (5).png' %}"
+                                             style="max-width: 30%; height: auto; margin: 0 auto;">
+                                        <div class="col-lg-8">
+                                            <span style="color: gray;">ТРАДИЦИИ</span>
+                                            <h6 class="mb-0">Новый год - языческие истоки</h6>
+
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                                       href="{% url 'content:star' %}">
+                                        <img src="{% static 'src/zvezda_5.jpg' %}"
+                                             style="max-width: 30%; height: auto; margin: 0 auto;">
+                                        <div class="col-lg-8">
+                                            <span style="color: gray;">ХРАМ И МИР</span>
+                                            <h6 class="mb-0">Что означает пятиконечная звезда</h6>
+
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="p-4">
+                            <h4 class="fst-italic">Темы</h4>
+                            <ol class="list-unstyled">
+                                <li><a href="#" class="custom-link">Новости</a></li>
+                                <li><a href="#" class="custom-link">О нас старообрядцах</a></li>
+                                <li><a href="#" class="custom-link">Престольный праздник</a></li>
+                                <li><a href="#" class="custom-link">Святоотеческое</a></li>
+                                <li><a href="#" class="custom-link">История старообрядчества</a></li>
+                                <li><a href="#" class="custom-link">Священство</a></li>
+                                <li><a href="#" class="custom-link">О Исусе Христе</a></li>
+                                <li><a href="#" class="custom-link">Личность</a></li>
+                                <li><a href="#" class="custom-link">Церковь</a></li>
+                                <li><a href="#" class="custom-link">Храмы</a></li>
+                            </ol>
+
+                            <style>
+                                .custom-link {
+                                    font-size: 1.2em;
+                                    font-weight: bold;
+                                    color: #800000;
+                                    text-decoration: none; /* убираем подчеркивание */
+                                }
+
+                                .dropdown-toggle {
+                                    display: block;
+                                    padding: 0.25rem 1rem; /* добавим дополнительные классы для dropdown, чтобы они имели одинаковый стиль */
+                                }
+                            </style>
+
+
+                            <p class="mb-0"><a href="#">Наверх</a></p>
+                            </ol>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            </main>
+        </div>
+    </header>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+</html>

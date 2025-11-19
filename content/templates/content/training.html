@@ -1,0 +1,546 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Astro v5.9.2">
+    <title>Blog Template · Bootstrap v5.3</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/blog/">
+    <script src="/docs/5.3/assets/js/color-modes.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
+    <meta name="theme-color" content="#712cf9">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap" rel="stylesheet">
+    <link href="blog.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT&display=swap" rel="stylesheet">
+    <style>
+        .bd-placeholder-img{font-size:1.125rem;text-anchor:middle;-webkit-user-select:none;-moz-user-select:none;user-select:none}@media (min-width: 768px){.bd-placeholder-img-lg{font-size:3.5rem}}.b-example-divider{width:100%;height:3rem;background-color:#0000001a;border:solid rgba(0,0,0,.15);border-width:1px 0;box-shadow:inset 0 .5em 1.5em #0000001a,inset 0 .125em .5em #00000026}.b-example-vr{flex-shrink:0;width:1.5rem;height:100vh}.bi{vertical-align:-.125em;fill:currentColor}.nav-scroller{position:relative;z-index:2;height:2.75rem;overflow-y:hidden}.nav-scroller .nav{display:flex;flex-wrap:nowrap;padding-bottom:1rem;margin-top:-1px;overflow-x:auto;text-align:center;white-space:nowrap;-webkit-overflow-scrolling:touch}.btn-bd-primary{--bd-violet-bg: #712cf9;--bd-violet-rgb: 112.520718, 44.062154, 249.437846;--bs-btn-font-weight: 600;--bs-btn-color: var(--bs-white);--bs-btn-bg: var(--bd-violet-bg);--bs-btn-border-color: var(--bd-violet-bg);--bs-btn-hover-color: var(--bs-white);--bs-btn-hover-bg: #6528e0;--bs-btn-hover-border-color: #6528e0;--bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);--bs-btn-active-color: var(--bs-btn-hover-color);--bs-btn-active-bg: #5a23c8;--bs-btn-active-border-color: #5a23c8}.bd-mode-toggle{z-index:1500}.bd-mode-toggle .bi{width:1em;height:1em}.bd-mode-toggle .dropdown-menu .active .bi{display:block!important}
+    </style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path>
+    </symbol>
+    <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+    </symbol>
+    <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+    </symbol>
+    <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+    </symbol>
+</svg>
+<div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
+            aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+            <use href="#circle-half"></use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span></button>
+    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+            <ul>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
+                            aria-pressed="false" onclick="setTheme('light')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#sun-fill"></use>
+                        </svg>
+                        Light
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+                            aria-pressed="false" onclick="setTheme('dark')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#moon-stars-fill"></use>
+                        </svg>
+                        Dark
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center active"
+                            data-bs-theme-value="auto" aria-pressed="true" onclick="setTheme('auto')">
+                        <svg class="bi me-2 opacity-50" aria-hidden="true">
+                            <use href="#circle-half"></use>
+                        </svg>
+                        Auto
+                        <svg class="bi ms-auto d-none" aria-hidden="true">
+                            <use href="#check2"></use>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+
+            <script>
+                function setTheme(theme) {
+                    document.body.setAttribute('data-bs-theme', theme);
+
+                    // Удалить класс 'active' с всех кнопок и установить его только на нажатую кнопку
+                    const buttons = document.querySelectorAll('.dropdown-item');
+                    buttons.forEach(button => {
+                        button.classList.remove('active');
+                        button.setAttribute('aria-pressed', 'false');
+                    });
+
+                    const activeButton = Array.from(buttons).find(button => button.getAttribute('data-bs-theme-value') === theme);
+                    activeButton.classList.add('active');
+                    activeButton.setAttribute('aria-pressed', 'true');
+                }
+            </script>
+        </li>
+    </ul>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+            stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path>
+    </symbol>
+    <symbol id="cart" viewBox="0 0 16 16">
+        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
+    </symbol>
+    <symbol id="chevron-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+    </symbol>
+</svg>
+
+<div class="container">
+    <header class="border-bottom lh-1 py-3">
+        <div class="row">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #800000; color: #800000;">
+                <div class="container-fluid text-bordeaux"> <!-- добавляем класс для текста -->
+                    <div class="col-4 pt-1" style="font-size: 1.5em; font-family: 'Old Standard TT', serif;">
+                        <a class="link-secondary active" href="{% url 'content:home' %}" style="color: #800000;">Пономарь</a><br>
+                        <div class="text-center" style="margin-top: 20px;">
+
+                        </div>
+                        <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#"
+                           style="font-size: 1.2em; color: #800000;">Старообрядцы Тувы</a>
+                    </div>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon" style="background-color: #800000;"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{% url 'content:about' %}"
+                                   style="color: #800000;">О НАС</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:question' %}" style="color: #800000;">ЗАДАТЬ
+                                    ВОПРОС</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:star' %}" style="color: #800000;">СТАРООБРЯДЧЕСТВО</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:potrebnic' %}" style="color: #800000;">ПОТРЕБНИК</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:kultura' %}"
+                                   style="color: #800000;">КУЛЬТУРА</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:map' %}" style="color: #800000;">КАРТА
+                                    САЙТА</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'content:articles' %}"
+                                   style="color: #800000;">СТАТЬИ</a>
+                            </li>
+                        </ul>
+                        <div class="col-4 d-flex justify-content-end align-items-center">
+                            <a class="link-secondary" href="#" aria-label="Search" style="color: #800000;">
+                                <button type="button" onclick="handleSearchClick()"
+                                        style="background: none; border: none; cursor: pointer;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                         stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                         stroke-width="2"
+                                         class="mx-3" role="img"
+                                         viewBox="0 0 24 24" style="color: #800000;">
+                                        <title>Search</title>
+                                        <circle cx="10.5" cy="10.5" r="7.5"></circle>
+                                        <path d="M21 21l-5.2-5.2"></path>
+                                    </svg>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+</div>
+
+{% block content %}
+{% endblock %}
+
+
+<div class="container">
+    <div class="row g-5">
+        <div class="col-md-8">
+            <article class="blog-post">
+                <h1 class="display-5 mb-1">
+                    <a href="{% url 'content:corner' %}" style="text-decoration: none; color: black;"> Воспитание и
+                        образование в старообрядческой среде.</a>
+                </h1>
+            </article>
+            <figure class="text-end">
+                <blockquote class="blockquote">
+                    <p>Сослал Господь три дара.<br>
+                        Уж как первый дар - крест и молитву.<br>
+                        Второй дар - любовь и милостыню.<br>
+                        Третий дар - ночное моление.<br>
+                        Четвертую заповедь - читательную книгу.<br>
+                    </p>
+                </blockquote>
+                <figcaption class="blockquote-footer">
+                    <cite title="Source Title">Стих об Иоанне Предтече</cite>
+                </figcaption>
+            </figure>
+            <p style="font-size: 17px;" class="lh-base">Андрей Денисов, выдающийся представитель старообрядческой
+                мысли, доказывал, что у русского народа особый христианский исторический путь развития, что лишь Русь
+                до XVII века смогла сохранить чистое христианство и смысл жизни старовера - хранить его чистоту, что
+                невозможно вне правильного воспитания и образования.</p>
+            <p style="font-size: 17px;" class="lh-base">Всеобщая образованность старообрядцев рождена была не школьным
+                просвещением, а своеобразным «воцерковлением» каждой семьи. Семьи староверов всегда отличались большой
+                численностью. При этом отношение к детям отличалось лаской и любовью, о чём могут свидетельствовать
+                множество ласковых названий детей - «бравенький», «голубушка», «милый» и др. Браниться «чёрным словом»
+                на ребёнка было грешно.</p>
+            <p style="font-size: 17px;" class="lh-base">С раннего детства дети имели большую свободу, в силу
+                хозяйственной занятости обоих родителей. Оторвавшись от хозяйственных забот, мать едва успевала
+                приласкать, помыть и переодеть одежду своему ребёнку. Исключение здесь составляли разве что грудные
+                дети, которые требовали большего внимания матери в отношении кормления и пеленания. В остальном же
+                присмотр за детьми возлагался на бабушек и малолетних нянь.</p>
+
+            <p style="font-size: 17px;" class="lh-base">Бабушка в большинстве случаев являлась первой руководительницей
+                ребенка. Именно бабушка направляла его ум в ту или иную сторону, учила ребёнка первым жизненным
+                навыкам, внушала ему правила нравственной жизни и первая учила его религии. Как и родители, бабушки
+                все-таки отдавали предпочтение мальчикам-</p>
+            <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                <p class="fst-italic">«будущие поильцы-кормильцы», «ково от девки пользи, корми её до 15-16 лет, а она
+                    за мужика убегить».</p>
+            </div>
+            <p style="font-size: 17px;" class="lh-base">Мать, конечно, любит детей и особенного разделения между ними
+                не делает, даже иногда поговаривали:</p>
+            <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                <p class="fst-italic">«парень - ково он мне помогает? а девку хошь куда - и посуду прибрать и прясь -
+                    все девка».</p>
+            </div>
+            <p style="font-size: 17px;" class="lh-base">Воспитание староверов базировалось на двух столпах: отношении к
+                труду и христианской вере. Вот как, например, по воспоминаниям наставника Ульяновской старообрядческой
+                общины Аринина П.В., воспитывалось отношение детей к труду:</p>
+
+            <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                <p class="fst-italic">«Да история показывает, что самые успешные люди - это были старообрядцы… Они все
+                    делали своими руками… они же работали, все - от мала до велика. Вон у нас мать рассказывала: если
+                    ее отпускали на улицу, ей давали кудель, и она должна была ее спрясть. Она играет и прядет. Или
+                    раньше на вечерки, на посиделки молодежь шла - брала с собой работу. Она сегодня пошла - и на
+                    посиделках варежку должна связать за один вечер. Завтра пошла - другую варежку связала. Кто носок,
+                    кто кружева плел, кто шерсть прял, кто сучил, кто шил что-то. Потому что семьи большие, много
+                    детей. Отдыхали и работали».</p>
+            </div>
+            <p style="font-size: 17px;" class="lh-base">А вот как приучали детей к вере:</p>
+            <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                <p class="fst-italic">«Не знаю, как в других местах, но у нас в селе, насколько я знаю, в семьях
+                    староверов родители никогда не заставляли детей молиться, не принуждали к вере. Никогда. Они сами
+                    усердно выполняли Правило, и дети становились рядом, молились. Шли с родителями в храм, привыкали к
+                    службе, а потом уже не представляли себе жизнь без этого; это просто становилось частью их жизни. И
+                    наша мать с детства постилась, всегда молилась, и отец. Но мать наша никогда не принуждала нас,
+                    чтобы мы молились - только те, кто сам пожелал, у кого сердце открылось Богу. Но мы, дети, всегда
+                    вставали с ними на молитву».</p>
+            </div>
+            <p style="font-size: 17px;" class="lh-base">Еще одно свидетельство:</p>
+
+            <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                <p class="fst-italic">«Вечерами христиане собирались семьями, рассаживали перед собою детей, и пели
+                    духовные стихи. Особо популярными были стихи про Аввакума и об отшельнике».</p>
+            </div>
+
+            <div style="text-align: center;">
+                <img src="{% static 'src/novyi-0002.jpg' %}"
+                     style="max-width: 100%; height: auto; margin: 0 auto;">
+            </div>
+            <p style="font-size: 17px;" class="lh-base">C 7 - 9 лет детей начинали понемногу приучать к кое-какой
+                работе. Мальчика отец брал с собою в поле, приучая его к бороньбе, к уходу за лошадьми. Кроме того, в
+                ремесленных семьях начиналось обучение тому или иному ремеслу. С этого же возраста мальчиков могли
+                брать с собой на охоту, обучая промысловым премудростям. Девочку мать усаживала за пряжу, а также учила
+                её шить разные необходимые для себя вещи, вязать вариги и чулки и следить за порядком в доме. Конечно,
+                работали дети понемногу, но иногда в таких семьях, где все мальчики и только одна среди них девочка,
+                она является в 9 - 10 лет уже серьезной помощницей в доме.</p>
+
+            <p style="font-size: 17px;" class="lh-base">В 9 -10 лет мальчиков, реже девочек, учили церковно -
+                славянской грамоте. Судя по «Отчёту…» Мельникова Печерского и его романам «В лесах» и «На горах», дети
+                старообрядцев обучались дома или у мастериц, а чаще в скитах. Дома обучались обычно те дети, у которых
+                мать грамотна. А таких женщин в старообрядческом Поволжье было много. Если мать была неграмотна, то
+                богатые родители брали для детей «мастериц», детей недостаточно состоятельных людей «мастерицы»
+                собирали у себя дома, открывая таким образом школу. Но чаще всего дети богатых старообрядцев
+                (преимущественно девушки) проходили обучение в скитах, которые нередко приобретали значение
+                своеобразных пансионов, где учили, кроме чтения и письма, пению, богослужебным обрядам и даже
+                рукоделию.</p>
+
+            <p style="font-size: 17px;" class="lh-base">Домашнее обучение детей имело характер скорее начального
+                образования. Традиционная культура староверов в немалой степени была основана на концепции богоугодного
+                труда и почитания грамотности и старой книги как источника преемственной передачи истин древнего
+                благочестия. Поэтому староверие создало не только свою, хорошо всем известную, предпринимательскую
+                этику, но и свою образовательную систему как необходимую и обязательную часть старообрядческого быта.
+                Система обучения грамоте среди старообрядцев на протяжении веков копировала традиционную древнерусскую
+                систему, сочетавшую домашнее образование с обучением силами профессиональных наставников грамоте,
+                моральные и профессиональные требования к которым были очень высоки. Среди староверов таких наставников
+                называли уставщиками и начетчиками. Начетчик - это человек, главной обязанностью которого является
+                христианское образование, он сам должен быть весьма начитан, во-первых, в Священном Писании и Предании
+                Свято церковном, а во-вторых - в светских знаниях и культуре. Начетчики обязаны были быть сильны в
+                христианском и внешнем знании, но не ради «самосовершенствования», а ради служения Церкви Христовой,
+                это их главное отличие от светских педагогов. Известны случаи, когда с опытными и умелыми начетчиками -
+                старообрядцами опасались спорить официальные миссионеры господствующего исповедания. Можно вспомнить
+                таких известных начетчиков как братья Денисовы, Андрей Борисов, Семен Семенович, Иларион (Кабанов)
+                Ксенос, Андрей Коновалов, Василий Зеленков, Арсений - епископ Уральский, митрополит Иннокентий (Усов),
+                Фёдор Мельников и другие.</p>
+            <p style="font-size: 17px;" class="lh-base">Выше уже упоминалось, что полового разделения в обучении детей
+                грамоте старались не делать, ведь мужчина и женщина духовно считались равными. Монастырская традиция
+                книжного учения, идущая от древней Руси, от митрополита Алексия и Сергия Радонежского (XIV в.),
+                претерпев изменения, в старообрядческих селах не просто сохранилась, но и расцвела, став обычным делом.
+                Учительствовали не только странники -- толковники, но и инокини - старообрядки. Они, как правило, жили
+                на окраинах сел и также как начетчики профессионально занимались обучением детей грамоте.</p>
+            <p style="font-size: 17px;" class="lh-base">Здесь уже дети проходили суровую школу. В программу обучения
+                обычно включались разделы: изучение азбуки, Часовника, Псалтыря, библейской истории, пения. В процессе
+                обучения наставники разъясняли трудные для понимания места в текстах, преподавали догматы и положения
+                христианской веры.</p>
+            <p style="font-size: 17px;" class="lh-base">Само по себе пение было неотъемлемой частью обучения
+                староверов, как мальчиков, так и девочек. Под пением здесь понимается древнерусское знаменное пение,
+                основанное не на знакомых всем нотах, а на крюках - иероглифах, пришедшее на Русь из Византии вместе с
+                христианством.</p>
+            <p style="font-size: 17px;" class="lh-base">Выполняя образовательные и воспитательные функции,
+                старообрядческая педагогика всегда исходила из приоритета абсолютных истин подлинного Православия,
+                хранителем которого является русское старообрядчество. А основополагающими, базисными источниками
+                воспитания и образования в среде староверов всегда были и остаются книги Святого Писания (Ветхий Завет
+                и Новый Завет) и Священное Предание.</p>
+            <div style="text-align: center;">
+                <img src="{% static 'src/starinnyy-obryad.jpg' %}"
+                     style="max-width: 100%; height: auto; margin: 0 auto;">
+                <p style="color: #6c757d; margin-top: 0.5rem;">Иван Куликов Семья лесника. 1909</p>
+            </div>
+            <hr>
+            <p style="font-size: 18px; text-align: right; margin: 0; padding: 0;" class="lh-base">
+                <a href="https://elibrary.ru/author_profile.asp?authorid=568407" target="_blank"
+                   style="text-decoration: none; color: inherit;">
+                    П. В. Немкин
+                </a>
+                <br>
+                Курганский государственный университет, г. Курган<br>
+            </p>
+
+            <div style="text-align: center;">
+                <div class="text-center" style="margin-top: 20px;">
+                    <h5>Связаться с нами:</h5>
+                    <a href="#" onclick="copyToClipboard('https://t.me/PonomarKyzyl'); openTelegram();"
+                       style="margin: 0 10px;">
+                        <img src="https://img.icons8.com/color/48/000000/telegram-app.png" alt="Telegram"
+                             style="width: 40px; height: 40px;">
+                    </a>
+                    <a href="#" onclick="copyToClipboard('https://yourwebsite.com'); openWhatsApp();"
+                       style="margin: 0 10px;">
+                        <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp"
+                             style="width: 40px; height: 40px;">
+                    </a>
+                    <a href="#" onclick="copyToClipboard('https://yourwebsite.com'); openViber();"
+                       style="margin: 0 10px;">
+                        <img src="https://img.icons8.com/color/48/000000/viber.png" alt="Viber"
+                             style="width: 40px; height: 40px;">
+                    </a>
+                </div>
+
+                <script>
+                    function copyToClipboard(text) {
+                        navigator.clipboard.writeText(text).then(function() {
+                            alert('Ссылка скопирована: ' + text);
+                        }, function(err) {
+                            console.error('Ошибка при копировании: ', err);
+                        });
+                    }
+
+                    function openTelegram() {
+                        window.open('https://t.me/PonomarKyzyl', '_blank');
+                    }
+
+                    function openWhatsApp() {
+                        window.open('https://wa.me/8908 207-85-27', '_blank');
+                    }
+
+                    function openViber() {
+                        window.open('viber://chat?number=YourPhoneNumber', '_blank');
+                    }
+                </script>
+                <div class="container mt-5">
+                    <a href="https://t.me/ctr_vestnik" class="btn btn-primary btn-custom" target="_blank">
+                        <span class="main-text">Наш Телеграмм.</span><br>
+                        Просите и дано будет вам; ищите и найдёте; стучите, и отворят вам...
+                    </a>
+                    <h1></h1>
+                    <h1></h1>
+                </div>
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; max-width: 38rem; margin-left: 7rem;">
+                    <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                        <img src="{% static 'src/vlcsnap-2021-08-26-17h01m47s695.png' %}"
+                             style="max-width: 100%; height: 200px; margin: 0 auto;">
+                        <div class="card-body">
+                            <a class="btn" href="{% url 'content:corner' %}"
+                               style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                               role="button">
+                                Уголок старой веры(На примере республика Тува)
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                        <img src="{% static 'src/drevnerus_10_chudo-georgiya-o-zmii-s-zhitiem.jpg' %}"
+                             style="max-width: 45%; height: auto; margin: 0 auto;">
+                        <div class="card-body">
+                            <a class="btn" href="{% url 'content:holiday' %}"
+                               style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                               role="button">
+                                Праздник Георгия Победоносца в древнерусской литературе
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                        <img src="{% static 'src/scale_1200 (8).jpeg' %}"
+                             style="max-width: 85%; height: auto; margin: 0 auto;">
+                        <div class="card-body">
+                            <a class="btn" href="{% url 'content:typology' %}"
+                               style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                               role="button">
+                                Типология взглядов русских мыслителей на старообрядчество
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card" style="width: 18rem; height: 18rem; margin-bottom: 5rem;">
+                        <div class="card-body">
+                            <a class="btn" href="{% url 'content:revolution' %}"
+                               style="font-size: 1.0rem; font-weight: bold; background-color: #800000; color: white; border: none;"
+                               role="button">
+                                Старообрядцы в русской революции
+                            </a>
+                            Роль старообрядцев в русской революции
+                        </div>
+                    </div>
+                </div>
+                <nav class="blog-pagination" aria-label="Pagination"><a
+                        class="btn btn-outline-primary rounded-pill"
+                        href="#">Вверх</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="position-sticky" style="top: 2rem;">
+                <div><h4 class="fst-italic">Недавние:</h4>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                               href="{% url 'content:typology' %}">
+                                <img src="{% static 'src/scale_1200 (8).jpeg' %}"
+                                     style="max-width: 30%; height: auto; margin: 0 auto;">
+                                <div class="col-lg-8">
+                                    <span style="color: gray;">АПОЛОГИЯ</span>
+                                    <h6 class="mb-0">Типология взглядов русских мыслителей на старообрядчество</h6>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                               href="{% url 'content:new_year' %}">
+                                <img src="{% static 'src/i (5).png' %}"
+                                     style="max-width: 30%; height: auto; margin: 0 auto;">
+                                <div class="col-lg-8">
+                                    <span style="color: gray;">ТРАДИЦИИ</span>
+                                    <h6 class="mb-0">Новый год - языческие истоки</h6>
+
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                               href="{% url 'content:star' %}">
+                                <img src="{% static 'src/zvezda_5.jpg' %}"
+                                     style="max-width: 30%; height: auto; margin: 0 auto;">
+                                <div class="col-lg-8">
+                                    <span style="color: gray;">ХРАМ И МИР</span>
+                                    <h6 class="mb-0">Что означает пятиконечная звезда</h6>
+
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="p-4">
+                    <h4 class="fst-italic">Темы</h4>
+                    <ol class="list-unstyled">
+                        <li><a href="#" class="custom-link">Новости</a></li>
+                        <li><a href="#" class="custom-link">О нас старообрядцах</a></li>
+                        <li><a href="#" class="custom-link">Престольный праздник</a></li>
+                        <li><a href="#" class="custom-link">Святоотеческое</a></li>
+                        <li><a href="#" class="custom-link">История старообрядчества</a></li>
+                        <li><a href="#" class="custom-link">Священство</a></li>
+                        <li><a href="#" class="custom-link">О Исусе Христе</a></li>
+                        <li><a href="#" class="custom-link">Личность</a></li>
+                        <li><a href="#" class="custom-link">Церковь</a></li>
+                        <li><a href="#" class="custom-link">Храмы</a></li>
+                    </ol>
+
+                    <style>
+                        .custom-link {
+                            font-size: 1.2em;
+                            font-weight: bold;
+                            color: #800000;
+                            text-decoration: none; /* убираем подчеркивание */
+                        }
+
+                        .dropdown-toggle {
+                            display: block;
+                            padding: 0.25rem 1rem; /* добавим дополнительные классы для dropdown, чтобы они имели одинаковый стиль */
+                        }
+                    </style>
+
+
+                    <p class="mb-0"><a href="#">Наверх</a></p>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+    </header>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+</html>
