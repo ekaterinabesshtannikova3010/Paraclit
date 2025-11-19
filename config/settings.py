@@ -25,14 +25,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-vlqu(28^%$&z89z26zbi&p^%k3^863^4a-51di2vb1p^+b*!hb"
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
+# DEBUG = False
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='', cast=Csv())
+# ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='', cast=Csv())
 
 ALLOWED_HOSTS = ['rpscrestyva.ru', 'www.rpscrestyva.ru']
+# ALLOWED_HOSTS = [ "*" ]
 # Application definition
 
 INSTALLED_APPS = [
@@ -82,16 +84,26 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
+DATABASES ={
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.getenv('NAME'),
         'USER': os.getenv('USER'),
         'PASSWORD': os.getenv('PASSWORD'),
         'HOST': os.getenv('HOST'),
-        'PORT': os.getenv('PORT')
+        'PORT': os.getenv('PORT'),
+        'OPTIONS': {
+            'sslmode': 'require',  # или 'verify-full', если Вы хотите полную проверку
+            'sslrootcert': '/etc/ssl/domain.ru/ca.crt',
+            'sslcert': '/etc/ssl/domain.ru/domain_name.crt',
+            'sslkey': '/etc/ssl/domain.ru/domain_name.key',
+        }
+        # 'OPTIONS': {
+        #         'sslmode': 'require',  # или 'disable' если без SSL
+        #     }
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
